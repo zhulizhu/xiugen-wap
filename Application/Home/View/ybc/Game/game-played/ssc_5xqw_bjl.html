@@ -1,0 +1,36 @@
+<input type="hidden" name="playedGroup" value="<?=$groupId?>" />
+<input type="hidden" name="playedId" value="<?=$playedId?>" />
+<input type="hidden" name="type" value="<?=$type?>" />
+
+<div class="pp" action="bjl" length="1" random="sscRandom" id="num_group_banker">
+    <div class="title" style="margin-right: 14px;">庄</div>
+    &nbsp;
+    <input type="button" value="庄闲" class="code min s" style="border-radius: 0;width: 78px;margin: 0 2px;"/>
+    <input type="button" value="对子" class="code min d" style="border-radius: 0;width: 78px;margin: 0 2px;"/>
+    <input type="button" value="豹子" class="code min s" style="border-radius: 0;width: 78px;margin: 0 2px;"/>
+    <input type="button" value="天王" class="code min d" style="border-radius: 0;width: 78px;margin: 0 2px;"/>
+
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+    <input type="button" value="清" class="action none" style="margin-left: 20px;"/>
+</div>
+<div class="pp" action="bjl" length="1" random="sscRandom" id="num_group_xian">
+    <div class="title" style="margin-right: 14px;">闲</div>
+    &nbsp;
+    <input type="button" value="庄闲" class="code min s" style="border-radius: 0;width: 78px;margin: 0 2px;"/>
+    <input type="button" value="对子" class="code min d" style="border-radius: 0;width: 78px;margin: 0 2px;"/>
+    <input type="button" value="豹子" class="code min s" style="border-radius: 0;width: 78px;margin: 0 2px;"/>
+    <input type="button" value="天王" class="code min d" style="border-radius: 0;width: 78px;margin: 0 2px;"/>
+
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+    <input type="button" value="清" class="action none" style="margin-left: 20px;"/>
+</div>
+<?php
+	//$maxPl=$getPl($type, $playedId);
+?>
+<script type="text/javascript">
+    $(function(){
+        gameSetPl(<?=json_encode($maxPl)?>);
+        })
+</script>

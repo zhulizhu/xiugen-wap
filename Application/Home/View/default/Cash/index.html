@@ -1,0 +1,90 @@
+<extend name="Base/common"/>
+
+<block name="title"><title>申请提现－{:S('WEB_NAME')}</title></block>
+<block name="body">
+<div class="effect mainnav-lg mainnav-fixed navbar-fixed footer-fixed" id="container">
+	<div id="page-content">
+		<div class="panel">
+			<div class="panel-heading">
+				<h3 class="panel-title"><img alt="" src="__IMG__/main/tx.png">提现</h3>
+			</div>
+			<form class="panel-body form-horizontal form-padding" id="withdrawform" role="form" action="/funds/withdraw" method="post">
+				<div class="tixian">
+					<p>
+						<label style="color:red">提现须知</label>
+						<?php 
+								$grade = M('member_level')->where(array('minScore'=>array('elt',$user['score'])))->order('minScore desc')->find();
+						?>
+						<div>
+							您是尊贵的<strong>{$grade['levelName']}</strong>客户，每天可提现<strong>{$grade['maxToCashCount']}</strong>次，今天您已经成功发起了<strong>{$cashTimes}</strong>次提现申请<br>
+							每天的提现处理时间为：<strong>{$settings.cashFromTime}</strong> 至 <strong>{$settings.cashToTime}</strong><br>
+							提现3分钟内到帐。（如遇高峰期，可能需要延迟到24小时内到帐）<br>
+							用户每次最小提现：<strong>{$settings.cashMin}</strong> 元，最大提现：<strong>{$settings.cashMax}</strong> 元							
+						</div>
+					</p>
+					<p>
+						<label style="color:red">消费详情</label>
+						<div>
+							今日投注：<strong><?php if(doubleval($betAmout)>0) echo $betAmout;else echo '0.00'; ?></strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;今日充值：<strong><?php if(doubleval($rechargeAmount)>0) echo $rechargeAmount;else echo '0.00'; ?></strong><br>
+						   （消费比例未达到系统设置的<strong>{$settings.cashMinAmount}%</strong>，则不能提款）&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;计算公式：消费比例 <span style="font-family:宋体">&#61;</span> 投注量/充值额
+						</div>
+					</p>	
+						<p>
+							<label>提现金额</label><strong><input name="TikuanMoney" id="TikuanMoney" type="number" value="100" data-val-required="TikuanMoney 字段是必需的。" data-val-number="The field TikuanMoney must be a number." data-val="true"></strong>元
+						</p>
+						<p>
+							<label>提款银行</label>
+							<select class="selectpicker dropdown-toggle selectpicker btn-default" data-val="true" data-val-required="UserBankId 字段是必需的。" id="UserBankId" name="UserBankId">
+							<php>foreach($bank as $b) {</php>		
+								<option value="{$b.id}">[{$b.name}][<?=mb_substr($b['username'],0,1,'utf-8').'**' ?>]卡尾号:<?=preg_replace('/^.*(\w{4})$/', '\1', $b['account'])?></option>
+							<php>}</php>
+							</select>
+						</p>
+						<p>
+							<label>出款密码</label><strong><input name="FundsPass" id="FundsPass" type="password" autocomplete="off"></strong>
+						</p>
+												
+						<div style="text-align: center; padding-bottom: 20px;">
+							<button autocomplete="off" class="btn btn-primary" style="width: 100px;" type="button" id="j-query">确定</button>
+						</div>
+					</div>
+					<input name="__RequestVerificationToken" type="hidden" value="CfDJ8Ktgxm2FAlNEsoI7VoMQlWkLkjIptuUZo1Dq51FM7kyVZsOZ31SdozfDgEKe-jmiZmYtH3Bwa56DRqYZd9NnTDVuQjv43713zSTyE7pjt2QhssiXbfc79kCwH2U5Mi1fb_b6Wk8Mv57cz8jC11SD6qIyCOOoC-36j7EnReTvaBKPAVtNHrvp-GGp8BkO0qNhTA">
+				</form>
+			</div>
+			<input id="hdVC" type="hidden" value="71643a98dc3680701ad1ac0c4ff790bb">
+			<input id="hdfee" type="hidden" value="no">
+			<input id="hdfeeratio" type="hidden" value="0.03">
+		</div>
+	</div>
+</block>
+<block name="script">
+<script src="__JS__/dataTables.min.js"></script>
+<script src="__JS__/dataTables.bootstrap.min.js"></script>
+<script src="__JS__/dataTables.responsive.min.js"></script>
+<script src="__JS__/bootbox.min.js"></script>
+<script type="text/javascript">
+
+$(document).ready(function () {
+	$("#j-query").on("click", function () {
+		var me=this;
+		$(me).attr('disabled',true);
+		$.ajax({
+			type: "POST",
+			url: '{:U("cash/cash")}',
+			data: { amount: $('#TikuanMoney').val(), coinpwd: $('#FundsPass').val(), id: $('#UserBankId').val()},
+			dataType: "json",
+			global: false,
+			success: function (result) {
+				$(me).removeAttr('disabled');
+				bootbox.alert(result.info);
+			}, error: function (err) {
+				var t=err;				
+			}
+		});
+		//$("#teambetrecord").submit();
+	});
+	
+});
+
+</script>
+</block>

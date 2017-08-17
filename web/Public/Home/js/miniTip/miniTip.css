@@ -1,0 +1,72 @@
+@charset "UTF-8";
+#miniTip {
+    /* main styles for tooltip */
+    background-color: #162f4a;
+	border: 4px solid #162f4a;
+	color: #fff;
+	font-size: 13px;
+	font-weight: bold;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+    /* end editing style */
+	display: none;
+	position: absolute;
+	top: 0;
+	left: 0;
+    z-index: 99999;
+}
+
+/* title bar style */
+#miniTip_t {
+	background-color: #162f4a;
+	font-weight: 700;
+	padding: 4px 6px;
+    color: #fff;
+	border-bottom: 1px dashed #666666;
+}
+
+/* main content style */
+#miniTip_c { padding: 4px 8px; min-width:80px;  max-width: 600px;overflow-x: hidden; font-size: 12px; display: block;}
+
+
+/* arrow holder, no need to edit */
+#miniTip_a {
+	width: 0;
+	height: 0;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+/* arrow pointing down, change border-top color to change color of the arrow */
+#miniTip .n {
+	border-left: 5px solid transparent;
+	border-right: 5px solid transparent;
+	border-top: 5px solid #162f4a;
+	border-bottom: 0;
+}
+
+/* arrow pointing up, change border-bottom color to change color of the arrow */
+#miniTip .s {
+	border-left: 5px solid transparent;
+	border-right: 5px solid transparent;
+	border-bottom: 5px solid #162f4a;
+	border-top: 0;
+}
+
+/* arrow pointing left, change border-right color to change color of the arrow */
+#miniTip .e {
+	border-bottom: 5px solid transparent;
+	border-top: 5px solid transparent;
+	border-right: 5px solid #162f4a;
+	border-left: 0;
+}
+
+/* arrow pointing right, change border-left color to change color of the arrow */
+#miniTip .w {
+	border-bottom: 5px solid transparent;
+	border-top: 5px solid transparent;
+	border-left: 5px solid #162f4a;
+	border-right: 0;
+}

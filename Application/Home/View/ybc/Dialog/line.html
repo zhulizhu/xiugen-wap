@@ -1,0 +1,43 @@
+<!--报表中心-->
+<div class="member-set" id="line-center" ng-controller="ReportCtrl">
+    <div class="pop-menu">
+        <div class="recharge-nav">
+            <a class="report-nav actived1"  onclick="change(1)">线路检测</a>
+        </div>
+         <script type="text/javascript">
+                        $(".recharge-nav a").click(function(){
+                            $(this).siblings().removeClass('actived1');
+                            $(this).addClass('actived1');
+
+                        })
+                    </script>
+    </div>
+    <div class="pop-area">
+        <!--手机客户端-->
+        <div class="personal-box personal-box1" id="lot-report">
+            <div class="record-top-area">
+                <iframe id="pageframe1" name="pageframe" src="/index.php?s=/home/team/lineRoad.html" style="width: 101%; height: 639px;background-color: #313131" allowtransparency="true" frameborder="0"></iframe>
+            </div>
+        </div>
+
+    </div>
+    <script>
+        function change(n){
+            var pageframe = $('#pageframe'+n);
+            if(pageframe.attr('src') == ''){
+                switch (n){
+                    case 1:pageframe.attr('src','/index.php?s=/home/team/lineRoad.html');
+                     wai();
+                        pageframe.load(function() { 
+                        $('.mode').hide();
+                        }); 
+                    break;
+                }
+            }
+            $('.personal-box'+n).show();
+            $('.personal-box'+n).siblings().hide();
+        };
+        
+
+    </script>
+</div>

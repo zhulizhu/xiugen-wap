@@ -1,0 +1,27 @@
+<input type="hidden" name="playedGroup" value="<?=$groupId?>" />
+<input type="hidden" name="playedId" value="<?=$playedId?>" />
+<input type="hidden" name="type" value="<?=$type?>" />
+
+<div class="pp pp11" action="tz11x5Select" length="1" >
+    <div class="title">号码</div>
+    <input type="button" value="6" class="code" />
+    <input type="button" value="7" class="code" />
+    <input type="button" value="8" class="code" />
+    <input type="button" value="9" class="code" />
+    <input type="button" value="10" class="code" />
+    <input type="button" value="11" class="code" />
+    <input type="button" value="12" class="code" />
+    <input type="button" value="13" class="code" />
+    <input type="button" value="14" class="code" />
+    <input type="button" value="15" class="code" />
+
+</div>
+<?php
+
+	//$maxPl=$getPl($type, $playedId);
+?>
+<script type="text/javascript">
+    $(function(){
+        gameSetPl(<?=json_encode($maxPl)?>);
+        })
+</script>

@@ -1,0 +1,138 @@
+<extend name="Base/common"/>
+
+<block name="title"><title>投诉建议－{:S('WEB_NAME')}</title></block>
+<block name="style">
+<link href="__CSS__/chongzhi.css" rel="stylesheet">
+<style>
+        .tousuform {
+            text-align: center;
+            padding-bottom: 30px;
+        }
+            .tousuform p {
+                width: 600px;
+                margin: auto;
+                text-align: left;
+                padding-bottom: 20px;
+            }
+                .tousuform p strong {
+                    display: block;
+                    font-size: 14px;
+                    font-weight: normal;
+                    color: #666;
+                    padding-bottom: 5px;
+                }
+                .tousuform p a, .tousuform p a:visited {
+                    display: inline-block;
+                    width: 100px;
+                    height: 80px;
+                    background-color: #eee;
+                    border-radius: 5px;
+                    border: 1px #ddd solid;
+                    text-align: center;
+                    box-sizing: border-box;
+                    padding-top: 15px;
+                    color: #999;
+                }
+        .form-control {
+            border-radius: 2px;
+            height: 46px;
+            vertical-align: middle;
+        }
+        .tousuform p a:hover {
+            background-color: #ddd;
+        }
+        .tousuform p button {
+            width: 120px;
+            height: 45px;
+            line-height: 30px;
+        }
+        .tousuform p a i {
+            display: block;
+            text-align: center;
+            font-size: 32px;
+            color: #999;
+        }
+        .tousuform p span {
+            display: block;
+        }
+</style>
+</block>
+<block name="body">
+<?php
+
+?>
+<div id="container" class="effect mainnav-lg mainnav-fixed navbar-fixed footer-fixed">
+	<div id="page-content">		
+		<div class="panel">
+			<div class="panel-heading">
+				<h3 class="panel-title"><img alt="" src="__IMG__/frame/ts.png"> 投诉建议</h3>
+			</div>
+			<div class="panel-body">
+				<div class="tousu scrollbox">
+					<div class="tousuform">
+						<p>
+							<strong>详细问题</strong>
+							<span>
+							<textarea cols="20" rows="6" class="form-control" maxlength="2000" id="content" name="content"></textarea>
+							</span>
+						</p>
+						<p style="display: none">
+							<strong>验证码</strong>
+							<span>
+							<input type="hidden" id="VC" name="VC" value="">
+							<input type="hidden" id="ReCaptcha_EncrypCode" name="ReCaptcha.EncrypCode" value="">
+							<input value="" class="form-control" style="width:250px;display:inline-block;margin-right:5px;" maxlength="6" autocomplete="off" placeholder="请输入验证码" type="text" id="ReCaptcha_VerifyCode" name="ReCaptcha.VerifyCode">
+							<img id="ReCaptcha_CodeImage" style="cursor: pointer;height:43px; width:90px;" src="" alt="验证码">
+							</span>
+						</p>
+						<p style="display: none">
+							<input type="hidden" id="ImageUrl" name="ImageUrl" value="">
+							<a href="javascript:;" id="uploadfile"><i class="fa fa-plus"></i>上传图片</a>
+							<img id="j-image-img" src="./advice2_files/addsuggest" style="visibility:hidden;height:80px; width:100px; margin-top:-35px;" onclick="window.open(&#39;&#39; + $(&#39;#j-image-img&#39;).attr(&#39;src&#39;) + &#39;&#39;, &#39;_blank&#39;);">
+						</p>
+						<p>
+							<button class="btn btn-rounded btn-primary" style="margin-right:30px" type="button" id="sendcontent">提交建议</button>
+							<!-- <button class="btn btn-rounded btn-warning" style="margin-right:30px" id="deleteimage" type="button" style="display: none">清除图片</button> -->
+							<button class="btn btn-rounded btn-danger" onclick="javascript: history.go(-1)" type="button">取消建议</button>
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>		
+	</div>
+</div>
+</block>
+<block name="script">
+	<script src="__JS__/bootbox.min.js"></script>
+	<script type="text/javascript">
+	$(document).ready(function () {
+		$("body").click(
+		  function toggle() {
+			  $("div#demo-set", window.top.document).removeClass("open");
+			  $(".mega-dropdown", window.top.document).removeClass("open");
+			  $(".dropdown", window.top.document).removeClass("open");
+			  $(".lskj").fadeOut(200);
+		  }
+		);
+		
+		$("#sendcontent").on("click", function () {				
+			$.ajax({
+				type: "POST",
+				url: '{:U("Advice/submit")}',
+				data: { content: $('#content').val()},
+				dataType: "json",
+				global: false,
+				success: function (result) {
+					if(result.status)
+						window.location.href = result.url;
+					else
+						bootbox.alert(result.info);	
+				}, error: function (err) {
+					bootbox.alert(result.info);	
+				}
+			});
+			return false;
+		});
+	});
+	</script>
+</block>

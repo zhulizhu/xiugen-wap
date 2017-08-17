@@ -1,0 +1,4549 @@
+/*******通用隐藏和显示*********/
+.member-set .row {
+  margin-right: 0;
+  margin-left: 0;
+}
+.currency-hide {
+  display: none !important;
+}
+
+.currency-show {
+  display: inline-block !important;
+}
+.actived{
+    background-color: #2678e8;
+    color: #fff!important;
+}
+.actived1{
+    background-color: #013cb5;
+    color: #fff!important;
+}
+/*投注弹窗*/
+.bet-box {
+  width: 580px;
+  height: 308px;
+  display: none;
+}
+
+.bet-box .lottery-top-mes {
+  width: 100%;
+  height: 80px;
+  display: inline-block;
+  background: url("../img/pop-up/bet-bg.png") no-repeat top center #2678e8;
+  position: relative;
+  text-align: center;
+}
+
+.bet-box .lottery-top-mes .art-log {
+  position: relative;
+  top: -10px;
+  width: 56px;
+  height: 56px;
+  display: inline-block;
+  text-align: center;
+  background: url("../img/pop-up/art-log.png") no-repeat;
+  vertical-align: middle;
+}
+
+.bet-box .lottery-top-mes .art-log.cqssc {
+  background-position: 0 0;
+}
+
+.bet-box .lottery-top-mes .cp-issue {
+  height: 30px;
+  line-height: 30px;
+  display: inline-block;
+  margin-left: 10px;
+  font-size: 18px;
+  vertical-align: top;
+  color: #fff;
+}
+
+.bet-box .lottery-top-mes .red-wallet {
+  width: 180px;
+  height: 66px;
+  display: inline-block;
+  position: absolute;
+  right: 10px;
+  bottom: -10px;
+  background: url("../img/pop-up/bet-bg.png") no-repeat -4px -330px;
+}
+
+.bet-box .lottery-cont {
+  width: 100%;
+  height: 212px;
+  display: block;
+  background: url("../img/pop-up/bet-bg.png") no-repeat center -96px #fff;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.bet-box .lottery-cont .lottery-bet-list {
+  width: 520px;
+  height: 120px;
+  margin: 0 auto;
+  border-bottom-left-radius: 6px;
+  border-bottom-right-radius: 6px;
+  border: 1px solid #5ba0ff;
+  border-top-width: 0;
+  padding: 8px;
+  overflow-y: auto;
+}
+
+.bet-box .lottery-cont .lottery-bet-list table {
+  width: 100%;
+  margin-top: 6px;
+  text-align: left;
+  color: #474747;
+}
+
+.bet-box .lottery-cont .lottery-bet-list table td {
+  height: 30px;
+  line-height: 30px;
+  font-size: 14px;
+}
+
+.bet-box .lottery-cont .tip-text {
+  width: 520px;
+  height: 80px;
+  display: block;
+  margin: 0 auto;
+}
+
+.bet-box .lottery-cont .tip-text p {
+  color: #848484;
+  font-size: 12px;
+  text-align: left;
+  line-height: 20px;
+  margin-top: 6px;
+}
+
+.bet-box .lottery-cont .tip-text .total-box {
+  width: 100%;
+  height: 30px;
+  line-height: 30px;
+  color: #5ba0ff;
+  font-size: 14px;
+}
+
+.bet-box .lottery-cont .tip-text .total-box span {
+  margin: 0 10px;
+}
+
+.bet-box .lottery-cont .tip-text .total-box span i {
+  font-size: 18px;
+  font-style: normal;
+}
+
+.bet-box .lottery-cont .tip-text .total-box span i.total-num {
+  color: #f8b551;
+}
+
+.bet-box .lottery-cont .tip-text .total-box span i.total-money {
+  color: #ff0000;
+}
+
+/*投注返回结果*/
+.bet-return-result {
+  width: 350px;
+  height: 150px;
+  display: none;
+}
+
+.bet-return-result .bet-result-box {
+  width: 310px;
+  height: 110px;
+  margin: 10px auto;
+  overflow-y: auto;
+  border: 1px dashed #2678e8;
+}
+
+.bet-return-result .bet-result-box table {
+  padding: 5px 0;
+}
+
+.bet-return-result .bet-result-box table tr td.serial {
+  width: 40px;
+  text-indent: 10px;
+}
+
+.bet-return-result .bet-result-box table tr td.play-pattern {
+  width: 40px;
+  text-align: center;
+}
+
+.bet-return-result .bet-result-box table tr td.play-pattern {
+  width: 150px;
+  text-align: center;
+}
+
+.bet-return-result .bet-result-box table tr td.result-state {
+  width: 120px;
+  text-align: center;
+  color: #2678e8;
+}
+
+.bet-return-result .total-result {
+  width: 310px;
+  margin: 0 auto;
+  line-height: 20px;
+  height: 20px;
+  text-align: center;
+}
+
+.bet-return-result .total-result .bet-success {
+  color: #2678e8;
+}
+
+.bet-return-result .total-result .bet-fail {
+  color: #ff3d00;
+}
+
+/*投注记录弹窗信息*/
+.bet-record-box {
+  width: 600px;
+  height: 308px;
+  display: none;
+}
+
+.bet-record-box .record-top-mes {
+  width: 100%;
+  height: 80px;
+  display: block;
+  position: relative;
+  background: #2678e8;
+}
+
+.bet-record-box .record-top-mes .expression {
+  width: 222px;
+  height: 82px;
+  background: url("../img/pop-up/cry.png") no-repeat 10px top;
+  position: absolute;
+  top: -8px;
+  right: 6px;
+}
+
+.bet-record-box .record-top-mes .expression.win {
+  width: 222px;
+  height: 74px;
+  background: url("../img/pop-up/cry.png") no-repeat 0 -104px;
+  position: absolute;
+  top: -70px;
+  right: 10px;
+  left: 50%;
+  margin-left: -110px;
+}
+
+.bet-record-box .record-top-mes .detail-list {
+  width: 500px;
+  height: 60px;
+  padding-top: 10px;
+  margin-left: 4px;
+  font-size: 14px;
+  color: #fff;
+  position: absolute;
+  top: -10px;
+  z-index: 55;
+}
+
+.bet-record-box .record-top-mes .detail-list .table1 tr td {
+  height: 30px;
+  line-height: 30px;
+  padding-left: 5px;
+}
+
+.bet-record-box .record-top-mes .detail-list .table1 tr td i {
+  color: #f8b551;
+  font-style: normal;
+}
+
+.bet-record-box .detail-list-content {
+  width: 100%;
+  height: auto;
+  background: #fff;
+}
+
+.bet-record-box .detail-list-content .table2 {
+  width: 500px;
+  height: auto;
+  margin: 0 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.bet-record-box .detail-list-content .table2 tr td {
+  line-height: 22px;
+  color: #333333;
+  font-size: 14px;
+}
+
+.bet-record-box .detail-list-content .table2 tr td.tit {
+  color: #ababab;
+}
+
+.bet-record-box .detail-list-content .table2 tr td .bet-num-show {
+  word-wrap: break-word;
+  border: 1px dashed #2678e8;
+  height: 80px;
+  width: 400px;
+  overflow-y: auto;
+  padding: 6px;
+  margin-top: 6px;
+  border-radius: 4px;
+}
+
+.active-chose {
+  background-color: #2678e8;
+  color: #fff !important;
+  cursor: pointer!important;
+}
+
+/*点击追号按钮弹窗追号*/
+.bet-chase-number {
+  width: 650px;
+  height: 380px;
+  display: none;
+}
+
+.bet-chase-number .chase-nav {
+  width: 100%;
+  height: 20px;
+  background: #2678e8;
+  position: relative;
+}
+
+.bet-chase-number .chase-nav .chase-nav-cont {
+  width: 630px;
+  height: 38px;
+  display: block;
+  position: absolute;
+  top: -20px;
+  left: 25px;
+}
+
+.bet-chase-number .chase-nav .chase-nav-cont a {
+  width: 99px;
+  height: 32px;
+  line-height: 32px;
+  margin: 0 10px;
+  float: left;
+  color: #fff;
+  text-align: center;
+}
+
+.bet-chase-number .chase-nav .chase-nav-cont a.on, .bet-chase-number .chase-nav .chase-nav-cont a:hover {
+  background: url("../img/pop-up/chase-nav.png") no-repeat;
+}
+
+.bet-chase-number .chase-chose-box {
+  width: 100%;
+  height: 350px;
+}
+
+.bet-chase-number .chase-chose-box .chase-manual-input {
+  width: 630px;
+  height: 60px;
+  margin: 7px auto;
+}
+
+.bet-chase-number .chase-chose-box .chase-manual-input .chase-top {
+  width: 550px;
+  height: 60px;
+  float: left;
+  margin: 5px 0;
+  font-size: 13px;
+}
+
+.bet-chase-number .chase-chose-box .chase-manual-input .chase-top .title-top {
+  width: 100%;
+  height: 30px;
+  float: left;
+}
+
+.bet-chase-number .chase-chose-box .chase-manual-input .chase-top .title-top span {
+  display: inline-block;
+  float: left;
+  margin-right: 10px;
+}
+
+.bet-chase-number .chase-chose-box .chase-manual-input .chase-top .title-top span i {
+  font-style: normal;
+}
+
+#lt-trace {
+  border: solid 1px #deb561;
+  width: 54px;
+  height: 22px;
+  border-radius: 4px;
+  outline-style: none;
+  text-align: center;
+  color: #333;
+  padding-left: 5px;
+  appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  background: url("../img/pop-up/arrow.png") no-repeat scroll right center transparent;
+  padding-right: 14px;
+}
+
+.stop-chase {
+  position: relative;
+}
+
+.stop-check {
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  left: 104px;
+  top: 0;
+}
+
+.check-box1 {
+  width: 25px;
+  position: relative;
+}
+
+.check-box1 input {
+  position: absolute;
+  top: -20px;
+}
+
+.check-box1 label {
+  cursor: pointer;
+  position: absolute;
+  width: 17px;
+  height: 17px;
+  top: 0;
+  left: 0;
+  border: 1px solid #2678e8;
+  border-radius: 2px;
+}
+
+.check-box1 label:after {
+  content: '';
+  position: absolute;
+  width: 17px;
+  height: 17px;
+  top: 4px;
+  left: 2px;
+}
+
+.check-box1 input[type=checkbox]:checked + label:after {
+  background: url("../img/pop-up/chose-ture.png") no-repeat;
+}
+
+.bet-chase-number .chase-chose-box .chase-manual-input .chase-top .title-bottom {
+  width: 100%;
+  height: 30px;
+  float: left;
+  display: inline-block;
+}
+
+.bet-chase-number .chase-chose-box .chase-manual-input .chase-top .title-bottom span {
+  display: inline-block;
+  float: left;
+  margin-right: 15px;
+}
+
+.bet-chase-number .chase-chose-box .chase-manual-input .chase-top .title-bottom input {
+  width: 54px;
+  border: 1px solid #deb561;
+  border-radius: 4px;
+  text-indent: 8px;
+}
+
+.bet-chase-number .chase-chose-box .chase-manual-input .chase-order {
+  width: 78px;
+  height: 36px;
+  line-height: 36px;
+  font-size: 14px;
+  color: #333;
+  background: #deb561;
+  border-radius: 6px;
+  text-align: center;
+  float: right;
+  margin-top: 13px;
+}
+
+.bet-chase-number .chase-chose-box .chase-manual-input .chase-top .title-bottom span.inp-sty-3 {
+  display: none;
+}
+
+.bet-chase-number .chase-chose-box .chase-manual-input .chase-order:hover {
+  color: #fff;
+}
+
+.bet-chase-number .chase-chose-box .chase-list {
+  width: 630px;
+  height: 280px;
+  border: 1px solid #2678e8;
+  border-radius: 6px;
+  margin: 0 auto;
+  overflow-y: auto;
+  color: #454545;
+}
+
+.bet-chase-number .chase-chose-box .chase-list table {
+  width: 610px;
+  margin: 0 auto;
+}
+
+.bet-chase-number .chase-chose-box .chase-list table tr th {
+  height: 30px;
+  text-align: center;
+  font-style: normal;
+  font-weight: normal;
+}
+
+.bet-chase-number .chase-chose-box .chase-list table tr td {
+  height: 28px;
+  text-align: center;
+}
+
+.bet-chase-number .chase-chose-box .chase-list table tr:hover {
+  background: #c6dbf2;
+}
+
+.bet-chase-number .chase-chose-box .chase-list table tr td input {
+  width: 50px;
+  height: 20px;
+  border: 1px solid #2678e8;
+  border-radius: 4px;
+  text-align: center;
+  outline-style: none;
+}
+
+.bet-chase-number .chase-chose-box .chase-list .check-chose {
+  width: 20px;
+  height: 20px;
+  display: block;
+  margin: 0 auto;
+}
+
+/*追号投注提示*/
+.bet-tip {
+  width: 250px;
+  height: 70px;
+  display: none;
+}
+
+.bet-tip i {
+  width: 88px;
+  height: 70px;
+  background: url("../img/pop-up/ball-img.png") no-repeat left 15px;
+  margin-left: 5px;
+  float: left;
+}
+
+.bet-tip p {
+  width: 150px;
+  height: auto;
+  line-height: 24px;
+  float: left;
+  font-size: 14px;
+  margin-top: 24px;
+}
+
+/*温馨提示*/
+.cozy-tip {
+  font-size: 14px;
+  margin-top: 10px;
+  padding: 10px 0;
+  text-align: center;
+}
+
+/*********************************************充值中心************************************/
+.member-set {
+  width: 1000px;
+  height: 601px;
+  position: relative;
+  display: none;
+}
+
+.member-set .pop-menu {
+  width: 90px;
+  height: 626px;
+  background: #2678e8;
+  float: left;
+  position: absolute;
+  top: -25px;
+  border-bottom-left-radius: 15px;
+  border-top-left-radius: 15px;
+  background: linear-gradient(0deg, rgb(139, 186, 251), rgb(8, 75, 199));
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#0a4dc7', endColorstr='#8ab9fb'); /* IE6,IE7 */
+  -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr='#0a4dc7', endColorstr='#8ab9fb')"; /* IE8 */
+}
+
+.member-set .pop-area {
+  width: 910px;
+  height: 600px;
+  float: left;
+  position: absolute;
+  left: 90px;
+  top: -25px;
+  border-bottom-right-radius: 15px;
+  background: #fff;
+}
+
+.member-set .pop-menu .recharge-nav {
+  width: 100%;
+  height: auto;
+  margin-top: 22px;
+}
+
+.member-set .pop-menu .recharge-nav a {
+  width: 100%;
+  height: 40px;
+  line-height: 40px;
+  margin: 10px 0;
+  text-align: center;
+  font-size: 16px;
+  color: #fefefe;
+  display: block;
+}
+
+.member-set .pop-menu .recharge-nav a.on, .member-set .pop-menu .recharge-nav a:hover {
+  background: #013cb5;
+  cursor: pointer;
+}
+
+.pop-area .big-title {
+  width: 100%;
+  height: 50px;
+  line-height: 50px;
+  background: #619ad8;
+  font-size: 18px;
+  color: #fff;
+}
+
+.pop-area .big-title i {
+  width: 38px;
+  height: 27px;
+  margin: 0 5px 0 20px;
+  display: inline-block;
+  background: url("../img/pop-up/recharge-title-icon.png") no-repeat center top;
+  vertical-align: middle;
+}
+
+.pop-area .big-title span {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.pop-area .recharge-box {
+  width: 100%;
+  height: 490px;
+}
+
+/***************第三方充值**************/
+.pop-area .recharge-box .third-party-message {
+  width: 100%;
+  height: 490px;
+  display: block;
+  background: url("../img/pop-up/recharge-box-bg.png") no-repeat right 270px;
+}
+
+.pop-area .recharge-box .row {
+  width: 100%;
+  overflow: hidden;
+}
+
+.pop-area .recharge-box .row.spacing {
+  padding-top: 20px;
+}
+
+.pop-area .recharge-box .row .row-left {
+  font-size: 18px;
+  color: #525252;
+  text-align: right;
+  width: 136px;
+  height: 46px;
+  line-height: 40px;
+  float: left;
+  text-indent: 10px;
+  display: block;
+}
+
+.third-party-message .row .row-right {
+  width: 770px;
+  float: left;
+  overflow: hidden;
+}
+
+.third-party-message .row .row-right label {
+  width: 146px;
+  height: 45px;
+  float: left;
+  margin-right: 15px;
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+}
+
+.third-party-message .row .row-right label input.radio {
+  width: 30px;
+  color: #fff;
+  margin-left: 15px;
+}
+
+.third-party-message .row .row-right label img {
+  width: 141px;
+  height: 40px;
+  border: 2px solid transparent;
+  position: absolute;
+  left: 0;
+  top: 0;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.third-party-message .row .row-right label img.chose-this, .third-party-message .row .row-right label img:hover {
+  border: 2px solid #2678e8 !important;
+}
+
+.third-party-message .row .row-right label.border-frame {
+  width: 230px;
+  height: 38px;
+  line-height: 35px;
+  margin-top: 3px;
+}
+
+.third-party-message .row .row-right label.border-frame input {
+  width: 226px;
+  height: 35px;
+  line-height: 35px;
+  background: #ecf3fd;
+  border: 1px solid #2678e8;
+  border-radius: 6px;
+  font-size: 18px;
+  outline-style: none;
+  text-indent: 10px;
+}
+
+.row.tip {
+  margin-top: 10px;
+  font-size: 14px;
+  line-height: 35px;
+}
+
+.third-party-message .row.tip .row-left {
+  font-size: 14px;
+}
+
+.third-party-message .row.tip .row-right .prompt-message {
+  display: inline-block;
+  background-color: #ecf3fd;
+  padding: 0 10px;
+  border-radius: 8px;
+}
+
+.third-party-message .row.tip .row-right .prompt-message span {
+  display: inline-block;
+  color: #f57c11;
+}
+
+.sub-btn {
+  width: 120px;
+  height: 38px;
+  line-height: 38px;
+  border-radius: 18px;
+  text-align: center;
+  cursor: pointer;
+  background: linear-gradient(90deg, rgb(25, 153, 177), rgb(3, 110, 179));
+  font-size: 18px;
+  color: #fff;
+}
+
+.sub-btn:hover, .sub-btn:active {
+  background: linear-gradient(90deg, rgb(3, 110, 179), rgb(25, 153, 177));
+}
+
+.tip-box {
+  display: block;
+  float: left;
+  font-size: 12px;
+  margin-top: 12px;
+}
+
+.tip-box i {
+  color: #3aca75;
+  font-size: 16px;
+  float: left;
+  margin-top: 2px;
+  margin-right: 5px;
+}
+
+.tip-box .tip-message {
+  display: inline-block;
+  font-size: 12px;
+  float: left;
+}
+
+/*****************账户提款*****************/
+.recharge-box-area {
+  width: 100%;
+  height: 490px;
+  display: none;
+}
+
+.recharge-box-area .left-area {
+  width: 100%;
+  height: auto;
+}
+
+.left-area .account-drawing-message {
+  width: 570px;
+  min-height: 430px;
+  float: left;
+  margin-top: 30px;
+  border-right: 1px dashed #8eb9f3;
+}
+
+.left-area .account-drawing-message .row {
+  margin-bottom: 6px;
+}
+
+.left-area .account-drawing-message .row .row-left {
+  width: 136px;
+  height: 46px;
+  line-height: 46px;
+  float: left;
+  text-indent: 10px;
+  display: block;
+}
+
+.left-area .account-drawing-message .row .row-right {
+  width: 430px;
+  height: auto;
+  float: left;
+}
+
+.left-area .account-drawing-message .row .row-right .bank-list {
+  width: 100%;
+  height: inherit;
+  line-height: inherit;
+  margin-bottom: 16px;
+}
+
+.left-area .account-drawing-message .row .row-right .bank-list .item {
+  width: 260px;
+  height: 34px;
+  line-height: 34px;
+  text-align: center;
+  font-size: 14px;
+  border: 1px solid #d1d0d0;
+  background: #e3e3e3;
+  color: #505050;
+  margin: 5px 0;
+  position: relative;
+  border-radius: 6px;
+  float: left;
+  cursor: pointer;
+}
+
+.left-area .account-drawing-message .row .row-right .bank-list .item.on {
+  background: #2678e8;
+  color: #fff;
+}
+
+.left-area .account-drawing-message .row .row-right .bank-list .item i {
+  width: 26px;
+  height: 18px;
+  background: url("../img/pop-up/bank/credit-card.png") no-repeat;
+  position: absolute;
+  right: 5px;
+  top: 8px;
+}
+
+.left-area .account-drawing-message .row .row-right .bank-list .item.add-card {
+  color: #333;
+  font-size: 14px;
+}
+
+.left-area .account-drawing-message .row .row-right .bank-list .item span.add-icon {
+  width: 26px;
+  height: 18px;
+  line-height: 18px;
+  display: block;
+  font-size: 50px;
+  position: absolute;
+  left: 40px;
+  top: 4px;
+  color: #f8b551;
+}
+
+.account-drawing-message .row .row-right label.border-frame {
+  width: 230px;
+  height: 38px;
+  line-height: 35px;
+  margin-top: 3px;
+}
+
+.account-drawing-message .row .row-right label.border-frame input {
+  width: 226px;
+  height: 35px;
+  line-height: 35px;
+  background: #ecf3fd;
+  border: 1px solid #2678e8;
+  border-radius: 6px;
+  font-size: 18px;
+  outline-style: none;
+  text-indent: 10px;
+  margin-top: 5px;
+  float: left;
+  margin-right: 10px;
+}
+
+.small-tip {
+  clear: left;
+  float: left;
+  font-size: 14px;
+  color: #f39800;
+  line-height: 40px;
+}
+
+.right-area {
+  width: 338px;
+  height: auto;
+  float: left;
+  margin-top: 30px;
+}
+
+.right-area .atm-img {
+  width: 120px;
+  height: 110px;
+  margin: 0 auto;
+  background: url("../img/pop-up/bank/credit-server.png") no-repeat center top;
+}
+
+.right-area .withdraw-info {
+  width: 290px;
+  height: 160px;
+  display: block;
+  margin: 0 auto;
+  background: #ecf3fd;
+  border-radius: 10px;
+  font-size: 16px;
+  padding: 15px 5px;
+}
+
+.right-area .withdraw-info .grid {
+  height: 34px;
+  line-height: 34px;
+  display: block;
+  padding: 10px 0;
+}
+
+.right-area .withdraw-info .grid i {
+  display: block;
+  text-indent: 6px;
+  float: left;
+}
+
+.right-area .withdraw-info .grid strong {
+  display: block;
+  color: #f39800;
+}
+
+.right-area .reminder-img {
+  width: 100%;
+  height: 44px;
+  background: url("../img/pop-up/reminder-img.png") no-repeat 20px 6px;
+}
+
+.right-area p {
+  width: 270px;
+  height: auto;
+  line-height: 18px;
+  border-radius: 10px;
+  border: 1px dashed #8eb9f3;
+  padding: 8px 10px;
+  margin: 0 auto;
+}
+
+/*未锁定银行卡资料编辑*/
+.lock-bind-bank-area {
+  width: 910px;
+  height: auto;
+  display: none;
+}
+
+.lock-bind-bank-area .bind-bank-edit {
+  width: 100%;
+  height: auto;
+  margin-top: 30px;
+}
+
+.bind-bank-edit .row {
+  width: 100%;
+  line-height: 34px;
+  text-align: center;
+  margin-top: 15px;
+  font-size: 15px;
+}
+
+.bind-bank-edit .row .th {
+  float: left;
+  height: 34px;
+  line-height: 34px;
+  width: 130px;
+  text-align: right;
+  margin-right: 10px;
+}
+
+.bind-bank-edit .row .td {
+  float: left;
+  height: 100%;
+  width: 250px;
+  text-align: left;
+  display: inline-block;
+  padding-left: 5px;
+  margin-top: 3px;
+  font-size: 14px;
+}
+
+.bind-bank-edit .row .td select {
+  float: left;
+  height: 30px;
+  background: #dbe9f8;
+  border: 1px solid #a19ad3;
+  width: 230px;
+  outline-style: none;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.bind-bank-edit .row .td input {
+  height: 28px;
+  border-color: #333;
+  background: #dbe9f8;
+  width: 230px;
+  border-radius: 4px;
+  margin-left: 0;
+  float: left;
+  outline-style: none;
+  text-indent: 10px;
+}
+
+.bind-bank-edit .row .td input {
+  border: 1px solid #a19ad3;
+}
+
+.bind-bank-edit .row .tip-box {
+  display: inline-block;
+  float: left;
+  font-size: 12px;
+  margin-top: 0;
+}
+
+.bind-bank-edit .row .tip-box i {
+  margin-top: 9px;
+}
+
+.bind-bank-edit .row .td label.label-width {
+  float: left;
+  line-height: 28px;
+  display: inline-block;
+  width: 100px;
+}
+
+.bind-bank-edit .row .td label input.radio {
+  width: 20px;
+  margin-left: 10px;
+  margin-right: 5px;
+  float: left;
+}
+
+.bind-bank-edit .row .td label .checkbox {
+  width: 20px;
+  height: 20px;
+  background: #ddd;
+  float: left;
+  margin-top: 4px;
+  margin-right: 4px;
+  border-radius: 100%;
+  position: relative;
+  -webkit-box-shadow: 0 1px 3px rgba(255, 255, 255, 0.5);
+  -moz-box-shadow: 0 1px 3px rgba(255, 255, 255, 0.5);
+  box-shadow: 0 1px 3px rgba(255, 255, 255, 0.5);
+  overflow: hidden;
+}
+
+.bind-bank-edit .row .td label .checkbox label {
+  display: block;
+  width: 16px;
+  height: 16px;
+  border-radius: 100px;
+  -webkit-transition: all .5s ease;
+  -moz-transition: all .5s ease;
+  -o-transition: all .5s ease;
+  -ms-transition: all .5s ease;
+  transition: all .5s ease;
+  cursor: pointer;
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  z-index: 1;
+  background: #fff;
+  -webkit-box-shadow: inset 0 1px 3px rgba(255, 255, 255, 0.5);
+  -moz-box-shadow: inset 0 1px 3px rgba(255, 255, 255, 0.5);
+  box-shadow: inset 0 1px 3px rgba(255, 255, 255, 0.5);
+}
+
+.bind-bank-edit .row .td label .checkbox input[type=radio]:checked + label {
+  background: #f39800;
+}
+
+.bind-bank-edit .row .small-tip {
+  margin-left: 144px;
+}
+
+.bind-bank-edit .row .sub-btn.float {
+  margin-left: 130px;
+  float: left;
+}
+
+.cancel-btn {
+  width: 120px;
+  height: 38px;
+  line-height: 38px;
+  border-radius: 18px;
+  text-align: center;
+  cursor: pointer;
+  background: #a8a8a8;
+  font-size: 18px;
+  color: #fff;
+}
+
+.bind-bank-edit .row .cancel-btn.float {
+  margin-left: 50px;
+  float: left;
+}
+
+#is-show input.is-show {
+  border: none;
+  background: none;
+}
+
+/*****************充转取记录*****************/
+.record-top-area {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.record-top-area .money-record-message {
+  width: 910px;
+  height: auto;
+  display: block;
+}
+
+.record-top-area .money-record-message .change-record-btn {
+  width: 100%;
+  height: 40px;
+  display: block;
+  border-bottom: 1px solid #95bdf4;
+  margin-top: 5px;
+}
+
+.record-top-area .money-record-message .change-record-btn a {
+  display: block;
+  float: left;
+  margin: 4px 10px 4px 0;
+  padding: 0 8px;
+  height: 30px;
+  line-height: 30px;
+  color: #373737;
+  border: 1px solid transparent;
+
+}
+
+.record-top-area .money-record-message .change-record-btn .have-active {
+  background: #95bdf4
+}
+
+.record-top-area .money-record-message .screen-box {
+  width: 840px;
+  height: auto;
+  padding: 10px 5px;
+  background: #e5f0f8;
+  margin-top: 7px;
+  border-radius: 15px!important;
+}
+
+.record-top-area .money-record-message .screen-box .row {
+  width: 100%;
+  height: auto;
+  line-height: 46px;
+}
+
+.record-top-area .money-record-message .screen-box .row .shortcut-time {
+  height: 30px;
+  line-height: 30px;
+  margin: 7px 0;
+  display: inline-block;
+}
+
+.record-top-area .money-record-message .screen-box .row .shortcut-time li {
+  display: inline-block;
+  text-align: center;
+  line-height: 30px;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.record-top-area .money-record-message .screen-box .row .shortcut-time li.item {
+  padding: 0 10px;
+  border: 1px solid #9e9e9e;
+}
+
+.record-top-area .screen-box .row span {
+  display: inline-block;
+  margin: 0 4px;
+}
+
+.record-top-area .money-record-message .screen-box .row label {
+  display: inline-block;
+}
+
+.record-top-area .money-record-message .screen-box .row label input {
+  width: 156px;
+  color: #383838;
+  padding-left: 10px;
+}
+
+.record-top-area .money-record-message .screen-box .row label input.date {
+  height: 30px;
+  font-size: 14px;
+  border: #a0a0a0 1px solid;
+  background: url("../img/pop-up/date-picker.png") 136px center no-repeat;
+}
+
+.btn-search {
+  width: 99px;
+  height: 32px;
+  line-height: 32px;
+  border-radius: 16px;
+  text-align: center;
+  cursor: pointer;
+  background: linear-gradient(90deg, rgb(25, 153, 177), rgb(3, 110, 179));
+  font-size: 16px;
+  color: #fff;
+  margin: 7px 15px;
+  display: inline-block;
+}
+
+.btn-search:hover {
+  background: linear-gradient(90deg, rgb(3, 110, 179), rgb(25, 153, 177));
+}
+
+.btn-search i {
+  background: url("../img/pop-up/btn-search.png") no-repeat !important;
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  margin-right: 6px;
+  position: relative;
+  top: 3px;
+}
+
+.record-bottom-area {
+  width: 910px;
+  height: auto;
+  display: block;
+}
+
+.record-bottom-area .data-table-list {
+  width: 100%;
+  max-height: 300px;
+}
+
+.record-bottom-area table {
+  border: 1px solid #2678e8;
+  width: 100%;
+  height: auto;
+  color: #000;
+}
+
+.record-bottom-area table th, .record-bottom-area table td {
+  border: 1px solid #2678e8;
+  height: 28px;
+  text-align: center;
+}
+
+.record-bottom-area table td {
+  font-size: 12px;
+}
+
+.record-bottom-area table td:nth-child(1) {
+  line-height: 15px;
+}
+
+.paging {
+  margin-top: 10px;
+}
+
+.paging .paging-info {
+  height: 20px;
+  line-height: 20px;
+  float: left;
+}
+
+.paging .page-jump {
+  height: 20px;
+  float: right;
+}
+
+.paging .page-jump a {
+  height: 20px;
+  line-height: 20px;
+  display: inline-block;
+  text-align: center;
+  margin: 0 2px;
+  font-style: normal;
+  cursor: default;
+}
+
+.paging .page-jump input {
+  height: 15px;
+  line-height: 15px;
+  border: 1px solid #2678e8;
+  margin: 0;
+  width: 30px;
+  padding: 0;
+  background: #ecf3fd;
+}
+
+.paging .page-jump a.go {
+  background: #2678e8;
+  color: #fff;
+  width: 30px;
+  padding: 0 4px;
+  cursor: pointer;
+  border-radius: 10px;
+}
+
+.record-top-area {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.record-top-area .money-record-message {
+  width: 910px;
+  height: auto;
+  display: block;
+}
+
+.record-top-area .money-record-message .screen-box {
+  width: 910px;
+  height: auto;
+  background: #fff;
+  margin-top: 0;
+  padding: 0;
+}
+
+.record-top-area .money-record-message .screen-box .row {
+  width: 100%;
+  height: auto;
+  line-height: 46px;
+}
+
+.record-top-area .money-record-message .screen-box .row .shortcut-time {
+  height: 30px;
+  line-height: 30px;
+  margin: 7px 0;
+  display: inline-block;
+}
+
+.record-top-area .money-record-message .screen-box .row .shortcut-time li {
+  display: inline-block;
+  text-align: center;
+  line-height: 30px;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.record-top-area .money-record-message .screen-box .row .shortcut-time li.item {
+  padding: 0 10px;
+  border: 1px solid #9e9e9e;
+}
+
+.record-top-area .money-record-message .screen-box .row .shortcut-time li.item.on, .record-top-area .money-record-message .screen-box .row .shortcut-time li.item:hover {
+  border: 1px solid #2678e8;
+  color: #2678e8;
+}
+
+.record-top-area .screen-box .row span {
+  display: inline-block;
+  margin: 0 4px;
+}
+
+.record-top-area .money-record-message .screen-box .row label {
+  display: inline-block;
+}
+
+.record-top-area .money-record-message .screen-box .row label input {
+  width: 156px;
+  color: #383838;
+  padding-left: 10px;
+}
+
+.record-top-area .money-record-message .screen-box .row label input.date, .record-top-area .money-record-message .screen-box .row label input.date1 {
+  height: 30px;
+  font-size: 14px;
+  border: #a0a0a0 1px solid;
+  background: url("../img/pop-up/date-picker.png") 136px center no-repeat;
+}
+
+.btn-search {
+  width: 99px;
+  height: 32px;
+  line-height: 32px;
+  border-radius: 16px;
+  text-align: center;
+  cursor: pointer;
+  background: linear-gradient(90deg, rgb(25, 153, 177), rgb(3, 110, 179));
+  font-size: 16px;
+  color: #fff;
+  margin: 7px 15px;
+  display: inline-block;
+}
+
+.btn-search:hover {
+  background: linear-gradient(90deg, rgb(3, 110, 179), rgb(25, 153, 177));
+}
+
+.btn-search i {
+  background: url("../img/pop-up/btn-search.png") no-repeat !important;
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  margin-right: 6px;
+  position: relative;
+  top: 3px;
+}
+
+.record-bottom-area {
+  width: 910px;
+  height: auto;
+  display: block;
+  margin: 0px auto;
+}
+
+.record-bottom-area .data-table-list {
+  width: 100%;
+  max-height: 300px;
+}
+
+.record-bottom-area table {
+  border: 1px solid #2678e8;
+  width: 100%;
+  height: auto;
+  color: #000;
+}
+
+.record-bottom-area table th, .record-bottom-area table td {
+  border: 1px solid #2678e8;
+  height: 28px;
+  text-align: center;
+}
+
+.record-bottom-area table td {
+  font-size: 12px;
+}
+
+.record-bottom-area table td:nth-child(1) {
+  line-height: 15px;
+}
+
+.paging {
+  margin-top: 10px;
+}
+
+.paging .paging-info {
+  height: 20px;
+  line-height: 20px;
+  float: left;
+}
+
+.paging .page-jump {
+  height: 20px;
+  float: right;
+}
+
+.paging .page-jump a {
+  height: 20px;
+  line-height: 20px;
+  display: inline-block;
+  text-align: center;
+  margin: 0 2px;
+  font-style: normal;
+  cursor: default;
+}
+
+.paging .page-jump input {
+  height: 15px;
+  line-height: 15px;
+  border: 1px solid #2678e8;
+  margin: 0;
+  width: 30px;
+  padding: 0;
+  background: #ecf3fd;
+}
+
+.paging .page-jump a.go {
+  background: #2678e8;
+  color: #fff;
+  width: 30px;
+  padding: 0 4px;
+  cursor: pointer;
+  border-radius: 10px;
+}
+
+/*********************************************记录中心************************************/
+#record-set .pop-area {
+  background: #fff;
+}
+
+#record-set .pop-area .record-box .record-top-area {
+  margin-top: 12px;
+}
+
+#record-set .pop-area .record-box .change-record-btn {
+  height: 50px;
+}
+
+#record-set .pop-area .record-box .change-record-btn a {
+  height: 36px;
+  line-height: 36px;
+  padding: 0 15px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+#record-set .pop-area .screen-box .row .shortcut-time li {
+  display: inline-block;
+  text-align: center;
+  line-height: 30px;
+  margin-right: 2px;
+  cursor: pointer;
+}
+
+.chose-type {
+  height: 30px;
+  background: #dbe9f8;
+  border: 1px solid #a19ad3;
+  width: 110px;
+  outline-style: none;
+  border-radius: 4px;
+  overflow: hidden;
+  display: inline-block;
+}
+
+.show-account-name {
+  line-height: 32px;
+  width: 100px;
+}
+
+.member-set .pop-area .record-box .row .show-account-name input {
+  height: 30px;
+  background: #dbe9f8;
+  border: 1px solid #a19ad3;
+  width: 90px;
+  outline-style: none;
+  border-radius: 4px;
+}
+
+.shortcut-btn {
+  display: inline-block;
+}
+
+.shortcut-btn li {
+  display: inline-block;
+  height: 28px;
+  line-height: 28px;
+  border: 1px solid #a0a0a0;
+  margin: 1px 5px;
+  padding: 0 10px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.shortcut-btn li:hover, .shortcut-btn li.on {
+  border: 1px solid #2678e8;
+  color: #2678e8;
+}
+
+/*.on{border: 1px solid #2678e8;color: #2678e8;}*/
+#record-set .pop-area .record-box .row a.on {
+  border: 1px solid #2678e8;
+  color: #2678e8;
+}
+
+.pop-area .record-box .row.reminder-message {
+  height: 26px;
+  line-height: 26px;
+}
+
+.look-up {
+  width: 18px;
+  height: 18px;
+  background: url("../img/pop-up/look-up-icon.png") no-repeat;
+  display: inline-block;
+  vertical-align: middle;
+  cursor: pointer;
+}
+
+.revoke {
+  width: 18px;
+  height: 18px;
+  background: url("../img/pop-up/revoke.png") no-repeat;
+  display: inline-block;
+  vertical-align: middle;
+  cursor: pointer;
+}
+
+.winning-color {
+  color: red;
+}
+
+/*显示订单详情*/
+/*订单弹框 */
+.order-popup {
+  padding: 10px;
+  background-color: #525C83;
+  position: absolute;
+  top: -159px;
+  right: 40px;
+  width: 440px;
+  height: 316px;
+  border-radius: 5px;
+  color: #fff;
+  font-size: 13px;
+  text-align: left
+}
+
+.order-popup-one {
+  padding: 10px;
+  border: 1px solid #fff;
+  border-radius: 5px;
+  width: 420px;
+  height: 182px;
+
+}
+
+.order-popup-message{
+  width: 48%;
+  line-height: 20px;
+  display: inline-block
+}
+.order-popup-two{
+  width: 430px;
+  height: 70px;
+  padding: 10px 0 10px 10px;
+}
+.order-popup-two-list{
+  border: 1px solid #1A568F;
+  height: 80px;
+  width: 349px;
+  display: inline-block;
+  background-color: #1A568F;
+  border-radius: 5px;
+  padding: 5px;
+}
+.triangle-right{
+  border:6px solid ;
+  width: 0;
+  height: 0;
+  border-color: transparent transparent transparent #525C83;
+  position: absolute;
+  left: 460px;
+  top: 50%;
+}
+
+
+
+
+
+
+/*jquery  订单弹框*/
+.order-content {
+  width: 420px;
+  height: 300px;
+  color: #fff;
+  overflow: hidden;
+}
+
+.order-content-message {
+  width: 390px;
+  height: 160px;
+  border: 1px solid #8492af;
+  border-radius: 4px;
+  padding: 10px;
+  margin: 10px auto;
+}
+
+.user-bet-number {
+  width: 390px;
+  height: 110px;
+  margin: 0 auto;
+}
+
+.user-bet-number table tr td p {
+  padding: 5px;
+  border: 1px solid #5d6e95;
+  background: #1b568f;
+  width: 300px;
+  height: 80px;
+  border-radius: 6px;
+}
+
+/*******************************************个人中心************************************/
+/****基础信息***/
+.personal-box {
+  height: 540px;
+}
+
+.personal-box .account-left {
+  width: 255px;
+  height: 540px;
+  background: #e3edfb;
+  float: left;
+}
+
+.personal-box .account-left .my-head-box {
+  width: 90px;
+  height: 90px;
+  display: block;
+  margin: 20px auto 0 auto;
+}
+
+.personal-box .account-left .my-head-box .head-box {
+  width: 90px;
+  height: 90px;
+  background: url("../img/public/head-pic.png") no-repeat;
+  position: relative;
+  margin: 0;
+}
+
+.personal-box .account-left .my-head-box .head-box img {
+  width: 100%;
+  position: absolute;
+}
+
+.personal-box .account-left .my-head-box .head-box .head-pic {
+  width: 90px;
+  height: 90px;
+  background: url("../img/pop-up/head-icon.png") no-repeat center center;
+  position: absolute;
+  top: 0;
+}
+
+.personal-box .account-left .account-user-name {
+  width: 100%;
+  height: 30px;
+  line-height: 30px;
+  font-size: 14px;
+  text-align: center;
+  display: block;
+}
+
+.personal-box .account-left .agent-tip {
+  background: #facd89;
+  border-radius: 6px;
+  display: block;
+  width: 60px;
+  height: 26px;
+  line-height: 26px;
+  margin: 0 auto;
+  text-align: center;
+  font-size: 16px;
+  color: #000;
+}
+
+.personal-box .account-left .user-info {
+  width: 100%;
+  height: auto;
+  display: block;
+  font-size: 16px;
+  text-align: center;
+}
+
+.personal-box .account-left .user-info span {
+  width: 100%;
+  height: 38px;
+  line-height: 38px;
+  display: block;
+}
+
+.personal-box .account-left .user-info div {
+  width: auto;
+  height: 34px;
+  line-height: 34px;
+  background: #5d9aee;
+  color: #fff;
+  display: inline-block;
+  padding: 0 10px;
+  border-radius: 6px;
+}
+
+.personal-box .account-left .login-time-record {
+  width: 100%;
+  height: auto;
+  line-height: 20px;
+  font-size: 12px;
+  margin-top: 20px;
+}
+
+.personal-box .account-left .login-time-record i {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #00b7ee;
+  display: inline-block;
+  margin-left: 20px;
+}
+
+.personal-box .account-right {
+  width: 655px;
+  height: auto;
+  float: left;
+  margin-top: 40px;
+  color: #4f4f4f;
+}
+
+.personal-box .account-right .account-info {
+  width: 620px;
+  height: auto;
+  margin-left: 14px;
+}
+
+.personal-box .account-right .account-info h3 {
+  width: 100%;
+  height: 40px;
+  line-height: 40px;
+  font-size: 16px;
+}
+
+.personal-box .account-right .account-info table {
+  width: 100%;
+  height: auto;
+  text-align: center;
+}
+
+.personal-box .account-right .account-info table thead th {
+  background: #2678e8;
+  border-right: 1px solid #76aaef;
+  color: #fff;
+  height: 34px;
+  line-height: 34px;
+  font-size: 14px;
+  text-align: center;
+}
+
+.personal-box .account-right .account-info table tbody td {
+  background: #f2f7fe;
+  border-right: 1px solid #2678e8;
+  color: #333;
+  height: 50px;
+  line-height: 20px;
+}
+
+.personal-box .account-right .account-info table tbody td span {
+  font-size: 14px;
+}
+
+.personal-box .account-right .account-info table tbody td:last-child {
+  border-right: 0;
+}
+
+.personal-box .account-right .account-info table tbody td .fa {
+  cursor: pointer;
+}
+
+.personal-box .account-right .account-info .info-table tbody th, .personal-box .account-right .account-info .info-table tbody td {
+  width: 16.6%;
+}
+
+.personal-box .account-right .account-info .info-quota-table tr {
+  border-bottom: 1px solid #2678e8;
+}
+
+.personal-box .account-right .account-info .info-quota-table tr:last-child {
+  border-bottom: 0;
+}
+
+.personal-box .account-right .account-info .info-quota-table tr td {
+  height: 38px;
+  line-height: 38px;
+}
+
+.personal-box .account-right .account-info .info-quota-table tr td:first-child {
+  background: #2f80ee;
+  color: #fff;
+}
+
+/****安全中心***/
+.personal-box .safe-left {
+  width: 450px;
+  height: auto;
+  margin-left: 30px;
+  float: left;
+}
+
+.personal-box .safe-left .safe-pic {
+  width: 60px;
+  height: 66px;
+  margin: 50px auto 10px 180px;
+  background: url("../img/pop-up/safe.png") no-repeat left top;
+}
+
+.personal-box .safe-left .my-star-box {
+  width: 100%;
+  height: 50px;
+}
+
+.personal-box .safe-left .my-star-box span {
+  display: inline-block;
+  font-size: 16px;
+  line-height: 50px;
+}
+
+.personal-box .safe-left .my-star-box .safe-lv {
+  display: inline-block;
+  vertical-align: middle;
+  line-height: 50px;
+}
+
+.personal-box .safe-left .my-star-box .safe-lv i {
+  font-size: 20px;
+  color: rgba(125, 125, 125, 0.3);
+}
+
+.personal-box .safe-left .my-star-box .safe-lv i.on {
+  color: rgba(239, 184, 103, 1);
+}
+
+.personal-box .safe-left .login-time-record {
+  width: 100%;
+  height: auto;
+  line-height: 20px;
+  font-size: 12px;
+}
+
+.personal-box .safe-left .login-time-record i {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #00b7ee;
+  display: inline-block;
+}
+
+.personal-box .safe-left .safe-center-set {
+  width: 100%;
+  height: auto;
+  display: block;
+  margin-top: 20px;
+}
+
+.personal-box .safe-left .safe-center-set .row {
+  width: 150px;
+  height: auto;
+  display: block;
+  float: left;
+  margin-bottom: 20px;
+}
+
+.personal-box .safe-left .safe-center-set .row .account-icon {
+  height: 34px;
+  line-height: 34px;
+  text-indent: 34px;
+  background: url("../img/pop-up/safe-icon.png") no-repeat;
+  font-size: 16px;
+}
+
+.personal-box .safe-left .safe-center-set .row .account-icon.login {
+  background-position: 0 0;
+}
+
+.personal-box .safe-left .safe-center-set .row .account-icon.safe-password {
+  background-position: 0 -30px;
+}
+
+.personal-box .safe-left .safe-center-set .row .account-icon.safe-bank {
+  background-position: 0 -60px;
+}
+
+.personal-box .safe-left .safe-center-set .row .account-icon.safe-qq {
+  background-position: 0 -90px;
+}
+
+.personal-box .safe-left .safe-center-set .row .account-icon.safe-mail {
+  background-position: 0 -120px;
+}
+
+.personal-box .safe-left .safe-center-set .row .account-icon.safe-phone {
+  background-position: 0 -150px;
+}
+
+.personal-box .safe-left .safe-center-set .row .bind-mes {
+  width: 100%;
+  height: 32px;
+  line-height: 32px;
+  color: #00a0e9;
+  font-size: 14px;
+  display: block;
+}
+
+.personal-box .safe-left .safe-center-set .row .sub-btn {
+  margin: 10px 0;
+  font-size: 14px;
+  height: 32px;
+  line-height: 32px;
+}
+
+.personal-box .safe-right {
+  width: 350px;
+  height: 380px;
+  float: left;
+  margin-left: 10px;
+  margin-top: 80px;
+  overflow: hidden;
+}
+
+.personal-box .safe-right .safe-login-time {
+  width: 100%;
+  height: auto;
+  text-align: left;
+  text-indent: 6px;
+}
+
+.personal-box .safe-right .safe-login-time .safe-login-title {
+  width: 100%;
+  height: 28px;
+  line-height: 28px;
+  background: #3b2296;
+  color: #fff;
+}
+
+.personal-box .safe-right .safe-login-time .safe-login-title div {
+  float: left;
+}
+
+.personal-box .safe-right .safe-login-time .lg-title {
+  width: 150px;
+}
+
+.personal-box .safe-right .safe-login-time .lg-ip {
+  width: 130px;
+}
+
+.personal-box .safe-right .safe-login-time .lg-rs {
+  width: 60px;
+}
+
+.personal-box .safe-right .safe-login-time .safe-log-list {
+  width: 100%;
+  height: auto;
+  background: #f0eef7;
+  color: #fff;
+  text-align: left;
+}
+
+.personal-box .safe-right .safe-login-time .safe-log-list .safe-log {
+  width: 100%;
+  height: 26px;
+  line-height: 26px;
+  border-bottom: 1px solid #3b2296;
+}
+
+.personal-box .safe-right .safe-login-time .safe-log-list .safe-log div {
+  float: left;
+  color: #333;
+  font-size: 12px;
+}
+
+.updata-qq {
+  width: 910px;
+  height: 510px
+}
+
+/****密码修改***/
+.personal-box .change-word-btn {
+  width: 216px;
+  height: 33px;
+  line-height: 33px;
+  margin: 30px;
+  border-radius: 15px;
+  overflow: hidden;
+}
+
+.personal-box .change-word-btn a {
+  background: #d2d2d2;
+  float: left;
+  display: block;
+  width: 108px;
+  color: #727272;
+  text-align: center;
+  font-size: 16px;
+}
+
+.personal-box .change-word-btn .have-active {
+  background: #2678e8;
+  color: #fff;
+}
+
+.personal-box .account-content {
+  width: 380px;
+  height: auto;
+  float: left;
+  margin-left: 30px;
+}
+
+.personal-box .account-content .account-edit-form {
+  width: 100%;
+}
+
+.personal-box .account-content .account-edit-form .row {
+  width: 100%;
+  height: auto;
+  font-size: 14px;
+  color: #393939;
+  float: left;
+}
+
+.personal-box .account-content .account-edit-form .row .now-user-name {
+  height: 80px;
+  line-height: 80px;
+  background: url("../img/pop-up/user-name-icon.png") no-repeat 0 31px;
+  text-indent: 20px;
+  font-size: 17px;
+  color: #00a0e9;
+  float: left;
+}
+
+.personal-box .account-content .account-edit-form .row .user-name-info {
+  height: 80px;
+  line-height: 80px;
+  float: left;
+  color: #00a0e9;
+  font-size: 17px;
+}
+
+.personal-box .account-content .account-edit-form .row .row-left {
+  width: 120px;
+  height: 35px;
+  line-height: 35px;
+  text-align: left;
+  float: left;
+}
+
+.personal-box .account-content .account-edit-form .row .row-right {
+  float: left;
+}
+
+.personal-box .account-content .account-edit-form .row .row-right input {
+  width: 200px;
+  height: 32px;
+  line-height: 32px;
+  background: #ecf3fd;
+  border: 1px solid #2678e8;
+  border-radius: 6px;
+  font-size: 18px;
+  outline-style: none;
+  text-indent: 10px;
+}
+
+.personal-box .account-content .account-edit-form .row.row-height {
+  height: 40px;
+}
+
+.personal-box .account-content .account-edit-form .row .sub-btn {
+  float: left;
+}
+
+.personal-box .account-content .account-edit-form .row .cancel-btn {
+  float: left;
+}
+
+.personal-box .account-content .account-edit-form .row .cancel-btn.float {
+  margin-left: 30px;
+}
+
+.pwd-explain {
+  width: 420px;
+  padding-top: 30px;
+  line-height: 16px;
+  float: left;
+}
+
+.pwd-explain .row {
+  line-height: 24px;
+  margin-bottom: 16px;
+  padding-left: 20px;
+  position: relative;
+  text-align: left;
+}
+
+.pwd-explain .row i {
+  width: 14px;
+  height: 14px;
+  line-height: 15px;
+  display: inline-block;
+  font-size: 12px;
+  text-align: center;
+  color: #fff;
+  background: #81e46d;
+  position: absolute;
+  left: 0;
+  top: 5px;
+  border-radius: 7px;
+  -moz-border-radius: 7px;
+  -webkit-border-radius: 7px;
+}
+
+.account-content .row .tip-box {
+  margin-top: 6px;
+  margin-bottom: 10px;
+}
+
+.personal-box .safe-left {
+  width: 450px;
+  height: auto;
+  margin-left: 30px;
+  float: left;
+}
+
+.personal-box .safe-left .safe-pic {
+  width: 60px;
+  height: 66px;
+  margin: 50px auto 10px 180px;
+  background: url("../img/pop-up/safe.png") no-repeat left top;
+}
+
+.personal-box .safe-left .my-star-box {
+  width: 100%;
+  height: 50px;
+}
+
+.personal-box .safe-left .my-star-box span {
+  display: inline-block;
+  font-size: 16px;
+  line-height: 50px;
+}
+
+.personal-box .safe-left .my-star-box .safe-lv {
+  display: inline-block;
+  vertical-align: middle;
+  line-height: 50px;
+}
+
+.personal-box .safe-left .my-star-box .safe-lv i {
+  font-size: 20px;
+  color: rgba(125, 125, 125, 0.3);
+}
+
+.personal-box .safe-left .my-star-box .safe-lv i.on {
+  color: rgba(239, 184, 103, 1);
+}
+
+.personal-box .safe-left .login-time-record {
+  width: 100%;
+  height: auto;
+  line-height: 20px;
+  font-size: 12px;
+}
+
+.personal-box .safe-left .login-time-record i {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #00b7ee;
+  display: inline-block;
+}
+
+.personal-box .safe-left .safe-center-set {
+  width: 100%;
+  height: auto;
+  display: block;
+  margin-top: 20px;
+}
+
+.personal-box .safe-left .safe-center-set .row {
+  width: 150px;
+  height: auto;
+  display: block;
+  float: left;
+  margin-bottom: 20px;
+}
+
+.personal-box .safe-left .safe-center-set .row .account-icon {
+  height: 34px;
+  line-height: 34px;
+  text-indent: 34px;
+  background: url("../img/pop-up/safe-icon.png") no-repeat;
+  font-size: 16px;
+}
+
+.personal-box .safe-left .safe-center-set .row .account-icon.login {
+  background-position: 0 0;
+}
+
+.personal-box .safe-left .safe-center-set .row .account-icon.safe-password {
+  background-position: 0 -30px;
+}
+
+.personal-box .safe-left .safe-center-set .row .account-icon.safe-bank {
+  background-position: 0 -60px;
+}
+
+.personal-box .safe-left .safe-center-set .row .account-icon.safe-qq {
+  background-position: 0 -90px;
+}
+
+.personal-box .safe-left .safe-center-set .row .account-icon.safe-mail {
+  background-position: 0 -120px;
+}
+
+.personal-box .safe-left .safe-center-set .row .account-icon.safe-phone {
+  background-position: 0 -150px;
+}
+
+.personal-box .safe-left .safe-center-set .row .bind-mes {
+  width: 100%;
+  height: 32px;
+  line-height: 32px;
+  color: #00a0e9;
+  font-size: 14px;
+  display: block;
+}
+
+.personal-box .safe-left .safe-center-set .row .sub-btn {
+  margin: 10px 0;
+  font-size: 14px;
+  height: 32px;
+  line-height: 32px;
+}
+
+.personal-box .safe-left .safe-center-set .row .tel-btn {
+  margin: 10px 0;
+  font-size: 14px;
+  width: 120px;
+  height: 32px;
+  line-height: 32px;
+  border-radius: 18px;
+  background: linear-gradient(90deg, rgb(25, 153, 177), rgb(3, 110, 179));
+  color: #fff;
+  text-align: center
+}
+
+.personal-box .safe-left .safe-center-set .row .emaie-btn {
+  margin: 10px 0;
+  font-size: 14px;
+  width: 120px;
+  height: 32px;
+  line-height: 32px;
+  border-radius: 18px;
+  background: linear-gradient(90deg, rgb(25, 153, 177), rgb(3, 110, 179));
+  color: #fff;
+  text-align: center
+}
+
+.personal-box .safe-left .safe-center-set .row .qq-btn {
+  margin: 10px 0;
+  font-size: 14px;
+  width: 120px;
+  height: 32px;
+  line-height: 32px;
+  border-radius: 18px;
+  background: linear-gradient(90deg, rgb(25, 153, 177), rgb(3, 110, 179));
+  color: #fff;
+  text-align: center
+}
+
+.personal-box .safe-left .safe-center-set .row .bank-btn {
+  margin: 10px 0;
+  font-size: 14px;
+  width: 120px;
+  height: 32px;
+  line-height: 32px;
+  border-radius: 18px;
+  background: linear-gradient(90deg, rgb(25, 153, 177), rgb(3, 110, 179));
+  color: #fff;
+  text-align: center
+}
+
+.personal-box .safe-right {
+  width: 350px;
+  height: 380px;
+  float: left;
+  margin-left: 10px;
+  margin-top: 80px;
+  overflow: hidden;
+}
+
+.personal-box .safe-right .safe-login-time {
+  width: 100%;
+  height: auto;
+  text-align: left;
+  text-indent: 6px;
+}
+
+.personal-box .safe-right .safe-login-time .safe-login-title {
+  width: 100%;
+  height: 28px;
+  line-height: 28px;
+  background: #3b2296;
+  color: #fff;
+}
+
+.personal-box .safe-right .safe-login-time .safe-login-title div {
+  float: left;
+}
+
+.personal-box .safe-right .safe-login-time .lg-title {
+  width: 150px;
+}
+
+.personal-box .safe-right .safe-login-time .lg-ip {
+  width: 130px;
+}
+
+.personal-box .safe-right .safe-login-time .lg-rs {
+  width: 60px;
+}
+
+.personal-box .safe-right .safe-login-time .safe-log-list {
+  width: 100%;
+  height: auto;
+  background: #f0eef7;
+  color: #fff;
+  text-align: left;
+}
+
+.personal-box .safe-right .safe-login-time .safe-log-list .safe-log {
+  width: 100%;
+  height: 26px;
+  line-height: 26px;
+  border-bottom: 1px solid #3b2296;
+}
+
+.personal-box .safe-right .safe-login-time .safe-log-list .safe-log div {
+  float: left;
+  color: #333;
+  font-size: 12px;
+}
+
+.qq {
+  display: none;
+  margin-left: 25%;
+  margin-top: 10%
+}
+
+.qq .input {
+  margin-top: 15px
+}
+
+.qq .input input {
+  width: 200px;
+  height: 30px;
+  border: 1px #333333 solid;
+  border-radius: 5px;
+  margin-left: 5px
+}
+
+.qq .btn {
+  margin-top: 20px;
+  margin-left: 13%;
+  width: 200px;
+  height: 30px
+}
+
+.qq .btn .btn_left {
+  width: 90px;
+  height: 30px;
+  float: left
+}
+
+.qq .btn .btn_left button {
+  background: #3399ff;
+  width: 90px;
+  height: 30px;
+  border: none;
+  border-radius: 5px
+}
+
+.qq .btn .btn_lefts {
+  width: 90px;
+  height: 30px;
+  float: right
+}
+
+.qq .btn .btn_lefts button {
+  background: #669999;
+  width: 90px;
+  height: 30px;
+  border: none;
+  border-radius: 5px
+}
+
+.email {
+  display: none;
+  margin-left: 25%;
+  margin-top: 10%
+}
+
+.email .input {
+  margin-top: 15px
+}
+
+.email .input input {
+  width: 200px;
+  height: 30px;
+  border: 1px #333333 solid;
+  border-radius: 5px;
+  margin-left: 5px
+}
+
+.email .btn {
+  margin-top: 20px;
+  margin-left: 13%;
+  width: 200px;
+  height: 30px
+}
+
+.email .btn .btn_left {
+  width: 90px;
+  height: 30px;
+  float: left
+}
+
+.email .btn .btn_left button {
+  background: #3399ff;
+  width: 90px;
+  height: 30px;
+  border: none;
+  border-radius: 5px
+}
+
+.email .btn .btn_lefts {
+  width: 90px;
+  height: 30px;
+  float: right
+}
+
+.email .btn .btn_lefts button {
+  background: #669999;
+  width: 90px;
+  height: 30px;
+  border: none;
+  border-radius: 5px
+}
+
+.tels {
+  display: none;
+  margin-left: 25%;
+  margin-top: 10%
+}
+
+.tels .input {
+  margin-top: 15px
+}
+
+.tels .input input {
+  width: 200px;
+  height: 30px;
+  border: 1px #333333 solid;
+  border-radius: 5px;
+  margin-left: 5px
+}
+
+.tels .btn {
+  margin-top: 20px;
+  margin-left: 13%;
+  width: 200px;
+  height: 30px
+}
+
+.tels .btn .btn_left {
+  width: 90px;
+  height: 30px;
+  float: left
+}
+
+.tels .btn .btn_left button {
+  background: #3399ff;
+  width: 90px;
+  height: 30px;
+  border: none;
+  border-radius: 5px
+}
+
+.tels .btn .btn_lefts {
+  width: 90px;
+  height: 30px;
+  float: right
+}
+
+.tels .btn .btn_lefts button {
+  background: #669999;
+  width: 90px;
+  height: 30px;
+  border: none;
+  border-radius: 5px
+}
+
+/****密码修改***/
+.personal-box .change-word-btn {
+  width: 216px;
+  height: 33px;
+  line-height: 33px;
+  margin: 30px;
+  border-radius: 15px;
+  overflow: hidden;
+}
+
+.personal-box .change-word-btn a {
+  background: #d2d2d2;
+  float: left;
+  display: block;
+  width: 108px;
+  color: #727272;
+  text-align: center;
+  font-size: 16px;
+}
+
+.personal-box .change-word-btn .have-active {
+  background: #2678e8;
+  color: #fff;
+}
+
+.personal-box .account-content {
+  width: 380px;
+  height: auto;
+  float: left;
+  margin-left: 30px;
+}
+
+.personal-box .account-content .account-edit-form {
+  width: 100%;
+}
+
+.personal-box .account-content .account-edit-form .row {
+  width: 100%;
+  height: auto;
+  font-size: 14px;
+  color: #393939;
+  float: left;
+}
+
+.personal-box .account-content .account-edit-form .row .now-user-name {
+  height: 80px;
+  line-height: 80px;
+  background: url("../img/pop-up/user-name-icon.png") no-repeat 0 31px;
+  text-indent: 20px;
+  font-size: 17px;
+  color: #00a0e9;
+  float: left;
+}
+
+.personal-box .account-content .account-edit-form .row .user-name-info {
+  height: 80px;
+  line-height: 80px;
+  float: left;
+  color: #00a0e9;
+  font-size: 17px;
+}
+
+.personal-box .account-content .account-edit-form .row .row-left {
+  width: 120px;
+  height: 35px;
+  line-height: 35px;
+  text-align: left;
+  float: left;
+}
+
+.personal-box .account-content .account-edit-form .row .row-right {
+  float: left;
+}
+
+.personal-box .account-content .account-edit-form .row .row-right input {
+  width: 200px;
+  height: 32px;
+  line-height: 32px;
+  background: #ecf3fd;
+  border: 1px solid #2678e8;
+  border-radius: 6px;
+  font-size: 18px;
+  outline-style: none;
+  text-indent: 10px;
+}
+
+.personal-box .account-content .account-edit-form .row.row-height {
+  height: 40px;
+}
+
+.personal-box .account-content .account-edit-form .row .sub-btn {
+  float: left
+}
+
+.personal-box .account-content .account-edit-form .row .cancel-btn {
+  float: left;
+}
+
+.personal-box .account-content .account-edit-form .row .cancel-btn.float {
+  margin-left: 30px;
+}
+
+.pwd-explain {
+  width: 420px;
+  padding-top: 30px;
+  line-height: 16px;
+  float: left;
+}
+
+.pwd-explain .row {
+  line-height: 24px;
+  margin-bottom: 16px;
+  padding-left: 20px;
+  position: relative;
+  text-align: left;
+}
+
+.pwd-explain .row i {
+  width: 14px;
+  height: 14px;
+  line-height: 15px;
+  display: inline-block;
+  font-size: 12px;
+  text-align: center;
+  color: #fff;
+  background: #81e46d;
+  position: absolute;
+  left: 0;
+  top: 5px;
+  border-radius: 7px;
+  -moz-border-radius: 7px;
+  -webkit-border-radius: 7px;
+}
+
+.account-content .row .tip-box {
+  margin-top: 6px;
+  margin-bottom: 10px;
+}
+
+/*****银行资料******/
+.bank-account-content {
+  width: 800px;
+  height: auto;
+  margin-left: 30px;
+}
+
+.bank-account-content .reminder-img {
+  width: 100%;
+  height: 44px;
+  background: url("../img/pop-up/reminder-img.png") no-repeat 0 6px;
+  margin-top: 20px;
+}
+
+.bank-account-content .bank-account-tip {
+  width: 590px;
+  height: auto;
+  display: block;
+  padding: 10px 4px;
+  background: #deeafb;
+  border-radius: 7px;
+  -moz-border-radius: 7px;
+  -webkit-border-radius: 7px;
+  margin-bottom: 10px;
+}
+
+.bank-account-content .bank-account-tip div {
+  line-height: 24px;
+  padding-left: 20px;
+  position: relative;
+  text-align: left;
+}
+
+.bank-account-content .bank-account-tip div i {
+  width: 10px;
+  height: 10px;
+  line-height: 15px;
+  display: inline-block;
+  font-size: 12px;
+  text-align: center;
+  position: absolute;
+  left: 5px;
+  top: 6px;
+  border-radius: 50px;
+  -moz-border-radius: 50px;
+  -webkit-border-radius: 50px;
+  background: #5998ed;
+}
+
+.bank-account-content .account-bank-form {
+  width: 100%;
+  height: 200px;
+  display: block;
+}
+
+.bank-account-content .account-bank-form ul {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.bank-account-content .account-bank-form ul li {
+  width: 250px;
+  height: 85px;
+  float: left;
+  position: relative;
+  color: #fff;
+  margin: 15px 15px 0 0;
+  cursor: pointer;
+}
+
+.bank-account-content .account-bank-form ul li .info-text {
+  position: absolute;
+  right: 10px;
+  top: 55px;
+  font-size: 14px;
+}
+
+.bank-account-content .account-bank-form ul li.account-icon {
+  background: url("../img/pop-up/account/add-card.png") no-repeat;
+}
+
+.bank-account-content .bank-account-tip.bottom {
+  background: #fff;
+  border-radius: 6px;
+  -moz-border-radius: 6px;
+  -webkit-border-radius: 6px;
+  border: 1px dashed #2678e8;
+  padding: 3px 10px;
+}
+
+.edit-bank-content {
+  width: 100%;
+  height: auto;
+  background: red;
+  display: none
+}
+
+.edit-bank-content .big-title {
+  width: 100%;
+  height: auto;
+}
+
+.edit-bank-content .big-title i {
+  background-position-y: -27px;
+}
+
+.edit-bank-content .lock-bind-bank-area {
+  display: block;
+}
+
+.edit-bank-content .lock-bind-bank-area .row {
+  float: left;
+}
+
+.bank-account-content {
+  width: 800px;
+  height: auto;
+  margin-left: 30px;
+}
+
+.bank-account-content .reminder-img {
+  width: 100%;
+  height: 44px;
+  background: url("../img/pop-up/reminder-img.png") no-repeat 0 6px;
+  margin-top: 20px;
+}
+
+.bank-account-content .bank-account-tip {
+  width: 590px;
+  height: auto;
+  display: block;
+  padding: 10px 4px;
+  background: #deeafb;
+  border-radius: 7px;
+  -moz-border-radius: 7px;
+  -webkit-border-radius: 7px;
+  margin-bottom: 10px;
+}
+
+.bank-account-content .bank-account-tip div {
+  line-height: 24px;
+  padding-left: 20px;
+  position: relative;
+  text-align: left;
+}
+
+.bank-account-content .bank-account-tip div i {
+  width: 10px;
+  height: 10px;
+  line-height: 15px;
+  display: inline-block;
+  font-size: 12px;
+  text-align: center;
+  position: absolute;
+  left: 5px;
+  top: 6px;
+  border-radius: 50px;
+  -moz-border-radius: 50px;
+  -webkit-border-radius: 50px;
+  background: #5998ed;
+}
+
+.bank-account-content .account-bank-form {
+  width: 100%;
+  height: 200px;
+  display: block;
+}
+
+.bank-account-content .account-bank-form ul {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.bank-account-content .account-bank-form ul li {
+  width: 250px;
+  height: 85px;
+  float: left;
+  position: relative;
+  color: #fff;
+  margin: 15px 15px 0 0;
+  cursor: pointer;
+}
+
+.bank-account-content .account-bank-form ul li .info-text {
+  position: absolute;
+  right: 10px;
+  top: 55px;
+  font-size: 14px;
+}
+
+.bank-account-content .account-bank-form ul li.account-icon {
+  background: url("../img/pop-up/account/add-card.png") no-repeat;
+}
+
+.bank-account-content .bank-account-tip.bottom {
+  background: #fff;
+  border-radius: 6px;
+  -moz-border-radius: 6px;
+  -webkit-border-radius: 6px;
+  border: 1px dashed #2678e8;
+  padding: 3px 10px;
+}
+
+.edit-bank-content {
+  width: 100%;
+  height: auto;
+}
+
+.edit-bank-content .big-title {
+  width: 100%;
+  height: auto;
+}
+
+.edit-bank-content .big-title i {
+  background-position-y: -27px;
+}
+
+.edit-bank-content .lock-bind-bank-area {
+  display: block;
+}
+
+.edit-bank-content .lock-bind-bank-area .row {
+  float: left;
+}
+
+/*****奖金详情******/
+.account-bonus-content {
+  width: 880px;
+  height: 520px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.account-bonus-content .bonus-detail-top {
+  width: 770px;
+  height: 100px;
+  position: relative;
+  float: left;
+  top: 10px;
+}
+
+.account-bonus-content .bonus-detail-top .my-head-box {
+  width: 90px;
+  height: 90px;
+  display: block;
+  float: left;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.account-bonus-content .bonus-detail-top .my-head-box .head-box {
+  width: 90px;
+  height: 90px;
+  background: url("../img/public/head-pic.png") no-repeat;
+  position: relative;
+  margin: 0;
+}
+
+.account-bonus-content .bonus-detail-top .my-head-box .head-box img {
+  width: 100%;
+  position: absolute;
+}
+
+.account-bonus-content .bonus-detail-top .my-head-box .head-box .head-pic {
+  width: 90px;
+  height: 90px;
+  background: url("../img/pop-up/head-icon1.png") no-repeat center center;
+  position: absolute;
+  top: 0;
+}
+
+.account-bonus-content .bonus-detail-top .account-essential-info {
+  width: 770px;
+  height: 62px;
+  margin-top: 15px;
+  background: #c6dcf9;
+  border-radius: 6px;
+  -moz-border-radius: 6px;
+  -webkit-border-radius: 6px;
+  font-size: 18px;
+  line-height: 62px;
+  color: #2b2b2b;
+}
+
+.account-bonus-content .bonus-detail-top .account-essential-info .account-info-num {
+  float: left;
+  margin-left: 100px;
+  min-width: 160px;
+}
+
+.account-bonus-content .bonus-detail-top .account-essential-info .account-info-num span {
+  color: #0068b7;
+}
+
+.account-bonus-content .bonus-detail-top .account-essential-info .account-balance {
+  float: left;
+  min-width: 160px;
+}
+
+.account-bonus-content .bonus-detail-top .account-essential-info .account-balance span {
+  color: #ff4200;
+}
+
+.account-bonus-content .bonus-detail-top .account-essential-info .account-login-mes {
+  float: left;
+  font-size: 12px;
+  min-width: 200px;
+  color: #4d4d4d;
+}
+
+.account-bonus-content .bonus-detail-top .account-essential-info .account-set-state {
+  float: left;
+  font-size: 12px;
+  color: #4d4d4d;
+}
+
+.account-bonus-content .bonus-detail-top .account-essential-info .account-set-state span {
+  color: #604209;
+}
+
+.account-bonus-content .bonus-detail-bottom {
+  width: 100%;
+  height: auto;
+  display: block;
+  clear: left;
+}
+
+.account-bonus-content .bonus-detail-bottom .lottery-bonus-classify {
+  height: 42px;
+  line-height: 42px;
+  padding: 0 10px;
+  background: #2678e8;
+  color: #fff;
+}
+
+.account-bonus-content .bonus-detail-bottom .lottery-bonus-classify div {
+  width: 60px;
+  height: inherit;
+  float: left;
+}
+
+.account-bonus-content .bonus-detail-bottom .lottery-bonus-classify ul {
+  float: left;
+  font-size: 14px;
+  margin-top: 4px;
+}
+
+.account-bonus-content .bonus-detail-bottom .lottery-bonus-classify ul li {
+  height: 34px;
+  line-height: 34px;
+  float: left;
+  min-width: 60px;
+  padding: 0 10px;
+  margin-left: 10px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.account-bonus-content .bonus-detail-bottom .lottery-bonus-classify ul li.on, .account-bonus-content .bonus-detail-bottom .lottery-bonus-classify ul li:hover {
+  color: #515151
+}
+
+.bonus-detail-bottom .lottery-bonus-list {
+  width: 100%;
+  height: 46px;
+  display: block;
+}
+
+.bonus-detail-bottom .lottery-bonus-list .lottery-bonus-wf-list {
+  float: left;
+  border: 1px solid #2678e8;
+  height: 30px;
+  line-height: 30px;
+  border-radius: 5px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  margin: 8px 0 8px 70px;
+}
+
+.bonus-detail-bottom .lottery-bonus-list .lottery-bonus-wf-list li {
+  float: left;
+  margin: 0 6px;
+}
+
+.bonus-detail-bottom .lottery-bonus-list .lottery-bonus-wf-list li:hover, .bonus-detail-bottom .lottery-bonus-list .lottery-bonus-wf-list li.on {
+  color: #2678e8;
+  cursor: pointer;
+  background: #e5f0f8
+}
+
+.bonus-detail-bottom .lottery-bonus-details-table {
+  width: 100%;
+  height: 330px;
+  overflow-y: auto;
+}
+
+.bonus-detail-bottom .lottery-bonus-table {
+  clear: left;
+  width: 99.9%;
+  text-align: center;
+}
+
+.bonus-detail-bottom .lottery-bonus-table th {
+  height: 26px;
+  line-height: 26px;
+  font-weight: normal;
+  border: 1px solid #2678e8;
+  text-align: center;
+}
+
+.bonus-detail-bottom .lottery-bonus-table td {
+  line-height: 26px;
+  border: 1px solid #2678e8;
+}
+
+#dingdan-list .sorts {
+  width: 100%;
+  background: #FFFFFF;
+  height: 40px;
+  border-bottom: 1px solid #03AAFF;
+  color: #666666
+}
+
+#dingdan-list .sorts span {
+  width: 33%;
+  display: block;
+  float: left;
+  text-align: center;
+  height: 39px;
+  line-height: 40px
+}
+
+#dingdan-list .sorts .have-active {
+  border-bottom: 3px solid #03AAFF
+}
+
+.account-bonus-content {
+  width: 880px;
+  height: 520px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.account-bonus-content .bonus-detail-top {
+  width: 770px;
+  height: 100px;
+  position: relative;
+  float: left;
+  top: 10px;
+}
+
+.account-bonus-content .bonus-detail-top .my-head-box {
+  width: 90px;
+  height: 90px;
+  display: block;
+  float: left;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.account-bonus-content .bonus-detail-top .my-head-box .head-box {
+  width: 90px;
+  height: 90px;
+  background: url("../img/public/head-pic.png") no-repeat;
+  position: relative;
+  margin: 0;
+}
+
+.account-bonus-content .bonus-detail-top .my-head-box .head-box img {
+  width: 100%;
+  position: absolute;
+}
+
+.account-bonus-content .bonus-detail-top .my-head-box .head-box .head-pic {
+  width: 90px;
+  height: 90px;
+  background: url("../img/pop-up/head-icon1.png") no-repeat center center;
+  position: absolute;
+  top: 0;
+}
+
+.account-bonus-content .bonus-detail-top .account-essential-info {
+  width: 770px;
+  height: 62px;
+  margin-top: 15px;
+  background: #c6dcf9;
+  border-radius: 6px;
+  -moz-border-radius: 6px;
+  -webkit-border-radius: 6px;
+  font-size: 18px;
+  line-height: 62px;
+  color: #2b2b2b;
+}
+
+.account-bonus-content .bonus-detail-top .account-essential-info .account-info-num {
+  float: left;
+  margin-left: 100px;
+  min-width: 160px;
+}
+
+.account-bonus-content .bonus-detail-top .account-essential-info .account-info-num span {
+  color: #0068b7;
+}
+
+.account-bonus-content .bonus-detail-top .account-essential-info .account-balance {
+  float: left;
+  min-width: 160px;
+}
+
+.account-bonus-content .bonus-detail-top .account-essential-info .account-balance span {
+  color: #ff4200;
+}
+
+.account-bonus-content .bonus-detail-top .account-essential-info .account-login-mes {
+  float: left;
+  font-size: 12px;
+  min-width: 200px;
+  color: #4d4d4d;
+}
+
+.account-bonus-content .bonus-detail-top .account-essential-info .account-set-state {
+  float: left;
+  font-size: 12px;
+  color: #4d4d4d;
+}
+
+.account-bonus-content .bonus-detail-top .account-essential-info .account-set-state span {
+  color: #604209;
+}
+
+.account-bonus-content .bonus-detail-bottom {
+  width: 100%;
+  height: auto;
+  display: block;
+  clear: left;
+}
+
+.account-bonus-content .bonus-detail-bottom .lottery-bonus-classify {
+  height: 42px;
+  line-height: 42px;
+  padding: 0 10px;
+  background: red;
+  color: #fff;
+}
+
+.account-bonus-content .bonus-detail-bottom .lottery-bonus-classify div {
+  width: 60px;
+  height: inherit;
+  float: left;
+}
+
+.account-bonus-content .bonus-detail-bottom .lottery-bonus-classify ul {
+  float: left;
+  font-size: 14px;
+  margin-top: 4px;
+}
+
+.account-bonus-content .bonus-detail-bottom .lottery-bonus-classify ul .have-active {
+  height: 34px;
+  line-height: 34px;
+  float: left;
+  min-width: 60px;
+  padding: 0 10px;
+  margin-left: 10px;
+  text-align: center;
+  cursor: pointer
+}
+
+/*.account-bonus-content .bonus-detail-bottom .lottery-bonus-classify ul li.on,.account-bonus-content .bonus-detail-bottom .lottery-bonus-classify ul li:hover{color: #515151}*/
+.bonus-detail-bottom .lottery-bonus-list {
+  width: 100%;
+  height: 46px;
+  display: block;
+}
+
+.bonus-detail-bottom .lottery-bonus-list .lottery-bonus-wf-list {
+  float: left;
+  border: 1px solid #2678e8;
+  height: 30px;
+  line-height: 30px;
+  border-radius: 5px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  margin: 8px 0 8px 70px;
+}
+
+.bonus-detail-bottom .lottery-bonus-list .lottery-bonus-wf-list li {
+  float: left;
+  margin: 0 6px;
+}
+
+.bonus-detail-bottom .lottery-bonus-list .lottery-bonus-wf-list li:hover, .bonus-detail-bottom .lottery-bonus-list .lottery-bonus-wf-list li.on {
+  color: #2678e8;
+  cursor: pointer;
+  background: #e5f0f8
+}
+
+.bonus-detail-bottom .lottery-bonus-details-table {
+  width: 100%;
+  height: 330px;
+  overflow-y: auto;
+}
+
+.bonus-detail-bottom .lottery-bonus-table {
+  clear: left;
+  width: 99.9%;
+  text-align: center;
+}
+
+.bonus-detail-bottom .lottery-bonus-table th {
+  height: 26px;
+  line-height: 26px;
+  font-weight: normal;
+  border: 1px solid #2678e8;
+  text-align: center;
+}
+
+.bonus-detail-bottom .lottery-bonus-table td {
+  line-height: 26px;
+  border: 1px solid #2678e8;
+}
+
+#dingdan-list .sorts {
+  width: 100%;
+  background: #FFFFFF;
+  height: 40px;
+  border-bottom: 1px solid #03AAFF;
+  color: #666666
+}
+
+#dingdan-list .sorts span {
+  width: 33%;
+  display: block;
+  float: left;
+  text-align: center;
+  height: 39px;
+  line-height: 40px
+}
+
+#dingdan-list .sorts .have-active {
+  border-bottom: 3px solid #03AAFF
+}
+
+/*****我的消息******/
+/*消息查看*/
+.account-message-content {
+  width: 100%;
+  height: 530px;
+}
+
+.btn-send {
+  width: 99px;
+  height: 32px;
+  line-height: 32px;
+  border-radius: 16px;
+  text-align: center;
+  cursor: pointer;
+  background: linear-gradient(90deg, rgb(25, 153, 177), rgb(3, 110, 179));
+  font-size: 16px;
+  color: #fff;
+  margin: 7px 0;
+  display: inline-block;
+}
+
+.btn-send:hover {
+  background: linear-gradient(90deg, rgb(3, 110, 179), rgb(25, 153, 177));
+}
+
+.btn-send i {
+  background: url("../img/pop-up/btn-send.png") no-repeat !important;
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  margin-right: 4px;
+  position: relative;
+  top: 3px;
+}
+
+.account-message-content .record-bottom-area .data-table-list {
+  height: 340px;
+}
+
+/*消息发送*/
+.account-message-send {
+  width: 100%;
+  height: 530px;
+  background: url("../img/pop-up/mes-bg.png") no-repeat right bottom;
+  display: none;
+}
+
+.account-message-send .bind-bank-edit {
+  margin-top: 50px;
+}
+
+.account-message-send .bind-bank-edit .row {
+  clear: left;
+  float: left;
+}
+
+.account-message-send .bind-bank-edit .row .th {
+  text-align: left;
+  margin-left: 30px;
+}
+
+.account-message-send .bind-bank-edit .row .td {
+  width: 400px;
+}
+
+.account-message-send .bind-bank-edit .row .tip-box {
+  position: relative;
+  left: -150px;
+}
+
+.account-message-send .bind-bank-edit .row .tip-box.message {
+  left: 0;
+  top: -20px;
+}
+
+.account-message-send .bind-bank-edit .row .td .message-cont {
+  width: 280px;
+  height: 130px;
+  border: 1px solid #aa89bd;
+  background: #e2e4e7;
+  resize: none;
+  border-radius: 8px;
+  -moz-border-radius: 8px;
+  -webkit-border-radius: 8px;
+  outline-style: none;
+  padding: 6px;
+  margin-top: 6px;
+}
+
+.account-message-send .bind-bank-edit .row .sub-btn.float {
+  margin-left: 170px;
+  float: left;
+}
+
+/*******登录记录********/
+.account-message-content .record-top-area .money-record-message .screen-box .row .show-account-name input {
+  height: 30px;
+  background: #dbe9f8;
+  border: 1px solid #a19ad3;
+  width: 90px;
+  outline-style: none;
+  border-radius: 4px;
+}
+
+.account-message-content .record-bottom-area .data-table th {
+  line-height: 28px;
+  height: 28px;
+}
+
+.account-message-content .record-bottom-area .data-table td {
+  line-height: 24px;
+  height: 24px;
+}
+
+/************************************t团队中心************************************/
+/*******团队统计********/
+.team-search-form {
+  width: 790px;
+  height: 80px;
+  margin-left: 40px;
+  border-radius: 6px;
+  -moz-border-radius: 6px;
+  -webkit-border-radius: 6px;
+  border: 1px solid #d2d2d2;
+  background: #eeeeee;
+  margin-top: 24px;
+  color: #535353;
+  font-size: 18px;
+}
+
+.team-search-form .row .td {
+  float: left;
+  height: 100%;
+  width: 160px;
+  text-align: left;
+  display: inline-block;
+  margin-top: 10px;
+  line-height: 36px;
+  margin-left: 10px;
+}
+
+.team-search-form .row .td .team-icon {
+  height: 36px;
+  width: 40px;
+  display: inline-block;
+  float: left;
+  background: url("../img/pop-up/team-head.png") no-repeat;
+}
+
+.team-search-form .row .td .team-icon.users {
+  background-position: -4px 0;
+}
+
+.team-search-form .row .td .team-icon.shadows {
+  background-position: -4px -36px;
+}
+
+.team-search-form .row .td .team-icon.money {
+  background-position: -4px -72px;
+}
+
+.team-search-form .row .td span {
+  display: block;
+  width: 100%;
+}
+
+.team-search-form .row .td span a {
+  color: #ddb467;
+  text-align: center;
+  display: inline-block;
+  width: 80%;
+}
+
+.total-team-cont .money-record-message .screen-box {
+  margin-left: 40px;
+  width: 800px;
+  height: auto;
+  padding: 5px 0;
+  margin-top: 7px;
+}
+
+.total-team-cont .money-record-message .screen-box .row {
+  width: 100%;
+  height: auto;
+  line-height: 46px;
+}
+
+.total-team-cont .money-record-message .screen-box .row .shortcut-time {
+  height: 30px;
+  line-height: 30px;
+  margin: 7px 0;
+  display: inline-block;
+}
+
+.total-team-cont .money-record-message .screen-box .row .shortcut-time li {
+  display: inline-block;
+  text-align: center;
+  line-height: 30px;
+  margin-right: 5px;
+  cursor: pointer;
+  padding: 0 10px;
+}
+
+.total-team-cont .money-record-message .screen-box .row .shortcut-time li.item {
+  border: 1px solid #a0a0a0;
+}
+
+.total-team-cont .money-record-message .screen-box .row .shortcut-time li.item.on, .total-team-cont .money-record-message .screen-box .row .shortcut-time li.item:hover {
+  border: 1px solid #2678e8;
+  color: #2678e8;
+}
+
+.total-team-cont .money-record-message .screen-box .row label {
+  display: inline-block;
+}
+
+.total-team-cont .money-record-message .screen-box .row label input {
+  width: 130px;
+  color: #383838;
+  padding-left: 10px;
+}
+
+.total-team-cont .money-record-message .screen-box .row label input.date {
+  height: 30px;
+  font-size: 14px;
+  border: #a0a0a0 1px solid;
+  background: url("../img/pop-up/date-picker.png") 116px center no-repeat;
+}
+
+.total-team-cont .change-lottery-kind {
+  margin-left: 40px;
+  width: 800px;
+  line-height: 30px;
+}
+
+.total-team-cont .change-lottery-kind .team-count-nav {
+  height: 30px;
+  border-left: 1px solid #ececec;
+}
+
+.total-team-cont .change-lottery-kind .team-count-nav .nav {
+  background: 0;
+  border-top: 1px solid #ccc !important;
+  border-right: 1px solid #ccc;
+  padding: 8px;
+  height: 15px;
+  line-height: 15px;
+  float: left;
+  cursor: pointer;
+  width: 96px !important;
+  text-align: center;
+}
+
+.total-team-cont .change-lottery-kind .team-count-nav .nav.on {
+  background: #2678e8;
+  color: #fff;
+}
+
+.total-team-cont .change-lottery-kind-list {
+  margin-left: 40px;
+  width: 790px;
+  line-height: 20px;
+  border: 1px solid #ececec;
+  height: 60px;
+}
+
+.total-team-cont .change-lottery-kind-list .game-count .item {
+  float: left;
+  height: 50px;
+  width: 130px;
+  border-right: 1px solid #ececec;
+  text-align: center;
+  margin: 10px 0;
+}
+
+#team-game-count-chart {
+  width: 800px;
+  height: 240px;
+  border: 1px solid red;
+  margin-left: 40px;
+  margin-top: 10px;
+}
+
+/*******下级管理********/
+.sub-manager-cont {
+  width: 910px;
+  margin-left: 40px;
+  height: 500px;
+  margin-top: 30px;
+  display: none;
+}
+
+.sub-manager-cont .screen-box {
+  width: 100%;
+  height: auto;
+  background: #e5f0f8;
+  padding: 10px;
+}
+
+.sub-manager-cont .screen-box .row label {
+  display: inline-block;
+}
+
+.sub-manager-cont .screen-box .row .show-account-name {
+  line-height: 32px;
+  width: 100px;
+}
+
+.sub-manager-cont .screen-box .row .show-account-name input {
+  height: 28px;
+  background: #dbe9f8;
+  border: 1px solid #a19ad3;
+  width: 98px;
+  outline-style: none;
+  border-radius: 4px;
+}
+
+.sub-manager-cont .lower-level {
+  width: 100%;
+  height: 30px;
+  line-height: 30px;
+  margin-top: 10px;
+}
+
+.sub-manager-cont .lower-level .shortcut-parent-path {
+  float: left;
+  vertical-align: bottom;
+}
+
+.sub-manager-cont .lower-level a {
+  float: right;
+  height: 30px;
+  line-height: 30px;
+  font-size: 14px;
+  width: 100px;
+}
+
+.sub-manager-cont .lower-level a i {
+  margin-top: 0;
+  line-height: 30px;
+  margin-right: 3px;
+}
+
+.sub-manager-cont .data-table {
+  margin-top: 0;
+  line-height: 30px;
+  margin-right: 3px;
+}
+
+.sub-manager-cont .data-table {
+  color: #666;
+  width: 100%;
+  text-align: center;
+  font-size: 12px;
+  margin-top: 10px;
+}
+
+.sub-manager-cont .data-table th {
+  color: #333;
+  background: #e5f0f8;
+  height: 25px;
+  line-height: 25px;
+  padding: 3px;
+  text-align: center;
+  border: 1px solid #2678e8;
+  white-space: nowrap;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.sub-manager-cont .data-table td {
+  height: 23px;
+  line-height: 23px;
+  padding: 3px;
+  text-align: center;
+  border: 1px solid #2678e8;
+  white-space: nowrap;
+  font-size: 12px;
+  color: #333;
+}
+
+.sub-manager-cont .data-table td.xj-name {
+  width: 80px;
+}
+
+.sub-manager-cont .data-table td.remarks {
+  width: 140px;
+}
+
+.sub-manager-cont .data-table td.remarks .fa.fa-edit {
+  color: #2f7ee9;
+  font-size: 14px;
+}
+
+.sub-manager-cont .data-table td.remarks input {
+  height: 24px;
+  background: #dbe9f8;
+  border: 1px solid #a19ad3;
+  width: 98px;
+  outline-style: none;
+  border-radius: 4px;
+}
+
+.sub-manager-cont .data-table td.remarks .fa.fa-check {
+  color: #2f7ee9;
+  cursor: pointer;
+}
+
+.sub-manager-cont .data-table td.remarks .fa.fa-trash-o {
+  color: #ff0000;
+  cursor: pointer;
+}
+
+.sub-manager-cont .data-table td.td-red {
+  color: #2f7ee9;
+  width: 100px;
+}
+
+.sub-manager-cont .data-table td.td-green {
+  color: #ff840c;
+  width: 100px;
+}
+
+.sub-manager-cont .data-table td.td-green .fa.fa-search-plus {
+  color: #afaeae;
+  font-size: 14px;
+  padding-left: 4px;
+  cursor: pointer;
+}
+
+.sub-manager-cont .data-table td.td-login {
+  width: 140px;
+}
+
+.sub-manager-cont .data-table td.td-blue .fa.fa-hand-o-up {
+  color: #2f7ee9;
+  font-size: 14px;
+  cursor: pointer;
+  z-index: 8888;
+  position: relative;
+}
+
+.sub-manager-cont .data-table .td-blue {
+  position: relative;
+}
+
+.sub-manager-cont .data-table .td-blue ul {
+  width: 80px;
+  height: 80px;
+  position: absolute;
+  left: 18%;
+  top: -90%;
+}
+
+.sub-manager-cont .data-table td ul li {
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  background: #535353;
+  border-radius: 15px;
+  -moz-border-radius: 15px;
+  -webkit-border-radius: 15px;
+  font-size: 10px !important;
+  color: #fff;
+  cursor: pointer;
+  float: left;
+  position: absolute;
+  z-index: 9999;
+}
+
+.sub-manager-cont .data-table td ul li:hover {
+  color: #2f7ee9;
+}
+
+.sub-manager-cont .data-table td ul li.wages {
+  left: 0;
+  top: 25px;
+}
+
+.sub-manager-cont .data-table td ul li.transfer-point {
+  top: -2px;
+  left: 25px;
+}
+
+.sub-manager-cont .data-table td ul li.recharge-list-btn {
+  left: 50px;
+  top: 25px;
+}
+
+.sub-manager-cont .data-table td ul li.a-bonus-btn {
+  left: 25px;
+  bottom: 0px;
+}
+
+.triangle-bottom{
+  border:6px solid ;
+  width: 0;
+  height: 0;
+  border-color:#162F4A transparent transparent transparent ;
+  position: absolute;
+  left: 45%;
+  top: 100%;
+}
+
+
+
+#miniTip_c .fd-w {
+  width: 120px;
+  font-size: 12px;
+}
+
+/*添加下级*/
+.sub-manager-cont .screen-box .row .shortcut-time, .open-account .screen-box .row .shortcut-time {
+  height: 30px;
+  line-height: 30px;
+  margin: 7px 0;
+  display: inline-block;
+}
+
+.sub-manager-cont .screen-box .row .shortcut-time li, .open-account .screen-box .row .shortcut-time li {
+  display: inline-block;
+  text-align: center;
+  line-height: 30px;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.sub-manager-cont .screen-box .row .shortcut-time li.item, .open-account .screen-box .row .shortcut-time li.item {
+  padding: 0 15px;
+  border: 1px solid #2678e8;
+}
+
+.sub-manager-cont .screen-box .row .shortcut-time li.item.on, .open-account .screen-box .row .shortcut-time li.item.on {
+  border: 1px solid #2678e8;
+  color: #fff;
+  background: #2678e8;
+}
+
+.sub-manager-cont .data-table td.range input, .open-account .data-table td.range input {
+  height: 24px;
+  background: #dbe9f8;
+  border: 1px solid #a19ad3;
+  width: 120px;
+  outline-style: none;
+  border-radius: 4px;
+  text-indent: 10px;
+}
+
+.sub-manager-cont .my-quota, .sub-manager-cont .my-quota .info-quota-table, .open-account .my-quota, .open-account .my-quota .info-quota-table {
+  width: 100%;
+}
+
+.sub-manager-cont .my-quota h3, .open-account .my-quota h3 {
+  width: 100%;
+  font-size: 14px;
+  line-height: 40px;
+  text-align: left;
+}
+
+.sub-manager-cont .my-quota .info-quota-table td, .open-account .my-quota .info-quota-table td {
+  text-align: center;
+  border: 1px solid #2678e8;
+  width: 95px;
+}
+
+.sub-manager-cont .my-quota .info-quota-table tr, .open-account .my-quota .info-quota-table tr {
+  border-bottom: 1px solid #2678e8;
+}
+
+.sub-manager-cont .my-quota .info-quota-table tr:last-child, .open-account .my-quota .info-quota-table tr:last-child {
+  border-bottom: 0;
+}
+
+.sub-manager-cont .my-quota .info-quota-table tr td, .open-account .my-quota .info-quota-table tr td {
+  height: 38px;
+  line-height: 38px;
+}
+
+.sub-manager-cont .my-quota .info-quota-table tr td:first-child, .open-account .my-quota .info-quota-table tr td:first-child {
+  background: #2f80ee;
+  color: #fff;
+}
+
+.sub-manager-cont .row-fd, .open-account .row-fd {
+  width: 500px;
+  height: 40px;
+  display: inline-block;
+  margin: 20px 0 20px 260px;
+}
+
+.sub-manager-cont .row-fd a, .open-account .row-fd a {
+  display: inline-block;
+  text-align: center;
+}
+
+.sub-manager-cont .row-fd a.cancel-btn, .open-account .row-fd a.cancel-btn {
+  margin-left: 60px;
+}
+
+/*调点*/
+#transfer-point-set {
+  margin-top: 20px;
+}
+
+#transfer-point-set .my-quota .account-search-form {
+  height: 30px;
+  margin-bottom: 10px;
+}
+
+#transfer-point-set .my-quota .account-search-form .btn {
+  width: 90px;
+  height: 30px;
+  line-height: 30px;
+  background: #f0c04b;
+  border-radius: 4px;
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+  text-align: center;
+  color: #2f7ee9;
+  float: left;
+}
+
+#transfer-point-set .my-quota .account-search-form .btn .fa {
+  margin-right: 6px;
+}
+
+#transfer-point-set .my-quota .account-search-form .btn-search {
+  float: left;
+  margin: 0 0 0 20px;
+}
+
+#transfer-point-set .my-quota .account-search-form .empty-all {
+  width: 80px;
+  height: 30px;
+  line-height: 30px;
+  margin-left: 20px;
+  background: #ec6941;
+  border-radius: 6px;
+  -moz-border-radius: 6px;
+  -webkit-border-radius: 6px;
+  float: left;
+  text-align: center;
+  color: #fff;
+}
+
+#transfer-point-set .my-quota .account-search-form span {
+  line-height: 30px;
+  float: left;
+  margin-left: 20px;
+}
+
+#transfer-point-set .my-quota .info-quota-table th {
+  text-align: center;
+  background: #2f7ee9;
+  height: 30px;
+  color: #fff;
+  border: 1px solid #65a0ed;
+}
+
+#transfer-point-set .my-quota .info-quota-table th .fa.fa-trash {
+  cursor: pointer;
+}
+
+#transfer-point-set .my-quota .info-quota-table td {
+  height: 24px;
+  line-height: 24px
+}
+
+#transfer-point-set .my-quota .info-quota-table td:nth-child(1) {
+  background: #fff;
+  color: #333;
+}
+
+#transfer-point-set .my-quota .info-quota-table td .add-input {
+  height: 20px;
+  background: #dbe9f8;
+  border: 1px solid #a19ad3;
+  width: 60px;
+  outline-style: none;
+  border-radius: 4px;
+}
+
+/*******开户中心********/
+.open-account {
+  width: 910px;
+  margin-left: 40px;
+  height: 500px;
+  margin-top: 25px;
+}
+
+.open-account .account-search-form {
+  width: 100%;
+  height: 30px;
+  line-height: 30px;
+}
+
+.open-account .account-search-form a {
+  float: left;
+}
+
+.open-account .account-search-form .btn {
+  width: 90px;
+  height: 30px;
+  line-height: 30px;
+  background: #f0c04b;
+  border-radius: 4px;
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+  text-align: center;
+  color: #2f7ee9;
+}
+
+.open-account .account-search-form .btn-search {
+  width: 90px;
+  height: 30px;
+  line-height: 30px;
+  margin: 0 0 0 20px;
+  font-size: 14px;
+}
+
+.open-account .account-search-form .btn-search .fa.fa-search {
+  margin-right: 5px;
+}
+
+.open-account .data-table-box {
+  width: 100%;
+  max-height: 300px;
+  margin-top: 10px;
+}
+
+.open-account .data-table {
+  width: 100%;
+}
+
+.open-account .data-table th {
+  height: 20px;
+  line-height: 20px;
+  padding: 3px;
+  text-align: center;
+  border: 1px solid #65a0ed;
+  white-space: nowrap;
+  color: #fff;
+  background: #2678e8;
+}
+
+.open-account .data-table td {
+  height: 20px;
+  line-height: 20px;
+  padding: 3px;
+  text-align: center;
+  border: 1px solid #2678e8;
+  white-space: nowrap;
+}
+
+.open-account .data-table td a {
+  margin: 0 5px;
+  color: #2d97dd;
+  font-size: 13px;
+  display: inline;
+}
+
+.open-account .data-table td .fa.fa-play-circle {
+  color: #2d97dd;
+  font-size: 14px;
+}
+
+.open-account .data-table td .fa.fa-trash {
+  color: #ec5765;
+}
+
+.open-account .tip-remarks {
+  width: 100%;
+  height: 120px;
+  margin-top: 40px;
+}
+
+.open-account .tip-remarks .reminder-img {
+  width: 100%;
+  height: 44px;
+  background: url("../img/pop-up/reminder-img.png") no-repeat 0 6px;
+  margin-top: 20px;
+}
+
+.open-account .tip-remarks p {
+  width: 390px;
+  height: 30px;
+  line-height: 30px;
+  background: #e3eefc;
+  border-radius: 6px;
+  -moz-border-radius: 6px;
+  -webkit-border-radius: 6px;
+  padding: 0 10px;
+  font-size: 14px;
+  color: #4f4f4f;
+}
+
+.open-account .tip-remarks p span {
+  color: #ff0000;
+}
+
+/*添加新链接*/
+.open-account .show-account-name input {
+  height: 24px;
+  background: #dbe9f8;
+  border: 1px solid #a19ad3;
+  width: 120px;
+  outline-style: none;
+  border-radius: 4px;
+  text-indent: 10px;
+}
+
+.open-account .show-account-name.link {
+  margin-left: 80px;
+}
+
+/*******配额管理********/
+.quota-management {
+  width: 910px;
+  height: 530px;
+  margin-left: 30px;
+  margin-top: 20px;
+}
+
+.quota-management .money-record-message {
+  width: 100%;
+  overflow: hidden;
+}
+
+.quota-management .money-record-message .screen-box {
+  padding: 5px;
+}
+
+.quota-management .money-record-message .screen-box .row {
+  width: 100%;
+  line-height: 28px;
+}
+
+.quota-management .money-record-message .screen-box {
+  width: 100%;
+  height: auto;
+  background: #e5f0f8;
+  padding: 10px;
+}
+
+.quota-management .money-record-message .screen-box .row label {
+  display: inline-block;
+}
+
+.quota-management .money-record-message .screen-box .row .show-account-name {
+  line-height: 32px;
+  width: 100px;
+}
+
+.quota-management .money-record-message .screen-box .row .show-account-name input {
+  height: 28px;
+  background: #dbe9f8;
+  border: 1px solid #a19ad3;
+  width: 98px;
+  outline-style: none;
+  border-radius: 4px;
+}
+
+.quota-management .money-record-message .screen-box .row label input.date {
+  width: 130px;
+  height: 30px;
+  font-size: 14px;
+  border: #a0a0a0 1px solid;
+  background: url("../img/pop-up/date-picker.png") 100px center no-repeat;
+}
+
+.quota-management .data-table-box {
+  max-height: 400px;
+  overflow: hidden;
+}
+
+.quota-management .data-table {
+  width: 100%;
+  margin-top: 10px;
+}
+
+.quota-management .data-table th {
+  height: 20px;
+  line-height: 20px;
+  padding: 3px;
+  text-align: center;
+  border: 1px solid #65a0ed;
+  white-space: nowrap;
+  color: #fff;
+  background: #2678e8;
+}
+
+.quota-management .data-table td {
+  height: 20px;
+  line-height: 20px;
+  padding: 3px;
+  text-align: center;
+  border: 1px solid #2678e8;
+  white-space: nowrap;
+}
+
+#quota-management .shortcut-time {
+  height: 30px;
+  line-height: 30px;
+  margin: 7px 0;
+  display: inline-block;
+
+}
+
+#quota-management .shortcut-time li {
+  display: inline-block;
+  text-align: center;
+  line-height: 30px;
+  margin-right: 10px;
+  cursor: pointer;
+  padding: 0 10px;
+  border: 1px solid #9E9E9E;
+}
+
+#quota-management .shortcut-time .item:hover {
+  border: 1px solid #2678e8;
+  color: #2678e8;
+}
+
+/*******调点记录********/
+#transfer-point-record .screen-box .row .show-account-name input {
+  width: 100px;
+  height: 28px;
+  background: #dbe9f8;
+  border: 1px solid #a19ad3;
+  outline-style: none;
+  border-radius: 4px;
+  text-indent: 10px;
+}
+
+#transfer-point-record .record-bottom-area .data-table-list {
+  max-height: 320px;
+}
+
+/*下级充值*//*下级取款*/
+#lower-level-recharge .screen-box .row .show-account-name input, #lower-level-draw .screen-box .row .show-account-name input {
+  width: 100px;
+  height: 28px;
+  background: #dbe9f8;
+  border: 1px solid #a19ad3;
+  outline-style: none;
+  border-radius: 4px;
+  text-indent: 10px;
+}
+
+#lower-level-recharge .record-bottom-area .data-table-list, #lower-level-draw .record-bottom-area .data-table-list {
+  max-height: 360px;
+}
+
+/************************************报表中心************************************/
+/*彩票报表*/
+#report-center .personal-box .record-bottom-area .data-table-list {
+  max-height: 360px;
+}
+
+#lottery-report .record-bottom-area .data-table-list td.win, #personal-report .record-bottom-area .data-table-list td.win, #profit-report .record-bottom-area .data-table-list td.win {
+  color: green;
+}
+
+#lottery-report .record-bottom-area .data-table-list td.loss, #personal-report .record-bottom-area .data-table-list td.loss, #profit-report .record-bottom-area .data-table-list td.loss {
+  color: red;
+}
+
+#profit-report .record-top-area .screen-box .show-account-name input {
+  width: 90px;
+  height: 28px;
+  line-height: 28px;
+  background: #dbe9f8;
+  border: 1px solid #a19ad3;
+  outline-style: none;
+  border-radius: 4px;
+  text-indent: 4px;
+}
+
+#profit-report .record-top-area .money-record-message .screen-box .row label input.date {
+  width: 120px;
+  height: 30px;
+  font-size: 14px;
+  border: #a0a0a0 1px solid;
+  background: url("../img/pop-up/date-picker.png") 100px center no-repeat;
+}
+
+.account-report-name {
+  color: #2678e8;
+}
+
+.transfer-acc {
+  color: #2678e8;
+  cursor: pointer;
+}
+
+/**********************************首页公告消息列表详情***********************************/
+.notice-set {
+  width: 1000px;
+  height: 505px;
+  position: relative;
+  top: 5px;
+  display: none;
+  background: red;
+}
+
+.notice-set .notice-title {
+  width: 100%;
+  height: 40px;
+  line-height: 40px;
+  background: #2678e8;
+  position: absolute;
+  top: -40px;
+  text-align: center;
+  font-size: 17px;
+  color: #fff;
+  border-top-left-radius: 15px;
+}
+
+.notice-set .notice-box {
+  width: 100%;
+  height: 505px;
+}
+
+.notice-box .notice-left {
+  width: 250px;
+  height: 530px;
+  background: #fff;
+  float: left;
+  border-bottom-left-radius: 15px;
+  border-right: 2px solid #249ddf
+}
+
+.notice-box .notice-left ul {
+  width: 210px;
+  height: 450px;
+  margin: 30px auto;
+  overflow: hidden;
+}
+
+.notice-box .notice-left ul li {
+  width: 210px;
+  height: 70px;
+  display: block;
+  margin-bottom: 20px;
+  background: url("../img/pop-up/notice-title-bg.png") no-repeat center top;
+}
+
+.notice-box .notice-left ul li.on {
+  background: url("../img/pop-up/notice-title-bg1.png") no-repeat center top;
+}
+
+.notice-box .notice-left ol {
+  width: 2px;
+  height: 452px;
+  float: right;
+  position: relative;
+  top: -478px;
+  right: 0;
+  z-index: 99;
+  margin-top: 20px;
+}
+
+.notice-box .notice-left ol li {
+  width: 20px;
+  height: 20px;
+  background: #1993d6;
+  border-radius: 50%;
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  margin-left: -7px;
+  margin-bottom: 70px;
+}
+
+.notice-box .notice-left ul li .title-name {
+  width: 160px;
+  height: 40px;
+  line-height: 40px;
+  padding-left: 13px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  margin-left: 10px;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.notice-box .notice-left ul li .date-t {
+  color: #999999;
+  font-size: 12px;
+  padding-left: 22px;
+}
+
+.notice-box .notice-left ul li.on .title-name, .notice-box .notice-left ul li.on .date-t {
+  color: #fff;
+}
+
+.member-set .notice-right {
+  width: 748px;
+  height: 540px;
+  float: left;
+  position: absolute;
+  left: 252px;
+  top: -35px;
+  border-bottom-right-radius: 15px;
+  background: #fff;
+}
+
+.notice-box .notice-right .right-content {
+  z-index: 88;
+  width: 748px;
+  height: 530px;
+  position: relative;
+  float: right;
+  background: url("../img/pop-up/notice-right-bg.jpg");
+  border-bottom-right-radius: 15px;
+  -webkit-border-bottom-right-radius: 15px;
+  -moz-border-radius-bottomright: 15px;
+}
+
+.notice-box .notice-right .right-content {
+  z-index: 88;
+  width: 748px;
+  height: 530px;
+  position: relative;
+  float: right;
+  background: url("../img/pop-up/notice-right-bg.jpg");
+  border-bottom-right-radius: 15px;
+  -webkit-border-bottom-right-radius: 15px;
+  -moz-border-radius-bottomright: 15px;
+}
+
+.notice-box .notice-right .right-content .tit {
+  width: 100%;
+  height: 76px;
+  line-height: 76px;
+  font-size: 18px;
+  text-align: center;
+}
+
+.notice-box .notice-right .right-content .cont {
+  width: 94%;
+  height: auto;
+  line-height: 26px;
+  font-size: 14px;
+  margin: 0 auto;
+  text-indent: 26px;
+  color: #333;
+}
+
+.notice-box .notice-right .right-content .date-time {
+  width: 94%;
+  height: 26px;
+  line-height: 26px;
+  font-size: 14px;
+  margin: 0 auto;
+  text-align: right;
+  color: #333;
+}
+
+.notice-box .notice-right .corner {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 114px;
+  height: 89px;
+  background: url('../img/pop-up/notice-corner.png') no-repeat;
+}

@@ -1,0 +1,508 @@
+<!--***********************************************记录*************************************************-->
+<!--记录中心-->
+<div class="member-set" id="record-set" ng-controller="RecordCtrl">
+    <div class="pop-menu">
+        <div class="recharge-nav">
+            <a class="lottery-game-record actived1" onclick="change3(1)">彩票游戏</a>
+            <a onclick="change3(2)">账变记录</a>
+            <!--<a onclick="change3(3)">代理记录</a>-->
+            <a onclick="change3(4)">充提记录</a>
+            <a onclick="change3(5)">其他游戏</a>
+        </div>
+        <script type="text/javascript">
+                        $(".recharge-nav a").click(function(){
+                            $(this).siblings().removeClass('actived1');
+                            $(this).addClass('actived1');
+
+                        })
+                    </script>
+    </div>
+    <div class="pop-area">
+        <!--彩票游戏-->
+        <div ng-show="data.type == 1" class="record-box record-box1" id="recharge-record">
+            <!--购彩记录-->
+            <div class="record-top-area">
+                <form class="money-record-message">
+                    <div class="change-record-btn">
+                        <a onclick="change_one(1)" class="actived" >购彩记录</a>
+                        <a onclick="change_one(2)" >追号记录</a>
+                    </div>
+                    <script type="text/javascript">
+                        $(".change-record-btn a").click(function(){
+                            $(this).siblings().removeClass('actived');
+                            $(this).addClass('actived');
+
+                        })
+                    </script>
+                    <!--  购彩记录 -->
+                    <div>
+                    <div class="screen-box screen-box1" ng-show="data.current == 1">
+                        <iframe id="pageframe1" name="pageframe" src="/index.php?s=/home/team/record.html" style="width: 100%; height: 533px;" allowtransparency="true" frameborder="0">
+                        </iframe>
+                    </div>
+                    <!--取款记录-->
+                    <div class="screen-box screen-box2" ng-show="data.current == 2">
+                        <div class="load1" style="display: none;position: absolute;top:0;left:0;background: rgba(0,0,0,0.6);width:100%;height:637px">
+                            <img src="Public/Mobile/images/game/wait.gif" style="position: absolute;top:50%;left:50%;margin-top: -50px;margin-left:-50px;">
+                        </div>
+                        <iframe id="pageframe" name="pageframe" src="" style="width: 100%; height: 533px;" allowtransparency="true" frameborder="0">
+                        </iframe>
+                    </div>
+                    </div>
+
+                </form>
+            </div>
+
+        </div>
+        <!--账变记录-->
+        <div ng-show="data.type == 2" class="record-box record-box2" id="account-changes-record">
+            <div class="load2" style="display: none;position: absolute;top:0;left:0;background: rgba(0,0,0,0.6);width:100%;height:637px">
+                <img src="Public/Mobile/images/game/wait.gif" style="position: absolute;top:50%;left:50%;margin-top: -50px;margin-left:-50px;">
+            </div>
+            <iframe id="pageframe2" name="pageframe" src="" style="width: 100%; height: 600px;border-radius: 15px;" allowtransparency="true" frameborder="0">
+            </iframe>
+        </div>
+        <!--代理记录-->
+        <!--<div ng-show="data.type == 3" class="record-box record-box3" id="proxy-record">-->
+            <!--<div class="record-top-area">-->
+                <!--<form class="money-record-message">-->
+                    <!--<div class="change-record-btn">-->
+                        <!--<a ng-class="{ 'active-chose' : data.current == 1 }" ng-click="actions.setCurrent(1)">佣金记录</a>-->
+                        <!--<a ng-class="{ 'active-chose' : data.current == 2 }" ng-click="actions.setCurrent(2)">工资记录</a>-->
+                        <!--<a ng-class="{ 'active-chose' : data.current == 3 }" ng-click="actions.setCurrent(3)">分红记录</a>-->
+                        <!--<a ng-class="{ 'active-chose' : data.current == 4 }" ng-click="actions.setCurrent(4)">约定工资记录</a>-->
+                        <!--<a ng-class="{ 'active-chose' : data.current == 5 }" ng-click="actions.setCurrent(5)">约定分红记录</a>-->
+                    <!--</div>-->
+                    <!--<div class="screen-box" ng-show="data.current == 1">-->
+                      <!--<iframe id="pageframe" name="pageframe" src="/index.php?s=/home/team/brokerage.html" style="width: 100%; height: 500px;" allowtransparency="true" frameborder="0">-->
+                      <!--</iframe>-->
+                        <!-- <div class="row">
+                            <ul class="shortcut-time">
+                                <li class="item" ng-repeat="time in vm.chose track by $index"
+                                ng-class="vm.timeName == time.name ? 'on':'' "
+                                ng-bind="time.name"
+                                ng-click="changeDate(time.name)"></li>
+                            </ul>
+                        </div>
+                        <div class="row">
+                            <span>起止日期：</span>
+                            <label>
+                                <input class="recordTime1 date" ng-model="ToDay"/>
+                            </label>
+                            <span>至</span>
+                            <label>
+                                <input class="recordTime2 date" ng-model="ToDay"/>
+                            </label>
+                            <ul class="shortcut-btn">
+                                <li ng-repeat="op in vm.parameter track by $index"
+                                ng-class="vm.opValue == op.value ? 'on':''"
+                                ng-bind="op.name"
+                                ng-click="vm.opValue=op.value">
+                            </li>
+                        </ul>
+                        <a class="btn-search"><i></i>查 询</a>
+                    </div> -->
+                <!--</div>-->
+
+                <!--工资记录-->
+                <!--<div class="screen-box" ng-show="data.current == 2">-->
+                    <!--<iframe id="pageframe" name="pageframe" src="/index.php?s=/home/team/wage.html" style="width: 100%; height: 500px;" allowtransparency="true" frameborder="0">-->
+                    <!--</iframe>-->
+                  <!--   <div class="row">
+                        <ul class="shortcut-time">
+                            <li class="item" ng-repeat="time in vm.chose track by $index"
+                            ng-class="vm.timeName == time.name ? 'on':'' "
+                            ng-bind="time.name"
+                            ng-click="changeDate(time.name)"></li>
+                        </ul>
+                    </div>
+                    <div class="row">
+                        <span>起止日期：</span>
+                        <label>
+                            <input class="recordTime1 date" ng-model="ToDay"/>
+                        </label>
+                        <span>至</span>
+                        <label>
+                            <input class="recordTime2 date" ng-model="ToDay"/>
+                        </label> -->
+                        <!--<ul class="shortcut-btn">-->
+                        <!--<li ng-repeat="op in vm.parameter track by $index"-->
+                        <!--ng-class="vm.opValue == op.value ? 'on':''"-->
+                        <!--ng-bind="op.name"-->
+                        <!--ng-click="vm.opValue=op.value">-->
+                        <!--</li>-->
+                        <!--</ul>-->
+                        <!-- <a class="btn-search"><i></i>查 询</a> -->
+                        <!-- </div> -->
+                    <!--</div>-->
+                    <!--分红记录-->
+                    <!--<div class="screen-box" ng-show="data.current == 3">-->
+                        <!--<iframe id="pageframe" name="pageframe" src="/index.php?s=/home/team/profit.html" style="width: 100%; height: 500px;" allowtransparency="true" frameborder="0">-->
+                        <!--</iframe>-->
+                        <!-- <div class="row">
+                            <ul class="shortcut-time">
+                                <li class="item" ng-repeat="time in vm.chose track by $index"
+                                ng-class="vm.timeName == time.name ? 'on':'' "
+                                ng-bind="time.name"
+                                ng-click="changeDate(time.name)"></li>
+                            </ul>
+                        </div> -->
+                      <!--   <div class="row">
+                            <span>期数:</span>
+                            <select class="chose-type">
+                                <option value="">全部</option>
+                                <option value="">个人</option>
+                            </select>
+                            <a class="btn-search"><i></i>查 询</a>
+                        </div> -->
+                    <!--</div>-->
+                    <!--约定工资记录-->
+                    <!--<div class="screen-box" ng-show="data.current == 4">-->
+                        <!--<iframe id="pageframe" name="pageframe" src="/index.php?s=/home/team/wage.html" style="width: 100%; height: 500px;" allowtransparency="true" frameborder="0">-->
+                        <!--</iframe>-->
+                    <!--</div>-->
+                    <!--约定分红记录-->
+                    <!--<div class="screen-box" ng-show="data.current == 5">-->
+                        <!--<iframe id="pageframe" name="pageframe" src="/index.php?s=/home/team/profit.html" style="width: 100%; height: 500px;" allowtransparency="true" frameborder="0">-->
+                        <!--</iframe>-->
+                    <!--</div>-->
+                <!--</form>-->
+            <!--</div>-->
+           <!--  <div class="record-bottom-area">
+                <div class="data-table-list">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>日期</th>
+                                <th>佣金类型</th>
+                                <th>金额</th>
+                                <th>最后更新时间</th>
+                                <th>备注</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td colspan="5">请选择查询条件之后进行查询</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="paging">
+                    <div class="paging-info">第 1 页, 共 1 页, 共 0 条, 每页 10 条</div>
+                    <div class="page-jump">
+                        <a>上一页</a>
+                        <a>1</a>
+                        <a>下一页</a>
+                        <label><input></label>
+                        <a class="go">Go</a>
+                    </div>
+                </div>
+            </div> -->
+        <!--</div>-->
+        <!--充转提记录-->
+        <div ng-show="data.type == 4" class="record-box record-box4" id="recharge-record">
+            <div class="record-top-area">
+                <form class="money-record-message">
+                    <div class="change-record-btn" >
+                        <a onclick="change_one(5)" class="actived" >充值记录</a>
+                        <a onclick="change_one(6)" >取款记录</a>
+                        <!--<a ng-class="{ 'active-chose' : data.current == 3 }" ng-click="actions.setCurrent(3)">转账记录</a>-->
+                        <!--<a ng-class="{ 'active-chose' : data.current == 4 }" ng-click="actions.setCurrent(4)">转入游戏记录</a>-->
+                        <!--<a ng-class="{ 'active-chose' : data.current == 5 }" ng-click="actions.setCurrent(5)">转出游戏记录</a>-->
+                    </div>
+                    <div>
+                    <!-- 充值记录-->
+                    <div class="screen-box screen-box5" ng-show="data.current == 1">
+                        <div class="load3" style="display: none;position: absolute;top:0;left:0;background: rgba(0,0,0,0.6);width:100%;height:637px">
+                            <img src="Public/Mobile/images/game/wait.gif" style="position: absolute;top:50%;left:50%;margin-top: -50px;margin-left:-50px;">
+                        </div>
+                        <iframe id="pageframe4" name="pageframe" src="" style="width: 100%; height: 533px;" allowtransparency="true" frameborder="0">
+                        </iframe>
+                    </div>
+                    <!--取款记录-->
+                    <div class="screen-box screen-box6" ng-show="data.current == 2">
+                        <div class="load4" style="display: none;position: absolute;top:0;left:0;background: rgba(0,0,0,0.6);width:100%;height:637px">
+                            <img src="Public/Mobile/images/game/wait.gif" style="position: absolute;top:50%;left:50%;margin-top: -50px;margin-left:-50px;">
+                        </div>
+                        <iframe id="pageframe" name="pageframe" src="" style="width: 100%; height: 533px;border-radius: 15px;" allowtransparency="true" frameborder="0">
+                        </iframe>
+                    </div>
+                    <!--转账记录 -->
+                    <!--<div class="screen-box" ng-show="data.current == 3" >-->
+                     <!--<iframe id="pageframe" name="pageframe" src="/index.php?s=/home/team/transfer.html" style="width: 100%; height: 500px;" allowtransparency="true" frameborder="0">-->
+                     <!--</iframe>-->
+                       <!--&lt;!&ndash;  <div class="row">-->
+                            <!--<ul class="shortcut-time">-->
+                                <!--<li class="item" ng-repeat="time in vm.chose track by $index"-->
+                                <!--ng-class="vm.timeName == time.name ? 'on':'' "-->
+                                <!--ng-bind="time.name"-->
+                                <!--ng-click="changeDate(time.name)"></li>-->
+                            <!--</ul>-->
+                        <!--</div>-->
+                        <!--<div class="row">-->
+                            <!--<span>投注时间：</span>-->
+                            <!--<label>-->
+                                <!--<input class="recordTime1 date" ng-model="ToDay"/>-->
+                            <!--</label>-->
+                            <!--<span>至</span>-->
+                            <!--<label>-->
+                                <!--<input class="recordTime2 date" ng-model="ToDay"/>-->
+                            <!--</label>-->
+                            <!--<a class="btn-search"><i></i>查 询</a>-->
+                        <!--</div> &ndash;&gt;-->
+                    <!--</div>-->
+                    <!--转入游戏记录 -->
+                    <!--<div class="screen-box" ng-show="data.current == 4">-->
+                     <!--<iframe id="pageframe" name="pageframe" src="/index.php?s=/home/team/shift.html" style="width: 100%; height: 500px;" allowtransparency="true" frameborder="0">-->
+                     <!--</iframe>-->
+                        <!--&lt;!&ndash; <div class="row">-->
+                            <!--<ul class="shortcut-time">-->
+                                <!--<li class="item" ng-repeat="time in vm.chose track by $index"-->
+                                <!--ng-class="vm.timeName == time.name ? 'on':'' "-->
+                                <!--ng-bind="time.name"-->
+                                <!--ng-click="changeDate(time.name)"></li>-->
+                            <!--</ul>-->
+                        <!--</div>-->
+                        <!--<div class="row">-->
+                            <!--<span>投注时间：</span>-->
+                            <!--<label>-->
+                                <!--<input class="recordTime1 date" ng-model="ToDay"/>-->
+                            <!--</label>-->
+                            <!--<span>至</span>-->
+                            <!--<label>-->
+                                <!--<input class="recordTime2 date" ng-model="ToDay"/>-->
+                            <!--</label>-->
+                            <!--<a class="btn-search"><i></i>查 询</a>-->
+                        <!--</div> &ndash;&gt;-->
+                    <!--</div>-->
+                    <!--转出游戏记录 -->
+                    <!--<div class="screen-box" ng-show="data.current == 5">-->
+                        <!--<iframe id="pageframe" name="pageframe" src="/index.php?s=/home/team/roll.html" style="width: 100%; height: 500px;" allowtransparency="true" frameborder="0">-->
+                        <!--</iframe>-->
+                        <!--&lt;!&ndash; <div class="row">-->
+                            <!--<ul class="shortcut-time">-->
+                                <!--<li class="item" ng-repeat="time in vm.chose track by $index"-->
+                                <!--ng-class="vm.timeName == time.name ? 'on':'' "-->
+                                <!--ng-bind="time.name"-->
+                                <!--ng-click="changeDate(time.name)"></li>-->
+                            <!--</ul>-->
+                        <!--</div>-->
+                        <!--<div class="row">-->
+                            <!--<span>投注时间：</span>-->
+                            <!--<label>-->
+                                <!--<input class="recordTime1 date" ng-model="ToDay"/>-->
+                            <!--</label>-->
+                            <!--<span>至</span>-->
+                            <!--<label>-->
+                                <!--<input class="recordTime2 date" ng-model="ToDay"/>-->
+                            <!--</label>-->
+                            <!--<a class="btn-search"><i></i>查 询</a>-->
+                        <!--</div> &ndash;&gt;-->
+                    <!--</div>-->
+                        </div>
+                </form>
+            </div>
+<!--             <div class="record-bottom-area" style="display: none">
+                <div class="data-table-list">
+                    <table class="data-table">
+                        <tr>
+                            <th>申请时间</th>
+                            <th>收款银行</th>
+                            <th>收款帐号</th>
+                            <th>收款人</th>
+                            <th>取款金额</th>
+                            <th>取款后余额</th>
+                            <th>手续费</th>
+                            <th>审核时间</th>
+                            <th>状态</th>
+                        </tr>
+                        <tbody>
+                            <tr>
+                                <td>2016-10-08<br>14:14:37</td>
+                                <td>工商银行</td>
+                                <td></td>
+                                <td></td>
+                                <td>100.00</td>
+                                <td>50.00</td>
+                                <td>2.00</td>
+                                <td></td>
+                                <td><font color="#2ac42a">通过</font></td>
+                            </tr>
+                            <tr>
+                                <td>2016-10-08<br>14:14:37</td>
+                                <td>工商银行</td>
+                                <td></td>
+                                <td></td>
+                                <td>100.00</td>
+                                <td>50.00</td>
+                                <td>2.00</td>
+                                <td></td>
+                                <td><font color="#ff7e00">不通过</font></td>
+                            </tr>
+                            <tr>
+                                <td>2016-10-08<br>14:14:37</td>
+                                <td>工商银行</td>
+                                <td></td>
+                                <td></td>
+                                <td>100.00</td>
+                                <td>50.00</td>
+                                <td>2.00</td>
+                                <td></td>
+                                <td><font color="#ff7e00">不通过</font></td>
+                            </tr>
+                            <tr>
+                                <td>2016-10-08<br>14:14:37</td>
+                                <td>工商银行</td>
+                                <td></td>
+                                <td></td>
+                                <td>100.00</td>
+                                <td>50.00</td>
+                                <td>2.00</td>
+                                <td></td>
+                                <td><font color="#ff7e00">不通过</font></td>
+                            </tr>
+                            <tr>
+                                <td>2016-10-08<br>14:14:37</td>
+                                <td>工商银行</td>
+                                <td></td>
+                                <td></td>
+                                <td>100.00</td>
+                                <td>50.00</td>
+                                <td>2.00</td>
+                                <td></td>
+                                <td><font color="#ff7e00">不通过</font></td>
+                            </tr>
+                            <tr>
+                                <td>2016-10-08<br>14:14:37</td>
+                                <td>工商银行</td>
+                                <td></td>
+                                <td></td>
+                                <td>100.00</td>
+                                <td>50.00</td>
+                                <td>2.00</td>
+                                <td></td>
+                                <td><font color="#ff7e00">不通过</font></td>
+                            </tr>
+                            <tr>
+                                <td>2016-10-08<br>14:14:37</td>
+                                <td>工商银行</td>
+                                <td></td>
+                                <td></td>
+                                <td>100.00</td>
+                                <td>50.00</td>
+                                <td>2.00</td>
+                                <td></td>
+                                <td><font color="#ff7e00">不通过</font></td>
+                            </tr>
+                            <tr>
+                                <td>2016-10-08<br>14:14:37</td>
+                                <td>工商银行</td>
+                                <td></td>
+                                <td></td>
+                                <td>100.00</td>
+                                <td>50.00</td>
+                                <td>2.00</td>
+                                <td></td>
+                                <td><font color="#ff7e00">不通过</font></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="paging">
+                    <div class="paging-info">第 1 页, 共 1 页, 共 0 条, 每页 10 条</div>
+                    <div class="page-jump">
+                        <a>上一页</a>
+                        <a>1</a>
+                        <a>下一页</a>
+                        <label><input></label>
+                        <a class="go">Go</a>
+                    </div>
+                </div>
+            </div> -->
+        </div>
+        <!--其他游戏-->
+        <div ng-show="data.type == 5" class="record-box record-box5" id="account-changes-record">
+            <div class="load5" style="display: none;position: absolute;top:0;left:0;background: rgba(0,0,0,0.6);width:100%;height:637px">
+                <img src="Public/Mobile/images/game/wait.gif" style="position: absolute;top:50%;left:50%;margin-top: -50px;margin-left:-50px;">
+            </div>
+            <iframe id="pageframe5" name="pageframe" src="" style="width: 100%; height: 600px;border-radius: 15px;" allowtransparency="true" frameborder="0">
+            </iframe>
+        </div>
+    </div>
+    <script>
+        $('.screen-box2').hide();
+        $('.screen-box5').siblings().hide();
+        function change_one(n){
+            var frame = $('.screen-box' + n + " " + 'iframe');
+            if(frame.attr('src') == ''){
+                switch (n){
+                    case 1:frame.attr('src','/index.php?s=/home/team/record.html');
+
+                        frame.load(function() { 
+
+                        });
+                    break;
+                    case 2:frame.attr('src','/index.php?s=/home/team/zhuihao.html');
+                        $('.load1').show();
+                        frame.load(function() { 
+                        $('.load1').hide();
+                        });
+                    break;
+                    case 5:frame.attr('src','/index.php?s=/home/team/rechargeRecord.html');
+                        $('.load3').show();
+                        frame.load(function() { 
+                        $('.load3').hide();
+                        });
+                    break;
+                    case 6:frame.attr('src','/index.php?s=/home/team/cashrecord.html');
+                        $('.load4').show();
+                        frame.load(function() { 
+                        $('.load4').hide();
+                        });
+                    break;
+                }
+            }
+            $('.screen-box'+n).show();
+            $('.screen-box'+n).siblings().hide();
+        }
+
+        function change3(n){
+            var pageframe = $('#pageframe'+n);
+            if(pageframe.attr('src') == ''){
+                switch (n){
+                    case 1:pageframe.attr('src','/index.php?s=/home/team/record.html');
+
+                        pageframe.load(function() { 
+
+                        }); 
+                    break;
+                    case 2:pageframe.attr('src','/index.php?s=/home/team/coin.html');
+                        $('.load2').show();
+                        pageframe.load(function() { 
+                        $('.load2').hide();
+                        }); 
+                    break;
+//                    case 3:pageframe.attr('src','/index.php?s=/home/team/linklist.html').ready();break;
+                    case 4:pageframe.attr('src','/index.php?s=/home/team/rechargeRecord.html');
+                        $('.load3').show();
+                        pageframe.load(function() { 
+                        $('.load3').hide();
+                        });
+                    break;
+                    case 5:pageframe.attr('src','/index.php?s=/home/team/otherGame.html');
+                        $('.load5').show();
+                        pageframe.load(function() { 
+                        $('.load5').hide();
+                        });
+                    break;
+                     default:break;
+                }
+                  
+            }
+            $('.record-box'+n).show();
+            $('.record-box'+n).siblings().hide();
+        }
+
+    </script>
+</div>
+

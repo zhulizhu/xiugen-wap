@@ -1,0 +1,98 @@
+
+<div class="rows">
+	<table class="tzxqtbl">
+	<tbody>
+	<tr>
+		<td>
+			<strong>&nbsp;&nbsp;发起人：</strong>{$this->CsubStr($bets[0]['username'],0,2,'***')}
+		</td>
+		<td>
+			
+		</td>
+		<td>
+			<strong>&nbsp;&nbsp;发起时间：</strong>{:date('Y/m/d H:i:s', $hemai['actionTime'])}
+		</td>
+	</tr>
+	</tbody>
+	</table>
+</div>
+<div class="rows">
+<table class="table m-mn-table m-table-border m-table-middle">
+  <thead>
+	<tr>
+	  <th>
+		彩种
+	  </th>
+	  <th>
+		方案金额
+	  </th>
+	  <th>
+		总份数
+	  </th>
+	  <th>
+		剩余份数
+	  </th>
+	  <th>
+		保底份数
+	  </th>
+	  <th>
+		进度
+	  </th>
+	  <th>
+		方案状态
+	  </th>
+	</tr>
+  </thead>
+  <tbody>
+  <tr id="detail_base">
+	<td>{$types[$bets[0]['type']]['shortName']}</td>
+	<td><span class="red">￥{$hemai['AllFen']*$hemai['perMoney']}</span></td>
+	<td>{$hemai['AllFen']}</td>
+	<td>{$hemai['HaveFen']}</td>
+	<td>{$hemai['BaoDi']}</td>
+	<td>{:round((1-$hemai['HaveFen']/$hemai['AllFen'])*100, 2)}%</td>
+	<td>已截止</td>
+  </tr>
+</tbody></table>
+</div>
+<div class="rows">
+<p class="text-title pull-left" style="margin:5px 10px;">
+  <span class="fc-3">
+	<strong>方案内容：</strong>
+  </span>
+</p>
+<table class="table m-mn-table m-table-border m-table-middle" id="Resolve_body">
+<thead>
+<tr>
+	<th style="width:80px;">
+		玩法
+	</th>
+	<th align="center" style="align:center">
+		投注内容
+	</th>
+	<th style="width:40px;">
+		注数
+	</th>
+</tr>
+</thead>
+<tbody>
+<?php foreach($bets as $bet) { if($bet['hmIsFa']){ ?>
+<tr>
+	<td>
+		{$playeds[$bet['playedId']]['name']}
+	</td>
+	<td style="padding-bottom:5px;word-break: break-all;" align="center">
+		{$bet['actionData']}
+	</td>
+	<td>
+		{$bet['actionNum']}
+	</td>
+</tr>
+<?php }} ?>
+</tbody>
+</table>
+</div>
+
+<?php if(!$bet['lotteryNo'] && $bet['uid']==$user['uid']){ ?>
+<div class="title">&nbsp;&nbsp;<input type="button" value="&nbsp;撤&nbsp;单&nbsp;" class="btn btn-danger" id="cancelproject"></div>
+<?php } ?>

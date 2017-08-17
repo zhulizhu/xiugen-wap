@@ -1,0 +1,569 @@
+/*顶部*/
+.header {
+    width: 100%;
+    height: auto;
+    display: block;
+    font-family: '微软雅黑';
+}
+
+.header-top {
+    width: 100%;
+    height: auto;
+    background: #313131;
+}
+
+.head-nav {
+    width: 1200px;
+    text-align: right;
+    color: #49638f;
+    margin: 0 auto;
+    overflow: inherit;
+}
+
+.head-nav a {
+    display: inline-block;
+    line-height: 58px;
+    color: #fff;
+    font-size: 14px;
+    padding: 0 12px;
+/*    border-bottom: 1px solid transparent;*/
+    margin-right: 2px;
+}
+
+.head-nav a:hover {
+    background: #49638f;
+    border-color: #bac4d4;
+    /*font-size: 16px;
+    line-height: 38px;*/
+    cursor: pointer;
+}
+
+.head-mes {
+    position: relative;
+}
+
+.head-box {
+    width: 29px;
+    height: 29px;
+    display: inline-block;
+    float: left;
+    margin: 5px 5px 5px 0;
+    position: relative;
+}
+
+.head-box img {
+    width: 100%;
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.head-box .head-pic {
+    width: 29px;
+    height: 29px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: url("../images/public/head-pic1.png") no-repeat;
+}
+
+.head-pic.s {
+    background: url("../images/public/head-pic.png") no-repeat;
+}
+
+.account-name {
+    display: inline-block;
+    font-size: 12px;
+    min-width: 53px;
+    text-align: left;
+    text-indent: 6px;
+}
+
+.balance {
+    color: #fff69e;
+}
+
+.head-mes .drop-box {
+    position: absolute;
+    left: 0;
+    top: 50px;
+    width: 100%;
+    height: auto;
+    background: #49638f;
+    display: none;
+    padding-bottom: 10px;
+    z-index: 15;
+}
+
+.drop-box .balance-box {
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+    display: block;
+    text-align: center;
+    border-bottom: 1px solid #7a8dad;
+    margin-bottom: 5px;
+}
+
+.balance-box .balance {
+    font-size: 13px;
+}
+
+.drop-box li {
+    width: 100%;
+    height: 35px;
+    line-height: 35px;
+    margin-bottom: 5px;
+}
+
+.drop-box li:hover {
+    background: #667b9d;
+}
+
+.drop-box li i {
+    width: 22px;
+    height: 22px;
+    float: left;
+    margin: 7px 15px;
+    background: url("../images/public/acount-pic.png") no-repeat;
+}
+
+.drop-box li span {
+    text-align: left;
+    float: left;
+}
+
+.drop-box li i.recharge-ico {
+    background-position: 0 0;
+}
+
+.drop-box li i.transfer-ico {
+    background-position: 0 -40px;
+}
+
+.drop-box li i.withdrawals-ico {
+    background-position: 0 -79px;
+}
+
+.drop-box li i.sign-out-ico {
+    background-position: 0 -119px;
+}
+
+.head-mes:hover > .drop-box {
+    display: block;
+}
+
+.header .isagent-hide {
+    display: none
+}
+
+.header .isagent-show {
+    display: inline-block
+}
+
+/*导航栏*/
+.header .header-menu {
+    background: #1993D6;
+    height: 76px;
+}
+.header .header-menu .wrap{
+    width: 1200px;
+    margin: 0 auto;
+}
+
+.header .header-menu .logo {
+    margin: 2px 0 0 0;
+    width: 265px;
+    height: 60px;
+    background: skyblue;
+    display: none;
+}
+
+.f-left {
+    float: left;
+}
+
+.header .header-menu .nav-link {
+    float: right;
+}
+
+.header .header-menu .nav-link .nav-box {
+    overflow: hidden;
+}
+
+.header .header-menu .nav-link .nav-box li {
+    float: left;
+    z-index: 9;
+}
+
+.header .header-menu .nav-link .nav-box li a {
+    z-index: 8;
+    position: relative;
+    display: block;
+    text-align: center;
+    width: 90px;
+    height: 70px;
+    font-size: 16px;
+    color: #f9f9f9;
+    padding-top: 6px;
+}
+
+.header .header-menu .nav-link .nav-box li a:hover {
+    background: #7fb3ea;
+}
+
+.header .header-menu .nav-link .nav-box .icon {
+    width: 64px;
+    height: 40px;
+    margin: 0 auto;
+    display: block;
+    background: url("../images/public/nav-ic.png") no-repeat 0 0;
+}
+
+.header .header-menu .nav-link .nav-box .icon.home {
+    background-position: 8px 0;
+}
+
+.header .header-menu .nav-link .nav-box .icon.lottery {
+    background-position: 6px -40px;
+}
+
+.header .header-menu .nav-link .nav-box .icon.lucky28 {
+    background-position: 6px -80px;
+}
+
+.header .header-menu .nav-link .nav-box .icon.slots {
+    background-position: 6px -124px;
+}
+
+.header .header-menu .nav-link .nav-box .icon.casino {
+    background-position: 6px -160px;
+}
+
+.header .header-menu .nav-link .nav-box .icon.sport {
+    background-position: 6px -200px;
+}
+
+.header .header-menu .nav-link .nav-box .icon.ag-fish {
+    background-position: 6px -240px;
+}
+
+.header .header-menu .nav-link .nav-box .icon.game {
+    background-position: 6px -280px;
+}
+
+.header .header-menu .nav-link .nav-box .icon.active {
+    background-position: 6px -320px;
+}
+
+.header .header-menu .nav-link .nav-box .icon.service {
+    background-position: 0 -357px;
+}
+
+.header .header-menu .nav-link .nav-box .icon.xl {
+    background-position: 0 -395px;
+}
+.header .header-menu .nav-link .nav-box .icon.other {
+        background-position: 2px -386px;
+}
+.header .header-menu .nav-link .nav-box li:hover > a .icon {
+    animation: myfirst 1s;
+    -moz-animation: myfirst 1s; /* Firefox */
+    -webkit-animation: myfirst 1s; /* Safari and Chrome */
+    -o-animation: myfirst 1s; /* Opera */
+}
+
+@keyframes myfirst {
+    0% {
+        background-position-x: -5px
+    }
+    50% {
+        background-position-x: 5px
+    }
+    75% {
+        background-position-x: 2px
+    }
+    100% {
+        background-position-x: 0px
+    }
+}
+
+@-moz-keyframes myfirst /* Firefox */
+{
+    0% {
+        background-position-x: -5px
+    }
+    50% {
+        background-position-x: 5px
+    }
+    75% {
+        background-position-x: 2px
+    }
+    100% {
+        background-position-x: 0px
+    }
+}
+
+@-webkit-keyframes myfirst /* Safari and Chrome */
+{
+    0% {
+        background-position-x: -5px
+    }
+    50% {
+        background-position-x: 5px
+    }
+    75% {
+        background-position-x: 2px
+    }
+    100% {
+        background-position-x: 0px
+    }
+}
+
+@-o-keyframes myfirst /* Opera */
+{
+    0% {
+        background-position-x: -5px
+    }
+    50% {
+        background-position-x: 5px
+    }
+    75% {
+        background-position-x: 2px
+    }
+    100% {
+        background-position-x: 0px
+    }
+}
+
+/*头部下拉盒子公共部分*/
+.header .header-menu .nav-slider {
+    position: absolute;
+    top: 116px;
+    left: 0;
+    width: 100%;
+    z-index: 999;
+}
+
+.header .header-menu .nav-slider .nav-list {
+    width: 100%;
+    height: auto;
+}
+
+.header .header-menu .nav-slider .list1, .header .header-menu .nav-slider .list2 {
+    width: 100%;
+    height: 130px;
+    background: #80d1ff;
+}
+
+.header .header-menu .nav-slider .nav-list .wrap.cp,
+.header .header-menu .nav-slider .nav-list .wrap.reality {
+    position: relative;
+}
+
+/*头部彩票游戏下拉盒子*/
+.header .header-menu .nav-slider .list1 .left {
+    position: absolute;
+    top: -20px;
+    width: 300px;
+    height: 200px;
+    background: url("../images/public/cp-people.png") no-repeat right 0;
+}
+
+.header .header-menu .nav-slider .left, .header .header-menu .nav-slider .right {
+    float: left;
+}
+
+.header .nav-slider .nav-list.list1 {
+    display: none;
+}
+
+.header .header-menu .nav-slider .list1 ul {
+    margin: 8px 0 0 340px;
+    float: left;
+}
+
+.header .nav-slider .list1 ul .animate {
+    float: left;
+    width: 78px;
+    display: block;
+    padding: 0 15px;
+    font-size: 16px;
+    color: #fff;
+    text-align: center;
+    cursor: pointer;
+}
+
+.header .nav-slider .list1 ul .animate .icon {
+    width: 78px;
+    height: 78px;
+    display: block;
+    margin: 10px auto 4px 0;
+    border-radius: 50%;
+    background: url("../images/public/list1.png") no-repeat;
+}
+
+.header .header-menu .nav-slider .animate .icon.bjpk10 {
+    background-position: 0 0;
+}
+
+.header .header-menu .nav-slider .animate .icon.ssc {
+    background-position: -108px 0;
+}
+
+.header .header-menu .nav-slider .animate .icon.klc {
+    background-position: -216px 0;
+}
+
+.header .header-menu .nav-slider .animate .icon.k3 {
+    background-position: -324px 0;
+}
+
+.header .header-menu .nav-slider .animate .icon.eleven-x5 {
+    background-position: -432px 0;
+}
+
+.header .header-menu .nav-slider .animate .icon.bjpk10:hover {
+    background-position: 0 -78px;
+}
+
+.header .header-menu .nav-slider .animate .icon.ssc:hover {
+    background-position: -108px -78px;
+}
+
+.header .header-menu .nav-slider .animate .icon.klc:hover {
+    background-position: -216px -78px;
+}
+
+.header .header-menu .nav-slider .animate .icon.k3:hover {
+    background-position: -324px -78px;
+}
+
+.header .header-menu .nav-slider .animate .icon.eleven-x5:hover {
+    background-position: -432px -78px;
+}
+
+/*头部真人娱乐下拉盒子*/
+.header .nav-slider .nav-list.list2 {
+    display: none;
+}
+
+.header .nav-slider .nav-list.list2 .reality .left {
+    position: absolute;
+    top: -20px;
+    width: 300px;
+    height: 200px;
+    background: url("../images/public/reality-people.png") no-repeat right 0;
+}
+
+.header .header-menu .nav-slider .list2 ul {
+    margin-left: 340px;
+    float: left;
+}
+
+.header .nav-slider .list2 ul .n-name {
+    float: left;
+    width: 200px;
+    display: block;
+    padding: 0 30px;
+    font-size: 16px;
+    color: #fff;
+    text-align: center;
+    cursor: pointer;
+}
+
+.header .nav-slider .list2 ul .n-name .g-hd {
+    width: 200px;
+    height: 104px;
+    display: block;
+    margin: 0 auto;
+    background: url("../images/public/casino_right.png") no-repeat;
+}
+
+.header .nav-slider .list2 ul .n-name .g-hd.ag {
+    background-position: 0 -0px;
+}
+
+.header .nav-slider .list2 ul .n-name .g-hd.bbin {
+    background-position: 0 -120px;
+}
+
+.header .nav-slider .list2 ul .n-name:hover > .g-hd {
+    animation: mysecond 1s;
+    -moz-animation: mysecond 1s; /* Firefox */
+    -webkit-animation: mysecond 1s; /* Safari and Chrome */
+    -o-animation: mysecond 1s; /* Opera */
+}
+
+.boxed{ width: 1200px; margin: 0 auto;}
+
+
+
+#content-container {
+    padding-top: 0;
+}
+
+.yhhd {
+    position: absolute;
+    background-color: #fff;
+    right: 83px;
+    top: 117px;
+    width: 300px;
+    z-index: 999;
+    display: none;
+    box-shadow: 0px 2px 5px #ddd;
+}
+.yhhdtitle {
+    color: #fff;
+    font-weight: bold;
+    padding: 10px;
+    font-size: 14px;
+    background-color: #1993D6;
+    text-align: center;
+}
+
+.yhhd table.tbl {
+    width: 100%;
+    border-collapse: collapse;
+}
+.yhhd table.tbl th {
+    text-align: center;
+    padding: 0;
+    color: #987f78;
+    line-height: 30px;
+    font-weight: normal;
+    background-color: #f8f3f0;
+    border-bottom: 1px #f8f3f0 solid;
+    width: auto;
+}
+.yhhd table.tbl tr:nth-child(2n) {
+    background-color: #fff;
+}
+.yhhd table.tbl td {
+    border-bottom: 1px #f8f3f0 solid;
+    text-align: center;
+    padding: 5px;
+    color: #666;
+    font-weight: normal !important;
+}
+
+
+
+/*footer*/
+.footer{background-size: 100%!important;width: 100%; height:auto; display: block; color: #d7d7d6;/*clear: left; float: left;*/}
+.wrap{width:100%;margin: 0 auto;overflow: inherit; background:url("../images/index/index-bg.jpg") no-repeat center bottom;}
+.copyright-left{/*float: left;*/ height: 32px; line-height: 32px; display:block;margin:0 auto;text-align: center;padding:10px 0;}
+.copyright-left a{ height: 32px; line-height: 32px; display: inline-block;font-size: 14px;}
+.copyright-left a:hover{text-decoration: underline;}
+.copyright-left i{ display: inline-block; margin:0 10px; font-style: normal;}
+.copyright-right{ float: right; margin-top: 50px;}
+.browser-link,.copyright-text{float: left; margin-right: 30px;}
+.browser-link{margin-top:45px;}
+.browser-link a{float: left;width: 40px; height: 40px; background: url("../images/public/browser-link.png") no-repeat; display: block;}
+.browser-link .nominate-ie{ background-position: 0 0;}
+.browser-link .nominate-firefox{ background-position: -40px 0;}
+.browser-link .nominate-chrome{ background-position: -80px 0;}
+.browser-link .nominate-safari{ background-position: -120px 0;}
+.copyright-text h5{ height: 40px; line-height: 40px; font-size:14px; color:#fff;}
+.copyright-text p{line-height:18px; font-size:12px; color: #fff;}

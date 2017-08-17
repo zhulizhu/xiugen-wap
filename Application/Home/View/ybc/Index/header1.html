@@ -1,0 +1,301 @@
+<style>
+    a {
+        text-decoration: none;
+    }
+    /*退出弹窗*/
+    #ap {
+     position:absolute;
+     z-index:888; left: 50%;
+    margin-left: -128px;
+     margin-top: -75px;
+     top: 50%;
+     display:none;
+ }
+ #qp{
+    position:absolute;
+    z-index:888;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.6);
+    display:none;
+}
+.one{
+    background-color: #fff;width: 256px;height: 150px;border-radius: 15px;
+    overflow:hidden;
+
+}
+#btn1{
+    border: none;
+    padding: 8px 30px;
+    color: #fff;
+    background-color: #0099CC;
+    border-radius: 15px;
+    display: block;margin:10px 81px;
+    float: left;
+    
+
+}
+#tex{
+    font-size: 16px;line-height: 30px;text-align: center;
+    margin:10px auto;
+}
+.one .top{width: 100%;height: 40px;background-color: #0099CC;border-top-left-radius: 13px; border-top-right-radius: 13px;}
+.one .top h4{position: relative;color: #fff;font-size: 14px;line-height: 40px;margin:0 auto;text-align: center;}
+.one .top #del{border-radius: 50%;background-color: #fff;border:3px solid #0099CC;color:#0099CC;width: 30px;height:30px;line-height: 22px;text-align: center;font-size: 16px;position: absolute;top:-6px;right: -12px;font-weight: bolder;cursor: pointer; }
+.header{width: 1200px;margin:0 auto;}
+.header .header-menu{top: 0;background:none;float: left;width: 30%;background: #313131;height: 46px;}
+.header .header-top{float: right;width: 70%;}
+.head-nav{text-align: center;width: 100%;}
+/*.head-nav a{line-height: 40px;margin:20px 0;}*/
+.header .header-menu .nav-link {float: left;}
+.hea{width: 100%;height: 60px;background: #313131;}
+.account-name{text-indent: 26px;}
+/*.f3,.f4{position: relative;}*/
+.f3 ul,.f4 ul{  position: absolute; z-index: 8;background-color: #7fb3ea; width: 1000px;height: 100px;border-radius: 5px;left:10%;display: none;}
+/*.f4 ul{width: 1020px;}*/
+.f3 ul li,.f4 ul li{margin:0 20px;}
+.x1{    padding: 1px!important;
+    width: 50px!important;
+    font-size: 14px!important;height: 56px!important;margin: 0 25px!important;}
+.x1 .icon{    height: 32px!important;background-size: 70%!important;
+}
+.x2 .icon{background-position: 4px 0px!important;}
+.x1 .icon.lottery {
+    background-position: 4px -36px!important;
+}
+#balance{position: relative;}
+#oBox{
+  display: block;
+  position: absolute; 
+  width: 185px;
+  background-color: rgb(128,209,255);
+  z-index: 99;left:-8px;display: none;
+}
+.oTop{overflow: hidden;border-bottom: 1px solid #fff;}
+.f1{float: left;margin:10px 5px 0;}
+.f1 img{width: 32px;height: 32px;border-radius: 50%;}
+.f2{float: left;}
+.f2 p{margin:5px 0;font-size: 12px;line-height: 20px;text-align: left;}
+.ocont ul{overflow: hidden;}
+.ocont ul li{float: left;width: 50%;margin-top:10px;font-size: 12px;}
+.ocont ul li p{text-align: center;height: 20px;line-height: 20px;}
+.d3{background-color: rgb(25,147,214);padding: 5px 0;}
+.d3 button{color:#fff;background-color: rgb(139,181,192);border-radius: 20px;padding: 6px 40px;border:none;display: block;margin:0 auto;font-size: 12px;}
+.oBott ul{overflow: hidden;font-size: 12px;}
+.oBott ul li{float: left;color: #fff;width: 33%;text-align: center;}
+</style>
+
+<div id="qp"></div>
+<div id="ap">
+    <div class="one">
+        <div class="top">
+            <h4>温馨提示</h4>
+            <div id="del">×</div>
+        </div>
+        <p id="tex"></p>
+        <button id="btn1">确定</button>
+    </div>
+
+</div>
+<header>
+    <div class="hea">
+        <div class="header">
+            <div class="header-top">
+                <div class="head-nav">
+                    <a class="report-btn" id="report-ctrl">报表</a>|
+                    <a class="team-btn" id="team-ctrl">团队</a>|
+                    <a class="record-btn" id="record-ctrl">记录</a>|
+                    <a class="message-btn" id="message-ctrl">消息</a>|
+                    <a class="head-mes" style="width: 110px;padding: 1px 0;">
+                        <div class="head-block">
+                            <!--<div class="head-box">-->
+                            <!--<img src="__IMG__/public/head.png">-->
+                            <!--<div class="head-pic"></div>-->
+                            <!--</div>-->
+                            <img src="__IMG__/public/logo.png" style="position: absolute;
+                            top: 15px;
+                            left: 10px;
+                            width: 30px;
+                            height: 30px;">
+                            <span class="account-name ng-binding">{$user.nickname}</span>
+                        </div>
+                        <ul class="drop-box">
+                            <li id="j-sign-out" href="javascript:;" style="display:block;" action="{:U('user/logout')}">
+                                <i class="sign-out-ico"></i>
+                                <span ng-click="logOut()">退 出</span>
+                            </li>
+                        </ul>
+                    </a>|
+                    <a id="balance">余额：<span class="balance ng-binding">{$user.coin}</span>
+                    <!-- 真人娱乐玩法 -->
+                      <div id="oBox">
+                 <div class="oTop">
+                    <div class="f1">
+                       <img  src="/Public/Home/images/public/head.png">
+                    </div>
+                    <div class="f2">
+                        <p>欢迎您 <span>hehe</span></p>
+                        <p>主账户 <span>{$user.coin}</span></p>
+                    </div>
+                    <!-- <div style="float: left;"></div> -->
+                     
+                 </div>
+                 <div class="ocont">
+                     <div>
+                         <ul>
+                             <li><p>MG</p><p>0.000</p></li>
+                             <li><p>AG</p><p>0.000</p></li>
+                             <li><p>PT</p><p>0.000</p></li>
+                             <li><p>沙巴体育</p><p>0.000</p></li>
+                             <li><p>AG棋牌</p><p>0.000</p></li>
+                             <li><p>BBIN</p><p>0.000</p></li>
+                             <li><p>NT</p><p>0.000</p></li>
+                         </ul>
+                     </div>
+                     <div class="d3">
+                         <button>立即充值</button>
+                     </div>
+                 </div>
+                 <div class="oBott">
+                     <ul style="">
+                         <li>提现</li>
+                         <li>转账</li>
+                         <li>退出</li>
+                     </ul>
+                 </div>
+              </div>
+          <!--   <script type="text/javascript">
+                $('#balance').mouseover(function(){
+                $('#oBox').show(); 
+            })
+                $('#balance').mouseleave(function(){
+                $('#oBox').hide(); 
+            })
+            </script> -->
+                    </a>|
+                    <a class="recharge-btn" href="{:U('recharge/index')}" target="pageframe">充值</a>|
+                    <a href="{:U('cash/index')}" target="pageframe" class="withdrawals" id="j-sign-cash">取款</a>
+                </div>
+            </div>
+            <div class="header-menu" >
+                <div class="wrap">
+                    <div class="logo f-left"></div>
+                    <div class="nav-link">
+                        <ul class="nav-box">
+                            <li id="home">
+                                <a class="x1 x2" href="/index.php?s=/home/index/main.html"><i class="icon home"></i>首&nbsp;&nbsp;页</a>
+                            </li>
+                            <li id="lottery" class="f3">
+                                <a class="x1" href="#"><i class="icon lottery"></i>游戏</a>
+                                <ul>
+                                  <li id="lottery">
+                                    <a href="/index.php?s=/home/index/index.html"><i class="icon lottery"></i>彩票游戏</a>
+                                </li>
+                                <li>
+                                    <a href="/index.php?s=/home/index/index.html&game=luck28"><i class="icon lucky28"></i>幸运28</a>
+                                </li>
+                                <li class="promp">
+                                    <a><i class="icon slots"></i>老虎机</a>
+                                </li >
+                                <li id="casino" class="promp" >
+                                    <a rel="5"><i class="icon casino"></i>真人娱乐</a>
+                                </li>
+                                <li class="promp">
+                                    <a><i class="icon sport"></i>体育游戏</a>
+                                </li>
+                                <li class="promp">
+                                    <a><i class="icon ag-fish"></i>AG捕鱼</a>
+                                </li>
+                                <li class="promp">
+                                    <a><i class="icon game"></i>电子竞技</a>
+                                </li>
+                            </ul>
+
+                        </li>
+                        <li id="lottery" class="f4">
+                            <a class="x1" href="#"><i class="icon other"></i>其他</a>
+                            <ul>
+                              <li>
+                                <a href="/index.php?s=/home/index/index.html&game=activity"><i class="icon active"></i>优惠活动</a>
+                            </li>
+                            <li ng-click="openModal()">
+                                <a href="{$settings['kefuGG']}" target="_blank"><i class="icon service"></i>在线客服</a>
+                            </li>
+                        </ul>
+
+                    </li>
+                </ul>
+                <div class="nav-slider">
+                    <div class="nav-list list1" style="display: none;">
+                        <div class="wrap cp">
+                            <div class="left"></div>
+                            <div class="right">
+                                <ul>
+                                    <li class="animate">
+                                        <i class="icon bjpk10"></i>
+                                        <span class="txt">北京PK10</span>
+                                    </li>
+                                    <li class="animate" ng-click="goLottery({cpId:1, wfId:''})">
+                                        <i class="icon ssc"></i>
+                                        <span class="txt">时时彩</span>
+                                    </li>
+                                    <li class="animate">
+                                        <i class="icon klc"></i>
+                                        <span class="txt">快乐彩</span>
+                                    </li>
+                                    <li class="animate">
+                                        <i class="icon k3"></i>
+                                        <span class="txt">快三</span>
+                                    </li>
+                                    <li class="animate">
+                                        <i class="icon eleven-x5"></i>
+                                        <span class="txt">11选5</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="nav-list list2" style="display: none;">
+                        <div class="wrap reality">
+                            <div class="left"></div>
+                            <div class="right">
+                                <ul>
+                                    <li class="n-name" class="promp">
+                                        <i class="g-hd ag"></i>
+                                        <span class="g-bd">AG真人</span>
+                                    </li>
+                                    <li class="n-name" class="promp">
+                                        <i class="g-hd bbin"></i>
+                                        <span class="g-bd">BB真人</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+</header>
+<script type="text/javascript">
+    $(".f3").mouseover(function() {
+      $(".f3>ul").show(300);
+  });
+    $(".f3").mouseleave(function() {
+      $(".f3>ul").hide();
+  });
+    $(".f4").mouseover(function() {
+      $(".f4>ul").show(300);
+  });
+    $(".f4").mouseleave(function() {
+      $(".f4>ul").hide();
+  });
+    $(".head-mes").mouseover(function() {
+        $('.drop-box').css('display','block');
+    })
+    $(".head-mes").mouseleave(function() {
+        $('.drop-box').css('display','none');
+    })
+</script>

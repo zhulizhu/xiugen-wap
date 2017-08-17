@@ -1,0 +1,114 @@
+<?php
+	$modeName=array('2.00'=>'元', '0.20'=>'角', '0.02'=>'分');
+	$liqTypeName=array(
+		1=>'充值',
+		2=>'返点',
+		//3=>'返点',//分红
+		//4=>'抽水金额',
+		5=>'停止追号',
+		6=>'中奖金额',
+		7=>'撤单',
+		8=>'提现失败返回冻结金额',
+		9=>'管理员充值',
+		10=>'解除抢庄冻结金额',
+		//11=>'收单金额',
+		12=>'下级转账',
+		13=>'上级充值成功扣款',
+		50=>'签到赠送',
+		51=>'首次绑定银行卡赠送',
+		52=>'充值佣金',
+		53=>'消费活动',
+		54=>'充值赠送',
+		55=>'注册佣金',
+		
+		100=>'抢庄冻结金额',
+		101=>'投注冻结金额',
+		102=>'追号投注',
+		103=>'合买',
+		//104=>'抢庄抽水金额',
+		105=>'抢庄赔付金额',
+		106=>'提现冻结',
+		107=>'提现成功扣除冻结金额',
+		108=>'开奖扣除冻结金额'
+	);
+?>
+<div>
+<table width="100%" class="table table-striped" id="my-datatable" cellspacing="0">
+	<thead>
+		<tr>
+			<th class="min-tablet text-center">期数</td>
+			<th class="min-tablet text-center">游戏</td>
+			<th class="min-tablet text-center">用户名</td>
+			<th class="min-tablet text-center">派彩额度</td>
+			<th class="min-tablet text-center">销售返点</td>
+			<th class="min-tablet text-center">团队赚水</td>
+			<th class="min-tablet text-center">活动</td>
+			<th class="min-tablet text-center">契约工资</td>
+			<th class="min-tablet text-center">转账工资</td>
+			<th class="min-tablet text-center">实际盈亏</td>
+			<th class="min-tablet text-center">状态</td>
+			<th class="min-tablet text-center">分红</td>
+			<th class="min-tablet text-center">操作</td>
+		</tr>
+	</thead>
+	<tbody>
+	<?php if($data){
+	foreach($data as $var){ ?>
+		<tr class="odd" role="row">
+			<td><?php echo substr(date('Y-m-d H:i:s', $var['actionTime']),2)?></td>
+            
+            <td><?=$var['extfield0']?></td>
+			
+			<td><?=$var['coin']?></td>
+			<td><?php echo substr(date('Y-m-d H:i:s', $var['actionTime']),2)?></td>
+            
+            <td><?=$var['extfield0']?></td>
+			
+			<td><?=$var['coin']?></td>
+			<td><?php echo substr(date('Y-m-d H:i:s', $var['actionTime']),2)?></td>
+            
+            <td><?=$var['extfield0']?></td>
+			
+			<td><?=$var['coin']?></td>
+			<td><?php echo substr(date('Y-m-d H:i:s', $var['actionTime']),2)?></td>
+            
+            <td><?=$var['extfield0']?></td>
+            <td><?php echo substr(date('Y-m-d H:i:s', $var['actionTime']),2)?></td>
+            
+            <td><?=$var['extfield0']?></td>
+		</tr>
+	<?php } }else{ ?>
+    <tr><td colspan="13" width="910px">当前没有查询到任何数据。</td></tr>
+    <?php } ?>
+	</tbody>
+</table>
+</div>
+<div class="page">
+    {$_page}
+</div>
+<style type="text/css">
+    #container .table td{text-align: center;background-color: #fff;border:1px solid #2678e8!important;color: #666;}
+	#container .table th{text-align: center;background-color: #2678e8;border-right: 1px solid #fff!important;
+		border-top: 1px solid #2678e8!important;color: #fff;}
+	#container .table th:first-child{ border-left: 1px solid #2678e8!important;}
+	#container .table th:last-child{ border-right: 1px solid #2678e8!important;}	/*  #container .table td{color: #2678e8;}*/
+    #container .table{margin-top: 15px;}
+</style>
+<script src="/Public/Home/js/jquery.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function () {
+	$('.showDetails').bind('click', showBet);
+	//解决分页问题
+	$('.page a').bind('click', function(){
+		if(this.tagName == 'A'){
+			var parent = this.parentNode.parentNode;
+			var value = $(parent).attr('target');
+			if(value=='_blank')	
+				return true;
+			var url = $(this).attr('href');
+			$('#record-span').load(url);
+			return false;
+		}
+	});
+});
+</script>

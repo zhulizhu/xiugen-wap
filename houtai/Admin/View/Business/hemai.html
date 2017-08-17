@@ -1,0 +1,215 @@
+<extend name="Public/base" />
+
+<block name="body">
+	<!-- 标题栏 -->
+	<div class="main-title">
+		<h2>合买记录</h2>
+	</div>
+	<php> $mname=array('2.00'=>'元','0.20'=>'角','0.02'=>'分');</php>
+	<!-- 高级搜索 -->
+	<form action="{:U('hemai')}" method="post">
+		<div class="search-form fr cf">
+
+			<div class="sleft">
+				用户名：<input style="width:100px" type="text" name="username" class="search-input" value="{:I('username')}" placeholder="用户名">
+			</div>
+			<div class="sleft">
+				<select style="width:100px;" name="type">
+					<option value="">全部彩种</option>
+					<?php if($types) foreach($types as $var){
+						if($var['enable'] && !$var['isDelete']){
+					?>
+						<option value="<?=$var['id']?>" title="<?=$var['title']?>"><?=$this->ifs($var['shortName'], $var['title'])?></option>
+					<?php }} ?>
+				</select>		
+			</div>
+			<div class="sleft">
+				时间从：<input style="width:80px" type="text" name="fromTime" id="first" class="search-input" value="<?=$this->iff(I('fromTime'),I('fromTime'),date('Y-m-d',time())) ?>" placeholder="开始时间">
+			</div>
+			<div class="sleft">
+				到：<input style="width:80px" type="text" name="toTime" id="end" class="search-input" value="<?=$this->iff(I('toTime'),I('toTime'),date('Y-m-d',time())) ?>" placeholder="结束时间">
+			</div>
+			<div class="sbtn">
+				<button type="submit" class="btn" id="search">查 找</button>
+			</div>	
+		</div>
+	</form>
+	
+    <!-- 数据列表 -->
+    <div class="data-table table-striped">
+	<table class="">
+    <thead>
+        <tr>
+			<th class="min-tablet text-center">
+				彩种
+			</th>
+			<th class="min-tablet text-center">
+				期号
+			</th>
+			<th class="min-tablet text-center">
+				发起人
+			</th>
+			<th class="min-tablet text-center">
+				方案金额
+			</th>
+			<th class="min-tablet text-center">
+				每份金额
+			</th>
+			<th class="min-tablet text-center">
+				总份数
+			</th>
+			<th class="min-tablet text-center">
+				剩余份数
+			</th>
+			<th class="min-tablet text-center">
+				方案进度
+			</th>
+			<th class="min-tablet text-center">
+				状态
+			</th>
+			<th class="min-tablet text-center">
+				详细
+			</th>		
+		</tr>
+    </thead>
+    <tbody>
+		<if condition="$_list">
+		<volist name="_list" id="var">
+		<tr>
+			<td class="text-center">
+				{$types[$var['type']]['shortName']}
+            </td>
+			<td class="text-center">
+				{$var['actionNo']}
+            </td>
+			<td class="text-center">
+				{$var['username']}
+			</td>
+            <td class="text-center">
+				{$var['AllFen']*$var['perMoney']}
+            </td>
+			<td class="text-center">
+				{$var['perMoney']}
+            </td>
+			<td class="text-center">
+				{$var['AllFen']}
+            </td>
+			<td class="text-center">
+				{$var['HaveFen']}
+            </td>
+			<td class="text-center">
+				{:round((1-$var['HaveFen']/$var['AllFen'])*100, 2)}%
+            </td>
+			<td class="text-center">
+			<?php
+				if($var['isDelete']==1){
+					echo '<label class="graylab">已撤单</label>';
+				}elseif(!$var['lotteryNo']){
+					if($var['HaveFen']==0){
+						echo '<label class="redlab">已满员</label>';
+					}
+					elseif($var['kjTime']<time()){
+						echo '<label class="graylab">已封单</label>';
+					}else{
+						echo '<label class="graylab">未开奖</label>';
+					}
+				}elseif($var['zjCount']){
+					echo '<label class="redlab">已中奖</label>';
+				}elseif($var['zjCount']==0){
+					echo '<label class="graylab">未中奖</label>';
+				}
+			?>
+			</td>
+			<td class="text-center">
+				<a href="<?=U('Business/hemaiInfo?hmid='.$var['hmId']) ?>" class="text-primary showDetails" target="modal" title="合 买 详 情">查 看</a>
+            </td>
+		
+		</tr>
+		</volist>
+		<else />
+			<tr>
+				<td colspan="15" align="center">暂时没有合买记录。</td>
+			</tr>
+		</if>
+	</tbody>
+    </table> 
+	</div>
+    <div class="page">
+        {$_page}
+    </div>
+</block>
+
+<block name="script">
+    <link href="__STATIC__/datetimepicker/css/datetimepicker.css" rel="stylesheet" type="text/css">
+	<link href="__STATIC__/datetimepicker/css/datetimepicker_blue.css" rel="stylesheet" type="text/css">
+	<link href="__STATIC__/datetimepicker/css/dropdown.css" rel="stylesheet" type="text/css">
+	<script type="text/javascript" src="__STATIC__/datetimepicker/js/bootstrap-datetimepicker.min.js"></script>
+	<script type="text/javascript" src="__STATIC__/datetimepicker/js/locales/bootstrap-datetimepicker.zh-CN.js" charset="UTF-8"></script>
+
+	<script>
+	$(function(){
+		$('#first,#end').datetimepicker({
+			format: 'yyyy-mm-dd',
+			language:"zh-CN",
+			minView:2,
+			autoclose:true
+		});
+		//showTab();
+	});
+	</script>
+	<script type="text/javascript">
+		//回车搜索
+		$("body").keyup(function(e){
+			if(e.keyCode === 13){
+				$("#search").click();
+				return false;
+			}
+		});
+		$('.side-sub-menu').find('a[href="{:U('business/hemai')}"]').closest('li').addClass('current');
+	</script>
+</block>
+
+<block name="style">
+<style>
+.popupModal table tr{
+	border-bottom:#CCCCCC solid 1px;
+}
+
+.popupModal table tr td .tzdata {
+	border: #CCCCCC solid 1px;
+	margin-top: 5px;
+	padding: 5px;
+	word-wrap: break-word;
+	word-break: normal;
+	word-break: break-all;
+	width: 98%;
+	height: 80px;
+	overflow: scroll;
+}
+
+table.gridtable  {
+	font-family: verdana,arial,sans-serif;
+	font-size:11px;
+	color:#333333;
+	border-width: 1px;
+	border-color: #666666;
+	border-collapse: collapse;
+}
+table.gridtable  th {
+	border-width: 1px;
+	padding: 8px;
+	border-style: solid;
+	border-color: #666666;
+	background-color: #dedede;
+}
+table.gridtable  td {
+	border-width: 1px;
+	padding: 8px;
+	border-style: solid;
+	border-color: #666666;
+	background-color: #ffffff;
+}
+
+</style>
+
+</block>

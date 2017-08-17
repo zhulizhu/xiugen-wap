@@ -1,0 +1,51 @@
+<extend name="Public/base"/>
+
+<block name="body">
+	<div class="main-title">
+		<h2>用户等级</h2>
+	</div>
+
+	<div class="cf">
+	
+		<!-- 高级搜索 -->
+
+	</div>
+
+	<div class="data-table table-striped">
+		<table>
+			<thead>
+				<tr>
+					<th>ID</th>
+					<th>级别名称</th>
+					<th>需要积分</th>
+					<th>每日提现上限</th>
+					<th>操作</th>
+				</tr>
+			</thead>
+			<tbody>
+				<volist name="_list" id="config">
+					<tr>
+						<td>{$config.id}</td>
+						<td><input name="levelName" value="{$config.levelName}">
+							<input type="hidden" name="id" value="{$config.id}">
+						</td>
+						<td><input name="minScore" value="{$config.minScore}"></td>
+						<td><input name="maxToCashCount" value="{$config.maxToCashCount}"></td>
+						<td>
+							<a target="ajax" method="post" href="__SELF__">保存修改</a>
+						</td>
+					</tr>
+				</volist>
+			</tbody>
+		</table>
+		<!-- 分页 -->
+	    <div class="page">
+	        {$_page}
+	    </div>
+	</div>
+</block>
+
+<block name="script">
+<script type="text/javascript">
+
+</block>

@@ -1,0 +1,324 @@
+<extend name="Base/common"/>
+
+<block name="title"><title>奖金详情－{:S('WEB_NAME')}</title></block>
+<block name="body">
+    <div class="effect mainnav-lg mainnav-fixed navbar-fixed footer-fixed" id="container" style="position: absolute;top: 0;bottom: 0;left: 0;right: -17px;overflow-y: scroll;">
+        <div id="page-content">
+            <form id="teambetrecord" role="form" action="{:U('team/searchRecord')}" method="post" method="post">
+                <div class="panel">
+                    <div class="pan">
+                     <img src="/Public/Home/images/public/head.png">
+                     <p><span>z0z0001</span><span style="color: #fff;background-color: rgb(8, 75, 199);">代理</span></p>
+                     <p>高频彩返点：<span style="font-weight: bold;">807<span style="font-size: 12px">(1970)</span></span></p>
+                     <p>低频彩返点：<span style="font-weight: bold;">8<span style="font-size: 12px">(1960)</span></span></p>
+
+                 </div>
+                 <div class="panel-body">
+                    <div class="col-sm-12" id="bgColo">
+                        <div class="dataTables_filter">
+                            <label class="userName">
+                                <span style="float: left;">玩法类型：</span>
+                                <ul class="f1">
+                                 <li class="active">时时彩
+                                     <ul class="f2" style="display: block;">
+                                         <li><a href="#" class="on">五星</a></li>
+                                         <li><a href="#">四星</a></li>
+                                         <li><a href="#">前三</a></li>
+                                         <li><a href="#">中三</a></li>
+                                         <li><a href="#">后三</a></li>
+                                         <li><a href="#">前二</a></li>
+                                         <li><a href="#">后二</a></li>
+                                         <li><a href="#">定位胆</a></li>
+                                         <li><a href="#">不定位</a></li>
+                                         <li><a href="#">大小单双</a></li>
+                                         <li><a href="#">龙虎斗</a></li>
+                                         <li><a href="#">任选二</a></li>
+                                         <li><a href="#">任选三</a></li>
+                                         <li><a href="#">任选四</a></li>
+                                     </ul>
+                                 </li>
+                                 <li>11选5
+                                     <ul class="f2">
+                                         <li><a href="#" class="on">三码</a></li>
+                                         <li><a href="#">二码</a></li>
+                                         <li><a href="#">一码</a></li>
+                                         <li><a href="#">不定位</a></li>
+                                         <li><a href="#">定位胆</a></li>
+                                         <li><a href="#">趣味型</a></li>
+                                         <li><a href="#">任选复式</a></li>
+                                         <li><a href="#">任选单式</a></li>
+                                         <li><a href="#">任选胆拖</a></li>                 
+                                     </ul>
+                                 </li>
+                                 <li>快乐十分
+                                     <ul class="f2">
+                                         <li><a href="#" class="on">快乐十分</a></li>                
+                                     </ul>
+                                 </li>
+                                 <li>快三
+                                     <ul class="f2">
+                                         <li><a href="#" class="on">二号不同</a></li>                
+                                     </ul>
+                                 </li>
+                                 <li>PK10
+                                     <ul class="f2">
+                                         <li><a href="#" class="on">猜第一</a></li>
+                                         <li><a href="#">猜第二</a></li>
+                                         <li><a href="#">猜第三</a></li>
+                                         <li><a href="#">猜第四</a></li>
+                                         <li><a href="#">猜第五</a></li>
+                                         <li><a href="#">猜第六</a></li>
+                                         <li><a href="#">猜第七</a></li>
+                                         <li><a href="#">猜第八</a></li>
+                                         <li><a href="#">猜第九</a></li>
+                                         <li><a href="#">猜第十</a></li>
+                                         <li><a href="#">定位胆</a></li>
+                                         <li><a href="#">趣味玩法</a></li>
+                                     </ul>
+                                 </li>
+                                 <li>福彩3D
+                                     <ul class="f2">
+                                         <li><a href="#" class="on">三星</a></li>
+                                         <li><a href="#">二星</a></li>
+                                         <li><a href="#">不定位</a></li>
+                                         <li><a href="#">大小单双</a></li>
+                                         <li><a href="#">前一直选</a></li>
+                                         <li><a href="#">后一直选</a></li>
+                                     </ul>
+                                 </li>
+                             </ul>
+                         </label>
+                     </div>
+                 </div>
+                 <span id="record-span">
+                  <include file="prizeDetail-list" />
+              </span>
+          </div>
+      </div>
+      <input name="__RequestVerificationToken" type="hidden" value="CfDJ8Ktgxm2FAlNEsoI7VoMQlWk-r1WEVUMma9pxU878QzneW2KIrTfgUbuPj__QCtkNRRZvXW6vyGMINg6RucmHxen7pqyeFXfPOriSNInvCqqC13KtPZ_vKB1TImP03Q98KRUIkr3KghHY6GCGBNtfqlS9d9_JZXmL67XbkOB6FJORYTEoyRwdIbKmaIc06OW0qw">
+  </form>
+  <div tabindex="-1" class="modal fade" id="details-modal" role="dialog" aria-hidden="true" aria-labelledby="details-modal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button class="close" type="button" data-dismiss="modal"><span aria-hidden="true">×</span></button>
+                <h4 class="modal-title text-primary"><i class="fa fa-th-list fa-lg"></i>  投 注 详
+                    情
+                </h4>
+            </div>
+            <div id="betDetail">
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-warning btn-labeled fa fa-mail-reply" data-dismiss="modal">关闭</button>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+</div>
+</block>
+<block name="script">
+    <script src="__JS__/dataTables.min.js"></script>
+    <script src="__JS__/dataTables.bootstrap.min.js"></script>
+    <script src="__JS__/dataTables.responsive.min.js"></script>
+    <script src="__JS__/bootbox.min.js"></script>
+    <style type="text/css">
+        .on{color: #2678e8;}
+        .active{color: #2678e8;border-bottom: 2px solid #2678e8;}
+        #bgColo{width:100%;padding: 10px 0;background-color: #e5f0f8;margin-bottom: 15px;}
+        .userName{padding:0px 10px;}
+        .f1,.f2{overflow:hidden;margin:0;padding:0;}
+        .f1>li,.f2>li{float: left;margin:0;padding:0;list-style: none;cursor: pointer;}
+        .f2{position: absolute;display: none;top: 60px;left: 70px;border: 1px solid #2678e8;border-radius: 5px;background-color: #e5f0f8;}
+            /*    .f1{position: relative;}*/
+        .f1>li,.f2>li{padding:5px 20px;}
+        .btn-labeled:before {
+                background-color: rgba(25, 153, 177, 0)!important;}
+        .pan{border:none!important;overflow: hidden;margin: 10px 20px 0px;background-color: #bfd7f8;border-radius: 15px!important;padding: 10px;height: auto;border-bottom:none!important;}
+                .pan img{display: block;float: left;border-radius: 50%;width: 60px;height: auto;}
+                .pan p{float: left;line-height: 60px;margin: 0 10px;font-size: 14px;}
+            }
+        </style>
+        <script type="text/javascript">
+           $(".f1>li").click(function(){
+            $(this).siblings().removeClass('active');
+            $(this).siblings().children('ul').css('display','none');
+           
+            $(this).addClass('active');
+            $(this).children('ul').css('display','block');
+           
+        });
+        //    $("li>a").click(function(){
+        //     $(this).siblings().removeClass('on');          
+        //     $(this).addClass('on');
+           
+        // });
+
+           $(document).ready(function () {
+            $("#j-query").on("click", function () {
+                $.ajax({
+                    type: "GET",
+                    url: '{:U("team/personal_searchReport")}',
+                    data: { username: $('#MemberName').val(), fromTime: $('#BeginDate').val(), toTime: $('#EndDate').val()},
+                    dataType: "html",
+                    global: false,
+                    success: function (result) {
+                        console.log(result);
+                        $('#record-span').html(result);
+                        $('.showDetails').bind('click', showBet);
+                    }, error: function (err) {
+                        var t=err;
+
+                    }
+                });
+                //$("#teambetrecord").submit();
+            });
+
+            $('#PageSize').on('change', function () {
+                this.form.submit();
+            });
+            $('.paging_button').on('click', function () {
+                var pageIndex = $(this).attr('title');
+                $('#PageIndex').val(pageIndex);
+                this.ownerDocument.forms[0].submit();
+            });
+
+            $('.showDetails').bind('click', showBet);
+
+            $("#btn1").click(function(){
+                var myDate = new Date();
+                $('#BeginDate').val(getNowFormatDate(myDate) + " 00:00");
+                myDate.setDate(myDate.getDate()+1);
+                $('#EndDate').val(getNowFormatDate(myDate) + " 00:00");
+            });
+            $("#btn2").click(function(){
+                var myDate = new Date();
+                $('#EndDate').val(getNowFormatDate(myDate) + " 00:00");
+                myDate.setDate(myDate.getDate()-1);
+                $('#BeginDate').val(getNowFormatDate(myDate) + " 00:00");
+            });
+            $("#btn3").click(function(){
+                var myDate = new Date();
+                var d = myDate.getDay();
+                var n = 0;
+                switch (d){
+                    case 0: n = 7;break;
+                    case 1: n = 1;break;
+                    case 2: n = 2;break;
+                    case 3: n = 3;break;
+                    case 4: n = 4;break;
+                    case 5: n = 5;break;
+                    case 6: n = 6;break;
+                }
+                myDate.setDate(myDate.getDate()+1);
+                $('#EndDate').val(getNowFormatDate(myDate) + " 00:00");
+                myDate.setDate(myDate.getDate()-n);
+                $('#BeginDate').val(getNowFormatDate(myDate) + " 00:00");
+            });
+            $("#btn4").click(function(){
+                var myDate = new Date();
+                var d = myDate.getDay();
+                var n = 0;
+                switch (d){
+                    case 0: n = 6;break;
+                    case 1: n = 0;break;
+                    case 2: n = 1;break;
+                    case 3: n = 2;break;
+                    case 4: n = 3;break;
+                    case 5: n = 4;break;
+                    case 6: n = 5;break;
+                }
+                myDate.setDate(myDate.getDate()-n);
+                $('#EndDate').val(getNowFormatDate(myDate) + " 00:00");
+                myDate.setDate(myDate.getDate()-7);
+                $('#BeginDate').val(getNowFormatDate(myDate) + " 00:00");
+            });
+            $("#btn5").click(function(){
+                var firstDate = new Date();
+                firstDate.setDate(1);
+                $('#BeginDate').val(getNowFormatDate(firstDate) + " 00:00");
+                var endDate = new Date(firstDate);
+                endDate.setMonth(firstDate.getMonth()+1,1);
+                $('#EndDate').val(getNowFormatDate(endDate) + " 00:00");
+            });
+            $("#btn6").click(function(){
+                var firstDate = new Date();
+                firstDate.setMonth(firstDate.getMonth()-1,1);
+                $('#BeginDate').val(getNowFormatDate(firstDate) + " 00:00");
+                var endDate = new Date(firstDate);
+                endDate.setMonth(firstDate.getMonth()+1,1);
+                $('#EndDate').val(getNowFormatDate(endDate) + " 00:00");
+            });
+            function getNowFormatDate(day)
+            {
+                var Year = 0;
+                var Month = 0;
+                var Day = 0;
+                var CurrentDate = "";
+                //初始化时间
+                Year       = day.getFullYear();
+                Month      = day.getMonth()+1;
+                Day        = day.getDate();
+                CurrentDate += Year + "-";
+                if (Month >= 10 ){
+                    CurrentDate += Month + "-";
+                }else{
+                    CurrentDate += "0" + Month + "-";
+                }
+                if (Day >= 10 ){
+                    CurrentDate += Day ;
+                }else {
+                    CurrentDate += "0" + Day ;
+                }
+                return CurrentDate;
+            }
+            function showBet() {
+                var href = $(this).attr('action');
+                var v_id = $(this).attr('data-value');
+                var me = this;
+                $("#betDetail").empty();
+                $.ajax({
+                    type: "GET",
+                    url: href,
+                    data: { },
+                    dataType: "html",
+                    global: false,
+                    success: function (data) {
+                        $("#betDetail").append(data);
+                        $("#cancelproject").click(function () {
+                            if (true) {
+                                $.ajax({
+                                    type: "POST",
+                                    url: "{:U('game/deletecode')}",
+                                    data: { id: v_id },
+                                    dataType: "json",
+                                    global: false,
+                                    success: function (data) {
+                                        try {
+                                            if (data.status == 0) {
+                                                alert(data.info);
+                                            } else {
+                                                $(me).closest("tr").addClass("cancel");
+                                                $(me).parent().siblings("td:last").html('<label class="graylab">已撤单</label>');
+                                                $("#details-modal").hide();
+                                                bootbox.alert("撤单成功");
+                                                //$("#betrecord").submit();
+                                            }
+                                        } catch (e) {
+                                            bootbox.alert("撤单失败，请梢后重试");
+                                        }
+                                    },
+                                    error: null,
+                                    cache: false
+                                })
+                            }
+                        })
+                    },
+                    error: null,
+                    cache: false
+                })
+            }
+        });
+
+    </script>
+</block>

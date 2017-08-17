@@ -1,0 +1,37 @@
+﻿﻿@charset "utf-8";
+/* CSS Document */
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,button,select,option,textarea,p,blockquote,th,td{padding:0;margin:0;}
+body{ line-height:none;}
+ul,li{ list-style:none;padding: 0; margin: 0;}
+h1,h2,h3,h4,h5,h6{ text-decoration:none; margin: 0; padding: 0;}
+p{ margin: 0;padding: 0;}
+img{display:inline-block; border-color:transparent; vertical-align: middle;}
+a{text-decoration:none;outline:none; margin: 0; padding:0; cursor:pointer;}
+input{ border-style:none;}
+div,li{ display:block;}
+body,input,button,select,textarea,p{font:12px/1.5 'Microsoft YaHei',Arial,\5B8B\4F53,sans-serif;word-break:break-all;word-wrap:break-word;}
+/*限制网页的宽度*/
+.divbody{width:100%; height:100%; min-width:990px; max-width:1000px; overflow:hidden; margin:0 auto; width:expression(this.width>999?"1000px":this.width);width:expression(this.width<999?"990px":this.width);}
+html{width:100%; height: 100%; display: block; overflow-x: hidden;}
+.fl{float: left;}
+.wrap{width: 1200px; height: auto;  margin: 0 auto;}
+i{font-style: normal;}
+
+/*IE9 以下浏览器识别*/
+body{width: 100%; height: 100%; display: block;}
+.load-box{width:100%; height:100%; display: block; background: #000;}
+.load-bg {width:100%; height:100%; display: block;background: url("../img/index/bg1.jpg") no-repeat;position: relative;}
+.prompt{width:100%; height: 200px; background: #ffffff; border:1px solid gainsboro; position: absolute; top: 50%; margin-top: -120px;}
+.prompt-text{width:100%; height: 60px; line-height: 60px; color: #323232; font-size: 22px; text-align: center;}
+.pro-mes{width:100%; height: 20px; font-size: 15px; line-height: 20px; color:#333333; text-align: center; display: block;}
+.browser{width:600px; height:130px; display: block; margin: 20px auto;}
+.browser li{width:200px; height: auto; float:left; display: block;}
+.browser li a{width:200px; height: 130px;margin: 0 auto;display: block;}
+.browser li a img{ width:60px; height:60px; margin: 0 auto; display: block;}
+.browser li a:hover{cursor:pointer;}
+.browser li a div{color:#333; width:100%; height:40px; line-height: 40px; text-align: center; font-size: 16px;}
+.browser li a:hover div{ color:#1595de;}
+.close{width:20px; height: 20px; line-height: 18px; font-size:20px;color:white;  font-family: arial; background: gray; position: absolute; top:0; right:0; text-align: center;}
+.close:hover{ color:#333333; cursor: pointer;}
+
+

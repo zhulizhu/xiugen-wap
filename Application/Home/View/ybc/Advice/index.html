@@ -1,0 +1,159 @@
+<extend name="Base/common"/>
+
+<block name="title"><title>投诉建议－{:S('WEB_NAME')}</title></block>
+<block name="style">
+<link href="__CSS__/chongzhi.css" rel="stylesheet">
+<style type="text/css">
+        .tousulist {
+            width: 95%;
+        }
+            .tousulist li {
+                list-style: none;
+                display: table;
+                border-bottom: 1px #eee solid;
+            }
+                .tousulist li > span, .tousulist li > div {
+                    display: table-cell;
+                    vertical-align: top;
+                    padding-top: 20px;
+                    padding-bottom: 20px;
+                    width: 100%;
+                }
+                    .tousulist li > div > em {
+                        display: block;
+                        font-style: normal;
+                        margin-top: -10px;
+                        padding-bottom: 10px;
+                    }
+                .tousulist li > span {
+                    width: 60px;
+                    position: relative;
+                    text-align: left;
+                }
+                    .tousulist li > span label {
+                        background-color: #44de9f;
+                        border: 2px #fff solid;
+                        display: inline-block;
+                        border-radius: 7px;
+                        width: 12px;
+                        height: 12px;
+                        position: absolute;
+                        left: 1px;
+                        top: 24px;
+                    }
+                .tousulist li > div {
+                    padding-left: 20px;
+                }
+                    .tousulist li > div p {
+                        font-size: 14px;
+                    }
+                    .tousulist li > div strong {
+                        display: block;
+                        padding-bottom: 10px;
+                        font-size: 16px;
+                    }
+                    .tousulist li > div blockquote {
+                        background-color: #eee;
+                        display: inline-block;
+                        border-radius: 5px;
+                        padding-bottom: 10px;
+                        padding-top: 10px;
+                        overflow: hidden;
+                        font-size: 14px;
+                        clear: both;
+                    }
+                        .tousulist li > div blockquote img {
+                            float: left;
+                            border-radius: 50%;
+                            width: 60px;
+                            height: 60px;
+                            margin-right: 10px;
+                        }
+                    .tousulist li > div strong em {
+                        font-style: normal;
+                        font-weight: normal;
+                        padding-left: 10px;
+                        color: #999;
+                        font-size: 14px;
+                    }
+                    .tousulist li > div strong label {
+                        float: right;
+                        padding-right: 10px;
+                        color: #31bebc;
+                    }
+                    .tousulist li > div strong em i {
+                        margin-right: 5px;
+                    }
+                .tousulist li > span img {
+                    border-radius: 50%;
+                    width: 60px;
+                    height: 60px;
+                    display: inline-block;
+                }
+</style>
+</block>
+<block name="body">
+<?php
+/* *
+ * 功能：一般支付调试入口页面
+ * 版本：1.0
+ * 日期：2015-03-26
+ * 说明：
+ * 以下代码只是为了方便商户测试而提供的样例代码。
+ */
+ 	
+	$time		= time();
+	$orderNo	= date("YmdHis",$time);
+	$tradeDate	= date("Ymd",$time); 
+?>
+<div id="container" class="effect mainnav-lg mainnav-fixed navbar-fixed footer-fixed">
+	<div id="page-content">
+		<form method="post" role="form" id="suggestform" action="./advice_files/advice.html">
+			<div class="panel">
+				<div class="panel-heading">
+					<div class="panel-control">
+						<a href="{:U('Advice/Submit')}" class="btn btn-mint btn-rounded" style="border-radius:5px">新增投诉建议</a>
+					</div>
+					<h3 class="panel-title"><img alt="" src="__IMG__/frame/ts.png">投诉建议</h3>
+				</div>
+				<div class="panel-body">
+					<div class="tousu scrollbox">
+						<ul class="tousulist ">
+						<volist name="lists" id="vo">
+							<li>
+								<span><label></label><img alt="" src="__IMG__/fei_game/tx.jpg"></span>
+								<div>
+									<strong> 我 <em><i class="fa fa-clock-o"></i>{:date('Y/m/d H:i:s', $vo['addTime'])}</em></strong>
+									<p>
+										{:nl2br($vo['content'])}
+									</p>
+									<?php if($vo['reply']) { ?>
+									<blockquote>
+                                        <img alt="" src="__IMG__/frame/av6.png"><strong> 在线客服 <em><i class="fa fa-clock-o"></i>{:date('Y/m/d H:i:s', $vo['replyTime'])}</em></strong>
+                                            <p class="text-danger">{:nl2br($vo['reply'])}</p>
+                                    </blockquote>
+									<?php } ?>
+								</div>
+							</li>
+						</volist>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<input name="__RequestVerificationToken" type="hidden" value="CfDJ8AG1KjRMmbdHiOvb1aigyVkcD8a9lrd14QRHKD0cnYba4s-lAsNVlaoDj0ECJIYrz7P7vuTj1MpKQ896DnYvk3512wrSb0KjG-xqVr6uGmfxVhCADXPiTgIh6Ll3awiiprFiCKIxrDiPqBzIRxRLWaPOpfkevBasWN6yzMftf92G9o4VMnuePsvC_g1kER4OzQ">
+		</form>
+	</div>
+</div>
+</block>
+<block name="script">
+<script src="__JS__/bootbox.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function () {
+	$("#j-query").on("click", function () {
+		
+	});
+	
+});
+
+</script>
+</block>

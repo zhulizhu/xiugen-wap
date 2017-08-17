@@ -1,0 +1,65 @@
+<input type="hidden" name="playedGroup" value="<?=$groupId?>" />
+<input type="hidden" name="playedId" value="<?=$playedId?>" />
+<input type="hidden" name="type" value="<?=$type?>" />
+
+<div class="pp" action="fc3d3xqw012" length="1" random="sscRandom" >
+    <div style="margin-bottom: 5px;height: 50px;" >
+    <div class="title" style="margin-right: 14px;">0</div>
+    &nbsp;
+    <input type="button" value="000" class="code min s" style="border-radius: 0;width: 60px;margin: 0 2px;"/>
+    <input type="button" value="001" class="code min d" style="border-radius: 0;width: 60px;margin: 0 2px;"/>
+    <input type="button" value="002" class="code min s" style="border-radius: 0;width: 60px;margin: 0 2px;"/>
+    <input type="button" value="010" class="code min d" style="border-radius: 0;width: 60px;margin: 0 2px;"/>
+    <input type="button" value="011" class="code min d" style="border-radius: 0;width: 60px;margin: 0 2px;"/>
+    <input type="button" value="012" class="code min d" style="border-radius: 0;width: 60px;margin: 0 2px;"/>
+    <input type="button" value="020" class="code min d" style="border-radius: 0;width: 60px;margin: 0 2px;"/>
+    <input type="button" value="021" class="code min d" style="border-radius: 0;width: 60px;margin: 0 2px;"/>
+    <input type="button" value="022" class="code min d" style="border-radius: 0;width: 60px;margin: 0 2px;"/>
+
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+    <input type="button" value="清" class="action none" style="margin-left: 20px;"/>
+</div>
+    <div style="margin-bottom: 5px;height: 50px;">
+    <div class="title" style="margin-right: 14px;">1</div>
+    &nbsp;
+    <input type="button" value="100" class="code min s" style="border-radius: 0;width: 60px;margin: 0 2px;"/>
+    <input type="button" value="101" class="code min d" style="border-radius: 0;width: 60px;margin: 0 2px;"/>
+    <input type="button" value="102" class="code min s" style="border-radius: 0;width: 60px;margin: 0 2px;"/>
+    <input type="button" value="110" class="code min d" style="border-radius: 0;width: 60px;margin: 0 2px;"/>
+    <input type="button" value="111" class="code min d" style="border-radius: 0;width: 60px;margin: 0 2px;"/>
+    <input type="button" value="112" class="code min d" style="border-radius: 0;width: 60px;margin: 0 2px;"/>
+    <input type="button" value="120" class="code min d" style="border-radius: 0;width: 60px;margin: 0 2px;"/>
+    <input type="button" value="121" class="code min d" style="border-radius: 0;width: 60px;margin: 0 2px;"/>
+    <input type="button" value="122" class="code min d" style="border-radius: 0;width: 60px;margin: 0 2px;"/>
+
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+    <input type="button" value="清" class="action none" style="margin-left: 20px;"/>
+    </div>
+    <div>
+    <div class="title" style="margin-right: 14px;">2</div>
+    &nbsp;
+    <input type="button" value="200" class="code min s" style="border-radius: 0;width: 60px;margin: 0 2px;"/>
+    <input type="button" value="201" class="code min d" style="border-radius: 0;width: 60px;margin: 0 2px;"/>
+    <input type="button" value="202" class="code min s" style="border-radius: 0;width: 60px;margin: 0 2px;"/>
+    <input type="button" value="210" class="code min d" style="border-radius: 0;width: 60px;margin: 0 2px;"/>
+    <input type="button" value="211" class="code min d" style="border-radius: 0;width: 60px;margin: 0 2px;"/>
+    <input type="button" value="212" class="code min d" style="border-radius: 0;width: 60px;margin: 0 2px;"/>
+    <input type="button" value="220" class="code min d" style="border-radius: 0;width: 60px;margin: 0 2px;"/>
+    <input type="button" value="221" class="code min d" style="border-radius: 0;width: 60px;margin: 0 2px;"/>
+    <input type="button" value="222" class="code min d" style="border-radius: 0;width: 60px;margin: 0 2px;"/>
+
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+    <input type="button" value="清" class="action none" style="margin-left: 20px;"/>
+    </div>
+</div>
+<?php
+	//$maxPl=$getPl($type, $playedId);
+?>
+<script type="text/javascript">
+    $(function(){
+        gameSetPl(<?=json_encode($maxPl)?>);
+        })
+</script>

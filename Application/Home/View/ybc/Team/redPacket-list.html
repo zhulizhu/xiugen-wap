@@ -1,0 +1,81 @@
+<?php
+	$modeName=array('2.00'=>'元', '0.20'=>'角', '0.02'=>'分');
+?>
+<div>
+    <table width="100%" class="table table-striped" id="my-datatable" cellspacing="0">
+        <thead>
+        <tr class="table_b_th">
+            <th>编号</th>
+            <th>发送人</th>
+            <th>接收对象</th>
+            <th>红包短语</th>
+            <th>红包金额/个数</th>
+            <th>剩余金额/个数</th>
+            <th>开始时间</th>
+            <th>失效时间</th>
+            <th>状态</th>
+        </tr>
+        </thead>
+        <tbody class="table_b_tr">
+        <?php if($data){
+	foreach($data as $var){
+		$count['betAmount']+=$var['betAmount'];
+		$count['zjAmount']+=$var['zjAmount'];
+		$count['fanDianAmount']+=$var['fanDianAmount'];
+		$count['brokerageAmount']+=$var['brokerageAmount'];
+		$count['cashAmount']+=$var['cashAmount'];
+		$count['coin']+=$var['coin'];
+		$count['rechargeAmount']+=$var['rechargeAmount'];
+	?>
+        <tr>
+            <td><?=$this->ifs($var['time'], '0.0000')?></td>
+            <td><?=$this->ifs($var['rechargeAmount'], '0.0000')?></td>
+            <td><?=$this->ifs($var['cashAmount'], '0.0000')?></td>
+            <td><?=$this->ifs($var['betAmount'], '0.0000')?>/<?=$this->ifs($var['betSum'], '0')?></td>
+            <td><?=$this->ifs($var['betAmount'], '0.0000')?></td>
+            <td><?=$this->ifs($var['cashAmount'], '0.0000')?></td>
+            <td><?=$this->ifs($var['betAmount'], '0.0000')?>/<?=$this->ifs($var['betSum'], '0')?></td>
+            <td><?=$this->ifs($var['cashAmount'], '0.0000')?></td>
+            <td><?=$this->ifs($var['betAmount'], '0.0000')?>/<?=$this->ifs($var['betSum'], '0')?></td>
+        </tr>
+        <?php } ?>
+        <?php }else{ ?>
+        <tr><td colspan="12" width="910px">当前没有查询到任何数据。</td></tr>
+        <?php } ?>
+        </tbody>
+    </table>
+</div>
+<div class="page">
+    {$_page}
+</div>
+<script src="/Public/Home/js/jquery.min.js"></script>
+<style type="text/css">
+    #container .table td{text-align: center;background-color: #fff;border:1px solid #2678e8!important;color: #666;}
+    #container .table th{text-align: center;background-color: #2678e8;border-right: 1px solid #fff!important;
+        border-top: 1px solid #2678e8!important;color: #fff;}
+    #container .table th:first-child{ border-left: 1px solid #2678e8!important;}
+    #container .table th:last-child{ border-right: 1px solid #2678e8!important;}
+    /*  #container .table td{color: #2678e8;}*/
+    #container .table{margin-top: 15px;}
+</style>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('a[target=ajax]').bind('click', function(){
+            var url = $(this).attr('href');
+            $('#record-span').load(url);
+            return false;
+        });
+        //解决分页问题
+        $('.page a').bind('click', function(){
+            if(this.tagName == 'A'){
+                var parent = this.parentNode.parentNode;
+                var value = $(parent).attr('target');
+                if(value=='_blank')
+                    return true;
+                var url = $(this).attr('href');
+                $('#record-span').load(url);
+                return false;
+            }
+        });
+    });
+</script>

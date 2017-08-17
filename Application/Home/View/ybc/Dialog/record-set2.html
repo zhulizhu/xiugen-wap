@@ -1,0 +1,185 @@
+<!--***********************************************记录*************************************************-->
+<!--记录中心-->
+<div class="member-set" id="record-set" ng-controller="RecordCtrl">
+    <div class="pop-menu">
+        <div class="recharge-nav">
+            <a class="lottery-game-record actived1" onclick="change3(1)">彩票游戏</a>
+            <a onclick="change3(2)">账变记录</a>
+            <!--<a onclick="change3(3)">代理记录</a>-->
+            <a onclick="change3(4)">充提记录</a>
+            <a onclick="change3(5)">其他游戏</a>
+        </div>
+        <script type="text/javascript">
+                        $(".recharge-nav a").click(function(){
+                            $(this).siblings().removeClass('actived1');
+                            $(this).addClass('actived1');
+
+                        })
+                    </script>
+    </div>
+    <div class="pop-area">
+        <!--彩票游戏-->
+        <div ng-show="data.type == 1" class="record-box record-box1" id="recharge-record">
+            <!--购彩记录-->
+            <div class="record-top-area">
+                <form class="money-record-message">
+                    <div class="change-record-btn">
+                        <a onclick="change_one(1)" class="actived" >购彩记录</a>
+                        <a onclick="change_one(2)" >追号记录</a>
+                    </div>
+                    <script type="text/javascript">
+                        $(".change-record-btn a").click(function(){
+                            $(this).siblings().removeClass('actived');
+                            $(this).addClass('actived');
+
+                        })
+                    </script>
+                    <!--  购彩记录 -->
+                    <div>
+                    <div class="screen-box screen-box1" ng-show="data.current == 1">
+                        <iframe id="pageframe1" name="pageframe" src="/index.php?s=/home/team/record.html" style="width: 100%; height: 533px;" allowtransparency="true" frameborder="0">
+                        </iframe>
+                    </div>
+                    <!--取款记录-->
+                    <div class="screen-box screen-box2" ng-show="data.current == 2">
+                        <div class="load1" style="display: none;position: absolute;top:0;left:0;background: rgba(0,0,0,0.6);width:100%;min-height:100vh">
+                            <img src="Public/Mobile/images/game/wait.gif" style="position: absolute;top:50%;left:50%;margin-top: -50px;margin-left:-50px;">
+                        </div>
+                        <iframe id="pageframe" name="pageframe" src="" style="width: 100%; height: 533px;" allowtransparency="true" frameborder="0">
+                        </iframe>
+                    </div>
+                    </div>
+
+                </form>
+            </div>
+
+        </div>
+        <!--账变记录-->
+        <div ng-show="data.type == 2" class="record-box record-box2" id="account-changes-record">
+            <div class="load2" style="display: none;position: absolute;top:0;left:0;background: rgba(0,0,0,0.6);width:100%;min-height:100vh">
+                <img src="Public/Mobile/images/game/wait.gif" style="position: absolute;top:50%;left:50%;margin-top: -50px;margin-left:-50px;">
+            </div>
+            <iframe id="pageframe2" name="pageframe" src="" style="width: 100%; height: 600px;border-radius: 15px;" allowtransparency="true" frameborder="0">
+            </iframe>
+        </div>
+
+        <!--充转提记录-->
+        <div ng-show="data.type == 4" class="record-box record-box4" id="recharge-record">
+            <div class="record-top-area">
+                <form class="money-record-message">
+                    <div class="change-record-btn" >
+                        <a onclick="change_one(5)" class="actived" >充值记录</a>
+                        <a onclick="change_one(6)" >取款记录</a>
+                        <!--<a ng-class="{ 'active-chose' : data.current == 3 }" ng-click="actions.setCurrent(3)">转账记录</a>-->
+                        <!--<a ng-class="{ 'active-chose' : data.current == 4 }" ng-click="actions.setCurrent(4)">转入游戏记录</a>-->
+                        <!--<a ng-class="{ 'active-chose' : data.current == 5 }" ng-click="actions.setCurrent(5)">转出游戏记录</a>-->
+                    </div>
+                    <div>
+                    <!-- 充值记录-->
+                    <div class="screen-box screen-box5" ng-show="data.current == 1">
+                        <div class="load3" style="display: none;position: absolute;top:0;left:0;background: rgba(0,0,0,0.6);width:100%;min-height:100vh">
+                            <img src="Public/Mobile/images/game/wait.gif" style="position: absolute;top:50%;left:50%;margin-top: -50px;margin-left:-50px;">
+                        </div>
+                        <iframe id="pageframe4" name="pageframe" src="" style="width: 100%; height: 533px;" allowtransparency="true" frameborder="0">
+                        </iframe>
+                    </div>
+                    <!--取款记录-->
+                    <div class="screen-box screen-box6" ng-show="data.current == 2">
+                        <div class="load4" style="display: none;position: absolute;top:0;left:0;background: rgba(0,0,0,0.6);width:100%;min-height:100vh">
+                            <img src="Public/Mobile/images/game/wait.gif" style="position: absolute;top:50%;left:50%;margin-top: -50px;margin-left:-50px;">
+                        </div>
+                        <iframe id="pageframe" name="pageframe" src="" style="width: 100%; height: 533px;border-radius: 15px;" allowtransparency="true" frameborder="0">
+                        </iframe>
+                    </div>
+                     </div>
+
+                </form>
+            </div>
+        </div>
+        <!--其他游戏-->
+        <div ng-show="data.type == 5" class="record-box record-box5" id="account-changes-record">
+            <div class="load5" style="display: none;position: absolute;top:0;left:0;background: rgba(0,0,0,0.6);width:100%;min-height:100vh">
+                <img src="Public/Mobile/images/game/wait.gif" style="position: absolute;top:50%;left:50%;margin-top: -50px;margin-left:-50px;">
+            </div>
+            <iframe id="pageframe5" name="pageframe" src="" style="width: 100%; height: 600px;border-radius: 15px;" allowtransparency="true" frameborder="0">
+            </iframe>
+        </div>
+    </div>
+    <script>
+        $('.screen-box2').hide();
+        $('.screen-box5').siblings().hide();
+        function change_one(n){
+            var frame = $('.screen-box' + n + " " + 'iframe');
+            if(frame.attr('src') == ''){
+                switch (n){
+                    case 1:frame.attr('src','/index.php?s=/home/team/record.html');
+
+                        frame.load(function() { 
+
+                        });
+                    break;
+                    case 2:frame.attr('src','/index.php?s=/home/team/zhuihao.html');
+                        $('.load1').show();
+                        frame.load(function() {
+                        $('.load1').hide();
+
+                        });
+                    break;
+                    case 5:frame.attr('src','/index.php?s=/home/team/rechargeRecord.html');
+                        $('.load3').show();
+                        frame.load(function() {
+                            $('.load3').hide();
+                        });
+                    break;
+                    case 6:frame.attr('src','/index.php?s=/home/team/cashrecord.html');
+                        $('.load4').show();
+                        frame.load(function() {
+                            $('.load4').hide();
+                        });
+                    break;
+                }
+            }
+            $('.screen-box'+n).show();
+            $('.screen-box'+n).siblings().hide();
+        }
+
+        function change3(n){
+            var pageframe = $('#pageframe'+n);
+            if(pageframe.attr('src') == ''){
+                switch (n){
+                    case 1:pageframe.attr('src','/index.php?s=/home/team/record.html');
+
+                        pageframe.load(function() { 
+
+                        }); 
+                    break;
+                    case 2:pageframe.attr('src','/index.php?s=/home/team/coin.html');
+                        $('.load2').show();
+                        pageframe.load(function() {
+                            $('.load2').hide();
+                        }); 
+                    break;
+//                    case 3:pageframe.attr('src','/index.php?s=/home/team/linklist.html').ready();break;
+                    case 4:pageframe.attr('src','/index.php?s=/home/team/rechargeRecord.html');
+                        $('.load3').show();
+                        pageframe.load(function() {
+                            $('.load3').hide();
+                        });
+                    break;
+                    case 5:pageframe.attr('src','/index.php?s=/home/team/otherGame.html');
+                        $('.load5').show();
+                        pageframe.load(function() {
+                            $('.load5').show();
+                        });
+                    break;
+                     default:break;
+                }
+                  
+            }
+            $('.record-box'+n).show();
+            $('.record-box'+n).siblings().hide();
+        }
+
+    </script>
+</div>
+

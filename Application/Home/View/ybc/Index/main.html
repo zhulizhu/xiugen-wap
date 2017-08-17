@@ -1,0 +1,1008 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta name="renderer" content="webkit">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>首页－{:S('WEB_NAME')}</title>
+    <link rel="icon" href="/Public/Home/images/public/logo.png" type="image/x-icon"/>
+    <link href="__CSS__/nifty.min.css" rel="stylesheet">
+    <link href="__CSS__/font-awesome.min.css" rel="stylesheet">
+    <link href="__CSS__/css.min.css" rel="stylesheet">
+    <link href="__CSS__/bootstrap.min.css" rel="stylesheet">
+    <link href="__CSS__/pop-up.css" rel="stylesheet">
+    <link href="__CSS__/header.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="__CSS__/carousel.css">
+    <link rel="stylesheet" type="text/css" href="__CSS__/swiper.min.css">
+    <link href="__CSS__/twitter.css" rel="stylesheet">
+
+    <script type="text/javascript" src="__JS__/jquery-1.8.0.min.js"></script>
+    <script src="__JS__/ionic.bundle.min.js"></script>
+    <script src="__JS__/plug-in/jquery.carousel.js"></script>
+    <script src="__JS__/plug-in/jquery.flexslider.min.js"></script>
+    <script type="text/javascript" src="__JS__/game.js"></script>
+    <script type="text/javascript" src="__JS__/jquery-ui-1.8.23.custom.min.js"></script>
+    <script src="__JS__/av-mini.js"></script>
+    <script src="__JS__/swiper/swiper.min.js"></script>
+    <script src="__JS__/jquery.min.js"></script>
+    <script src="__JS__/bootstrap.min.js"></script>
+    <script src="__JS__/nifty.min.js"></script>
+    <script src="__JS__/dialog/artDialog.js"></script>
+    <script src="__JS__/release.js"></script>
+    <script src="__JS__/layout.min.js"></script>
+
+
+    <style>
+
+        .pop-menu a {
+            display: block;
+        }
+        /*banner*/
+        .main {
+            width: 100%;
+            height: 100%;
+            display: block;
+            position: relative;
+            padding-bottom: 100px;
+        }
+
+        .main.index-bg {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            background: url("__IMG__/index/index-bg.jpg") no-repeat center 426px;
+            background-size: 100% 100%;
+        }
+
+        .main .banner {
+            width: 100%;
+            height: 426px;
+            background: #155985;
+            display: block;
+        }
+
+        .banner-box {
+            width: 1400px;
+            margin: 0 auto;
+        }
+
+        /*板块1*/
+        .plate1 {
+            width: 1160px;
+            height: 250px;
+            display: block;
+            z-index: 300;
+            position: relative;
+            margin: 0 auto;
+            overflow: inherit;
+        }
+
+        .play-active {
+            width: 460px;
+            height: 250px;
+            float: left;
+        }
+
+        .play-active .swiper-button-prev {
+            background: url("__IMG__/index/flip-left.png") no-repeat center center #1f2631;
+            left: 0;
+            right: auto;
+            width: 60px;
+            height: 250px;
+            top: 22px;
+        }
+
+        .swiper-container {
+            width: 460px;
+            height: 100%;
+        }
+
+        .swiper-slide {
+            text-align: center;
+            font-size: 18px;
+            background: #111a2b;
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: -webkit-flex;
+            display: flex;
+            -webkit-box-pack: center;
+            -ms-flex-pack: center;
+            -webkit-justify-content: center;
+            justify-content: center;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            -webkit-align-items: center;
+            align-items: center;
+        }
+
+        .swiper-slide a {
+            width: 460px;
+        }
+
+        .swiper-slide a img {
+            margin-left: 60px;
+            width: 100%;height: auto;
+        }
+
+        .wrap.plate1 ul {
+            width: 400px;
+            height: 250px;
+            display: block;
+            float: left;
+        }
+
+        .wrap.plate1 ul li {
+            width: 400px;
+            height: auto;
+            display: block;
+            float: left;
+        }
+
+        .wrap.plate1 ul li a {
+            width: 400px;
+            height: auto;
+            display: block;
+        }
+
+        .wrap.plate1 ul li a img {
+            display: block;
+        }
+
+        .swiper-slide a img:hover, .wrap.plate1 ul li a img:hover {
+            opacity: 0.95;
+        }
+
+        .notice {
+            width: 300px;
+            height: 250px;
+            background: #1f2631;
+            display: block;
+            float: left;
+        }
+
+        .notice-type {
+            width: 90%;
+            height: 38px;
+            line-height: 38px;
+            padding: 0 5%;
+            background: #1992d7;
+        }
+
+        .notice-type a {
+            width: 33%;
+            height: 38px;
+            line-height: 38px;
+            text-align: center;
+            float: left;
+            font-size: 14px;
+            color: #d7d7d6;
+        }
+
+        .notice-type a:hover, .notice-type .act {
+            background: url("__IMG__/index/act.png") no-repeat center bottom;
+        }
+
+        .notice ol {
+            width: 270px;
+            height: 170px;
+            display: block;
+            margin: 20px auto;
+            overflow: hidden;
+        }
+
+        .notice ol li {
+            width: 100%;
+            height: 30px;
+            line-height: 30px;
+            border-bottom: 1px solid #767a81;
+            color: #d7d7d6;
+            font-size: 14px;
+            margin-top: 3px;
+        }
+
+        .notice ol li a {
+            width: 65%;
+            height: inherit;
+            line-height: inherit;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            float: left;
+            cursor:pointer;
+        }
+
+        .notice ol li span {
+            float: right;
+        }
+        
+        /*板块2*/
+        .plate2{width:1160px;height:314px; display: block; margin: 0 auto;overflow: inherit}
+        .game-link{width: 845px; height: 314px; float:left; display: block; background:rgba(22,58,86,0.2);}
+        .game-link .game-list{width:290px; height: 314px; display: block; background: url("__IMG__/index/cpyx.png") no-repeat left center; float:left;}
+        .game-list h3{width: 100%; height:110px; line-height: 110px; font-size:30px; color: #fff; text-align: center;}
+        .game-list ul{width: 180px; height: auto; display: block; margin: 0 auto;}
+        .game-list ul li{width: 100%; height: 38px; line-height: 38px; display: block; margin: 0 auto; color: #fff; font-size: 24px; text-indent: 28px; background: url("__IMG__/index/act1.png") no-repeat 5px center;cursor: pointer;}
+        .game-list ul li a{color: #fff;}
+        .game-list ul li img{margin:7px 0;}
+
+        .game-list ul .act,.game-list ul li:hover{color: #659efd;}
+        .game-pic{width: 555px; height: 314px; float: left;}
+        .game-pic ul{width:560px; height: 300px; display: block; margin-top: 8px; overflow: hidden;}
+        .game-pic ul li{width:185px; height:150px; display: block; float: left; border-bottom: 1px solid #5c6976;border-left: 1px solid #5c6976;cursor: pointer;}
+        .game-pic ul li .game-icon{width: 130px; height: 130px; display: block; background: url("__IMG__/index/game-icon.png") no-repeat; margin: 10px auto;}
+        .game-pic ul li .game-icon.ssc-pic{background-position: 0 0;}
+        .game-pic ul li .game-icon.syxw-pic{background-position: -197px 0;}
+        .game-pic ul li .game-icon.k3-pic{background-position: -394px 0;}
+        .game-pic ul li .game-icon.klc-pic{background-position: 0 -153px;}
+        .game-pic ul li .game-icon.klsf-pic{background-position: -197px -153px;}
+        .game-pic ul li .game-icon.qtc-pic{background-position: -394px -153px;}
+        /*.game-pic ul li:hover{background:rgba(23,100,148,0.5);}*/
+        .down-zip{width:305px; height: 314px;float: left; background: url("__IMG__/index/down-bg.png") no-repeat; margin-left: 8px;}
+        .down-zip .game-down{width:280px; margin: 0 auto; height: 44px; display: block; }
+        .down-zip .game-down a{width: 90px; height:36px; line-height: 36px; float: left; text-align: center; margin: 8px 1px 0 1px; font-size: 14px; color: #fff;}
+        .down-zip .game-down .act2,.down-zip .game-down a:hover{color: #1992d7;}
+        .qr-box{width: 270px; height:146px; margin:28px auto;}
+        .qr-bg{width:118px; height:inherit;float: left; background: #fff;}
+        .qr-bg img{width:108px; height:108px;  float: left; background: #fff; margin: 5px;}
+        .qr-bg span{width: 100%; height:20px; line-height: 20px; font-size: 14px; color: #515151; text-align: center; display: block;}
+        .qr-add{width:116px; height: auto; float: left; margin-left:15px; font-size:14px; text-align:center;}
+        .qr-add p{width:100%; line-height:26px; color: #dfdfdf;}
+        .qr-add a{width:100%; height: 32px; line-height:32px; background: #1992d7; margin-top: 14px;color: #dfdfdf;border-radius: 6px;display: block;}
+        .qr-add a:hover{background: #229fe7;cursor: pointer;}
+        .down-foot{width:290px; height: 68px; background: #1992d7; margin: 8px auto 0 auto;}
+        .down-foot a{width:144px; height: 60px; float: left; border-right:1px solid #fff; margin-top: 5px;}
+        .down-foot .port1 span{width:29px; height: 29px; display: block; float: left; background: url("__IMG__/index/down-icon.png") no-repeat center center; margin: 6px 7px;}
+        .down-foot .port1 p{line-height: 20px; color: #fff; font-size: 14px; margin-top: 2px;}
+        .down-foot .web-site{border-right: 0;}
+        .down-foot .web-site p{ margin:2px 7px 0px 10px;line-height: 20px; font-size: 14px; color: #fff;}
+        /*板块3*/
+        .plate3{width:1160px; height:372px; font-size: 18px;margin: 0 auto;overflow: inherit;}
+        .game-electron,.game-chess,.game-sport,.game-casino{ height: inherit;float: left; margin-right: 10px;}
+        .game-electron{width:285px;position: relative;}
+        .game-chess{width:280px;}
+        .game-sport{width:280px;}
+        .game-casino{width:275px;}
+        .game-title{width:100%; height: 46px; line-height: 46px; font-size:24px;background-color: #1992d7; margin-top:10px;}
+        .game-title i{width:34px; height: 34px; display: block; float: left; background-position:center center; margin: 5px 10px;}
+        .game1{background: url("__IMG__/index/game1.png") no-repeat;}
+        .game2{background: url("__IMG__/index/game2.png") no-repeat;}
+        .game3{background: url("__IMG__/index/game3.png") no-repeat;}
+        .game4{background: url("__IMG__/index/game4.png") no-repeat;}
+        .game-title span{display: block; float: left; color: #fefeff;}
+        .game-show{width: 100%; height:310px; position:relative;}
+        .game-show .img {position: absolute;width: 100%;height: 180px;left: 0;top:0;z-index: 10;}
+        .game-show .img:hover > .mask-bg{ display: block;cursor: pointer;}
+        .game-show .mask-bg{width: 100%; height:260px; background:rgba(0,0,0,0.4); position: absolute; top: 0;z-index: 50; display: none;}
+        .game-show .mask-bg a{width:100px; height: 40px; line-height: 40px;  text-align: center; background: #659efd ;color: #fff; position:absolute; top:50%; margin-top: -20px;cursor: pointer;border-radius: 6px;display: block;left:50%;margin-left: -50px;}
+        .game-show .panel {position: absolute;width: 100%; height: 50px; bottom: 0; z-index: 20;background:rgba(0,0,0,0.8);border: none;box-shadow: none;margin-bottom: 0px;}
+        .game-show .panel li {width: 25%; height: 50px; float: left; display: inline;}
+        .game-show .panel .on {background-color: #1992d7!important;color: #000!important;}
+        .game-show .title {position: absolute;width: 290px;height: 50px;bottom: 0;z-index: 30;}
+        .game-show .title li {width: 25%;height: 50px;float: left; display: inline;  text-align:center; line-height: 50px;}
+        .game-show .title li a {display: block;text-align: center;color: #FFFDFE;height: 50px;line-height: 50px;cursor: pointer;}
+        .chess-bg{width: 100%; height:310px; background: url("__IMG__/index/qpyx1.jpg") no-repeat;clear: left;}
+        .chess-bg .mask-bg{width:100%; height: 310px;background:rgba(18,70,98,0.5);position: relative;}
+        .chess-bg .mask-bg a{width:100px; height: 40px; line-height: 40px;  text-align: center; background: #659efd ;color: #fff;display: block;margin: auto;position: absolute;top:50%;margin-top:-20px;cursor: pointer;left:50%;margin-left: -50px;border-radius: 6px;}
+        .chess-bg .mask-bg a:hover{background:rgba(18,70,98,0.7);cursor: pointer;}
+        .sport-bg{width: 100%; height: 310px; background: url("__IMG__/index/tyyx.jpg") no-repeat;}
+        .mask-sb,.mask-bb{width: 142px; height: 310px; background: rgba(93,104,116,0.5); float: left;}
+        .mask-bb{width:138px;background: rgba(107,159,206,0.5);}
+        .mask-sb span,.mask-bb span{ width: 100%; height: 35px; line-height: 35px;color: #fefeff; text-align: center;  display: block; padding-top: 100px;-webkit-box-sizing:inherit!important;box-sizing:inherit!important;}
+        .mask-sb a,.mask-bb a{height: 40px; line-height: 40px;text-align: center; margin: auto auto;width: 100px;background: #659efd ;color: #fff;display: block;cursor: pointer;border-radius: 6px;
+        }
+        .mask-sb a:hover,.mask-bb a:hover{background:rgba(18,70,98,0.7);cursor: pointer;}
+        .casino-bg{width: 100%; height: 310px;}
+        .ag-pic,.bb-pic{width: 100%; height:150px; margin-bottom: 10px; position: relative;}
+        .ag-pic img,.bb-pic img{width: 100%; height:100%; display: block;}
+        .casino-bg a{width: 100%; height:34px; line-height: 34px; color: #fefeff; text-align: center; position: absolute; bottom: 0; background:rgba(64,143,186,0.7);cursor: pointer;}
+        .casino-bg a:hover{background:rgba(64,143,186,0.9);cursor: pointer;}
+        .game-pic li{position: relative;z-index: 9;overflow:hidden;}
+        .gam{position: absolute;left: 100%; top: 0;z-index: 9;width: 100%;height: 100%;background-color: #28334c;color: #fff;}
+        .game-pic .gam.trans { -webkit-transition: all .2s; -moz-transition: all .2s; -ms-transition: all .2s; -o-transition: all .2s; transition: all .2s; backface-visibility: hidden; }
+        .game-item .icon{background: url("/Public/Home/images/lottery/arrow2.png") no-repeat;top: -2px;position: relative;width: 10px;height: 10px;display: inline-block;left:20px;}
+        #betDetail .title{text-align: center;margin: 10px 0;font-size: 16px;}
+        .game-item{margin-bottom: 5px;color: #fff;font-size: 13px;}
+        .game-item:hover{color: #deb561;}
+        .gam .title{text-align: center;margin: 10px 0;font-size: 16px;}
+        * {
+            -webkit-box-sizing: inherit!important;
+            -moz-box-sizing: inherit!important;
+            box-sizing: inherit!important;
+        }
+        .col-md-12,.tzxqtbl td div textarea{
+         box-sizing:border-box!important; 
+     }
+
+     /*退出弹窗*/
+     #a {
+       position:fixed;
+       z-index:888; left: 50%;
+       margin-left: -170px;
+       top: 50%;
+       margin-top: -83px;
+       display:none;
+   }
+   #q{
+    position:fixed;
+    z-index:888;
+    width:100%;
+    min-height:100vh;
+    background:rgba(0,0,0,0.6);
+    display:none;
+}
+.en{
+    background-color: #fff;width: 256px;height: 150px;border-radius: 15px;
+    overflow:hidden;
+
+}
+#btn{
+    border: none;
+    padding: 8px 30px;
+    color: #fff;
+    background-color: #0099CC;
+    border-radius: 15px;
+    display: block;margin:10px 81px;
+    float: left;
+
+
+}
+#te{
+    font-size: 12px;line-height: 30px;text-align: center;
+    margin:10px auto;
+}
+.en .to{width: 100%;height: 40px;background-color: #0099CC;border-top-left-radius: 13px; border-top-right-radius: 13px;}
+.en .to h4{position: relative;color: #fff;font-size: 14px;line-height: 40px;margin:0 auto;text-align: center;}
+.en .to #de{border-radius: 50%;background-color: #fff;border:3px solid #0099CC;color:#0099CC;width: 25px;height:25px;line-height: 25px;text-align: center;font-size: 16px;position: absolute;top:-6px;right: -12px;font-weight: bolder;cursor: pointer; }
+body{padding-right:0px!important;}
+.modal-open{overflow: inherit!important;}
+.mode{padding-right:0px!important;margin-left: -411px!important;}
+
+</style>
+<script>
+    $(function(){
+        $(".game-pic li").each(function(){
+           $(this).mouseleave(function(){
+            $(this).find(".gam").stop().animate({left:'100%'},"fast");
+        });
+           $(this).mouseover(function(){
+             $(this).find(".gam").stop().animate({left:'0px'},"fast");
+         });
+
+       })
+    });
+</script>
+</head>
+
+<body class="nifty-ready"  ng-app="frame" id="frame" style="padding-right: 0px!important;">
+   <div id="q"></div>
+   <div id="a">
+    <div class="en">
+      <div class="to">
+        <h4>温馨提示</h4>
+        <div id="de">×</div>
+    </div>
+    <p id="te"></p>
+    <button id="btn">确定</button>
+</div>
+
+</div>
+<block name="include">
+    <include file="Index:header"/>
+</block>
+<div id="content-container" style="padding-bottom: 0;width: 1200px;display:none;margin: 0 auto;float: none">
+    <div id="page-content" style="padding: 0; margin: 0">
+        <iframe id="pageframe" name="pageframe" src=""
+        style="width: 100%;"
+        allowtransparency="true" frameborder="0">
+    </iframe>
+</div>
+</div>
+<div class="main index-bg" ng-controller="MainCtrl">
+    <div class="banner">
+        <div class="wrap banner-box">
+            <div class="caroursel poster-main"
+            data-setting='{"width":1400,"height":426,"posterWidth":920,"posterHeight":426,"scale":0.9,"dealy":"2000","algin":"middle"}'>
+            <ul class="poster-list">
+                <li class="poster-item">
+                    <img src="/Public/Home/images/banner01.jpg" width="100%" height="100%">
+                </li>
+                <li class="poster-item">
+                    <img src="/Public/Home/images/banner02.png" width="100%" height="100%">
+                </li>
+                <li class="poster-item">
+                    <img src="/Public/Home/images/banner03.jpg" width="100%" height="100%">
+                </li>
+            </ul>
+            <div class="poster-btn poster-prev-btn"></div>
+            <div class="poster-btn poster-next-btn"></div>
+        </div>
+    </div>
+</div>
+<div class="wrap plate1">
+    <div class="play-active">
+        <div class="swiper-container">
+            <div class="swiper-wrapper" ng-click="slotImg()">
+                <div class="swiper-slide">
+                    <a>
+                        <img src="__IMG__/index/jj1.jpg">
+                    </a>
+                </div>
+                <div class="swiper-slide">
+                    <a>
+                        <img src="__IMG__/index/jj2.jpg">
+                    </a>
+                </div>
+                <div class="swiper-slide">
+                    <a>
+                        <img src="__IMG__/index/jj3.jpg">
+                    </a>
+                </div>
+            </div>
+            <div class="swiper-button-prev"></div>
+        </div>
+    </div>
+    <ul>
+        <li>
+            <a ng-click="slotImg()">
+                <img src="__IMG__/index/jjy.jpg">
+            </a>
+        </li>
+    </ul>
+    <div class="notice">
+        <div class="notice-type">
+            <a class="act" rel="1" ng-click="changeNoticeNav(1)">重要通知</a>
+            <!--<a rel="2" ng-click="changeNoticeNav(2)">平台维护</a>-->
+        </div>
+        <ol>
+            <volist name="notice" id="vo">
+                <li>
+                    <a class="notices" data-id="{$vo.id}">{$vo.title}</a>
+                    <span>{$vo.addTime|date='Y-m-d',###}</span>
+                </li>
+            </volist>
+            <!--<li ng-repeat="notice in noticeList">-->
+                <!--<a ng-click="noticeListDetails(notice.id)">{{notice.title}}</a>-->
+                <!--<span>{{notice.create_time * 1000 | date : 'yyyy-MM-dd'}}</span>-->
+            <!--</li>-->
+        </ol>
+    </div>
+</div>
+<div class="plate2">
+    <div class="game-link">
+        <div class="game-list">
+            <h3><img src="__IMG__/index/cp.png"></h3>
+            <ul>
+                <li class="act1">
+                    <a href="/index.php?s=/home/index/index.html&lott=1"><img src="__IMG__/index/cq.png"></a>
+                </li>
+                <li>
+                    <a href="/index.php?s=/home/index/index.html&lott=10"><img src="__IMG__/index/tj.png"></a>
+                </li>
+                <li>
+                    <a href="/index.php?s=/home/index/index.html&lott=9"><img src="__IMG__/index/xj.png"></a>
+                </li>
+                <li>
+                    <a href="/index.php?s=/home/index/index.html&lott=14"><img src="__IMG__/index/bj.png"></a>
+                </li>
+            </ul>
+        </div>
+        <div class="game-pic">
+            <ul>
+                <li>
+                    <a href="/index.php?s=/home/index/index.html&lott=1" class="game-icon ssc-pic"></a>
+                    <div index="0" class="gam">
+                        <div class="title">时时彩</div>
+                        <a href="/index.php?s=/home/index/index.html&lott=1"><div class="game-item" module="lottery" args="cp_id=1"><i class="icon"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;重庆时时彩</div></a>
+                        <a href="/index.php?s=/home/index/index.html&lott=10"><div class="game-item" module="lottery" args="cp_id=3"><i class="icon"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;天津时时彩</div></a>
+                        <a href="/index.php?s=/home/index/index.html&lott=9"><div class="game-item" module="lottery" args="cp_id=7"><i class="icon"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;新疆时时彩</div></a>
+                        <a href="/index.php?s=/home/index/index.html&lott=11"><div class="game-item" module="lottery" args="cp_id=14"><i class="icon"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;分分彩</div></a>
+                        <a href="/index.php?s=/home/index/index.html&lott=12"><div class="game-item" module="lottery" args="cp_id=14"><i class="icon"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;五分彩</div></a>
+                    </div>
+                </li>
+                <li>
+                    <a href="/index.php?s=/home/index/index.html&lott=2" class="game-icon syxw-pic" ></a>
+                    <div index="0" class="gam">
+                        <div class="title">11选5</div>
+                        <a href="/index.php?s=/home/index/index.html&lott=2"><div class="game-item" module="lottery" args="cp_id=1"><i class="icon" ></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;广东11选5</div></a>
+                        <a href="/index.php?s=/home/index/index.html&lott=4"><div class="game-item" module="lottery" args="cp_id=3"><i class="icon"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;山东11选5</div></a>
+                    </div>
+                </li>
+                <li>
+                    <a href="/index.php?s=/home/index/index.html&lott=3" class="game-icon k3-pic" ></a>
+                    <div index="0" class="gam">
+                        <div class="title">快三</div>
+                        <a href="/index.php?s=/home/index/index.html&lott=3"><div class="game-item" module="lottery" args="cp_id=1"><i class="icon" ></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;江苏快三</div></a>
+                    </div>
+                </li>
+                <li>
+                   <!--  href="/index.php?s=/home/index/index.html&lott=4" -->
+                   <a  class="game-icon klc-pic" href="/index.php?s=/home/index/index.html&lott=12"></a>
+                   <div index="0" class="gam">
+                       <div class="title">快乐彩</div>
+                       <a  href="/index.php?s=/home/index/index.html&lott=12"><div class="game-item" module="lottery" args="cp_id=1"><i class="icon" ></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;北京5分彩</div></a>
+                       <a href="/index.php?s=/home/index/index.html&lott=15"><div class="game-item" module="lottery" args="cp_id=1"><i class="icon" ></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;韩国1.5分彩</div></a>
+                       <a href="/index.php?s=/home/index/index.html&lott=16"><div class="game-item" module="lottery" args="cp_id=1"><i class="icon" ></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;加拿大3.5分彩</div></a>
+                       <a href="/index.php?s=/home/index/index.html&lott=17"><div class="game-item" module="lottery" args="cp_id=1"><i class="icon" ></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;台湾5分彩</div></a>
+                   </div>
+               </li>
+               <li>
+                <a href="/index.php?s=/home/index/index.html&lott=5" class="game-icon klsf-pic"></a>
+                <div index="0" class="gam">
+                    <div class="title">快乐十分</div>
+                    <a href="/index.php?s=/home/index/index.html&lott=5"><div class="game-item" module="lottery" args="cp_id=1"><i class="icon" ></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;天津快乐十分</div></a>
+                    <a href="/index.php?s=/home/index/index.html&lott=13"><div class="game-item" module="lottery" args="cp_id=1"><i class="icon" ></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;广东快乐十分</div></a>
+                </div>
+            </li>
+            <li>
+               <a  class="game-icon qtc-pic" href="/index.php?s=/home/index/index.html&lott=14"></a>
+               <div index="0" class="gam">
+                <div class="title">pk10</div>
+                <a href="/index.php?s=/home/index/index.html&lott=14"><div class="game-item" module="lottery" args="cp_id=1"><i class="icon" ></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pk10</div></a>
+            </div>
+        </li>
+    </ul>
+</div>
+</div>
+<div class="down-zip">
+    <div class="game-down" id="game-down">
+        <a class="act2" rel="1">彩票</a>
+        <a rel="2">AG极速</a>
+        <a rel="3">AG捕鱼</a>
+    </div>
+    <div class="qr-box">
+        <div class="qr-bg">
+            <img src="__IMG__/index/qr-ewm.png"/>
+            <span>扫描二维码</span>
+        </div>
+        <div class="qr-add">
+            <p>彩票手机<br>客户端下载</p>
+            <a class="ios" target="_blank" href="http://fir.im/dvxz">IOS下载</a>
+            <a class="android" target="_blank" href="http://fir.im/s9qj">Android下载</a>
+        </div>
+    </div>
+    <div class="down-foot">
+        <a class="port1" href="/Public/Home/src/setup.exe">
+            <span></span>
+            <p>下载久信极速<br>PC客户端</p>
+        </a>
+        <a class="web-site" href="http://www.jiuxinyule8.com/www/index.html">
+            <p>手机网页版<br>www.jiuxinyule8.com<br>/www/index.html</p>
+        </a>
+    </div>
+</div>
+</div>
+<div class="plate3">
+    <div class="game-electron">
+        <div class="game-title">
+            <i class="game1"></i>
+            <span>电子游艺</span>
+        </div>
+        <div id="game-show" class="game-show">
+            <div class="img">
+                <img src="__IMG__/index/show01.jpg">
+                <div class="mask-bg">
+                    <a ng-click="slotImg()">点击查看</a>
+                </div>
+            </div>
+            <div class="img">
+                <img src="__IMG__/index/show02.jpg">
+                <div class="mask-bg">
+                    <a ng-click="slotImg()">点击查看</a>
+                </div>
+            </div>
+            <div class="img">
+                <img src="__IMG__/index/show03.jpg">
+                <div class="mask-bg">
+                    <a ng-click="slotImg()">点击查看</a>
+                </div>
+            </div>
+            <div class="img">
+                <img src="__IMG__/index/show04.jpg">
+                <div class="mask-bg">
+                    <a ng-click="slotImg()">点击查看</a>
+                </div>
+            </div>
+            <ul id="game-show-text-bg" class="panel">
+                <li class="on"></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+            <ul id="game-show-txt" class="title">
+                <li><a>PT</a></li>
+                <li><a>NG</a></li>
+                <li><a>MG</a></li>
+                <li><a>BB</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="game-chess">
+        <div class="game-title">
+            <i class="game2"></i>
+            <span>棋牌游戏</span>
+        </div>
+        <div class="chess-bg">
+            <div class="mask-bg">
+                <a ng-click="slotImg()">点击查看</a>
+            </div>
+        </div>
+    </div>
+    <div class="game-sport">
+        <div class="game-title">
+            <i class="game3"></i>
+            <span>体育游戏</span>
+        </div>
+        <div class="sport-bg">
+            <div class="mask-sb">
+                <span>沙巴</span>
+                <a ng-click="slotImg()">点击查看</a>
+            </div>
+            <div class="mask-bb">
+                <span>BB</span>
+                <a ng-click="slotImg()">点击查看</a>
+            </div>
+        </div>
+    </div>
+    <div class="game-casino">
+        <div class="game-title">
+            <i class="game4"></i>
+            <span>真人游戏</span>
+        </div>
+        <div class="casino-bg">
+            <div class="ag-pic">
+                <img src="__IMG__/index/zryx.jpg">
+                <a ng-click="slotImg()">AG点击查看</a>
+            </div>
+            <div class="bb-pic">
+                <img src="__IMG__/index/bbig.jpg">
+                <a ng-click="slotImg()">BBIG</a>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+<block name="include">
+    <include file="Index:footer"/>
+</block>
+<div id="lin"></div>
+<div id="report"></div>
+<div id="team"></div>
+<div id="record"></div>
+<div id="message"></div>
+<!-- 
+    查看详情弹框 -->
+    <div tabindex="-1" class="modal fade" id="details-modal" role="dialog" aria-hidden="true" aria-labelledby="details-modal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button class="close" type="button" data-dismiss="modal"><span aria-hidden="true">×</span></button>
+                    <h4 class="modal-title text-primary"><i class="fa fa-th-list fa-lg"></i>  投 注 详  
+                      情                 
+                  </h4>
+              </div>
+              <div id="betDetail">
+              </div>
+              <div class="modal-footer">
+                  <button class="btn btn-warning btn-labeled fa fa-mail-reply" data-dismiss="modal">关闭</button>
+              </div>
+          </div>
+      </div>
+  </div>
+
+
+<!--footer的链接弹框-->
+<div class="fx" style="display: none; width: 100%;height: 100%;position: fixed;z-index: 1992;top: 0px;left: 0px;">
+    <div class="fx1" style="height: 100%; background: rgb(0, 0, 0); opacity: 0.4;"></div>
+    <div class="x1" style="background-color: #fff;width: 60%;height: auto;position: fixed;
+    top: 20%;left:20%;border-radius: 15px;opacity: 1;">
+        <div style="width: 100%;height: 50px;background-color: #2678e8;border-top-left-radius: 15px;border-top-right-radius: 15px;"><h4 style="color: #fff;line-height: 50px;text-align: center;font-size: 20px;"></h4></div>
+        <div class="dell" style="cursor: pointer;position: absolute;top:-10px;right: -10px;background-color: #fff;color: #2678e8;width: 40px;height: 40px;border-radius: 50%;text-align: center;font-size: 30px;line-height: 40px;border:3px solid #2678e8">×</div>
+        <div style="padding:10px 50px 10px;"><p >sdjkbcfkldjsbfjkfdgvkjfsdvbjkf难得整反馈vjfkdjvdfkvjbfdk雕刻机费女款的积分vfbvkjdfvbjkdfnvd</p></div>
+    </div>
+</div>
+</body>
+<script>
+    $(document).ready(function () {
+        var bodyheight = jQuery(window).height() - 54;
+        $("#pageframe").css("height", bodyheight);
+        $(".mainnav-toggle").click(
+            function toggle() {
+                $(this).toggleClass("mainnav-toggle2")
+                $(".brand-icon").toggleClass("brand-icon2")
+                $(".newmenu").toggleClass("newmenu2")
+            }
+            );
+        $('.prompt').click(function(){
+            $("#a,#q").css('display','block');
+            $("#te").text('暂未开放，尽情期待！');
+            $("#btn,#de").click(function(){
+                $("#a,#q").css('display','none');
+            });
+        });
+        //footer的链接弹框
+        $("#serve").click(function(){
+            $(".fx").css('display','block');
+            $(".fx p").html('555555');
+            $(".fx h4").html('服务条款');
+        });
+        $("#yszc").click(function(){
+            $(".fx").css('display','block');
+            $(".fx p").html('6666');
+            $(".fx h4").html('隐私政策');
+        });
+        $("#zrbc").click(function(){
+            $(".fx").css('display','block');
+            $(".fx p").html('7777');
+            $(".fx h4").html('责任博彩');
+        });
+        $("#aqx").click(function(){
+            $(".fx").css('display','block');
+            $(".fx p").html('888');
+            $(".fx h4").html('安全性');
+        });
+        $("#mzsm").click(function(){
+            $(".fx").css('display','block');
+            $(".fx p").html('999');
+            $(".fx h4").html('免责声明');
+        });
+        $(".dell").click(function(){
+            $(".fx").css('display','none');
+        });
+        $('#line').click(function () {
+            if($("#lin").html() == ''){
+              $.ajax({
+                type : "get",
+                url : "/index.php?s=/home/team/lined.html",
+                async : false,
+                success : function(data){
+                  console.log(data);
+                  $("#lin").html(data);
+
+              }
+          });
+          }
+          art.dialog({
+              padding: 0,
+              title: '',
+              resize: false,
+              time: false,
+              lock: true,
+              fixed: true,
+              background: '#000',
+              opacity: '0.6',
+              content: document.getElementById("line-center"),
+              width: '1000px',
+              height: 'auto',
+              top:'80%',
+              marginTop:'-300px',
+              close: function () {
+                $(".body").css('overflow', 'visible');
+            }
+        });
+      });
+        $('#report-ctrl').click(function () {
+            if($("#report").html() == ''){
+                $.ajax({
+                    type : "get",
+                    url : "/index.php?s=/home/team/report_center.html",
+                    async : false,
+                    success : function(data){
+                        $("#report").html(data);
+                        wai();
+                    }
+                });
+            }
+            art.dialog({
+                padding: 0,
+                title: '',
+                resize: false,
+                time: false,
+                lock: true,
+                fixed: true,
+                background: '#000',
+                opacity: '0.6',
+                content: document.getElementById("report-center"),
+                width: '1000px',
+                height: 'auto',
+                top:'80%',
+                marginTop:'-300px',
+                close: function () {
+                    $(".body").css('overflow', 'visible');
+                }
+            });
+        });
+        $('#record-ctrl').click(function () {
+            if($("#record").html() == '') {
+                $.ajax({
+                    type: "get",
+                    url: "/index.php?s=/home/team/record_set.html",
+                    async: false,
+                    success: function (data) {
+                        $("#record").html(data);
+                    }
+                });
+            }
+            art.dialog({
+                padding: 0,
+                title: '',
+                resize: false,
+                time: false,
+                lock: true,
+                fixed: true,
+                background: '#000',
+                opacity: '0.6',
+                content: document.getElementById("record-set"),
+                width: '1000px',
+                height: 'auto',
+                top:'80%',
+                marginTop:'-300px',
+                close: function () {
+                    $(".body").css('overflow', 'visible');
+                }
+            });
+        });
+        $('#team-ctrl').click(function () {
+            if($("#team").html() == '') {
+                $.ajax({
+                    type: "get",
+                    url: "/index.php?s=/home/team/team_center.html",
+                    async: false,
+                    success: function (data) {
+                        $("#team").html(data);
+                    }
+                });
+            }
+
+            art.dialog({
+                padding: 0,
+                title: '',
+                resize: false,
+                time: false,
+                lock: true,
+                fixed: true,
+                background: '#000',
+                opacity: '0.6',
+                content: document.getElementById("team-center"),
+                width: '1000px',
+                height: 'auto',
+                top:'80%',
+                marginTop:'-300px',
+                close: function () {
+                    $(".body").css('overflow', 'visible');
+                }
+            });
+        });
+        $('#message-ctrl').click(function () {
+            if($("#message").html() == '') {
+                $.ajax({
+                    type: "get",
+                    url: "/index.php?s=/home/team/message_set.html",
+                    async: false,
+                    success: function (data) {
+                        $("#message").html(data);
+                    }
+                });
+            }
+            art.dialog({
+                padding: 0,
+                title: '',
+                resize: false,
+                time: false,
+                lock: true,
+                fixed: true,
+                background: '#000',
+                opacity: '0.6',
+                content: document.getElementById("personal-center"),
+                width: '1000px',
+                height: 'auto',
+                top:'80%',
+                marginTop:'-300px',
+                close: function () {
+                    $(".body").css('overflow', 'visible');
+                }
+            });
+        });
+
+        // $('#activity').click(function(){
+        //     $.post('/index.php?s=/home/index/get_activity',function(data){
+        //         if(data.status){
+        //             var da = data.info;
+        //             $('#fir').nextAll().remove();
+        //             for(var i =0; i < da.length ;i++){
+        //                 $('#activities tbody').append('<tr><td>'+da[i].all+'</td><td>'+da[i].amount+'</td></tr>');
+        //             }
+        //         }else {
+        //             $('#fir').nextAll().remove();
+        //             $('#activities tbody').append('<tr><td>'+data.info+'</td></tr>');
+        //         }
+        //     });
+        //     $('#activities').toggle();
+        // });
+
+        $('.recharge-btn').click(function(){
+            $('#content-container').css('display','block');
+            $('.main,.footer').css('display','none');
+        });
+
+        $('.withdrawals').click(function(){
+            var n = 0;
+            $.ajax({
+                type : "post",
+                url : $(this).attr('href'),
+                async : false,
+                success : function(data){
+                    if(data.status == 0){
+                        n = 1;
+                        $("#ap,#qp").css('display','block');
+                        $("#tex").text(data.info);
+                        $("#btn1").click(function(){
+                            $("#ap,#qp").css('display','none');
+                            $('#content-container').css('display','block');
+                            $('.main,.footer').css('display','none');
+                            $("#pageframe").attr('src',data.url).reload();
+                        });
+                        $("#del").click(function(){
+                            $("#ap,#qp").css('display','none');
+                        });
+                    }
+                }
+            });
+            if(n == 0){
+                $('#content-container').css('display','block');
+                $('.main,.footer').css('display','none');
+                $("#pageframe").attr('src',$(this).attr('href')).reload();
+            }
+            return false;
+        });
+
+        $('#home').click(function(){
+
+            window.location.reload();
+        });
+
+        $('#balance').click(function(){
+            $.post('/index.php?s=/home/user/get_balance',function(data){
+                if(data.status){
+                    $('#balance span').text(data.info);
+                }
+            });
+        });
+
+        //重要通知
+        $('.notices').click(function(){
+            $.post('/index.php?s=/home/notice/info2',{id:$(this).attr('data-id')},function(data){
+                if(data.status){
+                    var info = '<p style="text-align: center;font-size: 20px;border-bottom: 2px solid #2678e8;margin: 4px auto;">'+data.info.title+'</p><p style="text-align: center;font-size: 18px;height: 300px;">'+data.info.content+'</p>';
+                }else {
+                    var info = data.info;
+                }
+                art.dialog({
+                    padding: 0,
+                    title: '重要通知',
+                    resize: false,
+                    time: false,
+                    lock: true,
+                    fixed: true,
+                    background: '#000',
+                    opacity: '0.6',
+                    content: info,
+                    width: '600px',
+                    height: 'auto',
+                    top:'60%',
+                    marginTop:'-200px',
+                    close: function () {
+                        $(".body").css('overflow', 'visible');
+                    }
+                });
+            },'json');
+        });
+
+    });
+$(window).resize(function () {
+    var bodyheight = jQuery(window).height() - 54;
+    $("#pageframe").css("height", bodyheight);
+})
+</script>
+</html>

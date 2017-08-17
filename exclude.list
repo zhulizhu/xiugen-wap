@@ -1,0 +1,11 @@
+config.php
+config.js
+.git/
+node_modules/
+.idea/
+*.sql
+*.sh
+*.list
+web/Runtime/
+web/Record/
+__MACOSX/

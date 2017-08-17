@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+    <title>线路检测</title>
+    <link href="http://image.zqgtea.com/css/libs/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="http://image.zqgtea.com/css/app/linecheck.css" rel="stylesheet" />
+    <style type="text/css">
+        /*扫描二维码界面开始*/
+        .masksao
+{
+	position:fixed;
+	left:0;
+	top:0;
+	width:100%;
+	height:100%;
+	background-color:rgba(0,0,0,.8);
+	z-index:99999;
+	display:none
+}
+.sao {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	width: 360px;
+	margin-left: -180px;
+	margin-top: -180px;
+	height: 240px;
+	background-color: #fff;
+	text-align: center;
+	box-sizing: border-box;
+	padding-top: 20px;
+	border-radius: 10px;
+}
+.sao strong {
+	display: block;
+	text-align: center;
+	font-weight: normal;
+	font-size: 14px;
+	padding-bottom: 10px;
+}
+.sao p {
+	padding-top: 10px;
+	display: table;
+	margin: auto;
+	width: 90%;
+	table-layout: fixed;
+}
+.sao p span {
+	display: table-cell;
+	text-align: center;
+}
+.sao p span em {
+	display: block;
+	font-style: normal;
+}
+.sao p span em a
+{
+	display:block;
+	padding-top:5px;
+	color:blue
+}
+.sao hr {
+	height: 1px;
+	border: none;
+	border-top: 1px solid #ddd;
+	margin-bottom: 20px;
+	margin-top: 20px;
+}
+    </style>
+</head>
+<body>
+    <div class="masksao">
+        <div class="sao">
+            <strong>选择版本扫一扫下载</strong>
+            <p><span><img alt="" src="http://image.zqgtea.com/images/app/qr1.png"><em>苹果版</em></span><span><img alt="" src="http://image.zqgtea.com/images/app/qr2.png"><em>安卓版</em></span></p>
+            <p><span><em><a href="http://app.mincikp.com/" target="_blank">http://app.mincikp.com/</a></em></span></p>
+        </div>
+    </div>
+    <p id="site1_peed" style="display:none">&nbsp;</p> 
+    <div class="header"><div class="headerbox"><img alt="" src="http://image.zqgtea.com/css/app/images/linecheck/logo2.png"></div></div>
+        <div class="main">
+            <div class="mainbox">
+                <div class="mainboxleft">
+                    <p><strong>温馨提示：</strong>反应时间越小，网站速度越快的网址排在越上面。</p>
+                    <p><img alt="" src="http://image.zqgtea.com/css/app/images/linecheck/lineicon1.png">您的IP地址：106.4.36.96</p>
+                    <p><img alt="" src="http://image.zqgtea.com/css/app/images/linecheck/lineicon2.png">您的地理位置：&#x7535;&#x4FE1;</p>
+                    <ul class="linelist testable"></ul>
+                    <input onclick="javascript:execAuto();" type="button" value="刷新检测">
+                </div>
+                <div class="mainboxright">
+                    <p>如果我们的检测中心对您有帮助，请按 Ctrl+D收藏：</p>
+                    <p>
+                        <span>如果检测后不能登录请按以下方式操作：</span>
+                        <strong>A.打开IE浏览器:</strong>
+                        <span>打开IE浏览器，选择：工具-&gt; Internet选项-&gt; 再选择 (删除历史浏览记录)-&gt; 删除-&gt; 重启IE</span>
+                        <strong>B.如果您体验过程中出现卡顿：</strong>
+                        <span>请在您打开本界面选择其它线路看看。</span>
+                    </p>
+                    <p>如果您在访问我们域名时被跳转到其它网站，那是您当地电信运营商dns被劫持，您可以通过修改电脑本地dns来解决。</p>
+                    <p style="padding-top:30px!important; background-image:none;border-bottom:0;">
+                        为了保证最佳使用体验，请保证您的屏幕分辨率在 1280 及以上<br>
+                        若使用IE浏览器，请使用 IE9 及以上版本<br>
+                        推荐您使用以下浏览器：
+                    </p>
+                    <ul>
+                        <li><a href="http://dlsw.baidu.com/sw-search-sp/soft/9d/14744/ChromeStandalone_47.0.2526.80_Setup.1449716976.exe" target="_blank"><i class="fa fa-chrome"></i><p>谷歌浏览器<span>版本：47.0</span></p></a></li>
+                        <li><a href="http://chrome.360.cn/" target="_blank"><i class="fa fa-internet-explorer" ></i><p>360极速浏览器<span>版本：8.5</span></p></a></li>
+                        <li><a href="http://download.microsoft.com/download/F/2/8/F2871AC4-E82B-4636-BB37-A5F2B14C8616/IE11-Windows6.1-x86-zh-cn.exe" target="_blank"><i class="fa fa-internet-explorer"></i><p>IE 浏览器<span>版本：11.0</span></p></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer">
+            <div class="footerbox">
+                <img alt="" src="http://image.zqgtea.com/css/app/images/linecheck/linetxt.png">
+                <ul>
+                    <li><a href="http://client.zqgtea.com/%E6%8B%89%E8%8F%B2%E5%AE%A2%E6%88%B7%E7%AB%AF.zip" target="_blank"><i class="fa fa-desktop"></i><p>PC客户端<span>版本：1.0</span></p></a></li>
+                    <li><a href="javascript:;" id="j-app-btn"><i class="fa fa-mobile"></i><p>手机客户端<span>版本：1.0</span></p></a></li>
+                </ul>
+            </div>
+        </div>
+</body>
+</html>
+<script src="http://image.zqgtea.com/js/app/lottery/jquery.min.js"></script>
+<script>
+    var url = "http://c3.juxinet.cn/,http://nb1.hzj-sport.com/,http://jsl.hzj-sport.com/,http://txcdn.lafei2016.com/,http://txy.juxinet.cn/,http://cf3.lafei2016.net/,http://su.juxinet.cn/";
+    var autourl = url.split(',');
+    $(function () {
+        var urltxt = "";
+        for (var i = 0; i < autourl.length; i++) {
+            urltxt += '<li><label><img alt="" src="/css/app/images/linecheck/lineicon3.png" />';
+            urltxt += '<span class="testing" id="txt'+i+'"></span></label><span id="url'+i+'">' + autourl[i];
+            urltxt += '</span><a id="click_url_'+i+'" href="' + autourl[i] +'public/login" title="' + autourl[i] +'">进入网站</a></li>';
+        }
+        $('.testable').empty().append(urltxt);
+        $("#j-app-btn").live("click",
+          function toggle() {
+              $(".masksao").show();
+          }
+        );
+        $(".masksao").live("click",
+          function toggle() {
+              $(".masksao").hide();
+          }
+        );
+    });
+
+    function auto(url) {
+        $("#url" + b).html(url);
+        $("#click_url_" + b).attr("href", url + "public/login");
+        if (tim > 20) {
+            $("#txt" + b).text('连接超时').addClass('testerror');
+        } else {
+            $("#txt" + b).text(tim * 10 + "ms").addClass('testdone');
+        }
+        b++;
+    }
+
+    function execAuto() {
+        tim = 1;
+        b = 0;
+        var html2str = '';
+        for (var i = 0; i < autourl.length; i++) {
+            html2str = html2str + "<img src='" + autourl[i] + "?" + Math.random() + "' width='1' height='1' onerror=\"auto('" + autourl[i] + "');\" style='display:none'>";
+        }
+        $("#site1_peed").empty().append(html2str);
+    }
+    setInterval("tim++", 100);
+    execAuto();
+
+</script>

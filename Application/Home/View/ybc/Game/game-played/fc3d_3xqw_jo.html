@@ -1,0 +1,38 @@
+<input type="hidden" name="playedGroup" value="<?=$groupId?>" />
+<input type="hidden" name="playedId" value="<?=$playedId?>" />
+<input type="hidden" name="type" value="<?=$type?>" />
+
+<div class="pp" action="fc3d3xqwdx" length="1" random="sscRandom" >
+    <div style="margin-bottom: 5px;height: 50px;" >
+        <div class="title" style="margin-right: 14px;">奇</div>
+        &nbsp;
+        <input type="button" value="奇奇奇" class="code min s" style="border-radius: 0;width: 60px;margin: 0 2px;"/>
+        <input type="button" value="奇奇偶" class="code min d" style="border-radius: 0;width: 60px;margin: 0 2px;"/>
+        <input type="button" value="奇偶奇" class="code min s" style="border-radius: 0;width: 60px;margin: 0 2px;"/>
+        <input type="button" value="奇偶偶" class="code min d" style="border-radius: 0;width: 60px;margin: 0 2px;"/>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+        <input type="button" value="清" class="action none" style="margin-left: 20px;"/>
+    </div>
+    <div style="margin-bottom: 5px;height: 50px;">
+        <div class="title" style="margin-right: 14px;">偶</div>
+        &nbsp;
+        <input type="button" value="偶奇奇" class="code min d" style="border-radius: 0;width: 60px;margin: 0 2px;"/>
+        <input type="button" value="偶奇偶" class="code min d" style="border-radius: 0;width: 60px;margin: 0 2px;"/>
+        <input type="button" value="偶偶奇" class="code min d" style="border-radius: 0;width: 60px;margin: 0 2px;"/>
+        <input type="button" value="偶偶偶" class="code min d" style="border-radius: 0;width: 60px;margin: 0 2px;"/>
+
+
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+        <input type="button" value="清" class="action none" style="margin-left: 20px;"/>
+    </div>
+</div>
+<?php
+	//$maxPl=$getPl($type, $playedId);
+?>
+<script type="text/javascript">
+    $(function(){
+        gameSetPl(<?=json_encode($maxPl)?>);
+        })
+</script>

@@ -1,0 +1,80 @@
+<?php
+	$stateName=array('已到帐', '正在办理', '已取消', '已支付', '失败');
+?>
+<div>
+    <table width="100%" class="table table-striped" id="my-datatable" cellspacing="0">
+        <thead>
+        <tr class="table_b_th">
+            <th>申请时间</td>
+            <th>收款银行</td>
+            <th>收款账号</td>
+            <th>付款人</td>
+            <th>取款金额</td>
+            <th>状态</td>
+        </tr>
+        </thead>
+        <tbody class="table_b_tr">
+        <?php if($data){
+	foreach($data as $var){
+	?>
+        <tr>
+            <td><?=date('m-d H:i:s', $var['actionTime'])?></td>
+            <td><?=$bankData[$var['bankId']]['name']?></td>
+            <td><?='***'.preg_replace('/^.*(.{4})$/', '\1', $var['account'])?></td>
+            <td><?=$var['username']?></td>
+            <td><?=$var['amount']?></td>
+            <td>
+                <?php
+				if($var['state']==3 && $var['uid']==$user['uid']){
+					echo '<div class="sure" id="', $var['id'], '"></div>';
+}else if($var['state']==4){
+echo $stateName[$var['state']].'【'.$var['info'].'】';
+}
+else{
+echo $stateName[$var['state']];
+}
+?>
+</td>
+
+</tr>
+<?php } ?>
+<?php }else{ ?>
+<tr><td colspan="12" width="910px">当前没有查询到任何数据。</td></tr>
+<?php } ?>
+</tbody>
+</table>
+</div>
+<div class="page">
+    {$_page}
+</div>
+<script src="/Public/Home/js/jquery.min.js"></script>
+<style type="text/css">
+    #container .table td{text-align: center;background-color: #fff;border:1px solid #2678e8!important;color: #666;}
+    #container .table th{text-align: center;background-color: #2678e8;border-right: 1px solid #fff!important;
+        border-top: 1px solid #2678e8!important;color: #fff;}
+    #container .table th:first-child{ border-left: 1px solid #2678e8!important;}
+    #container .table th:last-child{ border-right: 1px solid #2678e8!important;}
+    /*  #container .table td{color: #2678e8;}*/
+    #container .table{margin-top: 15px;}
+</style>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('a[target=ajax]').bind('click', function(){
+            var url = $(this).attr('href');
+            $('#record-span').load(url);
+            return false;
+        });
+        //解决分页问题
+        $('.page a').bind('click', function(){
+            if(this.tagName == 'A'){
+                var parent = this.parentNode.parentNode;
+                var value = $(parent).attr('target');
+                if(value=='_blank')
+                    return true;
+                var url = $(this).attr('href');
+                $('#record-span').load(url);
+                return false;
+            }
+        });
+    });
+</script>

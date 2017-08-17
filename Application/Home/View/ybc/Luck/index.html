@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>幸运28</title>
+    <link href="__CSS__/reset.css" rel="stylesheet">
+    <link href="__CSS__/layout.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="__CSS__/carousel.css">
+    <script src="__JS__/ionic.bundle.min.js"></script>
+    <script src="__JS__/jquery.min.js"></script>
+    <script src="__JS__/release.js"></script>
+    <style>
+        .odds {
+            text-align: center;
+        }
+        .ts-num.active {
+            background: #0090ff;
+        }
+        .num.active {
+            background-position: -223px -76px !important;
+        }
+        body {
+            background: none;
+        }
+
+        .main.lucky-bg {
+            background: none;
+        }
+                /*登录弹窗*/
+        #ap {
+ position:absolute;
+ z-index:888; left: 50%;
+ margin-left: -170px;
+ top: 140px;
+ display:none;
+}
+#qp{
+position:absolute;
+ z-index:888;
+ width:100%;
+ height:100%;
+ background:rgba(0,0,0,0.6);
+ display:none;
+}
+.one{
+    background-color: #fff;width: 256px;height: 150px;border-radius: 15px;
+    overflow:hidden;
+
+}
+#btn1{
+    border: none;
+    padding: 8px 30px;
+    color: #fff;
+    background-color: #0099CC;
+    border-radius: 15px;
+    display: block;margin:10px 81px;
+    float: left;
+    
+
+}
+#tex{
+    font-size: 16px;line-height: 30px;text-align: center;
+    margin:10px auto;
+}
+.one .top{width: 100%;height: 40px;background-color: #0099CC;border-top-left-radius: 13px; border-top-right-radius: 13px;}
+.one .top h4{position: relative;color: #fff;font-size: 14px;line-height: 40px;margin:0 auto;text-align: center;}
+.one .top #del{border-radius: 15px;background-color: #fff;border:3px solid #0099CC;color:#0099CC;width: 25px;height:25px;line-height: 22px;text-align: center;font-size: 25px;position: absolute;top:-6px;right: -12px;font-weight: bolder;cursor: pointer; }
+    </style>
+</head>
+<body ng-app="frame" style="width: 100%;overflow: hidden;position: relative;">
+<div id="qp"></div>
+    <div id="ap">
+        <div class="one">
+            <div class="top">
+                <h4>温馨提示</h4>
+                <div id="del">×</div>
+            </div>
+            <p id="tex"></p>
+            <button id="btn1">确定</button>
+        </div>
+        
+    </div>
+<div class="main lucky-bg" ng-controller="LuckCtrl" style="padding-bottom: 0;position: absolute;top: 0;bottom: 0;right: -50px;overflow-y: scroll;">
+    <div class="lucky-box">
+        <div class="lucky-28">
+            <div class="top-title" style="display: none">
+                <span class="limit-type-name">娱乐场</span>
+                <!--<span class="change-room-btn">切换</span>-->
+                <!--<span class="limit-info">当前限红：5 - 5000</span>-->
+                <div class="lottery-type" style="display: none">
+                    <div class="sel">
+                        <span class="name">北京</span>
+                        <i class="right-down"></i>
+                    </div>
+                    <div class="sel-list">
+                        <ul>
+                            <li class="name">北京</li>
+                            <li class="name">加拿大</li>
+                            <li class="name">韩国</li>
+                            <li class="name">台湾</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="game-main-content">
+                <!--投注展示区域-->
+                <div class="lucky-left-area">
+                    <!--奖期基本信息-->
+                    <div class="run-a-lottery">
+                        <div class="gct-l">
+                            <p class="gct-now">
+                                <span class="current-text">正在销售</span>的期数
+                                <span class="lottery-num" ng-bind="game.actionNo"></span>
+                            </p>
+                            <dl>
+                                <dt ng-bind="game.time[0]"></dt>
+                                <dt ng-bind="game.time[1]"></dt>
+                                <dd>:</dd>
+                                <dt ng-bind="game.time[2]"></dt>
+                                <dt ng-bind="game.time[3]"></dt>
+                                <dd>:</dd>
+                                <dt ng-bind="game.time[4]"></dt>
+                                <dt ng-bind="game.time[5]"></dt>
+                            </dl>
+                            <div class="gct-menu" style="position: relative;">
+                                <a class="show-rule" id="game-rule">游戏规则</a>
+                                <div id="rules" style="width: 260px;height:auto;background:#eeeef0;display: none;position: absolute;top: 30px;text-align: left;border-radius: 8px;padding: 15px">
+                                    <p>游戏规则：</p>
+                                    <p style="word-break: break-word;line-height: 22px;" >幸运28开奖结果来源于国家福利彩票北京快乐8(官网)开奖号码，从早上9:05至23:55，每5分钟一期不停开奖。 北京快乐8每期开奖共开出20个数字，幸运28将这20个开奖号码按照由小到大的顺序依次排列；取其1-6位开奖号码相加，和值的末位数作为幸运 28开奖第一个数值； 取其7-12位开奖号码相加，和值的末位数作为幸运28开奖第二个数值，取其13-18位开奖号码相加，和值的末位数作为幸运 28开奖第三个数值；三个数值相加即为幸运28最终的开奖结果。</p>
+                                </div>
+                                <a class="show-play-trend" id="kj_record">开奖记录</a>
+                                <div id="record" style="width: 260px;height:auto;background:#eeeef0;display: none;position: absolute;top: 30px;text-align: center;border-radius: 8px;padding: 15px">
+                                    <p style="font-size: 14px;">开奖记录：</p>
+                                    <p id="qi" style="font-size: 12px;"><span style="margin-right: 60px">期号</span><span>中奖号码</span></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="gct-c">
+                            <div class="gct-old-praise">第 <span class="lottery-num"  ng-bind="game.actionNo - 1"></span> 期开奖</div>
+                            <div class="gct-old-ball" ng-show="game.historyList[0].number != game.actionNo - 1" style="width: 212px;">
+                                <div>开</div>
+                                <span>+</span>
+                                <div>奖</div>
+                                <span>+</span>
+                                <div>中</div>
+                                <!--<span>=</span>-->
+                                <!--<div>8</div>-->
+                            </div>
+                            <div class="gct-old-ball"  ng-show="game.historyList[0].number == game.actionNo - 1">
+                                <div ng-bind="game.historyList[0].result[0]"></div>
+                                <span>+</span>
+                                <div ng-bind="game.historyList[0].result[1]"></div>
+                                <span>+</span>
+                                <div ng-bind="game.historyList[0].result[2]"></div>
+                                <span>=</span>
+                                <div ng-bind="game.historyList[0].total"></div>
+                            </div>
+                            <div class="judge-size">
+                                <a ng-bind="game.historyList[0].daxiao"></a>
+                                <a ng-bind="game.historyList[0].danshuang"></a>
+                            </div>
+                        </div>
+                        <div class="gct-r">
+                            <div class="past-text">
+                                <span class="issue">期号</span>
+                                <span class="lottery-issue">开奖期号</span>
+                            </div>
+                            <ul>
+                                <li ng-repeat="item in game.historyList">
+                                    <span class="issue" ng-bind="item.number"></span>
+                                    <span class="lottery-issue">{{item.result[0]}}+{{item.result[1]}}+{{item.result[2]}}={{item.total}}({{item.daxiao}}, {{item.danshuang}})</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!--投注区域-->
+                    <div class="cathectic-area">
+                        <div class="num-area">
+                            <div class="lucky-28-row">
+                                <div class="nums number">
+                                    <div class="num white">00</div>
+                                    <div class="odds" ng-bind="game.odds[0].bonusProp"></div>
+                                </div>
+                                <div class="nums number">
+                                    <div class="num green">01</div>
+                                    <div class="odds" ng-bind="game.odds[1].bonusProp"></div>
+                                </div>
+                                <div class="nums number">
+                                    <div class="num blue">02</div>
+                                    <div class="odds" ng-bind="game.odds[2].bonusProp"></div>
+                                </div>
+                                <div class="nums number">
+                                    <div class="num red">03</div>
+                                    <div class="odds" ng-bind="game.odds[3].bonusProp"></div>
+                                </div>
+                                <div class="nums number">
+                                    <div class="num green">04</div>
+                                    <div class="odds" ng-bind="game.odds[4].bonusProp"></div>
+                                </div>
+                                <div class="nums number">
+                                    <div class="num blue">05</div>
+                                    <div class="odds" ng-bind="game.odds[5].bonusProp"></div>
+                                </div>
+                                <div class="nums number">
+                                    <div class="num red">06</div>
+                                    <div class="odds" ng-bind="game.odds[6].bonusProp"></div>
+                                </div>
+                                <div class="nums number">
+                                    <div class="num green">07</div>
+                                    <div class="odds" ng-bind="game.odds[7].bonusProp"></div>
+                                </div>
+                                <div class="nums number">
+                                    <div class="num blue">08</div>
+                                    <div class="odds" ng-bind="game.odds[8].bonusProp"></div>
+                                </div>
+                                <div class="nums number">
+                                    <div class="num red">09</div>
+                                    <div class="odds" ng-bind="game.odds[9].bonusProp"></div>
+                                </div>
+                                <div class="nums number">
+                                    <div class="num green">10</div>
+                                    <div class="odds" ng-bind="game.odds[10].bonusProp"></div>
+                                </div>
+                                <div class="nums number">
+                                    <div class="num blue">11</div>
+                                    <div class="odds" ng-bind="game.odds[11].bonusProp"></div>
+                                </div>
+                                <div class="nums number">
+                                    <div class="num red">12</div>
+                                    <div class="odds" ng-bind="game.odds[12].bonusProp"></div>
+                                </div>
+                                <div class="nums number">
+                                    <div class="num white">13</div>
+                                    <div class="odds" ng-bind="game.odds[13].bonusProp"></div>
+                                </div>
+                            </div>
+                            <div class="lucky-28-row">
+                                <div class="nums number">
+                                    <div class="num white">14</div>
+                                    <div class="odds" ng-bind="game.odds[14].bonusProp"></div>
+                                </div>
+                                <div class="nums number">
+                                    <div class="num green">15</div>
+                                    <div class="odds" ng-bind="game.odds[15].bonusProp"></div>
+                                </div>
+                                <div class="nums number">
+                                    <div class="num blue">16</div>
+                                    <div class="odds" ng-bind="game.odds[16].bonusProp"></div>
+                                </div>
+                                <div class="nums number">
+                                    <div class="num red">17</div>
+                                    <div class="odds" ng-bind="game.odds[17].bonusProp"></div>
+                                </div>
+                                <div class="nums number">
+                                    <div class="num green">18</div>
+                                    <div class="odds" ng-bind="game.odds[18].bonusProp"></div>
+                                </div>
+                                <div class="nums number">
+                                    <div class="num blue">19</div>
+                                    <div class="odds" ng-bind="game.odds[19].bonusProp"></div>
+                                </div>
+                                <div class="nums number">
+                                    <div class="num red">20</div>
+                                    <div class="odds" ng-bind="game.odds[20].bonusProp"></div>
+                                </div>
+                                <div class="nums number">
+                                    <div class="num green">21</div>
+                                    <div class="odds" ng-bind="game.odds[21].bonusProp"></div>
+                                </div>
+                                <div class="nums number">
+                                    <div class="num blue">22</div>
+                                    <div class="odds" ng-bind="game.odds[22].bonusProp"></div>
+                                </div>
+                                <div class="nums number">
+                                    <div class="num red">23</div>
+                                    <div class="odds" ng-bind="game.odds[23].bonusProp"></div>
+                                </div>
+                                <div class="nums number">
+                                    <div class="num green">24</div>
+                                    <div class="odds" ng-bind="game.odds[24].bonusProp"></div>
+                                </div>
+                                <div class="nums number">
+                                    <div class="num blue">25</div>
+                                    <div class="odds" ng-bind="game.odds[25].bonusProp"></div>
+                                </div>
+                                <div class="nums number">
+                                    <div class="num red">26</div>
+                                    <div class="odds" ng-bind="game.odds[26].bonusProp"></div>
+                                </div>
+                                <div class="nums number">
+                                    <div class="num white">27</div>
+                                    <div class="odds" ng-bind="game.odds[27].bonusProp"></div>
+                                </div>
+                            </div>
+                            <div class="lucky-28-row">
+                                <table class="wf-table" cellpadding="0" cellspacing="0">
+                                    <tbody>
+                                    <tr>
+                                        <td style="width:25%" class="ts-num number" colspan="2">
+                                            BIG <span class="bold">大</span> <span class="odds" ng-bind="game.odds[28].bonusProp"></span>
+                                        </td>
+                                        <td style="width:25%" class="ts-num number" colspan="2">
+                                            SMALL <span class="bold">小</span><span class="odds" ng-bind="game.odds[29].bonusProp"></span>
+                                        </td>
+                                        <td style="width:25%" class="ts-num number" colspan="2">
+                                            ODD <span class="bold">单</span><span class="odds" ng-bind="game.odds[30].bonusProp"></span>
+                                        </td>
+                                        <td style="width:25%" class="ts-num number" colspan="2">
+                                            EVEN <span class="bold">双</span> <span class="odds" ng-bind="game.odds[31].bonusProp"></span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width:12.5%" class="ts-num number">
+                                            大单 <span class="odds" ng-bind="game.odds[32].bonusProp"></span>
+                                        </td>
+                                        <td style="width:12.5%" class="ts-num number">
+                                            大双 <span class="odds" ng-bind="game.odds[33].bonusProp"></span>
+                                        </td>
+                                        <td style="width:12.5%" class="ts-num number">
+                                            小单 <span class="odds" ng-bind="game.odds[34].bonusProp"></span>
+                                        </td>
+                                        <td style="width:12.5%" class="ts-num number">
+                                            小双 <span class="odds" ng-bind="game.odds[35].bonusProp"></span>
+                                        </td>
+                                        <td style="width:25%" class="ts-num number" colspan="2">
+                                            <span class="bold">极大</span> <span class="odds" ng-bind="game.odds[36].bonusProp"></span>
+                                        </td>
+                                        <td style="width:25%" class="ts-num number" colspan="2">
+                                            <span class="bold">极小</span> <span class="odds" ng-bind="game.odds[37].bonusProp"></span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width:12.5%" class="ts-num number">
+                                            豹子 <span class="odds" ng-bind="game.odds[38].bonusProp"></span>
+                                        </td>
+                                        <td style="width:37.5%;" class="ts-num" colspan="3">
+                                            波色 <span class="odds">{{game.odds[39].bonusProp}}</span>
+                                            <span class="yuan sb-red number">红</span>
+                                            <span class="yuan sb-green number">绿</span>
+                                            <span class="yuan sb-blue number">蓝</span>
+                                        </td>
+                                        <td style="width:50%" class="ts-num number" colspan="4">
+                                            特码包三 *<span class="odds" ng-bind="game.odds[42].bonusProp"></span>
+                                            &nbsp;&nbsp;
+                                            <select name="num" id="one">
+                                                <option value="">---</option>
+                                                <option value="0">00</option>
+                                                <option value="1">01</option>
+                                                <option value="2">02</option>
+                                                <option value="3">03</option>
+                                                <option value="4">04</option>
+                                                <option value="5">05</option>
+                                                <option value="6">06</option>
+                                                <option value="7">07</option>
+                                                <option value="8">08</option>
+                                                <option value="9">09</option>
+                                                <option value="10">10</option>
+                                                <option value="11">11</option>
+                                                <option value="12">12</option>
+                                                <option value="13">13</option>
+                                                <option value="14">14</option>
+                                                <option value="15">15</option>
+                                                <option value="16">16</option>
+                                                <option value="17">17</option>
+                                                <option value="18">18</option>
+                                                <option value="19">19</option>
+                                                <option value="20">20</option>
+                                                <option value="21">21</option>
+                                                <option value="22">22</option>
+                                                <option value="23">23</option>
+                                                <option value="24">24</option>
+                                                <option value="25">25</option>
+                                                <option value="26">26</option>
+                                                <option value="27">27</option>
+                                            </select>
+                                            <select name="num" id="two">
+                                                <option value="">---</option>
+                                                <option value="0">00</option>
+                                                <option value="1">01</option>
+                                                <option value="2">02</option>
+                                                <option value="3">03</option>
+                                                <option value="4">04</option>
+                                                <option value="5">05</option>
+                                                <option value="6">06</option>
+                                                <option value="7">07</option>
+                                                <option value="8">08</option>
+                                                <option value="9">09</option>
+                                                <option value="10">10</option>
+                                                <option value="11">11</option>
+                                                <option value="12">12</option>
+                                                <option value="13">13</option>
+                                                <option value="14">14</option>
+                                                <option value="15">15</option>
+                                                <option value="16">16</option>
+                                                <option value="17">17</option>
+                                                <option value="18">18</option>
+                                                <option value="19">19</option>
+                                                <option value="20">20</option>
+                                                <option value="21">21</option>
+                                                <option value="22">22</option>
+                                                <option value="23">23</option>
+                                                <option value="24">24</option>
+                                                <option value="25">25</option>
+                                                <option value="26">26</option>
+                                                <option value="27">27</option>
+                                            </select>
+                                            <select name="num" id="three">
+                                                <option value="">---</option>
+                                                <option value="0">00</option>
+                                                <option value="1">01</option>
+                                                <option value="2">02</option>
+                                                <option value="3">03</option>
+                                                <option value="4">04</option>
+                                                <option value="5">05</option>
+                                                <option value="6">06</option>
+                                                <option value="7">07</option>
+                                                <option value="8">08</option>
+                                                <option value="9">09</option>
+                                                <option value="10">10</option>
+                                                <option value="11">11</option>
+                                                <option value="12">12</option>
+                                                <option value="13">13</option>
+                                                <option value="14">14</option>
+                                                <option value="15">15</option>
+                                                <option value="16">16</option>
+                                                <option value="17">17</option>
+                                                <option value="18">18</option>
+                                                <option value="19">19</option>
+                                                <option value="20">20</option>
+                                                <option value="21">21</option>
+                                                <option value="22">22</option>
+                                                <option value="23">23</option>
+                                                <option value="24">24</option>
+                                                <option value="25">25</option>
+                                                <option value="26">26</option>
+                                                <option value="27">27</option>
+                                            </select>
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <!--投注确认区域-->
+                    <div class="bet-info">
+                        <div class="fl manual-bet">
+                            投注金额：<input value="10" class="bet-money" type="text" onkeyup="this.value=this.value.replace(/[^0-9-]+/,'');"/> 元
+                        </div>
+                        <ul class="fl sprite-yuan">
+                            <li class="cm">
+                                <span>10</span>
+                                <input type="text" value="10">
+                            </li>
+                            <li class="cm">
+                                <span>100</span>
+                                <input type="text" value="100">
+                            </li>
+                            <li class="cm">
+                                <span>500</span>
+                                <input type="text" value="500">
+                            </li>
+                            <li class="cm">
+                                <span>1000</span>
+                                <input type="text" value="1000">
+                            </li>
+                            <li class="cm">
+                                <span>5000</span>
+                                <input type="text" value="5000">
+                            </li>
+                        </ul>
+                        <div class="fl bet-btn">
+                            <div class="submit-btn fl">确定投注</div>
+                            <div class="zdy-btn fl">自定义</div>
+                        </div>
+                    </div>
+                </div>
+                <!--投注记录-->
+                <div class="lucky-right-area">
+                    <div class="issue-state">
+                        <table border="0" cellspacing="0" cellpadding="0">
+                            <tbody>
+                            <tr>
+                                <td>彩种</td>
+                                <td>期号</td>
+                                <td>投注号码</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="bet-record">
+                        <table cellspacing="0" cellpadding="0">
+                            <tbody>
+                            <tr ng-repeat="order in game.orders">
+                                <td>北京28</td>
+                                <td ng-bind="order.actionNo"></td>
+                                <td ng-bind="order.actionData"></td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

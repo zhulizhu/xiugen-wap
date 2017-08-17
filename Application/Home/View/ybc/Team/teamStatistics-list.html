@@ -1,0 +1,112 @@
+
+<div>
+<div class="cp">
+    <ul>
+        <li class="f3">彩票</li>
+        <li class="f3">AG</li>
+        <li class="f3">MG</li>
+        <li class="f3">PT</li>
+        <li class="f3">NT</li>
+        <li class="f3">BBIN</li>
+        <li class="f3">AG棋牌</li>
+        <li class="f3">沙巴体育</li>
+    </ul>
+</div>
+<table width="100%" class="table table-striped" id="my-datatable" cellspacing="0">
+    <thead>
+        <tr class="table_b_th">
+            <th>转入</td>
+            <th>转出</td>
+            <th>投注量</td>
+            <th>游戏返点</td>
+            <th>活动奖励</td>
+            <th>实际盈亏</td>
+        </tr>
+    </thead>
+    <tbody class="table_b_tr">
+    <?php if($all){
+?>
+        <tr>
+            <td><?=$this->ifs(sprintf("%.5f",($all['rechargeAmount'])), '0.00000')?></td>
+            <td><?=$this->ifs(sprintf("%.5f",($all['cashAmount'])), '0.00000')?></td>
+            <td><?=$this->ifs($all['betAmount'], '0')?></td>
+            <td><?=$this->ifs(sprintf("%.5f",($all['fanDianAmount'])), '0.00000')?></td>
+            <td><?=$this->ifs($all['brokerageAmount'], '0.00000')?></td>
+            <td><?=$this->ifs(sprintf("%.5f",($all['zjAmount']-$all['betAmount']+$all['fanDianAmount'])), '0.00000')?></td>
+        </tr>
+    <?php } else{ ?>
+    <tr><td colspan="12" width="910px">当前没有查询到任何数据。</td></tr>
+    <?php } ?>
+    </tbody>
+</table>
+</div>
+<div class="page">
+    {$_page}
+</div>
+<script src="__JS__/jquery.min.js"></script>
+<script src="__JS__/bootstrap.min.js"></script>
+<script src="__JS__/jquery.nouislider.all.min.js"></script>
+<style type="text/css">
+    .active{color:#fff!important; background-color: #2678e8!important;}
+    .cp ul{padding:0px;margin:0px;}
+    .cp ul li{list-style: none;padding:8px 20px;margin:0px;float: left;text-align: center;background-color: #fff;border-top:1px solid #2678e8!important;border-left:1px solid #2678e8!important;color: #666;font-size: 14px;cursor: pointer;}
+    .cp ul li:last-child{
+        border-right:1px solid #2678e8!important;color: #666;
+    }
+    #container .table td{text-align: center;background-color: #fff;border:1px solid #2678e8!important;color: #666;}
+    #container .table th{text-align: center;background-color: #2678e8;border-right: 1px solid #fff!important;
+        border-top: 1px solid #2678e8!important;color: #fff;}
+    #container .table th:first-child{ border-left: 1px solid #2678e8!important;}
+    #container .table th:last-child{ border-right: 1px solid #2678e8!important;}
+    #container .table td{color: #2678e8;}
+    #container .table{margin-top: 15px;}
+</style>
+<script type="text/javascript">
+   //点击彩票，AG激活状态
+   $(".f3").click(function(){
+            $(this).siblings().removeClass('active');
+            $(this).addClass('active');
+        });
+$(document).ready(function () {
+  
+    $('a[target=ajax]').bind('click', function(){
+        var url = $(this).attr('href');
+        $('#record-span').load(url);
+        return false;
+    });
+    
+    $('.updateMember').bind('click', function () {
+        $('#MemberQuota').val(0);
+        $('#OperatType').val(2);
+        $('#operatTitle').text('修改会员');
+        $('#username').val($(this).attr('title'));
+        $("#username").attr("readonly", true);
+        $('#li-password').css('display', 'none');
+        var usertype = $(this).attr('usertype');
+        if (usertype == '1') {
+            $('#MemberType').val(1);
+            $('#radioAgent').click();
+        } else {
+            $('#MemberType').val(0);
+            $('#radioMember').click();
+        }
+        $('#btnSubmit').attr('action' , "{:U('team/userUpdateed')}");
+        $('#add-modal').modal('show');          
+        loadbouns($(this).attr('min'),$(this).attr('max'),'range-def-val');
+        return false;
+    });
+    
+    //解决分页问题
+    $('.page a').bind('click', function(){
+        if(this.tagName == 'A'){
+            var parent = this.parentNode.parentNode;
+            var value = $(parent).attr('target');
+            if(value=='_blank') 
+                return true;
+            var url = $(this).attr('href');
+            $('#record-span').load(url);
+            return false;
+        }
+    });
+});
+</script>

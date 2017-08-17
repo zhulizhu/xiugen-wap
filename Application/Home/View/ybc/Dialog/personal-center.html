@@ -1,0 +1,142 @@
+
+<!--*************************************************个人中心***************************************************-->
+<!--个人中心-->
+<div class="member-set" id="personal-center" ng-controller="MessageCtrl">
+    <div class="pop-menu">
+        <div class="recharge-nav">
+            <a onclick="change4(1)" class="actived1">基础信息</a>
+           <!--  <a onclick="change4(2)">安全中心</a> -->
+            <a onclick="change4(3)">密码修改</a>
+            <a onclick="change4(4)">银行资料</a>
+            <a onclick="change4(5)">我的消息</a>
+            <!--<a onclick="change4(6)">奖金详情</a>-->
+         <!--    <a ng-click="data.type = 7" onclick="change4(7)">分红约定</a>
+            <a ng-click="data.type = 8" onclick="change4(8)">日工资约定</a> -->
+            <a onclick="change4(9)">登录记录</a>
+
+        </div>
+         <script type="text/javascript">
+                        $(".recharge-nav a").click(function(){
+                            $(this).siblings().removeClass('actived1');
+                            $(this).addClass('actived1');
+
+                        })
+                    </script>
+    </div>
+    <div class="pop-area" >
+        <!--基础信息-->
+        <div class="personal-box personal-box1">
+            <iframe  id="pageframe1" src="/index.php?s=/home/user/info.html" style="width: 100%; height: 600px;" allowtransparency="true" frameborder="0"></iframe>
+        </div>
+        <!--安全中心-->
+     <!--    <div class="personal-box personal-box2">
+            <iframe id="pageframe2" src="" style="width: 100%; height: 650px;" allowtransparency="true" frameborder="0"></iframe>
+        </div> -->
+        <!--密码修改-->
+        <div class="personal-box personal-box3">
+            <div class="load2" style="display: none;position: absolute;top:0;left:0;background: rgba(0,0,0,0.6);width:100%;height:637px">
+                <img src="Public/Mobile/images/game/wait.gif" style="position: absolute;top:50%;left:50%;margin-top: -50px;margin-left:-50px;">
+            </div>
+            <iframe id="pageframe3" src="" style="width: 100%; height: 600px;" allowtransparency="true" frameborder="0"></iframe>
+        </div>
+        <!--银行资料-->
+        <div class="personal-box personal-box4">
+            <div class="load3" style="display: none;position: absolute;top:0;left:0;background: rgba(0,0,0,0.6);width:100%;height:637px">
+                <img src="Public/Mobile/images/game/wait.gif" style="position: absolute;top:50%;left:50%;margin-top: -50px;margin-left:-50px;">
+            </div>
+            <iframe id="pageframe4" src="" style="width: 100%; height: 600px;" allowtransparency="true" frameborder="0"></iframe>
+        </div>
+        <!--我的消息-->
+        <div class="personal-box personal-box5">
+            <div class="load4" style="display: none;position: absolute;top:0;left:0;background: rgba(0,0,0,0.6);width:100%;height:637px">
+                <img src="Public/Mobile/images/game/wait.gif" style="position: absolute;top:50%;left:50%;margin-top: -50px;margin-left:-50px;">
+            </div>
+            <iframe id="pageframe5" src="" style="width: 100%; height: 600px;" allowtransparency="true" frameborder="0"></iframe>
+        </div>
+        <!--奖金详情-->
+        <!--<div class="personal-box personal-box6">-->
+            <!--<iframe id="pageframe6" src="" style="width: 100%; height: 650px;" allowtransparency="true" frameborder="0"></iframe>-->
+        <!--</div>-->
+        <!--分红约定-->
+        <!-- <div class="personal-box personal-box7">
+            <iframe id="pageframe7" src="/index.php?s=/home/notice/index.html" style="width: 100%; height: 650px;" allowtransparency="true" frameborder="0"></iframe>
+        </div>
+        日工资约定
+        <div class="personal-box personal-box8">
+            <iframe id="pageframe8" src="/index.php?s=/home/notice/index.html" style="width: 100%; height: 650px;" allowtransparency="true" frameborder="0"></iframe>
+        </div> -->
+        <!--登录记录-->
+        <div class="personal-box personal-box9">
+            <div class="load8" style="display: none;position: absolute;top:0;left:0;background: rgba(0,0,0,0.6);width:100%;height:637px">
+                <img src="Public/Mobile/images/game/wait.gif" style="position: absolute;top:50%;left:50%;margin-top: -50px;margin-left:-50px;">
+            </div>
+            <iframe id="pageframe9" src="" style="width: 100%; height: 600px;" allowtransparency="true" frameborder="0"></iframe>
+        </div>
+    </div>
+    <script>
+        function change4(n){
+            var pageframe = $('#pageframe'+n);
+            if(pageframe.attr('src') == ''){
+                switch (n){
+                    case 1:pageframe.attr('src','/index.php?s=/home/user/info.html');
+
+                        pageframe.load(function() { 
+
+                        }); 
+                    break;
+                    case 2:pageframe.attr('src','/index.php?s=/home/team/securityCenter.html');
+                        $('.load1').show();
+                        pageframe.load(function() { 
+                        $('.load1').hide();
+                        }); 
+                    break;
+                    case 3:pageframe.attr('src','/index.php?s=/home/user/password.html');
+                        $('.load2').show();
+                        pageframe.load(function() {
+                            $('.load2').hide();
+                        }); 
+                    break;
+                    case 4:pageframe.attr('src','/index.php?s=/home/user/bank.html');
+                        $('.load3').show();
+                        pageframe.load(function() {
+                            $('.load3').hide();
+                        }); 
+                    break;
+                    case 5:pageframe.attr('src','/index.php?s=/home/notice/index.html');
+                        $('.load4').show();
+                        pageframe.load(function() {
+                            $('.load4').hide();
+                        }); 
+                    break;
+                    case 6:pageframe.attr('src','/index.php?s=/home/team/prizeDetail.html');
+                        $('.load5').show();
+                        pageframe.load(function() {
+                            $('.load5').hide();
+                        }); 
+                    break;
+                    case 7:pageframe.attr('src','/index.php?s=/home/notice/index.html');
+                        $('.load6').show();
+                        pageframe.load(function() {
+                            $('.load6').hide();
+                        }); 
+                    break;
+                    case 8:pageframe.attr('src','/index.php?s=/home/notice/index.html');
+                        $('.load7').show();
+                        pageframe.load(function() {
+                            $('.load7').hide();
+                        }); 
+                    break;
+                    case 9:pageframe.attr('src','/index.php?s=/home/team/checkIn.html');
+                        $('.load8').show();
+                        pageframe.load(function() {
+                            $('.load8').hide();
+                        }); 
+                    break;
+                }
+            }
+            $('.personal-box'+n).show();
+            $('.personal-box'+n).siblings().hide();
+        }
+    </script>
+</div>
+

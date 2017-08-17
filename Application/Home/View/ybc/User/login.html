@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>久信城</title>
+	<!--<link rel="shortcut icon" type="image/x-icon" href="__IMG__/favicon.ico"/>-->
+	<!--<link rel="icon" type="image/x-icon" href="__IMG__/favicon.ico">-->
+	<link rel="icon" href="/Public/Home/images/public/logo.png" type="image/x-icon"/>
+	<link rel="stylesheet" type="text/css" href="__CSS__/base.css">
+	<link rel="stylesheet" type="text/css" href="__CSS__/login.css">
+	<link rel="stylesheet" type="text/css" href="__CSS__/ionic.min.css">
+	<link rel="stylesheet" type="text/css" href="__CSS__/jquery.fullPage.css">
+	<!--<script src="http://cdn.static.runoob.com/libs/angular.js/1.4.6/angular.min.js"></script>-->
+	<script src="__JS__/jquery-1.8.0.min.js"></script>
+	<script src="__JS__/jquery.fullPage.min.js"></script>
+
+	<style>
+		a[disabled="disabled"],a[disabled="disabled"]:hover{
+			background-color: #666;
+		}
+		a[disabled="disabled"]:hover{
+
+		}
+		/*登录弹窗*/
+        #ap {
+ position:absolute;
+ z-index:888; left: 50%;
+ margin-top: -75px;
+ margin-left: -128px;
+ top: 50%;
+ display:none;
+}
+#qp{
+position:absolute;
+ z-index:888;
+ width:100%;
+ height:100%;
+ background:rgba(0,0,0,0.6);
+ display:none;
+}
+.one{
+    background-color: #fff;width: 256px;height: auto;border-radius: 15px;
+    overflow:hidden;
+
+}
+#btn1{
+    border: none;
+    padding: 8px 30px;
+    color: #fff;
+    background-color: #0099CC;
+    border-radius: 15px;
+    display: block;margin:10px 81px;
+    float: left;
+    
+
+}
+#tex{
+    font-size: 16px;line-height: 30px;text-align: center;
+    margin:10px auto;
+}
+.one .top{width: 100%;height: 40px;background-color: #0099CC;border-top-left-radius: 13px; border-top-right-radius: 13px;}
+.one .top h4{position: relative;color: #fff;font-size: 14px;line-height: 40px;margin:0 auto;text-align: center;}
+.one .top #del{border-radius: 15px;background-color: #fff;border:3px solid #0099CC;color:#0099CC;width: 30px;height:30px;line-height: 22px;text-align: center;font-size: 16px;position: absolute;top:-6px;right: -12px;font-weight: bolder;cursor: pointer; }
+.section{min-height: 650px!important;}
+	</style>
+	<script type="text/javascript">
+		function submit() {
+			if($('#check-input').val() == 0){
+				// alert('请同意协议');
+				$("#ap,#qp").css('display','block');
+				$("#tex").text("请同意协议");
+				$("#btn1,#del").click(function(){
+						$("#ap,#qp").css('display','none');
+					});
+				return false;
+			}
+			var self = $('#login');
+			$.post(self.attr("action"), self.serialize(), success, "json");
+			return false;
+
+			function success(data){
+				if(data.status){
+					var info;
+					if(data.info){
+						info = '<p>'+data.info+'</p>';
+					}else {
+						info = '<br/>';
+					}
+					$("#ap,#qp").css('display','block');
+					$("#tex").html('<p style="margin: 0;">欢迎来到久信城娱乐</p><p style="margin: 0;">您的登录语为：</p>'+info+'<p style="margin: 0;">祝您购买愉快</p>');
+					$("#btn1").click(function(){
+						window.location.href = data.url;
+					});
+					document.onkeydown = function(e){
+                        var ev = document.all ? window.event : e;
+                         if(ev.keyCode==13) {
+                           window.location.href = data.url;
+                         }
+                    }
+					$("#del").click(function(){
+						$("#ap,#qp").css('display','none');
+					});
+					
+				} else {
+					$(".reloadverify").click();
+					$("#ap,#qp").css('display','block');
+				    $("#tex").text(data.info);
+				    $("#btn1,#del").click(function(){
+						$("#ap,#qp").css('display','none');
+					});
+				}
+			}
+		}
+
+		function submit_repass() {
+			var self = $('#repass');
+			$.post(self.attr("action"), self.serialize(), success, "json");
+			return false;
+
+			function success(data){
+				if(data.status){
+					$("#ap,#qp").css('display','block');
+				    $("#tex").text(data.info);
+				    $("#btn1,#del").click(function(){
+						$("#ap,#qp").css('display','none');
+					});
+					$('#repass-left-form').css('display','none');
+					$('#login-left-form').css('display','block');
+				} else {
+					$(".reloadverify").click();
+					$("#ap,#qp").css('display','block');
+				    $("#tex").text(data.info);
+				    $("#btn1,#del").click(function(){
+						$("#ap,#qp").css('display','none');
+					});
+
+				}
+			}
+		}
+
+		$(function(){
+			validBrowser();
+			var verifyimg = $(".verifyimg").attr("src");
+			$(".reloadverify").click(function(){
+				if( verifyimg.indexOf('?')>0){
+					$(".verifyimg").attr("src", verifyimg+'&random='+Math.random());
+				}else{
+					$(".verifyimg").attr("src", verifyimg.replace(/\?.*$/,'')+'?'+Math.random());
+				}
+			});
+
+			$("form").submit(function(){
+				var self = $(this);
+				$.post(self.attr("action"), self.serialize(), success, "json");
+				return false;
+				
+
+				function success(data){
+					if(data.status){
+						window.location.href = data.url;
+					} else {
+						$(".reloadverify").click();
+						$("#ap,#qp").css('display','block');
+				    $("#tex").text(data.info);
+				    $("#btn1,#del").click(function(){
+						$("#ap,#qp").css('display','none');
+					});
+					}
+				}
+			});
+
+			$("#j-app-btn").bind("click",
+				function toggle() {
+					$(".masksao").show();
+				}
+				);
+			$(".masksao").bind("click",
+				function toggle() {
+					$(".masksao").hide();
+				}
+				);
+		});
+
+		function validBrowser() {
+			var u_agent = navigator.userAgent;
+			var browser_name = 'unKnow browser';
+			if (u_agent.indexOf('Firefox') > - 1) {
+				browser_name = 'Firefox'
+			} else {
+				if (u_agent.indexOf('Chrome') > - 1) {
+					browser_name = 'Chrome'
+				} else {
+					if (u_agent.indexOf('Trident') > - 1 && u_agent.indexOf('rv:11') > - 1) {
+						browser_name = 'IE11'
+					} else {
+						if (u_agent.indexOf('MSIE') > - 1 && u_agent.indexOf('Trident') > - 1) {
+							browser_name = 'IE(8-10)'
+						} else {
+							if (u_agent.indexOf('MSIE') > - 1) {
+								browser_name = 'IE(6-7)'
+							} else {
+								if (u_agent.indexOf('Opera') > - 1) {
+									browser_name = 'Opera'
+								}
+							}
+						}
+					}
+				}
+			}
+			if (browser_name != 'IE11' && browser_name != 'Chrome' && browser_name != 'Firefox') {
+				alert('亲~~，强烈推荐您点击下载、使用页面下方的最新浏览器，否则可能没有更好的体验效果');
+			}
+		}
+
+	</script>
+</head>
+
+
+<body ng-app="login">
+<div id="qp"></div>
+    <div id="ap">
+        <div class="one">
+            <div class="top">
+                <h4>温馨提示</h4>
+                <div id="del">×</div>
+            </div>
+            <p id="tex"></p>
+            <button id="btn1">确定</button>
+        </div>
+        
+    </div>
+
+	<div class="main-wrapper" ng-controller="longCtrl">
+		<!--第一屏登录-->
+		<div class="section section1">
+			<!-- <div class="logo-box">
+				<a class="logo"></a>
+			</div> -->
+			<div class="login-page">
+				<div class="login-content">
+					<ul id="menu-jump">
+						<li data-menuanchor="page1" class="active chose">
+							<a href="#page1">登陆中心</a>
+						</li>
+						<li data-menuanchor="page2" class="">
+							<a href="#page2">手机中心</a>
+						</li>
+						<li data-menuanchor="page3" class="">
+							<a href="#page3">电脑中心</a>
+						</li>
+					</ul>
+					<div class="login-border">
+						<div id="login-left-form"  class="login-left-form">
+							<h3>用户登录</h3>
+
+							<form method="post" id="login" action="{:U('user/login')}" enter="true">
+
+								<!-- 用户名-->
+								<div class="border">
+									<input style="ime-mode:disabled;" autocomplete="off" placeholder="请输入用户名" maxlength="50" id="username" name="username" type="text">
+								</div>
+								<div class="border">
+									<input style="ime-mode:disabled;" maxlength="40" autocomplete="off" placeholder="请输入密码" id="password" name="password" type="password">
+								</div>
+
+								<div class="border">
+									<input style="ime-mode:disabled;" maxlength="4" autocomplete="off" placeholder="请输入验证码" id="verify" name="verify" type="text">
+									<div class="verify-code">
+										<img id="ReCaptcha_CodeImage" class="verifyimg reloadverify" style="cursor: pointer;height:43px; width:90px;" src="{:U('verify')}" alt="点击切换">
+									</div>
+								</div>
+								<div class="agree">
+									<div class="check-box">
+										<input type="checkbox"
+										value="1"
+										id="check-input"
+										checked hidden="hidden"
+										name="userClause"
+										ng-model="loginData.checked"/>
+										<label for="check-input" id="check"> </label>
+									</div>
+									<div class="read-agree">
+										<span>阅读并同意</span>
+										<a href="#" id="add">协议与条款</a>
+									</div>
+								</div>
+								<!--登陆-->
+								<div class="login-add">
+									<a onclick="submit()" class="logi">登陆地址一</a>
+									<a onclick="submit()" ng-disabled="login.$invalid" class="logi"> 登陆地址二</a>
+									<a onclick="submit()" class="logi">登陆地址三</a>
+								</div>
+								<a class="online-service" href="{$settings['kefuGG']}" target="_blank">在线客服</a>
+							</form>
+						</div>
+						<div id="repass-left-form"  class="login-left-form" style="display: none;">
+							<h3>忘记密码</h3>
+
+							<form method="post" id="repass" action="{:U('user/repass')}" enter="true">
+
+								<!-- 用户名-->
+								<div class="border">
+									<input style="ime-mode:disabled;" autocomplete="off" placeholder="请输入用户名" maxlength="50" id="username" name="username" type="text">
+								</div>
+								<div class="border">
+									<input style="ime-mode:disabled;" maxlength="40" autocomplete="off" placeholder="请输入新密码" id="password"  name="password" type="password">
+								</div>
+								<div class="border">
+									<input style="ime-mode:disabled;" maxlength="40" autocomplete="off" placeholder="确认新密码" id="re_password" name="re_password" type="password">
+								</div>
+
+								<div class="border">
+									<input style="ime-mode:disabled;" maxlength="4" autocomplete="off" placeholder="请输入验证码" id="verify" name="verify" type="text">
+									<div class="verify-code">
+										<img id="ReCaptcha_CodeImage" class="verifyimg reloadverify" style="cursor: pointer;height:43px; width:90px;" src="{:U('verify')}" alt="点击切换">
+									</div>
+								</div>
+								<!--登陆-->
+								<div class="login-add">
+									<a onclick="submit_repass()">确定</a>
+									<a class="online-service" id="go-login">前往登录</a>
+								</div>
+							</form>
+						</div>
+						<div id="login-right-form" class="login-right-form">
+							<ul>
+								<li>
+									<p>为了避免假冒的站点偷窃您的用户名和密码，建议您使用安全<br>登录以保证账号安全。</p>
+								</li>
+								<li>
+									<p>系统会自动提供3条速度最优的登录地址供您选择。<br>登入账号时，连续输错5次密码。账号将会被自动冻结。</p>
+
+									<div class="question">
+										<!--<a class="thaw">账号被盗？紧急解冻</a>-->
+										<a class="forget-word" id="forget-pass" href="{$settings['kefuGG']}" target="_blank">联系客服</a>
+									</div>
+								</li>
+								<li>
+									<p>为了保证最佳使用体验，请保证您的屏幕分辨率在1280及以上<br>若使用IE浏览器，请使用IE9以上及版本<br>推荐您使用以下浏览器：</p>
+
+									<div class="browser-area">
+										<a class="browser-icon chrome" href="http://rj.baidu.com/soft/detail/14744.html?ald"
+										target="_blank"></a>
+										<a class="browser-icon firefox" href="http://rj.baidu.com/soft/detail/11843.html?ald"
+										target="_blank"></a>
+										<a class="browser-icon safari" href="http://rj.baidu.com/soft/detail/12966.html?ald"
+										target="_blank"></a>
+										<a class="browser-icon ie" href="http://rj.baidu.com/soft/detail/14917.html?ald" target="_blank"></a>
+									</div>
+								</li>
+							</ul>
+						</div>
+					</div>
+
+				</div>
+			</div>
+			<div class="login-border lin" style="    position: absolute;top: 50%; left: 50%;margin-top:-200px;margin-left: -560px;">
+			  <h4>协议与条款</h4>
+			  <div class="del">×</div>
+			  <div class="box">
+			    <h5>一、定义</h5>
+			    <p>1. 以下条规适用于用户使用、联接和参与不时由 （统称：“我们”及“我们的”，视具体情况而定）通过网站及 经营的其他网站 (“博彩网站”) 提供的网上“玩真钱” 模式的博彩服务 （”博彩服务“） 。本条规须与特定游戏的游戏规则(统称”博彩规则“）及适用于博彩服务和博彩软件的使用及与连接进入博彩网站和其中所含博彩信息的其他条规（统称“本条规”）一并阅读。</p>
+			    <h5>二、同意</h5>
+			    <p>1. 用户在注册过程中于"本人确认本人已满18周岁，并已阅读、打印并同意之本条规"字样之后的方框内打勾，并点击相应的"储存并继续"按钮，即表示用户确认并同意：用户已经阅读、完全理解并同意本条规；及本条规构成用户与之间关于博彩服务使用的具有法律约束力的协议("使用协议")。</p>
+			  	<h5>三、修改</h5>
+			    <p>1. 我们保留不时修订、更
+			    新和修改本条规和博彩规则（或其任何部分）的绝对权利。上述任何修订、更新或修改将在博彩网站上公布。经修订、更新或修改的本条规和博彩规则于其在博彩网站上公布时生效。用户在上述修订、更新或修改公布之后继续通过博彩网站和博彩设备使用、联接和参与博彩服务，视为用户同意并接受所公布的经修改或更新的本条规和博彩规则。</p>
+			  </div>
+				
+			</div>
+			<div class="msg-show">
+				<div class="wrap">
+					<div class="about-bh">
+						<h3>关于久信</h3>
+
+						<p>关于久信赌注</p>
+						<span>
+							欢迎来到JiuXinBet，亚洲领先在线娱乐投注网站，为您呈现不一样的在线投注体验，包括彩票投注，体育投注，在线娱乐场真人娱乐场游戏，在线扑克，老虎机游戏和更多世界顶级投注游戏。
+						</span>
+					</div>
+					<div class="about-xy">
+						<h3>新亚集团/<i>帮助中心</i>/<i>联系我们</i></h3>
+
+						<p> 2016 久信游戏版权所有 菲律宾政府合法博彩牌照认证</p>
+						<span>久信游戏郑重标识：彩票有风险，投注需谨慎，不向未满18周岁的青少年出售彩票</span>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!--第二屏下载-->
+		<div class="section section2">
+			<div class="wrap download">
+				<div class="download-left">
+					<span class="title"></span>
+					<h4>iphone手机扫码安装</h4>
+
+					<div class="download-introduce">
+						<ul>
+							<li>
+								<span>1</span>
+
+								<p>使用微信或其他工具扫描二维码</p>
+							</li>
+							<li>
+								<span>2</span>
+
+								<p>在打开的页面内点击直接安装</p>
+							</li>
+							<li>
+								<span>3</span>
+
+								<p>安装完成，即刻开启精彩应用</p>
+							</li>
+							<li>
+								<span>4</span>
+
+								<p>如系统提示“未受信任的企业<br>级开发者”，则：点击“设置- ><br>通用- >描述文件”将应用添加为<br>“信任”即可开启。</p>
+							</li>
+						</ul>
+					</div>
+					<div class="qr-code">
+						<div class="qr-code-img">
+							<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMgAAADICAYAAACtWK6eAAANc0lEQVR4Xu2dbZIbNwxE1zdL+QTJSeObpSoXcEpOWWtpPki8AaAZ+eXvAiTQ6AZIzq7z5Y+vX79/XPi/v799Q9H/9eefq37Z69026V5zKzcEVFH8NJZuvy8K5BHybjLvFXyP6HtxKpA8GSmQJywVyJJcFZjkUbh2JQWiQIYMUyBDiM5rkF287PW8g5yXOzOROUGcIEOeVDSN4aYnMdgUCAWlIq+KyyrJj15+Ky7U3WuSutK6kb2O+OzFqUACyCqQAFgfHx8KJIYXtqZAU7+tQBVIrITZ+Md2n7d2gqxg5REr7zmXNBSC/zzlY5YKRIFMMSabtE6QKdiPG1GgqR/piHtZdl+oK46CpIrZ+JMYZnycIE6QGZ7g3xkjDSV7Wk0luGGULhDaoSq6bEV3PgL2mm83GbI7N12vwo/WhvIEPfMqkFiZFEjsQeBM/FIgMa4jawWiQBBxfnWiI5D6HQ44sIACUSABuqybUqJTv8MBBxZQIAokQBcFchiswQL0cpz9GkXj8A4SfHY9E9CE3E4QJwjhzYMPPSpR8mV3qbPEcbgQwQUq6pZdm1tKNM63fsXaq3V2ERTIEu0zTX4FEux8CiQI2IY5JR71o1HT/ZwgFPEnPyeIE+SOQHb3PXJGPAsxzxJHkt6nl6GdmfpNBxZoYL/t72J5B6F0mvejRKd+85E9WtL9PGJRxAMdqlOoSelML0OJR/2mAwvU57edIPQVhRaB+FUcV/fioEfB7NwUSBBRCliFXzD0Q+YKJHa5p2BTnrz1EcsJsqSTEyQmSAVCW1KSnxMkRlgKuxNkBTkniBPkJwIKRIFMNVePWLGJ5RFrilZ1Rh6xYoSllWidIDRI6kePSoR8FMir+JEa0KlD60ZiPOKT/h3kSDDElwKtQAjaefcWWrecqOdXUSDzWOG/G3CCxI5KdCoFSjltqkCmoeJ/WKNAFEiAZrmmdFR7xMqpA+32tG45Uc+v4gSZx8oj1gpWCiQRlAAXp01pJ3KCTEO8a6hAcnB8ySrZZ/8KMWbHeAO6M86KvV5CFrDpW/9PPElhiU83Ybv3q8AEcPUlLgrkCfYKMjhBXsLtlE0ViAK5I7Al5IqmkcLehkUUiAJRIDtCUyAKRIEokCUCnccJ7yANZ6GiLb788++/34vWfvmy2d9B9hKqOKdXfH/YyyG7abycAAkBKJAnECtIWTFBqFgVSEw1CkSBlN1BYlQ8p7UCUSAKZO+S7h3kER2PWEu20PvVOWdCLConiBPECeIEme8aThAnyK8IoA+FV3+VoS9AFXnT4wv1m28Vn5Z0L/LMPoqP1oC83t18FMgTchVkoEWt8BsRcO3nFZiQOG4+FBMFsoIAOS5VkIEWtcKPELMCExKHAtlAjY5qBUJp+OinQII4dnc2BfLai7MCUSB3BCrIUNFQaJzBUv8wp3vRxkbvC3S/vfp4SfeSPtTMby2QrS/pFaB0d1LSiSq6UMWzMl2zExOy10itlJcUr80v6TSQM/mRAimQ2H1nROitn5MHlCPHPQUSrBT52wciuFFYtKHQgpMcaNMge50NLydI4A7yDgUnOSiQFdRoZzuTXycZrnJk6MSE7OUE2UCgQlikQLRbKpARtR9/fhW80v8XbPSlKgbvnHV2LHQ9Soa5LOsv1TR+2vQq7lekWd58FEiAhQokANaBD4wKJIYztqaE3tqQrkc7ME2cHhNJ3pTMFJPs3G7xoy/pFWSoSI6OThJLBSZUBJSYZL8KMlesSXJTIOBRgHTSivM2LTgRP200VKgKZAW57MKNCEQ7vgK55ovTiA+krl7SA6hSwdFuGQjtwTS7EdH4K6Zqdm7DIxb5ZUVaOOpHiZl9bKAFp34Ur+5jD4mTEr2bC+hXTQggR3y6QdmKlRKd+h3BLDuH7FgUSCKiCiQPzLOIVYHk1bT9X7LI7r5nIeUtr7PEokAUyB2Bs5BSgayTcvdDoZf0eSVTolO/+cjmLc8SixNkvmZDS+8gQ4imDRTIEir0qybTiL/YkIqHvu2TdLtJSffb8qMYZz+zHzki0omF/lUTQpIqH1o8BbKsiAJZYqJAqpT7y7q0o9PQ6H4KRIHcEXCCOEFmGpATZAalgza0o9Nt6X5OECeIE+Tbt03dKRAFokAUSGgwo19WrHg5oseCULYTxjQO+ozYeRcapZ89QSp4Msoh++cK5AlRBRL7kFaB15mahgJRIHcEnCArdxDyu1gVo5N2ouyRSuPwiNUzebLrPVrPCeIEcYLsqESBKBAFokBGg/Tz5x6xeo5KFOf5SuZYnmaC7KVDwaR+W7Fkr3fbp2LNHGrMrULjr/CbizhmpUACeNGiVog/EHapKcWkwq8iUQUSQJUWVYEsEaBY0tfCQJkfTBVIADlaVAWiQIYvITcD+oWUEpP6eQeZ7xoU4wq/+ajnLZ0g81iVXKgpUQJhl5rS+Cv8KhJVIAFUaVE9Yl34iPXH16/fAxwZmtJfQ9lbuHNNegmsiPEsmAyLDgxos+n2S/+LwgqidK6pQADbgUs30el+CuSpuAoEsB24UMJ2+ykQBXJHgL4yAn3gBw8FsoK2R6wlKJ2YEAGMfLqJTvdzgjhBnCA7f6evQBSIAtkTyNZfFI5G5NbP6Sh7528F3VhW1IDm0MmTCg5tfiikgFQUp2JNml+nH82b+l0hNxojxUSBUMQb/GhRqV9DSvctumOk+ymQTlYE96JFpX7B8A6Zd8dI91Mgh8pc60yLSv1qs3lcvTtGup8C6WRFcC9aVOoXDO+QeXeMdD8FcqjMtc60qNSvNhsnyA8EKn6XiRYumyg0Nxo//Vpe4Ueea8+UN30Cbp0ge0FW/B6QAlkifgVMOgU+auoKJNDmnCAxwQWgfTBVICvIOUGWoFQQxQkSE7kTJNDmnCAxcgWgdYKMwHKCOEF+IlAxOb2kryBwheMEfbiguVG/3/YVa+sfbThTR6dHG5JDNoFGk5P+vDPOCvwr1qRTYs9v8+9BCLlGxaZF7QSTxjjKPfvnnXFW4F+xpgIJsoyIvJN4wXQezDvjrCBzxZoKJMgoBRIEbMO8gswVayqQYL0VSBAwBbJAwDvIEySdR5cj9O2Ms6LbV6zpBAkyygkSBMwJspwg5B9t6FZ/TpkfV6E5kFjO9OGLfncheVd0dNL0bnHQeqNfNaGb0eSyi3MEMBKLAlmi1s0hup8CIYwP+igQBTJFGSdIjCgUL9ot6X5TxQ88hlQcAykmThBS3aCPEyTWGBRIkGAV5rSjkFgUyIUFQn5Zkb7BV5CSkm+L6BXHDJo3zY3mQOMkTYP6dGOCPhQqkFh5KfG6yUDjjKFxzLobEwXyVC/afbvf/GmTqojzGOVj3gokhtfu/3uddEQFEixAs7kCCQJOAfMOkndxDpbskDmtN218HrE8Yt0RIBP3ENuBswIJgkYBc4I4QWaohj4Uzix8BhtykSU+o1y71xzFE20OFfHTx4LshjjCSoE8IVRBhu41R0VXIPMIKRAFckdgqztXCNwJMi/SMktSWOIzSqB7zVE8TpB5hJwgThAnyI5eFIgCUSAKZIlA53nbI9b8keZmSfGq+I6z+aEwltLrrOmzH/2ySjKlBacXWRLjzSe7adC8qR/Fa48LCoSyKeDXXfBAaA+mCmSJnAKhbAr4KZD5I+6RI5YTZAUBj1gBpQ5MnSBOkOGLTR7dPldygjhBKng1taYTZAqmKSMniBPECbIjFQUSEEjnM+iovXUeUWjeFW/wI1y2fk5z2FqvAn96oaaY7PmhZ95skI8kVlGgrTVp3grkSIUffbuxVCArtVMg84SuaFBOkHn8h5YVBVIgQ9jvBhX4K5B5/IeWFQVSIEPYFcjHxwf6Rxvmoc2xVCAxHOk9yku6r1jDrkjJ1X2xpK8yMan9b13RoN76iFVBhu4PfhU5EPJV5J1N6LNgdcOXNjAqSHTEqgCsgigUFEJ06lORtwKJVWMPLwUSwzLdWoHEIHWCrOCV3RFH5+pYyY5ZK5AYfgpEgQwfEkZn8eyGUnGkjsni01qBKBAFsqMeBaJAFIgCWSLQfRbfqgHtUPQYcoX96JGNYkKPX3t+FOe3fsUiBaJAkr1Gd4mKZ2qSnwJZqQTt6FT9dD/q5wSZr5QCUSB3BEiHPfJsfIX9FIgCUSA7A0WBKBAFokBWEfCS/gTLFY483Uc6J8ibTpCKV6Dsy/38VTnHkry20aZBIyYxjvaijzlvPUEUyBIBQj4F4gQZNaDhz7tJNAxow0CBxJqGE4QyLenukrT99DIKRIFMkYUQZW9hJ8gU7FNG2bW5beodZAr6T6PsIiiQYAHgszLdRYEEkVMg84B1iz+7Nu0TZB7aHMt3eIfPQaJ2lS0hUPwrXhGpWGkO6JJeW6bYJYqOzu4crrCfAllWSYFcgblNMSoQBdJEtWtuo0AUyDWZ2xS1AlEgTVS75jYKRIFck7lNUSuQgECaanJ4G/qK1UmGw0kGF6BPmlvbZK932+dM3zr2OLT5ihWsycvMFUjes7gCcYLcEXCCzPc0J8g8VqezdII4QX4ikM2F27oesZ74VdEtu7tKdg7Z63kHaWREdteoIEMjHD+2ys4he71RjBSvbC44QVYqUUEGWnDql51D9npXEsh/4ByahLfG2EUAAAAASUVORK5CYII="/>
+						</div>
+						<a>扫码下载</a>
+					</div>
+				</div>
+				<div class="download-right">
+					<img class="phone-img1" src="__IMG__/login/phone-small.png"/>
+					<img class="phone-img3" src="__IMG__/login/phone-big.png"/>
+					<img class="phone-img2" src="__IMG__/login/phone-small.png"/>
+				</div>
+			</div>
+		</div>
+
+		<!--第三屏介绍-->
+		<div class="section section3">
+			<div class="wrap advantage">
+				<div class="advantage-left">
+					<span class="title"></span>
+
+					<div class="advantage-introduce">
+						<ul>
+							<li>
+								<span>1</span>
+
+								<p>根据您当期最快的网络环境推<br>荐3条最快的登录地址</p>
+							</li>
+							<li>
+								<span>2</span>
+
+								<p>避免盗号风险，保障您的账号<br>安全</p>
+							</li>
+							<li>
+								<span>3</span>
+
+								<p>下载异常，永久自动更新</p>
+							</li>
+						</ul>
+					</div>
+					<a class="download-btn">点击下载</a>
+				</div>
+				<div class="show-pic">
+					<img class="show-pic1" src="__IMG__/login/show1.jpg"/>
+					<img class="show-pic2" src="__IMG__/login/show1.jpg"/>
+					<img class="show-pic3" src="__IMG__/login/show1.jpg"/>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script src="__JS__/login.js"></script>
+	<script>
+		$(function(){
+			document.onkeydown = function(e){
+				var ev = document.all ? window.event : e;
+				if(ev.keyCode==13) {
+					submit();
+				}
+			}
+		});
+		// $('.border').find('input').keyup(function(event){
+		// 	if(event.keyCode===13) {			
+		// 			// $('.logi').click();
+		// 			submit();
+		// 		}
+		// })
+		// $('#btn1').keyup(function(event){
+		// 	if(event.keyCode===13) {			
+		// 			$('#ap').css('display','none');
+		// 		}
+		// })
+
+
+		$("#add").click(function(){
+			$(".lin").css('display','block');
+		})
+		$(".del").click(function(){
+			$(".lin").css('display','none');
+		})
+
+		$("#check-input").change(function() {
+			if($(this).val()==1){
+				$(this).val(0);
+			}else {
+				$(this).val(1);
+			}
+		});
+//		$('#forget-pass').click(function(){
+//			$('#login-left-form').css('display','none');
+//			$('#repass-left-form').css('display','block');
+//		});
+//		$('#go-login').click(function(){
+//			$('#repass-left-form').css('display','none');
+//			$('#login-left-form').css('display','block');
+//		});
+	</script>
+</body>
+</html>

@@ -1,0 +1,712 @@
+<!--充值中心-->
+<div class="member-set" id="recharge-set">
+    <div class="pop-menu">
+        <div class="recharge-nav">
+            <a class="third-party">第三方充值</a>
+            <a class="account-drawing">账户提款</a>
+            <a class="money-record">充取转记录</a>
+        </div>
+    </div>
+    <div class="pop-area">
+        <div class="big-title"><i></i><span>第三方充值</span></div>
+        <!--第三方充值-->
+        <div class="recharge-box" id="third-party">
+            <form class="third-party-message">
+                <div class="row spacing">
+                    <div class="row-left">支付方式：</div>
+                    <div class="row-right">
+                        <label>
+                            <input type="radio" class="radio" name="account-id">
+                            <img src="img/pop-up/bank/bank1.png" class="chose-this">
+                        </label>
+                        <label>
+                            <input type="radio" class="radio" name="account-id">
+                            <img src="img/pop-up/bank/bank2.png">
+                        </label>
+                        <label>
+                            <input type="radio" class="radio" name="account-id">
+                            <img src="img/pop-up/bank/bank3.png">
+                        </label>
+                    </div>
+                </div>
+                <div class="row spacing">
+                    <div class="row-left">充值金额：</div>
+                    <div class="row-right">
+                        <label class="border-frame">
+                            <input onkeyup="this.value=this.value.replace(/[^0-9-]+/,'');" type="text">
+                        </label>
+
+                        <div class="tip-box">
+                            <i class="fa fa-info-circle"></i>
+                            <span class="tip-message">请输入充值金额</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row tip">
+                    <div class="row-left">温馨提示：</div>
+                    <div class="row-right">
+                        <div class="prompt-message">单笔充值限额：最低<span>50</span>，最高<span>无限制</span></div>
+                    </div>
+                </div>
+                <div class="row tip">
+                    <div class="row-left"></div>
+                    <div class="row-right">
+                        <a class="sub-btn">提交</a>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <!--账户提款-->
+        <div class="recharge-box" id="account-drawing">
+            <div class="recharge-box-area">
+                <div class="left-area">
+                    <form class="account-drawing-message">
+                        <div class="row">
+                            <div class="row-left">收款银行卡：</div>
+                            <div class="row-right">
+                                <div class="bank-list">
+                                    <div class="item" is-lock="0">建设银行 463***5345(未锁定)<i></i></div>
+                                    <div class="item on" is-lock="1">招商银行 463***5341<i></i></div>
+                                    <div class="item add-card"><span class="add-icon">+</span>绑定新的银行卡</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="row-left">取款金额：</div>
+                            <div class="row-right">
+                                <label class="border-frame">
+                                    <input onkeyup="this.value=this.value.replace(/[^0-9-]+/,'');" type="text"
+                                           ng-model="formValue.money">
+                                </label>
+
+                                <div class="tip-box">
+                                    <i class="fa fa-info-circle"></i>
+                                    <span class="tip-message">请输入取款金额</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="row-left">资金密码：</div>
+                            <div class="row-right">
+                                <label class="border-frame">
+                                    <input onkeyup="this.value=this.value.replace(/[^0-9-]+/,'');" type="text"
+                                           ng-model="formValue.psw">
+                                </label>
+
+                                <div class="tip-box">
+                                    <i class="fa fa-info-circle"></i>
+                                    <span class="tip-message">请输入资金密码</span>
+                                </div>
+                                <div class="small-tip">（该密码为平台资金密码）</div>
+                            </div>
+                        </div>
+                        <div class="row spacing">
+                            <div class="row-left"></div>
+                            <div class="row-right">
+                                <a class="sub-btn" ng-click="tixian()">立即取款</a>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="right-area">
+                    <div class="atm-img"></div>
+                    <div class="withdraw-info">
+                        <span class="grid"><i>账户总额：</i><strong
+                                content="balance-account">{{data.main_money}}</strong></span>
+                        <span class="grid"><i>今日可提现次数：</i><strong>10</strong></span>
+                        <span class="grid"><i>提现次数周期：</i><strong>早上10:00 - 次日02:00</strong></span>
+                    </div>
+                    <div class="reminder-img"></div>
+                    <p>通常您的提款时间为60秒到180秒。高峰期可能需要15分钟左右。若超过30分钟未到账，请及时联系在线客服。</p>
+                </div>
+            </div>
+            <!--未锁定银行卡资料编辑-->
+            <div class="lock-bind-bank-area">
+                <form class="bind-bank-edit">
+                    <div class="row">
+                        <div class="th">开户银行:</div>
+                        <label class="td">
+                            <select>
+                                <option ng-repeat="name in banknames">{{name.name}}</option>
+                                <!--<option value="农业银行">农业银行</option>-->
+                                <!--<option value="建设银行">建设银行</option>-->
+                                <!--<option value="中国银行">中国银行</option>-->
+                                <!--<option value="招商银行">招商银行</option>-->
+                                <!--<option value="交通银行">交通银行</option>-->
+                                <!--<option value="民生银行">民生银行</option>-->
+                                <!--<option value="光大银行">光大银行</option>-->
+                            </select>
+                        </label>
+                    </div>
+                    <div class="row">
+                        <div class="th">开户银行地址:</div>
+                        <label class="td">
+                            <input placeholder="te***" ng-model="users.accountAddress">
+                        </label>
+
+                        <div class="tip-box">
+                            <i class="fa fa-info-circle"></i>
+                            <span class="tip-message">请输入开户银行地址</span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="th">开户名:</div>
+                        <label class="td" id="is-show">
+                            <input type="text" placeholder="e***" ng-model="users.accountName">
+                        </label>
+                    </div>
+                    <div class="row">
+                        <div class="th">银行卡号:</div>
+                        <label class="td">
+                            <input placeholder="463***5345" ng-model="users.bankCardNub">
+                        </label>
+
+                        <div class="tip-box">
+                            <i class="fa fa-info-circle"></i>
+                            <span class="tip-message">请输入银行卡号</span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="th">是否锁定:</div>
+                        <label class="td">
+                            <label class="label-width">
+                                <div class="checkbox">
+                                    <input type="radio" value="1" id="lock-date" name="lock-card" checked/>
+                                    <label for="lock-date"></label>
+                                </div>
+                                锁定
+                            </label>
+                            <label class="label-width">
+                                <div class="checkbox">
+                                    <input type="radio" value="0" id="lock-date1" name="lock-card"/>
+                                    <label for="lock-date1"></label>
+                                </div>
+                                不锁定
+                            </label>
+                        </label>
+                    </div>
+                    <div class="row">
+                        <div class="th">资金密码:</div>
+                        <label class="td">
+                            <input type="password" ng-model="users.presentPassword">
+                        </label>
+
+                        <div class="tip-box">
+                            <i class="fa fa-info-circle"></i>
+                            <span class="tip-message">请输入资金密码</span>
+                        </div>
+                        <div class="small-tip">
+                            (该密码为平台资金密码)
+                        </div>
+                    </div>
+                    <div class="row">
+                        <a class="sub-btn float" ng-click="RechargeBindBank()">提交</a>
+                        <a class="cancel-btn float">返回上一页</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <!--充转取记录-->
+        <div class="recharge-box" id="money-record">
+            <div class="record-top-area">
+                <form class="money-record-message">
+                    <div class="change-record-btn">
+                        <a ng-class="status==0?'have-active':''" ng-click="selectSort(0)">充值记录</a>
+                        <a ng-class="status==1?'have-active':''" ng-click="selectSort(1)">取款记录</a>
+                        <a ng-class="status==2?'have-active':''" ng-click="selectSort(2)">转账记录</a>
+                        <a ng-class="status==3?'have-active':''" ng-click="selectSort(3)">转入游戏记录</a>
+                        <a ng-class="status==4?'have-active':''" ng-click="selectSort(4)">转出游戏记录</a>
+                    </div>
+                    <div class="screen-box">
+                        <div class="row">
+                            <ul class="shortcut-time">
+                                <li class="item on" ng-repeat="time in vm.chose track by $index"
+                                    ng-class="vm.timeName == time.name ? 'on':'' "
+                                    ng-bind="time.name"
+                                    ng-click="changeDate(time.name)"></li>
+                            </ul>
+                        </div>
+                        <div class="row">
+                            <span>投注时间：</span>
+                            <label>
+                                <input name="date_min" class="date" ng-model="ToDay">
+                            </label>
+                            <span>至</span>
+                            <label>
+                                <input name="date_max" class="date" ng-model="ToDay">
+                            </label>
+                            <a class="btn-search"><i></i>查 询</a>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="record-bottom-area" ng-if="status==0">
+                <div class="data-table-list">
+                    <table class="data-table">
+                        <tr>
+                            <th>申请时间</th>
+                            <th>付款方式</th>
+                            <th>付款人</th>
+                            <th>入款银行</th>
+                            <th>入款金额</th>
+                            <th>入款后余额</th>
+                            <th>审核时间</th>
+                            <th>状态</th>
+                        </tr>
+                        <tbody>
+                        <tr>
+                            <td>2016-10-08<br>14:14:37</td>
+                            <td>工商银行</td>
+                            <td></td>
+                            <td></td>
+                            <td>100.00</td>
+                            <td>50.00</td>
+                            <td>2.00</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>2016-10-08<br>14:14:37</td>
+                            <td>工商银行</td>
+                            <td></td>
+                            <td></td>
+                            <td>100.00</td>
+                            <td>50.00</td>
+                            <td>2.00</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>2016-10-08<br>14:14:37</td>
+                            <td>工商银行</td>
+                            <td></td>
+                            <td></td>
+                            <td>100.00</td>
+                            <td>50.00</td>
+                            <td>2.00</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>2016-10-08<br>14:14:37</td>
+                            <td>工商银行</td>
+                            <td></td>
+                            <td></td>
+                            <td>100.00</td>
+                            <td>50.00</td>
+                            <td>2.00</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>2016-10-08<br>14:14:37</td>
+                            <td>工商银行</td>
+                            <td></td>
+                            <td></td>
+                            <td>100.00</td>
+                            <td>50.00</td>
+                            <td>2.00</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>2016-10-08<br>14:14:37</td>
+                            <td>工商银行</td>
+                            <td></td>
+                            <td></td>
+                            <td>100.00</td>
+                            <td>50.00</td>
+                            <td>2.00</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>2016-10-08<br>14:14:37</td>
+                            <td>工商银行</td>
+                            <td></td>
+                            <td></td>
+                            <td>100.00</td>
+                            <td>50.00</td>
+                            <td>2.00</td>
+                            <td></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <div class="paging">
+                        <div class="paging-info">第 1 页, 共 1 页, 共 0 条, 每页 10 条</div>
+                        <div class="page-jump">
+                            <a>上一页</a>
+                            <a>1</a>
+                            <a>下一页</a>
+                            <label><input></label>
+                            <a class="go">Go</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="record-bottom-area" ng-if="status==1">
+                <div class="data-table-list">
+                    <table class="data-table">
+                        <tr>
+                            <th>申请时间</th>
+                            <th>收款银行</th>
+                            <th>收款帐号</th>
+                            <th>收款人</th>
+                            <th>取款金额</th>
+                            <th>取款后余额</th>
+                            <th>手续费</th>
+                            <th>审核时间</th>
+                            <th>状态</th>
+                        </tr>
+                        <tbody>
+                        <tr>
+                            <td>2016-10-08<br>14:14:37</td>
+                            <td>工商银行</td>
+                            <td></td>
+                            <td></td>
+                            <td>100.00</td>
+                            <td>50.00</td>
+                            <td>2.00</td>
+                            <td></td>
+                            <td><font color="#2ac42a">通过</font></td>
+                        </tr>
+                        <tr>
+                            <td>2016-10-08<br>14:14:37</td>
+                            <td>工商银行</td>
+                            <td></td>
+                            <td></td>
+                            <td>100.00</td>
+                            <td>50.00</td>
+                            <td>2.00</td>
+                            <td></td>
+                            <td><font color="#ff7e00">不通过</font></td>
+                        </tr>
+                        <tr>
+                            <td>2016-10-08<br>14:14:37</td>
+                            <td>工商银行</td>
+                            <td></td>
+                            <td></td>
+                            <td>100.00</td>
+                            <td>50.00</td>
+                            <td>2.00</td>
+                            <td></td>
+                            <td><font color="#ff7e00">不通过</font></td>
+                        </tr>
+                        <tr>
+                            <td>2016-10-08<br>14:14:37</td>
+                            <td>工商银行</td>
+                            <td></td>
+                            <td></td>
+                            <td>100.00</td>
+                            <td>50.00</td>
+                            <td>2.00</td>
+                            <td></td>
+                            <td><font color="#ff7e00">不通过</font></td>
+                        </tr>
+                        <tr>
+                            <td>2016-10-08<br>14:14:37</td>
+                            <td>工商银行</td>
+                            <td></td>
+                            <td></td>
+                            <td>100.00</td>
+                            <td>50.00</td>
+                            <td>2.00</td>
+                            <td></td>
+                            <td><font color="#ff7e00">不通过</font></td>
+                        </tr>
+                        <tr>
+                            <td>2016-10-08<br>14:14:37</td>
+                            <td>工商银行</td>
+                            <td></td>
+                            <td></td>
+                            <td>100.00</td>
+                            <td>50.00</td>
+                            <td>2.00</td>
+                            <td></td>
+                            <td><font color="#ff7e00">不通过</font></td>
+                        </tr>
+                        <tr>
+                            <td>2016-10-08<br>14:14:37</td>
+                            <td>工商银行</td>
+                            <td></td>
+                            <td></td>
+                            <td>100.00</td>
+                            <td>50.00</td>
+                            <td>2.00</td>
+                            <td></td>
+                            <td><font color="#ff7e00">不通过</font></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <div class="paging">
+                        <div class="paging-info">第 1 页, 共 1 页, 共 0 条, 每页 10 条</div>
+                        <div class="page-jump">
+                            <a>上一页</a>
+                            <a>1</a>
+                            <a>下一页</a>
+                            <label><input></label>
+                            <a class="go">Go</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="record-bottom-area" ng-if="status==2">
+                <div class="data-table-list">
+                    <table class="data-table">
+                        <tr>
+                            <th>转账时间</th>
+                            <th>转账金额</th>
+                            <th>出款账号</th>
+                            <th>出款人转账后余额</th>
+                            <th>收款账号</th>
+                            <th>收款人转账后余额</th>
+                            <th>转账备注</th>
+                        </tr>
+                        <tbody>
+                        <tr>
+                            <td>2016-10-08<br>14:14:37</td>
+                            <td>工商银行</td>
+                            <td></td>
+                            <td></td>
+                            <td>100.00</td>
+                            <td>50.00</td>
+                            <td>2.00</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>2016-10-08<br>14:14:37</td>
+                            <td>工商银行</td>
+                            <td></td>
+                            <td></td>
+                            <td>100.00</td>
+                            <td>50.00</td>
+                            <td>2.00</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>2016-10-08<br>14:14:37</td>
+                            <td>工商银行</td>
+                            <td></td>
+                            <td></td>
+                            <td>100.00</td>
+                            <td>50.00</td>
+                            <td>2.00</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>2016-10-08<br>14:14:37</td>
+                            <td>工商银行</td>
+                            <td></td>
+                            <td></td>
+                            <td>100.00</td>
+                            <td>50.00</td>
+                            <td>2.00</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>2016-10-08<br>14:14:37</td>
+                            <td>工商银行</td>
+                            <td></td>
+                            <td></td>
+                            <td>100.00</td>
+                            <td>50.00</td>
+                            <td>2.00</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>2016-10-08<br>14:14:37</td>
+                            <td>工商银行</td>
+                            <td></td>
+                            <td></td>
+                            <td>100.00</td>
+                            <td>50.00</td>
+                            <td>2.00</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>2016-10-08<br>14:14:37</td>
+                            <td>工商银行</td>
+                            <td></td>
+                            <td></td>
+                            <td>100.00</td>
+                            <td>50.00</td>
+                            <td>2.00</td>
+                            <td></td>
+                        </tbody>
+                    </table>
+                    <div class="paging">
+                        <div class="paging-info">第 1 页, 共 1 页, 共 0 条, 每页 10 条</div>
+                        <div class="page-jump">
+                            <a>上一页</a>
+                            <a>1</a>
+                            <a>下一页</a>
+                            <label><input></label>
+                            <a class="go">Go</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="record-bottom-area" ng-if="status==3">
+                <div class="data-table-list">
+                    <table class="data-table">
+                        <tr>
+                            <th>转入时间</th>
+                            <th>转入单号</th>
+                            <th>转入游戏</th>
+                            <th>转入金额</th>
+                            <th>转入后余额</th>
+                            <th>转入信息</th>
+                        </tr>
+                        <tbody>
+                        <tr>
+                            <td>2016-10-08<br>14:14:37</td>
+                            <td>工商银行</td>
+                            <td></td>
+                            <td></td>
+                            <td>100.00</td>
+                            <td>50.00</td>
+                        </tr>
+                        <tr>
+                            <td>2016-10-08<br>14:14:37</td>
+                            <td>工商银行</td>
+                            <td></td>
+                            <td></td>
+                            <td>100.00</td>
+                            <td>50.00</td>
+                        </tr>
+                        <tr>
+                            <td>2016-10-08<br>14:14:37</td>
+                            <td>工商银行</td>
+                            <td></td>
+                            <td></td>
+                            <td>100.00</td>
+                            <td>50.00</td>
+                        </tr>
+                        <tr>
+                            <td>2016-10-08<br>14:14:37</td>
+                            <td>工商银行</td>
+                            <td></td>
+                            <td></td>
+                            <td>100.00</td>
+                            <td>50.00</td>
+                        </tr>
+                        <tr>
+                            <td>2016-10-08<br>14:14:37</td>
+                            <td>工商银行</td>
+                            <td></td>
+                            <td></td>
+                            <td>100.00</td>
+                            <td>50.00</td>
+                        </tr>
+                        <tr>
+                            <td>2016-10-08<br>14:14:37</td>
+                            <td>工商银行</td>
+                            <td></td>
+                            <td></td>
+                            <td>100.00</td>
+                            <td>50.00</td>
+                        </tr>
+                        <tr>
+                            <td>2016-10-08<br>14:14:37</td>
+                            <td>工商银行</td>
+                            <td></td>
+                            <td></td>
+                            <td>100.00</td>
+                            <td>50.00</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <div class="paging">
+                        <div class="paging-info">第 1 页, 共 1 页, 共 0 条, 每页 10 条</div>
+                        <div class="page-jump">
+                            <a>上一页</a>
+                            <a>1</a>
+                            <a>下一页</a>
+                            <label><input></label>
+                            <a class="go">Go</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="record-bottom-area" ng-if="status==4">
+                <div class="data-table-list">
+                    <table class="data-table">
+                        <tr>
+                            <th>转出时间</th>
+                            <th>转出单号</th>
+                            <th>转出游戏</th>
+                            <th>转出金额</th>
+                            <th>转出后余额</th>
+                            <th>转出信息</th>
+                        </tr>
+                        <tbody>
+                        <tr>
+                            <td>2016-10-08<br>14:14:37</td>
+                            <td>工商银行</td>
+                            <td></td>
+                            <td></td>
+                            <td>100.00</td>
+                            <td>50.00</td>
+                        </tr>
+                        <tr>
+                            <td>2016-10-08<br>14:14:37</td>
+                            <td>工商银行</td>
+                            <td></td>
+                            <td></td>
+                            <td>100.00</td>
+                            <td>50.00</td>
+                        </tr>
+                        <tr>
+                            <td>2016-10-08<br>14:14:37</td>
+                            <td>工商银行</td>
+                            <td></td>
+                            <td></td>
+                            <td>100.00</td>
+                            <td>50.00</td>
+                        </tr>
+                        <tr>
+                            <td>2016-10-08<br>14:14:37</td>
+                            <td>工商银行</td>
+                            <td></td>
+                            <td></td>
+                            <td>100.00</td>
+                            <td>50.00</td>
+                        </tr>
+                        <tr>
+                            <td>2016-10-08<br>14:14:37</td>
+                            <td>工商银行</td>
+                            <td></td>
+                            <td></td>
+                            <td>100.00</td>
+                            <td>50.00</td>
+                        </tr>
+                        <tr>
+                            <td>2016-10-08<br>14:14:37</td>
+                            <td>工商银行</td>
+                            <td></td>
+                            <td></td>
+                            <td>100.00</td>
+                            <td>50.00</td>
+                        <tr>
+                            <td>2016-10-08<br>14:14:37</td>
+                            <td>工商银行</td>
+                            <td></td>
+                            <td></td>
+                            <td>100.00</td>
+                            <td>50.00</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <div class="paging">
+                        <div class="paging-info">第 1 页, 共 1 页, 共 0 条, 每页 10 条</div>
+                        <div class="page-jump">
+                            <a>上一页</a>
+                            <a>1</a>
+                            <a>下一页</a>
+                            <label><input></label>
+                            <a class="go">Go</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+
+

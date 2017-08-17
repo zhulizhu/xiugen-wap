@@ -1,0 +1,738 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta name="renderer" content="webkit">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>欢迎来到－{:S('WEB_NAME')}</title>
+  <link href="__CSS__/bootstrap.min.css" rel="stylesheet">
+  <link href="__CSS__/nifty.min.css" rel="stylesheet">
+  <link href="__CSS__/bootstrap-tour.min.css" rel="stylesheet">
+  <link href="__CSS__/font-awesome.min.css" rel="stylesheet">
+  <link href="__CSS__/css.min.css" rel="stylesheet">
+  <link href="__CSS__/index.min.css" rel="stylesheet">
+  <link href="__CSS__/reset.css" rel="stylesheet">
+  <link href="__CSS__/pop-up.css" rel="stylesheet">
+  <link href="__CSS__/twitter.css" rel="stylesheet">
+  <link href="__CSS__/jquery-ui-1.8.21.custom.css" rel="stylesheet" type="text/css">
+  <link href="__CSS__/header.css" rel="stylesheet">
+  <link rel="icon" href="/Public/Home/images/public/logo.png" type="image/x-icon"/>
+  <script type="text/javascript" src="__JS__/game.js"></script>
+  <script type="text/javascript" src="__JS__/jquery-1.8.0.min.js"></script>
+  <script src="__JS__/ionic.bundle.min.js"></script>
+  <script type="text/javascript" src="__JS__/jquery-ui-1.8.23.custom.min.js"></script>
+  <script src="__JS__/av-mini.js"></script>
+  <script src="__JS__/swiper/swiper.min.js"></script>
+  <script src="__JS__/jquery.min.js"></script>
+  <script src="__JS__/bootstrap.min.js"></script>
+  <script src="__JS__/bootbox.min.js"></script>
+  <script src="__JS__/nifty.min.js"></script>
+  <script src="__JS__/common.min.js"></script>
+  <script src="__JS__/fastdata.js"></script>
+  <script src="__JS__/jquery.jplayer.min.js"></script>
+  <script src="__JS__/layout.min.js"></script>
+  <script src="__JS__/datetimepicker/jquery.datetimepicker.js"></script>
+  <script src="__JS__/dialog/artDialog.js"></script>
+  <script src="__JS__/sound.js"></script>
+  <script src="__JS__/dataTables.min.js"></script>
+  <script src="__JS__/dataTables.bootstrap.min.js"></script>
+  <script src="__JS__/dataTables.responsive.min.js"></script>
+  <script src="__JS__/bootbox.min.js"></script>
+  <script src="__JS__/release.js"></script>
+
+  <style>
+    body, html {
+      overflow: hidden;
+    }
+    .lis{position: absolute;width: 60px;right:0;top:15%;background-color: rgba(0,0,0,0.5);border-radius: 5px;}
+    .lis ul{margin: 0;padding: 0;}
+    .lis ul li{margin: 0;padding: 5px;list-style: none;cursor: pointer;}
+    .lis ul li:hover{background:rgba(0,0,0,1);}
+    .lis ul li img{display: block;margin:0 auto;width: 25px;height: auto;}
+    .lis ul li p{text-align: center;color: #fff;}
+    .active{background-color: #5a9cd8;}
+    .sw{position: absolute;right:0;top:35%;display: none;background-color: rgba(0,0,0,0.5);width: 40px;height: 100px;word-wrap:break-word;border-radius: 5px;}
+    .sw div{width: 20px;margin:15px auto;color: #fff;}
+    .bg{background:url('Public/Home/img/lottery/bg1.jpg');}
+    .shw{display: none;}
+    .hi{display: block;}
+    .ff{background-color: #242936;}
+    .title{text-align: center;margin: 10px 0;font-size: 16px;}
+    /*退出弹窗*/
+    #a {
+     position:absolute;
+     z-index:888; left: 50%;
+     margin-left: -170px;
+     top: 50%;
+     margin-top: -83px;
+     display:none;
+   }
+   #q{
+    position:absolute;
+    z-index:888;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.6);
+    display:none;
+  }
+  .on{
+    background-color: #fff;width: 256px;height: 150px;border-radius: 15px;
+    overflow:hidden;
+
+  }
+  #btn{
+    border: none;
+    padding: 8px 30px;
+    color: #fff;
+    background-color: #0099CC;
+    border-radius: 15px;
+    display: block;margin:10px 81px;
+    float: left;
+    
+
+  }
+  #te{
+    font-size: 12px;line-height: 30px;text-align: center;
+    margin:10px auto;
+  }
+  .on .to{width: 100%;height: 40px;background-color: #0099CC;border-top-left-radius: 13px; border-top-right-radius: 13px;}
+  .on .to h4{position: relative;color: #fff;font-size: 14px;line-height: 40px;margin:0 auto;text-align: center;}
+  .on .to #de{border-radius: 50%;background-color: #fff;border:3px solid #0099CC;color:#0099CC;width: 25px;height:25px;line-height: 15px;text-align: center;font-size: 16px;position: absolute;top:-6px;right: -12px;font-weight: bolder;cursor: pointer; }
+
+</style>
+
+
+</head>
+<body ng-app="frame" id="frame">
+  <!-- 收藏弹框 -->
+  <div id="q"></div>
+  <div id="a">
+    <div class="on">
+      <div class="to">
+        <h4>温馨提示</h4>
+        <div id="de">×</div>
+      </div>
+      <p id="te"></p>
+      <button id="btn">确定</button>
+    </div>
+
+  </div>
+  <!--  内容 -->
+  <div id="container" class="effect mainnav-fixed navbar-fixed footer-fixed mainnav-lg allbg">
+    <block name="include">
+      <include file="Index:header1"/>
+    </block>
+    <div class="lis">
+      <ul>
+        <li><a href="http://www.baidu.com" target="_blank"><img src="Public/Home/images/public/zx.png"><p>在线客服</p></a></li>
+        <li class="coll"><a href="#"><img src="Public/Home/images/public/sc.png"><p>收藏</p></a></li>
+        <li class="sound"><a href="#"><img src="Public/Home/images/public/sy.png"><p>声音</p></a></li>
+        <li id="load"><a href="#"><img src="Public/Home/images/public/xz.png"><p>下载中心</p></a></li>
+        <li id="line"><a href="#"><img src="Public/Home/images/public/xl.png"><p>线路选择</p></a></li>
+        <li class="bgC"><a href="#"><img src="Public/Home/images/public/bt.png"><p class="hi">白天模式</p><p class="shw">夜晚模式</p></a></li>
+        <li><a href="#"><img src="Public/Home/images/public/cj.png"><p>常见问题</p></a></li>
+        <li class="hid"><a href="#"><img src="Public/Home/images/public/yc.png"><p>隐藏列表</p></a></li>
+      </ul>
+    </div>
+    <div class="sw">
+      <div>显示列表</div>
+    </div>
+
+    <div class="boxed">
+      <if condition="$game == 'luck28'">
+        <div id="content-container" style="padding-bottom: 0;width: 1200px">
+          <div id="page-content" style="padding: 0; margin: 0">
+            <iframe id="pageframe" name="pageframe" src="/index.php?s=/home/luck/index"
+            style="width: 100%; height: 500px;"
+            allowtransparency="true" frameborder="0">
+          </iframe>
+        </div>
+      </div>
+      <elseif condition="$game == 'activity'"/>
+      <div id="content-container" style="padding-bottom: 0;width: 1200px">
+        <div id="page-content" style="padding: 0; margin: 0">
+          <iframe id="pageframe" name="pageframe" src="/index.php?s=/home/activity/index"
+          style="width: 100%; height: 500px;overflow-x : hidden;overflow-y : hidden;"
+          allowtransparency="true" frameborder="0"  scrolling="no">
+        </iframe>
+      </div>
+    </div>
+    <else/>
+    <nav id="mainnav-container">
+      <div id="mainnav">
+        <div id="mainnav-menu-wrap">
+          <div class="nano has-scrollbar">
+            <div tabindex="0" class="nano-content" style="margin-right: 0px;">
+              <ul id="mainnav-menu" class="list-group">
+
+                <li>
+                  <a class="" title="" data-original-title="" href="#">
+                    <img alt="" src="__IMG__/lottery/icon_01.png">
+                    <span class="menu-title">时时彩</span>
+                    <i class="arrow"></i>
+                  </a>
+                  <!-- aria-expanded="true" -->
+                  <ul  class="pop-in collapse in">
+                    <li><a href="{:U('game/game?type=1&groupId=6')}"
+                     target="pageframe">重庆时时彩<span
+                     class="pull-right badge badge-danger">热</span></a>
+                     </li>
+                     <li><a href="{:U('game/game?type=2&groupId=6')}"
+                       target="pageframe">天津时时彩<span
+                       class="pull-right badge badge-danger">热</span></a></li>
+                       <li><a href="{:U('game/game?type=12&groupId=6')}"
+                         target="pageframe">新疆时时彩</a></li>
+                         <li><a href="{:U('game/game?type=35&groupId=6')}" target="pageframe">分分彩</a>
+                         </li>
+                         <li><a href="{:U('game/game?type=14&groupId=6')}" target="pageframe">五分彩</a>
+                         </li>
+                       </ul>
+                     </li>
+                     <if condition="$lott == 2">
+                      <li class="active">
+                        <else/>
+                        <li>
+                        </if>
+                        <a class="" title="" data-original-title="" href="#">
+                          <img alt="" src="__IMG__/lottery/icon_03.png">
+                          <span class="menu-title">11选5</span>
+                          <i class="arrow"></i>
+                        </a>
+                        <ul class="collapse pop-in">
+                          <li><a href="{:U('game/game?type=6&groupId=11')}"
+                           target="pageframe">广东11选5<span
+                           class="pull-right badge badge-danger">热</span></a></li>
+                           <!--<li><a href="{:U('game/game?type=16&groupId=10')}"-->
+                           <!--target="pageframe">江西11选5</a></li>-->
+                           <li><a href="{:U('game/game?type=8&groupId=11')}"
+                             target="pageframe">山东11选5</a></li>
+
+                           </ul>
+                         </li>
+                         <li>
+                          <a class="" title="" data-original-title="" href="#">
+                            <img alt="" src="__IMG__/lottery/icon_05.png">
+                            <span class="menu-title">快三</span>
+                            <i class="arrow"></i>
+                          </a>
+                          <ul class="collapse pop-in">
+                            <li><a href="{:U('game/game?type=25&groupId=39')}"
+                             target="pageframe">江苏快三</a>
+                           </li>
+                         </ul>
+                       </li>
+                       <li>
+                        <a class="" title="" data-original-title="" href="#">
+                          <img alt="" src="__IMG__/lottery/icon_08.png">
+                          <span class="menu-title">快乐十分</span>
+                          <i class="arrow"></i>
+                        </a>
+                        <ul class="collapse pop-in">
+                          <li><a href="{:U('game/game?type=18&groupId=91')}"
+                           target="pageframe">天津快乐十分</a>
+
+                         </li>
+                         <li><a href="{:U('game/game?type=17&groupId=91')}"
+                           target="pageframe">广东快乐十分</a>
+                         </li>
+                       </ul>
+                     </li>
+                     <li>
+                      <a class="" title="" data-original-title="" href="#">
+                        <img alt="" src="__IMG__/lottery/icon_02.png">
+                        <span class="menu-title">低频彩</span><i class="arrow"></i>
+                      </a>
+                      <ul class="collapse pop-in">
+                        <li><a href="{:U('game/game?type=9&groupId=12')}"
+                         target="pageframe">福彩3D<span
+                         class="pull-right badge badge-danger">热</span></a></li>
+                         <li><a href="{:U('game/game?type=10&groupId=12')}" target="pageframe">排列三</a>
+                         </li>
+                         <li><a href="{:U('game/game?type=11&groupId=6')}" target="pageframe">排列五</a>
+                         </li>
+                         <li><a href="{:U('game/game?type=7&groupId=12')}" target="pageframe">上海时时乐</a>
+                         </li>
+                       </li>
+                     </ul>
+                   </li>
+
+                   <li>
+                    <a class="" title="" data-original-title="" href="#">
+                      <img alt="" src="__IMG__/lottery/icon_12.png">
+                      <span class="menu-title">pk10</span>
+                      <i class="arrow"></i>
+                    </a>
+                    <ul class="collapse pop-in">
+                      <li><a href="{:U('game/game?type=20&groupId=26')}"
+                       target="pageframe">pk10</a>
+                     </li>
+                   </ul>
+                 </li>
+
+                 <li>
+                  <a class="" title="" data-original-title="" href="#">
+                    <img alt="" src="__IMG__/lottery/icon_04.png">
+                    <span class="menu-title">官方时时彩</span>
+                    <i class="arrow"></i>
+                  </a>
+                  <ul class="collapse pop-in">
+                    <li><a href="{:U('game/game?type=63&groupId=6')}"
+                     target="pageframe">北京5分彩</a>
+                   </li>
+                   <li><a href="{:U('game/game?type=60&groupId=6')}"
+                     target="pageframe">韩国1.5分彩</a>
+                   </li>
+                   <li><a href="{:U('game/game?type=61&groupId=6')}"
+                     target="pageframe">加拿大3.5分彩</a>
+                   </li>
+                   <li><a href="{:U('game/game?type=62&groupId=6')}"
+                     target="pageframe">台湾5分彩</a>
+                   </li>
+                 </ul>
+               </li>
+
+               <li>
+                <a class="" title="" data-original-title="" href="#">
+                  <img alt="" src="__IMG__/lottery/icon_06.png">
+                  <span class="menu-title">六合彩</span>
+                  <i class="arrow"></i>
+                </a>
+                <ul class="collapse pop-in">
+                  <li>
+                    <li><a href="{:U('game/game?type=40&groupId=80')}"
+                     target="pageframe">六合彩</a>
+                   </li>
+                 </li>
+               </ul>
+             </li>
+
+           </ul>
+         </div>
+       </div>
+     </div>
+   </div>
+ </nav>
+
+ <div id="content-container" style="padding-bottom: 0">
+  <div id="page-content" style="padding: 0; margin: 0">
+    <if condition="$lott == 1">
+      <iframe id="pageframe" name="pageframe" src="/index.php?s=/home/game/game/type/1/groupId/6.html"
+      style="width: 100%; height: 889px;"
+      allowtransparency="true" frameborder="0">
+    </iframe>
+    <elseif condition="$lott == 2" />
+    <iframe id="pageframe" name="pageframe" src="/index.php?s=/home/game/game/type/6/groupId/10.html"
+    style="width: 100%; height: 889px;"
+    allowtransparency="true" frameborder="0">
+  </iframe>
+  <elseif condition="$lott == 3" />
+  <iframe id="pageframe" name="pageframe" src="/index.php?s=/home/game/game/type/25/groupId/39.html"
+  style="width: 100%; height: 889px;"
+  allowtransparency="true" frameborder="0">
+</iframe>
+<elseif condition="$lott == '4'" />
+<iframe id="pageframe" name="pageframe" src="/index.php?s=/home/game/game/type/8/groupId/10.html" style="width: 100%; height: 889px;" allowtransparency="true" frameborder="0">
+</iframe>
+<elseif condition="$lott == '5'" />
+<iframe id="pageframe" name="pageframe" src="/index.php?s=/home/game/game/type/18/groupId/91.html" style="width: 100%; height: 889px;" allowtransparency="true" frameborder="0">
+</iframe>
+<elseif condition="$lott == '6'" />
+<iframe id="pageframe" name="pageframe" src="/index.php?s=/home/game/game/type/6/groupId/10.html" style="width: 100%; height: 889px;" allowtransparency="true" frameborder="0">
+</iframe>
+<elseif condition="$lott == '7'" />
+<iframe id="pageframe" name="pageframe" src="/index.php?s=/home/game/game/type/6/groupId/10.html" style="width: 100%; height: 889px;" allowtransparency="true" frameborder="0">
+</iframe>
+<elseif condition="$lott == '8'" />
+<iframe id="pageframe" name="pageframe" src="/index.php?s=/home/game/game/type/18/groupId/20.html" style="width: 100%; height: 889px;" allowtransparency="true" frameborder="0">
+</iframe>
+<elseif condition="$lott == '9'" />
+<iframe id="pageframe" name="pageframe" src="/index.php?s=/home/game/game/type/12/groupId/6.html" style="width: 100%; height: 889px;" allowtransparency="true" frameborder="0">
+</iframe>
+<elseif condition="$lott == '10'" />
+<iframe id="pageframe" name="pageframe" src="/index.php?s=/home/game/game/type/2/groupId/6.html" style="width: 100%; height: 889px;" allowtransparency="true" frameborder="0">
+</iframe>
+<elseif condition="$lott == '11'" />
+<iframe id="pageframe" name="pageframe" src="/index.php?s=/home/game/game/type/35/groupId/6.html" style="width: 100%; height: 889px;" allowtransparency="true" frameborder="0">
+</iframe>
+<elseif condition="$lott == '12'" />
+<iframe id="pageframe" name="pageframe" src="/index.php?s=/home/game/game/type/14/groupId/6.html" style="width: 100%; height: 889px;" allowtransparency="true" frameborder="0">
+</iframe>
+<elseif condition="$lott == '13'" />
+<iframe id="pageframe" name="pageframe" src="/index.php?s=/home/game/game/type/17/groupId/91.html" style="width: 100%; height: 889px;" allowtransparency="true" frameborder="0">
+</iframe>
+<elseif condition="$lott == '14'" />
+<iframe id="pageframe" name="pageframe" src="/index.php?s=/home/game/game/type/20/groupId/26.html" style="width: 100%; height: 889px;" allowtransparency="true" frameborder="0">
+</iframe>
+<elseif condition="$lott == '15'" />
+<iframe id="pageframe" name="pageframe" src="/index.php?s=/home/game/game/type/60/groupId/6.html" style="width: 100%; height: 889px;" allowtransparency="true" frameborder="0">
+</iframe>
+<elseif condition="$lott == '16'" />
+<iframe id="pageframe" name="pageframe" src="/index.php?s=/home/game/game/type/61/groupId/6.html" style="width: 100%; height: 889px;" allowtransparency="true" frameborder="0">
+</iframe>
+<elseif condition="$lott == '17'" />
+<iframe id="pageframe" name="pageframe" src="/index.php?s=/home/game/game/type/62/groupId/6.html" style="width: 100%; height: 889px;" allowtransparency="true" frameborder="0">
+</iframe>
+<else/>
+<iframe id="pageframe" name="pageframe" src="/index.php?s=/home/game/game/type/1/groupId/6.html" style="width: 100%; height: 889px;" allowtransparency="true" frameborder="0">
+</iframe>
+</if>
+
+</div>
+</div>
+</if>
+
+</div>
+</div>
+
+
+
+
+<div id="loa"></div>
+<div id="lin"></div>
+<div id="report"></div>
+<div id="team"></div>
+<div id="record"></div>
+<div id="message"></div>
+<div id="player_sound"></div>
+
+<div id="j-play" style="display: none; width: 0px; height: 0px;">
+  <img style="width: 0px; height: 0px; display: none;" id="jp_poster_0">
+  <audio src="__IMG__/frame/5097.mp3" preload="metadata" id="jp_audio_0"></audio>
+</div>
+<input name="file" id="file" style="display:none;" type="file">
+<input value="xiaomi520" id="hdMemberName" type="hidden">
+<input value="1" id="hdMemberType" type="hidden">
+<!-- 
+查看详情弹框 -->
+<div tabindex="-1" class="modal fade" id="details-modal" role="dialog" aria-hidden="true" aria-labelledby="details-modal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button class="close" type="button" data-dismiss="modal"><span aria-hidden="true">×</span></button>
+        <h4 class="modal-title text-primary"><i class="fa fa-th-list fa-lg"></i>  投 注 详  
+          情                 
+        </h4>
+      </div>
+      <div id="betDetail">
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-warning btn-labeled fa fa-mail-reply" data-dismiss="modal">关闭</button>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+
+<script type="text/javascript">
+    $('.promp').click(function(){
+        $("#a,#q").css('display','block');
+        $("#te").text('暂未开放，尽情期待！');
+        $("#btn,#de").click(function(){
+            $("#a,#q").css('display','none');
+        });
+    });
+    //侧栏收藏
+    $('.coll').click(function(){
+     $("#a,#q").css('display','block');
+     $("#te").text('加入收藏失败!请使用Ctrl+D进行添加');
+     $("#btn,#de").click(function(){
+      $("#a,#q").css('display','none');
+    });
+   })
+    //侧栏背景模式
+    $('.bgC').click(function(){
+      $('.game_rc').toggleClass('ff');
+      $('.allbg').toggleClass('bg');
+      $('.shw').toggle();
+      $('.hi').toggle();
+
+    })
+   //侧栏显示隐藏状态   
+   $('.hid').click(function(){
+     $('.lis').hide(500);
+     $('.sw').show(500);  
+   });
+   $('.sw').click(function(){
+     $('.lis').show(500);
+     $('.sw').hide();  
+   })
+   //
+
+    //侧栏状态声音
+    // var b=setInterval(down_sound, 2000);
+    // b;
+    // var a=true;
+    // $('.sound').click(function(){
+    //   clearInterval(b);
+    //   if(a){
+    //     clearInterval(down_sound, 2000);
+    //     $(this).find('p').text('关闭声音')
+    //     a=false;
+    //   }else{
+    //     setInterval(down_sound, 2000);
+    //     $(this).find('p').text('声音')
+    //     a=true;
+    //   }
+    // })
+
+
+
+    $(document).ready(function () {
+      $(".mega-dropdown a[target='pageframe']").unbind("click").on("click", function () {
+        $('.mega-dropdown').removeClass('open');
+      });
+      setTimeout(function () {
+            //$('#gundong-notice').css('display', 'block');
+          }, 2000);
+    });
+  </script>
+  <script>
+    $(document).ready(function () {
+      var bodyheight = jQuery(window).height() - 54;
+      $("#pageframe").css("height", bodyheight);
+      $(".mainnav-toggle").click(
+        function toggle() {
+          $(this).toggleClass("mainnav-toggle2")
+          $(".brand-icon").toggleClass("brand-icon2")
+          $(".newmenu").toggleClass("newmenu2")
+        }
+        );
+      
+      $('#load').click(function () {
+        if($("#loa").html() == ''){
+          $.ajax({
+            type : "get",
+            url : "/index.php?s=/home/team/loadi.html",
+            async : false,
+            success : function(data){
+              $("#loa").html(data);
+            }
+          });
+        }
+        art.dialog({
+          padding: 0,
+          title: '',
+          resize: false,
+          time: false,
+          lock: true,
+          fixed: true,
+          background: '#000',
+          opacity: '0.6',
+          content: document.getElementById("load-center"),
+          width: '1000px',
+          height: 'auto',
+          top:'80%',
+          marginTop:'-300px',
+          close: function () {
+            $(".body").css('overflow', 'visible');
+          }
+        });
+      });
+      $('#line').click(function () {
+        if($("#lin").html() == ''){
+          $.ajax({
+            type : "get",
+            url : "/index.php?s=/home/team/lined.html",
+            async : false,
+            success : function(data){
+              console.log(data);
+              $("#lin").html(data);
+            }
+          });
+        }
+        art.dialog({
+          padding: 0,
+          title: '',
+          resize: false,
+          time: false,
+          lock: true,
+          fixed: true,
+          background: '#000',
+          opacity: '0.6',
+          content: document.getElementById("line-center"),
+          width: '1000px',
+          height: 'auto',
+          top:'70%',
+          marginTop:'-300px',
+          close: function () {
+            $(".body").css('overflow', 'visible');
+          }
+        });
+      });
+      $('#report-ctrl').click(function () {
+        if($("#report").html() == ''){
+          $.ajax({
+            type : "get",
+            url : "/index.php?s=/home/team/report_center.html",
+            async : false,
+            success : function(data){
+              $("#report").html(data);
+            }
+          });
+        }
+        art.dialog({
+          padding: 0,
+          title: '',
+          resize: false,
+          time: false,
+          lock: true,
+          fixed: true,
+          background: '#000',
+          opacity: '0.6',
+          content: document.getElementById("report-center"),
+          width: '1000px',
+          height: 'auto',
+          top:'80%',
+          marginTop:'-300px',
+          close: function () {
+            $(".body").css('overflow', 'visible');
+          }
+        });
+      });
+      $('#record-ctrl').click(function () {
+        if($("#record").html() == '') {
+          $.ajax({
+            type: "get",
+            url: "/index.php?s=/home/team/record_set.html",
+            async: false,
+            success: function (data) {
+              $("#record").html(data);
+            }
+          });
+        }
+        art.dialog({
+          padding: 0,
+          title: '',
+          resize: false,
+          time: false,
+          lock: true,
+          fixed: true,
+          background: '#000',
+          opacity: '0.6',
+          content: document.getElementById("record-set"),
+          width: '1000px',
+          height: 'auto',
+          top:'80%',
+          marginTop:'-300px',
+          close: function () {
+            $(".body").css('overflow', 'visible');
+          }
+        });
+      });
+      $('#team-ctrl').click(function () {
+        if($("#team").html() == '') {
+          $.ajax({
+            type: "get",
+            url: "/index.php?s=/home/team/team_center.html",
+            async: false,
+            success: function (data) {
+              $("#team").html(data);
+            }
+          });
+        }
+        art.dialog({
+          padding: 0,
+          title: '',
+          resize: false,
+          time: false,
+          lock: true,
+          fixed: true,
+          background: '#000',
+          opacity: '0.6',
+          content: document.getElementById("team-center"),
+          width: '1000px',
+          height: 'auto',
+          top:'80%',
+          marginTop:'-300px',
+          close: function () {
+            $(".body").css('overflow', 'visible');
+          }
+        });
+      });
+      $('#message-ctrl').click(function () {
+        if($("#message").html() == '') {
+          $.ajax({
+            type: "get",
+            url: "/index.php?s=/home/team/message_set.html",
+            async: false,
+            success: function (data) {
+              $("#message").html(data);
+            }
+          });
+        }
+        art.dialog({
+          padding: 0,
+          title: '',
+          resize: false,
+          time: false,
+          lock: true,
+          fixed: true,
+          background: '#000',
+          opacity: '0.6',
+          content: document.getElementById("personal-center"),
+          width: '1000px',
+          height: 'auto',
+          top:'80%',
+          marginTop:'-300px',
+          close: function () {
+            $(".body").css('overflow', 'visible');
+          }
+        });
+      });
+
+        // $('#activity').click(function(){
+        //     $.post('/index.php?s=/home/index/get_activity',function(data){
+        //         if(data.status){
+        //             var da = data.info;
+        //             $('#fir').nextAll().remove();
+        //             for(var i =0; i < da.length ;i++){
+        //                 $('#activities tbody').append('<tr><td>'+da[i].all+'</td><td>'+da[i].amount+'</td></tr>');
+        //             }
+        //         }else {
+        //             $('#fir').nextAll().remove();
+        //             $('#activities tbody').append('<tr><td>'+data.info+'</td></tr>');
+        //         }
+        //     });
+        //     $('#activities').toggle();
+        // });
+
+        $('#balance').click(function(){
+          $.post('/index.php?s=/home/user/get_balance',function(data){
+            if(data.status){
+              $('#balance span').text(data.info);
+            }
+          });
+        });
+        
+      });
+  $(window).resize(function () {
+    var bodyheight = jQuery(window).height() - 54;
+    $("#pageframe").css("height", bodyheight);
+  })
+
+    //开发中彩种
+    function loadLottery() {
+      art.dialog({
+        padding: 0,
+        title: '温馨提示',
+        resize: false,
+        time: false,
+        lock: true,
+        fixed: true,
+        background: '#000',
+        opacity: '0.6',
+        content: '努力开发中,敬请期待~',
+        width: '100px',
+        height: '100px',
+        close: function () {
+          $(".body").css('overflow', 'visible');
+        }
+      });
+    }
+  </script>
+
+  </html>

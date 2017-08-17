@@ -1,0 +1,322 @@
+﻿* {
+    margin: 0;
+    padding: 0;
+    font-family: 微软雅黑;
+    font-size: 14px;
+}
+
+a, a:visited {
+    text-decoration: none;
+}
+
+body {
+    text-align: center;
+    background-image: url('linebg.jpg');
+    background-position: center top;
+    background-size: 100% 100%;
+}
+
+.headerbox, .mainbox, .footerbox {
+    width: 1015px;
+    margin: auto;
+    position: relative;
+    text-align: left;
+}
+
+.headerbox {
+    height: 90px;
+}
+
+    .headerbox img {
+        max-height: 40px;
+        margin-top: 25px;
+        margin-left: 5px;
+    }
+
+.footer {
+    background-color: #2d2d2d;
+    height: 100px;
+    width: 100%;
+}
+
+.mainbox {
+    background-image: url('linebg.png');
+    background-position: center center;
+    background-repeat: no-repeat;
+    position: relative;
+    display: table;
+    height: 682px;
+    box-sizing: border-box;
+}
+
+    .mainbox > div {
+        display: table-cell;
+        width: 50%;
+        padding-left: 40px;
+        padding-right: 40px;
+        vertical-align: top;
+        padding-top: 110px;
+        color: #d6d7d9;
+    }
+
+    .mainbox div p {
+        padding: 5px;
+    }
+
+        .mainbox div p img {
+            vertical-align: middle;
+            margin-right: 5px;
+            margin-top: -3px;
+        }
+
+    .mainbox div strong {
+        color: #fa7045;
+        font-weight: normal;
+    }
+
+.footerbox img {
+    margin-top: 25px;
+}
+
+.footerbox ul {
+    display: table;
+    position: absolute;
+    right: 10px;
+    top: 0;
+    height: 100px;
+    width: 340px;
+}
+
+    .footerbox ul li {
+        display: table-cell;
+        vertical-align: middle;
+        text-align: left;
+        white-space: nowrap;
+    }
+
+        .footerbox ul li a {
+            display: block;
+            color: #fff;
+            text-decoration: none;
+        }
+
+            .footerbox ul li a i {
+                display: inline-block;
+                width: 60px;
+                height: 60px;
+                border-radius: 50%;
+                text-align: center;
+                line-height: 60px;
+                color: #6590bb;
+                font-size: 28px;
+                background-color: #1d1c1b;
+                float: left !important;
+                margin-right: 10px;
+                transition: background-color .3s;
+            }
+
+        .footerbox ul li:last-child {
+            padding-left: 30px;
+        }
+
+            .footerbox ul li:last-child a i {
+                font-size: 40px;
+                color: #4bc5c3;
+            }
+
+        .footerbox ul li a:hover i {
+            background-color: #000;
+        }
+
+        .footerbox ul li a p {
+            padding-top: 5px;
+            font-size: 16px;
+        }
+
+            .footerbox ul li a p span {
+                display: block;
+                color: #999;
+            }
+
+ul.linelist {
+    margin-top: 20px;
+}
+
+    ul.linelist li {
+        margin-bottom: 15px;
+        background-color: #1d1c1b;
+        list-style: none;
+        height: 42px;
+        border-radius: 2px;
+        line-height: 42px;
+    }
+
+        ul.linelist li label {
+            color: #eeaf44;
+            display: inline-block;
+            padding-right: 20px;
+            padding-left: 10px;
+        }
+
+            ul.linelist li label img {
+                margin-right: 5px;
+            }
+
+        ul.linelist li a {
+            display: inline-block;
+            float: right;
+            color: #000;
+            width: 86px;
+            box-sizing: border-box;
+            text-align: center;
+            padding-left: 5px;
+            background-image: url('linebtn.png');
+        }
+
+            ul.linelist li a:hover {
+                background-image: url('linebtnhover.png');
+                color: #fff;
+            }
+
+.mainboxleft input {
+    display: block;
+    width: 100%;
+    height: 50px;
+    font-size: 16px;
+    color: #fff;
+    border: 0;
+    border-radius: 5px;
+    margin-top: 30px;
+    background-color: #fa7045;
+}
+
+    .mainboxleft input:hover {
+        background-color: #ff5520;
+    }
+
+.mainboxright {
+}
+
+    .mainboxright strong {
+        display: block;
+        padding-bottom: 5px;
+        padding-top: 5px;
+    }
+
+    .mainboxright > p {
+        border-bottom: 1px #aaa dashed;
+        padding: 15px !important;
+        padding-left: 15px !important;
+        background-image: url('orangepoint.png');
+        background-repeat: no-repeat;
+        margin-left: 5px;
+        background-position: 0px 15px;
+    }
+
+    .mainboxright img {
+        margin-top: 25px;
+    }
+
+    .mainboxright ul {
+        display: table;
+        height: 100px;
+        width: 100%;
+        margin-top: 15px;
+        table-layout: fixed;
+    }
+
+        .mainboxright ul li {
+            display: table-cell;
+            vertical-align: middle;
+            text-align: center;
+        }
+
+            .mainboxright ul li:first-child a i {
+                color: #ffb230;
+            }
+
+            .mainboxright ul li:last-child a i {
+                color: #69dba4;
+            }
+
+            .mainboxright ul li a {
+                display: block;
+                color: #fff;
+                text-decoration: none;
+            }
+
+                .mainboxright ul li a i {
+                    display: inline-block;
+                    width: 80px;
+                    height: 80px;
+                    border-radius: 50%;
+                    text-align: center;
+                    line-height: 80px;
+                    color: #ed6c44;
+                    font-size: 32px;
+                    background-color: #1d1c1b;
+                    margin-right: 10px;
+                    transition: background-color .3s;
+                }
+
+                .mainboxright ul li a:hover i {
+                    background-color: #000;
+                }
+
+                .mainboxright ul li a p {
+                    padding-top: 5px;
+                }
+
+                    .mainboxright ul li a p span {
+                        display: block;
+                        color: #999;
+                        font-size: 12px;
+                    }
+
+@@media screen and (min-width:1680px) {
+    .footer {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+    }
+
+    .mainbox {
+        margin-top: 10px;
+    }
+}
+
+.fa-chrome {
+	position: relative;
+	top: 0px;
+	background: url('./chorme.png') no-repeat;
+	display: inline-block;
+	overflow: hidden;
+	vertical-align: middle;
+	background-size: 80px 80px;
+	width: 80px;
+	height: 80px;
+}
+
+.fa-internet-explorer {
+	position: relative;
+	top: 0px;
+	background: url('./ie.png') no-repeat;
+	display: inline-block;
+	overflow: hidden;
+	vertical-align: middle;
+	background-size: 80px 80px;
+	width: 80px;
+	height: 80px;
+}
+
+.fa-360{
+	position: relative;
+	top: 0px;
+	background: url('./360.png') no-repeat;
+	display: inline-block;
+	overflow: hidden;
+	vertical-align: middle;
+	background-size: 80px 80px;
+	width: 80px;
+	height: 80px;
+}

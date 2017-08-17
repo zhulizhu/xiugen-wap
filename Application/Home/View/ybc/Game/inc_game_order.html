@@ -1,0 +1,87 @@
+
+<table class="tbl" id="tbproject">
+<tbody>
+<tr>
+	<th>
+		编号
+	</th>
+	<th>
+		玩法
+	</th>
+	<th>
+		期号
+	</th>
+	<th>
+		投注
+	</th>
+	<th>
+		倍数
+	</th>
+	<th>
+		模式
+	</th>
+	<th>
+		金额
+	</th>
+	<th>
+		状态
+	</th>
+	<th>
+		操作
+	</th>
+</tr>
+<php>
+$modeName=array('2.00'=>'元', '0.20'=>'角', '0.02'=>'分');
+foreach($order_list as $var){
+	if($var['hmEnable'])
+		$betCont=$var['mode'] * $var['beiShu'] * $var['actionNum'] * ($var['hmMyFen']+$var['hmBaoDi'])/($var['hmAllFen']) ;
+	else
+		$betCont=$var['mode'] * $var['beiShu'] * $var['actionNum'] ;
+	//$betCont=$var['mode'] * $var['beiShu'] * $var['actionNum'];
+</php>
+<tr>
+	<td>
+		<a href="javascript:" title="查看投注详情" class="blue" rel="projectinfo" action="{:U('record/betInfo2?id='.$var['id'])}" data-value="{$var['id']}">{$var.wjorderId}</a>
+	</td>
+	<td>
+		{$playeds[$var['playedId']]['name']}
+	</td>
+	<td>
+		{$var.actionNo}
+	</td>
+	<td>
+		{:$this->CsubStr($var['actionData'],0,10)}
+	</td>
+	<td>
+		{$var.beiShu}
+	</td>
+	<td>
+		{$modeName[$var['mode']]}
+	</td>
+	<td>
+		{:number_format($betCont, 2)}
+	</td>
+	<td>
+		<php>
+			if($var['isDelete']==1){
+				echo '<label class="gray">已撤单</label>';
+			}elseif(!$var['lotteryNo']){
+				echo '<label class="gray">未开奖</label>';
+			}elseif($var['zjCount']){
+				echo '<label class="red">中：'.$var['bonus'].'</label>';
+			}else{
+				echo '<label class="gray">未中奖</label>';
+			}
+		</php>
+	</td>
+	<td>
+		<?php if($var['lotteryNo'] || $var['isDelete']==1 || $var['kjTime']<time() || $var['qz_uid']){ ?>
+            --
+        <?php }else{ ?>
+            <a href="void(0)" class="chedan_class" data-id="{$var.id}">撤单</a>
+        <?php } ?>
+	</td>
+</tr>
+<php>}</php>
+</tbody>
+</table>

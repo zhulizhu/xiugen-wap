@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>久信城</title>
+	<!--<link rel="shortcut icon" type="image/x-icon" href="__IMG__/favicon.ico"/>-->
+	<!--<link rel="icon" type="image/x-icon" href="__IMG__/favicon.ico">-->
+	<link rel="stylesheet" type="text/css" href="__CSS__/base.css">
+	<link rel="stylesheet" type="text/css" href="__CSS__/login.css">
+	<link rel="stylesheet" type="text/css" href="__CSS__/ionic.min.css">
+	<link rel="stylesheet" type="text/css" href="__CSS__/jquery.fullPage.css">
+	<!--<script src="http://cdn.static.runoob.com/libs/angular.js/1.4.6/angular.min.js"></script>-->
+
+	<style>
+		a[disabled="disabled"],a[disabled="disabled"]:hover{
+			background-color: #666;
+		}
+		a[disabled="disabled"]:hover{
+
+		}
+	</style>
+	<script type="text/javascript">
+		function submit() {
+			var self = $('form');
+			$.post(self.attr("action"), self.serialize(), success, "json");
+			return false;
+
+			function success(data){
+				if(data.status){
+					window.location.href = data.url;
+				} else {
+					$(".reloadverify").click();
+					alert(data.info);
+				}
+			}
+		}
+		$(function(){
+			$("#password").focus();
+
+			$("form").submit(function(){
+				var self = $(this);
+				$.post(self.attr("action"), self.serialize(), success, "json");
+				return false;
+
+				function success(data){
+					if(data.status){
+						window.location.href = data.url;
+					} else {
+						$(".reloadverify").click();
+						alert(data.info);
+					}
+				}
+			});
+
+			$("#j-app-btn").bind("click",
+					function toggle() {
+						$(".masksao").show();
+					}
+			);
+			$(".masksao").bind("click",
+					function toggle() {
+						$(".masksao").hide();
+					}
+			);
+		});
+
+		function validBrowser() {
+			var u_agent = navigator.userAgent;
+			var browser_name = 'unKnow browser';
+			if (u_agent.indexOf('Firefox') > - 1) {
+				browser_name = 'Firefox'
+			} else {
+				if (u_agent.indexOf('Chrome') > - 1) {
+					browser_name = 'Chrome'
+				} else {
+					if (u_agent.indexOf('Trident') > - 1 && u_agent.indexOf('rv:11') > - 1) {
+						browser_name = 'IE11'
+					} else {
+						if (u_agent.indexOf('MSIE') > - 1 && u_agent.indexOf('Trident') > - 1) {
+							browser_name = 'IE(8-10)'
+						} else {
+							if (u_agent.indexOf('MSIE') > - 1) {
+								browser_name = 'IE(6-7)'
+							} else {
+								if (u_agent.indexOf('Opera') > - 1) {
+									browser_name = 'Opera'
+								}
+							}
+						}
+					}
+				}
+			}
+			if (browser_name != 'IE11' && browser_name != 'Chrome' && browser_name != 'Firefox') {
+				alert('亲~~，强烈推荐您点击下载、使用页面下方的最新浏览器，否则可能没有更好的体验效果');
+			}
+		}
+	</script>
+</head>
+
+
+<body ng-app="login">
+<div class="main-wrapper" ng-controller="longCtrl">
+	<!--第一屏登录-->
+	<div class="section section1">
+		<div class="logo-box">
+			<a class="logo"></a>
+		</div>
+		<div class="login-page">
+			<div class="login-content">
+				<ul id="menu-jump">
+					<li data-menuanchor="page1" class="active chose">
+						<a href="#page1">登陆中心</a>
+					</li>
+					<li data-menuanchor="page2" class="">
+						<a href="#page2">手机中心</a>
+					</li>
+					<li data-menuanchor="page3" class="">
+						<a href="#page3">电脑中心</a>
+					</li>
+				</ul>
+				<div class="login-border">
+					<div id="login-left-form"  class="login-left-form">
+						<h3>密码登陆</h3>
+
+						<form method="post" id="login" action="{:U('user/logined')}" enter="true">
+
+							<!-- 用户名-->
+							<div class="border">
+								<input style="ime-mode:disabled;" autocomplete="off" placeholder="请输入用户名" maxlength="50" id="username" name="username" type="text" disabled value="{:session('username')}">
+							</div>
+							<div class="border">
+							<input style="ime-mode:disabled;" maxlength="40" autocomplete="off" placeholder="请输入密码" id="password" name="password" type="password">
+							</div>
+
+							<div class="agree">
+								<div class="check-box">
+									<input type="checkbox"
+										   value="0"
+										   id="check-input"
+										   checked hidden="hidden"
+										   name="userClause"
+										   ng-model="loginData.checked"/>
+									<label for="check-input"> </label>
+								</div>
+								<div class="read-agree">
+									<span>阅读并同意</span>
+									<a>协议与条款</a>
+								</div>
+							</div>
+							<!--登陆-->
+							<div class="login-add">
+								<a onclick="submit()">确定</a>
+							</div>
+							<a class="online-service">在线客服</a>
+						</form>
+					</div>
+					<div id="login-right-form" class="login-right-form">
+						<ul>
+							<li>
+								<p>为了避免假冒的站点偷窃您的用户名和密码，建议您使用安全<br>登录以保证账号安全。</p>
+							</li>
+							<li>
+								<p>系统会自动提供3条速度最优的登录地址供您选择。<br>登入账号时，连续输错5次密码。账号将会被自动冻结。</p>
+
+								<div class="question">
+									<a class="thaw">账号被盗？紧急解冻</a>
+									<a class="forget-word" >忘记秘密？</a>
+								</div>
+							</li>
+							<li>
+								<p>为了保证最佳使用体验，请保证您的屏幕分辨率在1280及以上<br>若使用IE浏览器，请使用IE9以上及版本<br>推荐您使用以下浏览器：</p>
+
+								<div class="browser-area">
+									<a class="browser-icon chrome" href="http://rj.baidu.com/soft/detail/14744.html?ald"
+									   target="_blank"></a>
+									<a class="browser-icon firefox" href="http://rj.baidu.com/soft/detail/11843.html?ald"
+									   target="_blank"></a>
+									<a class="browser-icon safari" href="http://rj.baidu.com/soft/detail/12966.html?ald"
+									   target="_blank"></a>
+									<a class="browser-icon ie" href="http://rj.baidu.com/soft/detail/14917.html?ald" target="_blank"></a>
+								</div>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="msg-show">
+			<div class="wrap">
+				<div class="about-bh">
+					<h3>关于久信</h3>
+
+					<p>关于久信赌注</p>
+					<span>
+                        欢迎来到YanBianbet，亚洲领先在线娱乐投注网站，为您呈现不一样的在线投注体验，包括彩票投注，体育投注，在线娱乐场真人娱乐场游戏，在线扑克，老虎机游戏和更多世界顶级投注游戏。
+                    </span>
+				</div>
+				<div class="about-xy">
+					<h3>新亚集团/<i>帮助中心</i>/<i>联系我们</i></h3>
+
+					<p> 2016 久信游戏版权所有 菲律宾政府合法博彩牌照认证</p>
+					<span>久信游戏郑重标识：彩票有风险，投注需谨慎，不向未满18周岁的青少年出售彩票</span>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!--第二屏下载-->
+	<div class="section section2">
+		<div class="wrap download">
+			<div class="download-left">
+				<span class="title"></span>
+				<h4>iphone手机扫码安装</h4>
+
+				<div class="download-introduce">
+					<ul>
+						<li>
+							<span>1</span>
+
+							<p>使用微信或其他工具扫描二维码</p>
+						</li>
+						<li>
+							<span>2</span>
+
+							<p>在打开的页面内点击直接安装</p>
+						</li>
+						<li>
+							<span>3</span>
+
+							<p>安装完成，即刻开启精彩应用</p>
+						</li>
+						<li>
+							<span>4</span>
+
+							<p>如系统提示“未受信任的企业<br>级开发者”，则：点击“设置- ><br>通用- >描述文件”将应用添加为<br>“信任”即可开启。</p>
+						</li>
+					</ul>
+				</div>
+				<div class="qr-code">
+					<div class="qr-code-img">
+						<img src="__IMG__/login/qr-code.png"/>
+					</div>
+					<a>扫码下载</a>
+				</div>
+			</div>
+			<div class="download-right">
+				<img class="phone-img1" src="__IMG__/login/phone-small.png"/>
+				<img class="phone-img3" src="__IMG__/login/phone-big.png"/>
+				<img class="phone-img2" src="__IMG__/login/phone-small.png"/>
+			</div>
+		</div>
+	</div>
+
+	<!--第三屏介绍-->
+	<div class="section section3">
+		<div class="wrap advantage">
+			<div class="advantage-left">
+				<span class="title"></span>
+
+				<div class="advantage-introduce">
+					<ul>
+						<li>
+							<span>1</span>
+
+							<p>根据您当期最快的网络环境推<br>荐3条最快的登录地址</p>
+						</li>
+						<li>
+							<span>2</span>
+
+							<p>避免盗号风险，保障您的账号<br>安全</p>
+						</li>
+						<li>
+							<span>3</span>
+
+							<p>下载异常，永久自动更新</p>
+						</li>
+					</ul>
+				</div>
+				<a class="download-btn">点击下载</a>
+			</div>
+			<div class="show-pic">
+				<img class="show-pic1" src="__IMG__/login/show-pic1.jpg"/>
+				<img class="show-pic2" src="__IMG__/login/show-pic2.jpg"/>
+				<img class="show-pic3" src="__IMG__/login/show-pic3.jpg"/>
+			</div>
+		</div>
+	</div>
+</div>
+<script src="__JS__/jquery-1.8.0.min.js"></script>
+<script src="__JS__/jquery.fullPage.min.js"></script>
+<script src="__JS__/login.js"></script>
+</body>
+</html>

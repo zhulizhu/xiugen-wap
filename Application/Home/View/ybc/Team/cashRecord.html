@@ -1,0 +1,206 @@
+<extend name="Base/common"/>
+
+<block name="title"><title>提现记录－{:S('WEB_NAME')}</title></block>
+<block name="body">
+<div class="effect mainnav-lg mainnav-fixed navbar-fixed footer-fixed" id="container" style="position: absolute;top: 0;bottom: 0;left: 0;right: -17px;overflow-y: scroll;">
+	<div id="page-content">
+		<form id="teambetrecord" role="form" action="{:U('team/searchRecord')}" method="post">
+			<div class="panel">
+				<div class="panel-body">
+					<div class="col-sm-12" id="bgColo">
+					<div class="dataTables_filter">
+                                <label class="userName">快捷选时：
+                                <button class="btn btn-default btn-sm " id="btn1" type="button">今天</button>
+                                <button class="btn btn-default btn-sm " id="btn2" type="button">昨天</button>
+                                <button class="btn btn-default btn-sm " id="btn3" type="button">本周</button>
+                                <button class="btn btn-default btn-sm " id="btn4" type="button">上周</button>
+                                <button class="btn btn-default btn-sm " id="btn5" type="button">本月</button>
+                                <button class="btn btn-default btn-sm " id="btn6" type="button">上月</button>
+                                </label>
+                            </div>
+						<div class="dataTables_filter">
+							<!-- <label class="userName">范围：<select autocomplete="off" name="utype" class="form-control" id="TeamLevel" style="width: 130px; display: inline;" data-val-required="TeamLevel 字段是必需的。" data-val="true">
+								<option selected="selected" value="0">所有人</option>
+								<option value="1">自己</option>
+								<option value="2">直属下级</option>
+								<option value="3">所有下级</option>
+							</select>
+							</label> -->
+							
+							<!-- <label class="userName">用户账户：<input autocomplete="off" name="username" class="form-control" id="MemberName" style="width: 100px;" type="text" placeholder="会员名" value=""></label> -->							
+							<label class="userName">申请时间：<input autocomplete="off" name="fromTime" autocomplete="off" class="form-control form_datetime" id="BeginDate" style="width: 130px;" type="text" placeholder="起始日期" value="{:date('Y-m-d 00:00',$GLOBALS['fromTime'])}" data-date-format="yyyy-mm-dd hh:ii">
+							<span style="margin-left: 5px;">-</span>
+							<input name="toTime" autocomplete="off" class="form-control form_datetime" id="EndDate" style="width: 130px;" type="text" placeholder="截止日期" value="{:date('Y-m-d 00:00',$GLOBALS['toTime'])}" data-date-format="yyyy-mm-dd hh:ii"></label>
+							<button class="btn btn-primary btn-labeled fa fa-search" id="j-query" type="button">查询</button>
+						</div>
+					</div>
+					<span id="record-span">
+						<include file="cash-list" />
+					</span>
+				</div>
+			</div>
+			<input name="__RequestVerificationToken" type="hidden" value="CfDJ8Ktgxm2FAlNEsoI7VoMQlWk-r1WEVUMma9pxU878QzneW2KIrTfgUbuPj__QCtkNRRZvXW6vyGMINg6RucmHxen7pqyeFXfPOriSNInvCqqC13KtPZ_vKB1TImP03Q98KRUIkr3KghHY6GCGBNtfqlS9d9_JZXmL67XbkOB6FJORYTEoyRwdIbKmaIc06OW0qw">
+		</form>
+		<div tabindex="-1" class="modal fade" id="details-modal" role="dialog" aria-hidden="true" aria-labelledby="details-modal">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button class="close" type="button" data-dismiss="modal"><span aria-hidden="true">×</span></button>
+						<h4 class="modal-title text-primary"><i class="fa fa-th-list fa-lg"></i>  投 注 详  
+情                 
+						</h4>
+					</div>
+					<div id="betDetail">
+					</div>
+					<div class="modal-footer">
+						<button class="btn btn-warning btn-labeled fa fa-mail-reply" data-dismiss="modal">关闭</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+</block>
+<block name="script">
+<script src="__JS__/dataTables.min.js"></script>
+<script src="__JS__/dataTables.bootstrap.min.js"></script>
+<script src="__JS__/dataTables.responsive.min.js"></script>
+<script src="__JS__/bootbox.min.js"></script>
+   <style type="text/css">
+        #bgColo{width:100%;padding: 10px 0;background-color: #e5f0f8;margin-bottom: 15px;}
+         .userName{
+            font-size: 14px;
+            margin-left:10px;
+            margin-bottom: 10px;
+        }
+         .userName button,.userName input{
+            height: 28px;border: none;border: 1px solid #8e98a1;
+            text-align: center;border-radius: 5px!important;cursor: pointer;
+        }
+        #j-query{
+                    background: linear-gradient(90deg, rgb(139, 186, 251), rgb(8, 75, 199));;
+    border-radius: 12px;margin-left: 15px;
+        }
+                .btn-labeled:before {
+    background-color: rgba(25, 153, 177, 0)!important;
+}
+    </style>
+<script type="text/javascript">
+
+$(document).ready(function () {
+	$("#j-query").on("click", function () {				
+		$.ajax({
+			type: "GET",
+			url: '{:U("team/searchCashRecord")}',
+			data: { utype: $('#TeamLevel').val(), username: $('#MemberName').val(), fromTime: $('#BeginDate').val(), toTime: $('#EndDate').val()},
+			dataType: "html",
+			global: false,
+			success: function (result) {
+				$('#record-span').html(result);
+			}, error: function (err) {
+				var t=err;
+				
+			}
+		});
+		//$("#teambetrecord").submit();
+	});
+	
+	$('#PageSize').on('change', function () {
+		this.form.submit();
+	});
+	$('.paging_button').on('click', function () {
+		var pageIndex = $(this).attr('title');
+		$('#PageIndex').val(pageIndex);
+		this.ownerDocument.forms[0].submit();
+	});
+});
+$("#btn1").click(function(){
+	var myDate = new Date();
+	$('#BeginDate').val(getNowFormatDate(myDate) + " 00:00");
+	myDate.setDate(myDate.getDate()+1);
+	$('#EndDate').val(getNowFormatDate(myDate) + " 00:00");
+});
+$("#btn2").click(function(){
+	var myDate = new Date();
+	$('#EndDate').val(getNowFormatDate(myDate) + " 00:00");
+	myDate.setDate(myDate.getDate()-1);
+	$('#BeginDate').val(getNowFormatDate(myDate) + " 00:00");
+});
+$("#btn3").click(function(){
+	var myDate = new Date();
+	var d = myDate.getDay();
+	var n = 0;
+	switch (d){
+		case 0: n = 7;break;
+		case 1: n = 1;break;
+		case 2: n = 2;break;
+		case 3: n = 3;break;
+		case 4: n = 4;break;
+		case 5: n = 5;break;
+		case 6: n = 6;break;
+	}
+	myDate.setDate(myDate.getDate()+1);
+	$('#EndDate').val(getNowFormatDate(myDate) + " 00:00");
+	myDate.setDate(myDate.getDate()-n);
+	$('#BeginDate').val(getNowFormatDate(myDate) + " 00:00");
+});
+$("#btn4").click(function(){
+	var myDate = new Date();
+	var d = myDate.getDay();
+	var n = 0;
+	switch (d){
+		case 0: n = 6;break;
+		case 1: n = 0;break;
+		case 2: n = 1;break;
+		case 3: n = 2;break;
+		case 4: n = 3;break;
+		case 5: n = 4;break;
+		case 6: n = 5;break;
+	}
+	myDate.setDate(myDate.getDate()-n);
+	$('#EndDate').val(getNowFormatDate(myDate) + " 00:00");
+	myDate.setDate(myDate.getDate()-7);
+	$('#BeginDate').val(getNowFormatDate(myDate) + " 00:00");
+});
+$("#btn5").click(function(){
+	var firstDate = new Date();
+	firstDate.setDate(1);
+	$('#BeginDate').val(getNowFormatDate(firstDate) + " 00:00");
+	var endDate = new Date(firstDate);
+	endDate.setMonth(firstDate.getMonth()+1,1);
+	$('#EndDate').val(getNowFormatDate(endDate) + " 00:00");
+});
+$("#btn6").click(function(){
+	var firstDate = new Date();
+	firstDate.setMonth(firstDate.getMonth()-1,1);
+	$('#BeginDate').val(getNowFormatDate(firstDate) + " 00:00");
+	var endDate = new Date(firstDate);
+	endDate.setMonth(firstDate.getMonth()+1,1);
+	$('#EndDate').val(getNowFormatDate(endDate) + " 00:00");
+});
+function getNowFormatDate(day)
+{
+	var Year = 0;
+	var Month = 0;
+	var Day = 0;
+	var CurrentDate = "";
+	//初始化时间
+	Year       = day.getFullYear();
+	Month      = day.getMonth()+1;
+	Day        = day.getDate();
+	CurrentDate += Year + "-";
+	if (Month >= 10 ){
+		CurrentDate += Month + "-";
+	}else{
+		CurrentDate += "0" + Month + "-";
+	}
+	if (Day >= 10 ){
+		CurrentDate += Day ;
+	}else {
+		CurrentDate += "0" + Day ;
+	}
+	return CurrentDate;
+}
+
+</script>
+</block>

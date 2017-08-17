@@ -1,0 +1,151 @@
+<extend name="Base/common"/>
+
+<block name="title"><title>每日工资－{:S('WEB_NAME')}</title></block>
+<block name="body">
+<div class="effect mainnav-lg mainnav-fixed navbar-fixed footer-fixed" id="container" style="position: absolute;top: 0;bottom: 0;left: 0;right: -17px;overflow-y: scroll;">
+	<div id="page-content">
+		<form id="teambetrecord" role="form" action="{:U('team/searchRecord')}" method="post">
+			<div class="panel">
+				<div class="panel-heading">
+					
+					<!-- <h3 class="panel-title text-primary"><i class="fa fa-cubes fa-lg text-default"></i> 代  理  中  心 》 每 日 工 资（昨日3点至今日3点工资在今日3点左右自动发放）</h3> -->
+					<h3 class="panel-title text-primary">下级分红</h3>
+				</div>
+				<div class="panel-body">
+					<!-- <div class="col-sm-2" style="width:30%">
+						<div class="dataTables_length" style="margin-top: -10px;">
+							<h5>
+								<label style="float: left;"><strong>我的每日工资率为：一万投注量 = {$user.fenhong} 元</strong></label>
+							</h5>						
+						</div>						
+					</div>
+					<div class="col-sm-10" style="width:70%">
+						<div class="dataTables_filter">
+							<input autocomplete="off" name="fromTime" autocomplete="off" class="form-control form_datetime" id="BeginDate" style="width: 130px;" type="text" placeholder="起始日期" value="{:date('Y-m-d H:i',$GLOBALS['fromTime'])}" data-date-format="yyyy-mm-dd hh:ii">
+							<span style="margin-left: 5px;">-</span>
+							<input name="toTime" autocomplete="off" class="form-control form_datetime" id="EndDate" style="width: 130px;" type="text" placeholder="截止日期" value="{:date('Y-m-d H:i',$GLOBALS['toTime'])}" data-date-format="yyyy-mm-dd hh:ii">
+							<button class="btn btn-primary btn-labeled fa fa-search" id="j-query" type="button">查询</button>
+						</div>
+					</div> -->
+					<div class="col-sm-12" id="bgColo">
+                            <div class="dataTables_filter">
+                                <label class="userName">
+                                <button class="btn btn-default btn-sm "  type="button">全部</button>
+                                <button class="btn btn-default btn-sm "  type="button">彩票</button>
+                                <button class="btn btn-default btn-sm "  type="button">PT</button>
+                                <button class="btn btn-default btn-sm "  type="button">NT</button>
+                                <button class="btn btn-default btn-sm "  type="button">AG</button>
+                                <button class="btn btn-default btn-sm "  type="button">MG</button>
+                                <button class="btn btn-default btn-sm "  type="button">BBIN</button>
+                                <button class="btn btn-default btn-sm "  type="button">AG棋牌</button>
+                                <button class="btn btn-default btn-sm "  type="button">沙巴体育</button>
+                                </label>
+                            </div>
+                            <div class="dataTables_filter">
+                                 <label class="userName">期数：<select autocomplete="off" name="utype" class="form-control" id="TeamLevel" style="width: 95px; display: inline;" data-val-required="TeamLevel 字段是必需的。" data-val="true">
+								<option selected="selected" value="0">全部</option>
+								<option value="1">20170301</option>
+								<option value="2">20170301</option>
+								<option value="3">20170301</option>
+								<option value="4">20170301</option>
+								<option value="5">20170301</option>
+								<option value="6">20170301</option>
+								<option value="7">20170301</option>
+								<option value="8">20170301</option>
+								<option value="9">20170301</option>
+								<option value="10">20170301</option>
+								<option value="11">20170301</option>
+							</select>
+							</label>
+                                 <label class="userName">用户名：<input style="width: 78px;"  type="text" name="userName"></label>
+                                 <label class="userName">状态：<select autocomplete="off" name="utype" class="form-control" id="TeamLevel" style="width: 95px; display: inline;" data-val-required="TeamLevel 字段是必需的。" data-val="true">
+								<option selected="selected" value="0">全部</option>
+								<option value="1">待审核</option>
+								<option value="2">审核通过</option>
+							</select>
+							</label>
+                                <button class="btn btn-primary btn-labeled fa fa-search" id="j-query" type="button">查询</button>
+                            </div>
+                        </div>
+					<span id="record-span">
+						<include file="fenhong-list" />
+					</span>
+				</div>
+			</div>
+			<input name="__RequestVerificationToken" type="hidden" value="CfDJ8Ktgxm2FAlNEsoI7VoMQlWk-r1WEVUMma9pxU878QzneW2KIrTfgUbuPj__QCtkNRRZvXW6vyGMINg6RucmHxen7pqyeFXfPOriSNInvCqqC13KtPZ_vKB1TImP03Q98KRUIkr3KghHY6GCGBNtfqlS9d9_JZXmL67XbkOB6FJORYTEoyRwdIbKmaIc06OW0qw">
+		</form>
+		<div tabindex="-1" class="modal fade" id="details-modal" role="dialog" aria-hidden="true" aria-labelledby="details-modal">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button class="close" type="button" data-dismiss="modal"><span aria-hidden="true">×</span></button>
+						<h4 class="modal-title text-primary"><i class="fa fa-th-list fa-lg"></i>  详 情                 
+						</h4>
+					</div>
+					<div id="betDetail">
+					</div>
+					<div class="modal-footer">
+						<button class="btn btn-warning btn-labeled fa fa-mail-reply" data-dismiss="modal">关闭</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+</block>
+<block name="script">
+<script src="__JS__/dataTables.min.js"></script>
+<script src="__JS__/dataTables.bootstrap.min.js"></script>
+<script src="__JS__/dataTables.responsive.min.js"></script>
+<script src="__JS__/bootbox.min.js"></script>
+<style type="text/css">
+        #bgColo{width:100%;padding: 10px 0;background-color: #e5f0f8;margin-bottom: 15px;}
+         .userName{
+            font-size: 14px;
+            margin-left:10px;
+            margin-bottom: 10px;
+        }
+         .userName button,.userName input{
+            height: 28px;border: none;border: 1px solid #8e98a1;
+            text-align: center;border-radius: 5px!important;cursor: pointer;
+        }
+        #j-query{
+                    background: linear-gradient(90deg, rgb(139, 186, 251), rgb(8, 75, 199));;
+    border-radius: 12px;margin-left: 15px;
+        }
+                .btn-labeled:before {
+    background-color: rgba(25, 153, 177, 0)!important;
+}
+    </style>
+<script type="text/javascript">
+
+$(document).ready(function () {
+	$("#j-query").on("click", function () {				
+		$.ajax({
+			type: "GET",
+			url: '{:U("team/searchFenhong")}',
+			data: { liqType: $('#LotteryId').val(), utype: $('#TeamLevel').val(), username: $('#MemberName').val(), fromTime: $('#BeginDate').val(), toTime: $('#EndDate').val()},
+			dataType: "html",
+			global: false,
+			success: function (result) {
+				$('#record-span').html(result);
+			}, error: function (err) {
+				var t=err;				
+			}
+		});
+		//$("#teambetrecord").submit();
+	});
+	
+	$('#PageSize').on('change', function () {
+		this.form.submit();
+	});
+	$('.paging_button').on('click', function () {
+		var pageIndex = $(this).attr('title');
+		$('#PageIndex').val(pageIndex);
+		this.ownerDocument.forms[0].submit();
+	});
+	
+});
+
+</script>
+</block>

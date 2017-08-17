@@ -1,0 +1,92 @@
+<!--报表中心-->
+<div class="member-set" id="report-center" ng-controller="ReportCtrl">
+    <div class="pop-menu">
+        <div class="recharge-nav">
+            <a class="report-nav actived1"  onclick="change1(1)">彩票报表</a>
+            <a onclick="change1(2)">个人报表</a>
+            <a onclick="change1(3)">盈亏报表</a>
+            <a onclick="change1(4)">平台报表</a>
+            <!--<a ng-click="data.type = 5">其他报表</a>-->
+        </div>
+         <script type="text/javascript">
+                        $(".recharge-nav a").click(function(){
+                            $(this).siblings().removeClass('actived1');
+                            $(this).addClass('actived1');
+
+                        })
+                    </script>
+    </div>
+    <div class="pop-area">
+        <!--彩票报表-->
+        <div class="personal-box personal-box1" id="lot-report">
+            <div class="record-top-area">
+                <iframe id="pageframe1" name="pageframe" src="/index.php?s=/home/team/lottery_report.html" style="width: 100%; height: 600px;" allowtransparency="true" frameborder="0"></iframe>
+            </div>
+        </div>
+        <!--个人报表-->
+        <div class="personal-box personal-box2" id="personal-report" >
+            <div class="record-top-area">
+                <div class="load1" style="display: none;position: absolute;top:0;left:0;background: rgba(0,0,0,0.6);width:100%;height:637px">
+                    <img src="Public/Mobile/images/game/wait.gif" style="position: absolute;top:50%;left:50%;margin-top: -50px;margin-left:-50px;">
+                </div>
+                <iframe id="pageframe2" name="pageframe" src="" style="width: 100%; height: 600px;" allowtransparency="true" frameborder="0"></iframe>
+            </div>
+        </div>
+        <!--盈亏报表-->
+        <div class="personal-box personal-box3" id="lottery-report" >
+            <div class="record-top-area">
+                <div class="load2" style="display: none;position: absolute;top:0;left:0;background: rgba(0,0,0,0.6);width:100%;height:637px">
+                    <img src="Public/Mobile/images/game/wait.gif" style="position: absolute;top:50%;left:50%;margin-top: -50px;margin-left:-50px;">
+                </div>
+                <iframe id="pageframe3" name="pageframe" src="" style="width: 100%; height: 600px;" allowtransparency="true" frameborder="0"></iframe>
+            </div>
+        </div>
+        <!--平台报表-->
+        <div class="personal-box personal-box4" id="platform-report">
+            <div class="record-top-area">
+                <div class="load3" style="display: none;position: absolute;top:0;left:0;background: rgba(0,0,0,0.6);width:100%;height:637px">
+                    <img src="Public/Mobile/images/game/wait.gif" style="position: absolute;top:50%;left:50%;margin-top: -50px;margin-left:-50px;">
+                </div>
+                <iframe id="pageframe4" name="pageframe" src="" style="width: 100%; height: 600px;" allowtransparency="true" frameborder="0"></iframe>
+            </div>
+        </div>
+        <!--其他报表-->
+        <!--<div class="personal-box" id="platform-report" ng-show="data.type == 5">-->
+            <!--<div class="record-top-area">-->
+                <!--<iframe id="pageframe" name="pageframe" src="/index.php?s=/home/team/other.html" style="width: 100%; height: 650px;" allowtransparency="true" frameborder="0"></iframe>-->
+            <!--</div>-->
+        <!--</div>-->
+    </div>
+    <script>
+        function change1(n){
+            var pageframe = $('#pageframe'+n);
+            if(pageframe.attr('src') == ''){
+                switch (n){
+                    case 1:pageframe.attr('src','/index.php?s=/home/team/lottery_report.html');
+                        pageframe.load(function() {
+
+                        }); break;
+                    case 2:pageframe.attr('src','/index.php?s=/home/team/personal_report.html');
+                        $('.load1').show();
+                        pageframe.load(function() { 
+                        $('.load1').hide();
+                        }); break;
+                    case 3:pageframe.attr('src','/index.php?s=/home/team/report.html');
+                        $('.load2').show();
+                        pageframe.load(function() { 
+                        $('.load2').hide();
+                        }); 
+                    break;
+                    case 4:pageframe.attr('src','/index.php?s=/home/team/platform_report.html');
+                        $('.load3').show();
+                        pageframe.load(function() { 
+                        $('.load3').hide();
+                        }); 
+                    break;
+                }
+            }
+            $('.personal-box'+n).show();
+            $('.personal-box'+n).siblings().hide();
+        }
+    </script>
+</div>

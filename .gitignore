@@ -1,0 +1,11 @@
+# Created by .ignore support plugin (hsz.mobi)
+/web/Runtime/
+/web/Record/
+!/Application/Home/View/
+/node_modules/
+/public_html/
+/web/Public/sess/
+/web/Public/Home/js/release.js
+.idea
+
+/web/kj/node_modules/

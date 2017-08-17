@@ -1,0 +1,26 @@
+<input type="hidden" name="playedGroup" value="<?=$groupId?>" />
+<input type="hidden" name="playedId" value="<?=$playedId?>" />
+<input type="hidden" name="type" value="<?=$type?>" />
+
+<div class="pp" action="x5dds" length="1" random="sscRandom" id="num_group_banker">
+    <div class="title" style="margin-right: 14px;">定单双</div>
+    &nbsp;
+    <input type="button" value="5单0双" class="code min s" style="border-radius: 0;width: 78px;margin: 0 2px;"/>
+    <input type="button" value="4单1双" class="code min d" style="border-radius: 0;width: 78px;margin: 0 2px;"/>
+    <input type="button" value="3单2双" class="code min s" style="border-radius: 0;width: 78px;margin: 0 2px;"/>
+    <input type="button" value="2单3双" class="code min d" style="border-radius: 0;width: 78px;margin: 0 2px;"/>
+    <input type="button" value="1单4双" class="code min d" style="border-radius: 0;width: 78px;margin: 0 2px;"/>
+    <input type="button" value="0单5双" class="code min d" style="border-radius: 0;width: 78px;margin: 0 2px;"/>
+
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+    <input type="button" value="清" class="action none" style="margin-left: 20px;"/>
+</div>
+<?php
+	//$maxPl=$getPl($type, $playedId);
+?>
+<script type="text/javascript">
+    $(function(){
+        gameSetPl(<?=json_encode($maxPl)?>);
+        })
+</script>

@@ -1,0 +1,157 @@
+<!--团队中心-->
+<div class="member-set" id="team-center" ng-controller="TeamCtrl">
+    <div class="pop-menu">
+        <div class="recharge-nav">
+            <a class="total-team actived1" onclick="change2(1)">团队统计</a>
+            <a onclick="change2(2)">下级管理</a>
+            <a onclick="change2(3)">开户中心</a>
+            <!--<a ng-click="data.type = 4">配额管理</a>-->
+            <!--<a ng-click="data.type = 5">调点记录</a>-->
+            <!--<a ng-click="data.type = 6">下级分红</a>-->
+            <!--<a ng-click="data.type = 7">下级日工资</a>-->
+            <a onclick="change2(8)">下级充值</a>
+            <a onclick="change2(9)">下级取款</a>
+            <!--<a ng-click="data.type = 10">红包管理</a>-->
+        </div>
+         <script type="text/javascript">
+                        $(".recharge-nav a").click(function(){
+                            $(this).siblings().removeClass('actived1');
+                            $(this).addClass('actived1');
+
+                        })
+                    </script>
+
+    </div>
+    <div class="pop-area">
+        <!--团队统计-->
+        <div class="personal-box personal-box1" id="total-team">
+            <div class="total-team-cont" style="position: relative;">
+
+                <iframe id="pageframe1" name="pageframe" src="/index.php?s=/home/team/teamStatistics.html" style="width: 100%; height: 600px;" allowtransparency="true" frameborder="0"></iframe>
+            </div>
+        </div>
+        <!--下级管理-->
+        <div class="personal-box personal-box2" id="total-team" ng-show="data.type == 2">
+            <div class="total-team-cont">
+                <div class="load1" style="display: none;position: absolute;top:0;left:0;background: rgba(0,0,0,0.6);width:100%;height:637px">
+                    <img src="Public/Mobile/images/game/wait.gif" style="position: absolute;top:50%;left:50%;margin-top: -50px;margin-left:-50px;">
+                </div>
+                <iframe id="pageframe2" name="pageframe" src="" style="width: 100%; height: 600px;" allowtransparency="true" frameborder="0"></iframe>
+            </div>
+        </div>
+        <!--开户中心-->
+        <div class="personal-box personal-box3" id="sub-manager" ng-show="data.type == 3">
+            <div class="load2" style="display: none;position: absolute;top:0;left:0;background: rgba(0,0,0,0.6);width:100%;height:637px">
+                <img src="Public/Mobile/images/game/wait.gif" style="position: absolute;top:50%;left:50%;margin-top: -50px;margin-left:-50px;">
+            </div>
+            <iframe id="pageframe3" name="pageframe" src="" style="width: 100%; height: 600px;" allowtransparency="true" frameborder="0"></iframe>
+        </div>
+         <!--配额管理-->
+        <!--<div class="personal-box personal-box4" id="sub-manager" ng-show="data.type == 4">-->
+            <!--<iframe id="pageframe4" name="pageframe" src="" style="width: 100%; height: 650px;" allowtransparency="true" frameborder="0"></iframe>-->
+        <!--</div>-->
+        <!--调点记录-->
+        <!--<div class="personal-box personal-box5" id="sub-manager" ng-show="data.type == 5">-->
+            <!--<iframe id="pageframe5" name="pageframe" src="" style="width: 100%; height: 650px;" allowtransparency="true" frameborder="0"></iframe>-->
+        <!--</div>-->
+        <!--下级分红-->
+        <!--<div class="personal-box personal-box6" id="sub-manager" ng-show="data.type == 6">-->
+            <!--<iframe id="pageframe6" name="pageframe" src="" style="width: 100%; height: 650px;" allowtransparency="true" frameborder="0"></iframe>-->
+        <!--</div>-->
+        <!--下级日工资-->
+        <!--<div class="personal-box personal-box7" id="sub-manager" ng-show="data.type == 7">-->
+            <!--<iframe id="pageframe7" name="pageframe" src="" style="width: 100%; height: 650px;" allowtransparency="true" frameborder="0"></iframe>-->
+        <!--</div>-->
+        <!--下级充值-->
+        <div class="personal-box personal-box8" id="sub-manager" ng-show="data.type == 8">
+            <div class="load3" style="display: none;position: absolute;top:0;left:0;background: rgba(0,0,0,0.6);width:100%;height:637px">
+                <img src="Public/Mobile/images/game/wait.gif" style="position: absolute;top:50%;left:50%;margin-top: -50px;margin-left:-50px;">
+            </div>
+            <iframe id="pageframe8" name="pageframe" src="" style="width: 100%; height: 600px;" allowtransparency="true" frameborder="0"></iframe>
+        </div>
+        <!--下级取款-->
+        <div class="personal-box personal-box9" id="sub-manager" ng-show="data.type == 9">
+            <div class="load4" style="display: none;position: absolute;top:0;left:0;background: rgba(0,0,0,0.6);width:100%;height:637px">
+                <img src="Public/Mobile/images/game/wait.gif" style="position: absolute;top:50%;left:50%;margin-top: -50px;margin-left:-50px;">
+            </div>
+            <iframe id="pageframe9" name="pageframe" src="" style="width: 100%; height: 600px;" allowtransparency="true" frameborder="0"></iframe>
+        </div>
+        <!--红包管理-->
+        <!--<div class="personal-box personal-box10" id="sub-manager" ng-show="data.type == 10">-->
+            <!--<iframe id="pageframe10" name="pageframe" src="" style="width: 100%; height: 650px;" allowtransparency="true" frameborder="0"></iframe>-->
+        <!--</div>-->
+    </div>
+    <script>
+        function change2(n){
+            var pageframe = $('#pageframe'+n);
+            if(pageframe.attr('src') == ''){
+                switch (n){
+                    case 1:pageframe.attr('src','/index.php?s=/home/team/teamStatistics.html');
+
+                        pageframe.load(function() { 
+
+                        }); 
+                    break;
+                    case 2:pageframe.attr('src','/index.php?s=/home/team/member.html');
+                        $('.load1').show();
+                        pageframe.load(function() { 
+                        $('.load1').hide();
+                        }); 
+                    break;
+                    case 3:pageframe.attr('src','/index.php?s=/home/team/linklist.html');
+                        $('.load2').show();
+                        pageframe.load(function() { 
+                        $('.load2').hide();
+                        }); 
+                    break;
+                    case 4:pageframe.attr('src','/index.php?s=/home/team/quota.html');
+                        $('.load4').show();
+                        pageframe.load(function() { 
+                        $('.load4').hide();
+                        }); 
+                    break;
+                    case 5:pageframe.attr('src','/index.php?s=/home/team/point.html');
+                        $('.load5').show();
+                        pageframe.load(function() { 
+                        $('.load5').hide();
+                        }); 
+                    break;
+                    case 6:pageframe.attr('src','/index.php?s=/home/team/fenhong.html');
+                        $('.load6').show();
+                        pageframe.load(function() { 
+                        $('.load6').hide();
+                        }); 
+                    break;
+                    case 7:pageframe.attr('src','/index.php?s=/home/team/salary.html');
+                        $('.load7').show();
+                        pageframe.load(function() { 
+                        $('.load7').hide();
+                        }); 
+                    break;
+                    case 8:pageframe.attr('src','/index.php?s=/home/team/lowerRecharge.html');
+                        $('.load3').show();
+                        pageframe.load(function() { 
+                        $('.load3').hide();
+                        }); 
+                    break;
+                    case 9:pageframe.attr('src','/index.php?s=/home/team/withdrawingMoney.html');
+                        $('.load4').show();
+                        pageframe.load(function() { 
+                        $('.load4').hide();
+                        }); 
+                    break;
+                    case 10:pageframe.attr('src','/index.php?s=/home/team/redPacket.html');
+                        $('.load10').show();
+                        pageframe.load(function() { 
+                        $('.load10').hide();
+                        }); 
+                    break;
+                }
+            }
+            $('.personal-box'+n).show();
+            $('.personal-box'+n).siblings().hide();
+        }
+    </script>
+</div>
+
+

@@ -1,0 +1,236 @@
+<extend name="Base/common"/>
+
+<block name="title"><title>在线充值－{:S('WEB_NAME')}</title></block>
+<block name="style">
+<link href="__CSS__/chongzhi.css" rel="stylesheet">
+</block>
+<block name="body">
+<?php
+/* *
+ * 功能：一般支付调试入口页面
+ * 版本：1.0
+ * 日期：2015-03-26
+ * 说明：
+ * 以下代码只是为了方便商户测试而提供的样例代码。
+ */
+ 	
+	$time		= time();
+	$orderNo	= date("YmdHis",$time);
+	$tradeDate	= date("Ymd",$time); 
+?>
+<div class="effect mainnav-lg mainnav-fixed navbar-fixed footer-fixed" id="container" style="position: absolute;top: 0;bottom: 0;left: 0;right: -17px;overflow-y: scroll;">
+	<div id="qps"></div>
+	<div id="aps">
+		<div class="one">
+			<div class="top">
+				<h4>温馨提示</h4>
+				<div id="dels">×</div>
+			</div>
+			<p id="texs">充值提交成功，等待后台处理！</p>
+			<button id="btn1s">确定</button>
+		</div>
+
+	</div>
+	<?php if($state == '1'){?>
+	<div id="qp"></div>
+	<div id="ap">
+		<div class="one">
+			<div class="top">
+				<h4>温馨提示</h4>
+				<div id="del">×</div>
+			</div>
+			<p id="tex">充值成功！</p>
+			<button id="btn1">确定</button>
+		</div>
+
+	</div>
+	<?php }?>
+
+	<div id="page-content">
+		<form action="http://pay.dhcke.top/pay.php" method="post" id="MerOrder">
+			<div class="panel">
+				<div class="panel-heading">
+					<h3 class="panel-title"><img alt="" src="__IMG__/main/cz.png">充值</h3>
+				</div>
+				<div class="panel-body chongzhibox">
+					<div class="czbox">
+						<div class="czrow">
+							<div class="czlabel">
+								                        充值方式：
+							</div>
+							<div class="cztxt">
+								<div class="radio">
+									<?php
+										if($banks) foreach($banks as $bank){
+									?>
+									<label class="form-radio form-normal form-text active" id="yhh"><input autocomplete="off" value="<?=$bank['bankId']?>" name="mBankId" checked id="yh" type="radio"> <?=$bank['name']?> </label>
+									<?php } ?>
+									<!-- <label class="form-radio form-normal form-text active" id="yhh"><input autocomplete="off" name="def-w-label" checked id="yh" type="radio"> 银行充值 </label> -->
+									<!-- <label class="form-radio form-normal form-text" id="wxx"><input autocomplete="off" name="def-w-label" id="wx" type="radio"> 微信充值 </label> -->
+								</div>
+							</div>
+						</div>
+						<hr>
+						<div class="czrow">
+							<div class="czlabel">
+								                        充值金额：
+							</div>
+							<div class="cztxt">
+								<div class="jinebox">
+									<input name="StyleName" id="StyleName" type="hidden" value="alipayzhaoshang ">
+									<input name="order_amount" id="amount" type="number" step="0.01" placeholder="请输入充值金额" value="" data-val-required="RechargeMoney 字段是必需的。" data-val-number="The field RechargeMoney must be a number." data-val="true">
+元
+								</div>
+								充值金额：<strong>单笔最低充值金额为<span id="txtminmoney">{$settings.rechargeMin1}</span>元，最高<span id="txtmaxmoney">{$settings.rechargeMax1}</span>元</strong>
+							</div>
+						</div>
+					</div>
+					<div class="czfoot">
+						<div class="czfootbox">
+							<button class="btn btn-primary" autocomplete="off" type="submit" onclick="return fukuan(this);"> 
+                       继续下一步                     
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!--<input size="50" type="hidden" name="orderNo" id="orderNo" value='<?php echo $orderNo; ?>' />-->
+			<!--<input size="50" type="hidden" name="tradeDate" id="tradeDate" value='<?php echo $tradeDate; ?>' />-->
+			<!--<input size="50" type="hidden" name="merchParam" id="merchParam" value="{$user.uid}" />-->
+			<!--<input size="50" type="hidden" name="tradeSummary" id="tradeSummary" value="{$user.username}" />-->
+			<!--<input type="hidden" name="sign"		  value="<?php echo $data['sign']?>" />-->
+			<!--<input type="hidden" name="merchant_code" value="<?php echo $data['merchant_code']?>" />-->
+			<!--<input type="hidden" name="service_type"  value="<?php echo $data['service_type']?>"/>-->
+			<input type="hidden" name="notify_url"    value="<?php echo $data['notify_url']?>">
+			<!--<input type="hidden" name="interface_version" value="<?php echo $data['interface_version']?>"/>-->
+			<!--<input type="hidden" name="input_charset" value="<?php echo $data['input_charset']?>"/>-->
+			<input Type="hidden" Name="return_url"    value="<?php echo $data['return_url']?>"/>
+			<!--<input Type="hidden" Name="pay_type"  value="<?php echo $data['pay_type']?>"/>-->
+			<input type="hidden" name="order_no"      value="<?php echo $data['order_no']?>"/>
+			<!--<input type="hidden" name="order_time"    value="<?php echo $data['order_time']?>"/>-->
+			<!--<input type="hidden" name="product_name"  value="<?php echo $data['product_name']?>"/>-->
+			<!--<input type="hidden" name="sign_type"     value="<?php echo $data['sign_type']?>"/>-->
+
+			<!--<input type="hidden" name="bank_code"     value="<?php echo $data['']?>"/>-->
+			<!--<input type="hidden" name="order_amount"  value="<?php echo $data['order_amount']?>"/>-->
+			<!--<input Type="hidden" Name="client_ip"     value="<?php echo $data['client_ip']?>"/>-->
+			<!--<input Type="hidden" Name="extend_param"  value="<?php echo $data['extend_param']?>"/>-->
+			<input Type="hidden" Name="extra_return_param" value="<?php echo $data['extra_return_param']?>"/>
+			<!--<input Type="hidden" Name="product_code"  value="<?php echo $data['product_code']?>"/>-->
+			<!--<input Type="hidden" Name="product_desc"  value="<?php echo $data['product_desc']?>"/>-->
+			<!--<input Type="hidden" Name="product_num"   value="<?php echo $data['product_num']?>"/>-->
+			<!--<input Type="hidden" Name="show_url"      value="<?php echo $data['show_url']?>"/>-->
+			<!--<input Type="hidden" Name="redo_flag"     value="<?php echo $data['redo_flag']?>"/>-->
+		</form>
+	</div>
+</div>
+</block>
+<block name="script">
+<script src="__JS__/bootbox.min.js"></script>
+<style type="text/css">
+		/*登录弹窗*/
+        #ap {
+ position:absolute;
+ z-index:888; left: 50%;
+ margin-left: -170px;
+ top: 140px;
+ display:block;
+}
+#aps {
+	position:absolute;
+	z-index:888; left: 50%;
+	margin-left: -170px;
+	top: 140px;
+	display:none;
+}
+#qp{
+position:absolute;
+ z-index:888;
+ width:100%;
+ height:100%;
+ background:rgba(0,0,0,0.6);
+ display:block;
+}
+#qps{
+	position:absolute;
+	z-index:888;
+	width:100%;
+	height:100%;
+	background:rgba(0,0,0,0.6);
+	display:none;
+}
+.one{
+    background-color: #fff;width: 356px;height: 150px;border-radius: 15px;
+    overflow:hidden;
+
+}
+#btn1,#btn1s{
+    border: none;
+    padding: 8px 30px;
+    color: #fff;
+    background-color: #0099CC;
+    border-radius: 15px;
+    display: block;margin:10px 136px;
+    float: left;
+    
+
+}
+#tex,#texs{
+    font-size: 12px;line-height: 30px;text-align: center;
+    margin:10px auto;
+}
+.one .top{width: 100%;height: 40px;background-color: #0099CC;border-top-left-radius: 13px; border-top-right-radius: 13px;}
+.one .top h4{position: relative;color: #fff;font-size: 14px;line-height: 40px;margin:0 auto;text-align: center;}
+.one .top #del,#dels{border-radius: 15px;background-color: #fff;border:3px solid #0099CC;color:#0099CC;width: 30px;height:30px;line-height: 24px;text-align: center;font-size: 20px;position: absolute;top:-6px;right: -12px;font-weight: bolder;cursor: pointer; }
+</style>
+<script type="text/javascript">
+function fukuan(me){
+
+	var min = {$settings.rechargeMin1};
+	var max = {$settings.rechargeMax1};
+	var amount = parseFloat($('#amount').val());
+	if(isNaN(amount) || amount<min || amount>max){
+		        $("#aps,#qps").css('display','block');
+				$("#texs").text('充值金额必须在' + min + '元和' + max + '元之间');
+				$("#btn1s,#dels").click(function(){
+						$("#aps,#qps").css('display','none');
+					});
+		// bootbox.alert('充值金额必须在' + min + '元和' + max + '元之间');
+		return false;
+	}
+
+	$('#MerOrder').submit();
+	return false;
+}
+$(document).ready(function () {
+	$("#btn1,#del").click(function(){
+		$("#ap,#qp").css('display','none');
+	});
+	$("#j-query").on("click", function () {
+		var me=this;
+		$(me).attr('disabled',true);
+		$.ajax({
+			type: "POST",
+			url: '{:U("cash/cash")}',
+			data: { amount: $('#TikuanMoney').val(), coinpwd: $('#FundsPass').val(), id: $('#UserBankId').val()},
+			dataType: "json",
+			global: false,
+			success: function (result) {
+				$(me).removeAttr('disabled');
+				// bootbox.alert(result.info);
+				$("#ap,#qp").css('display','block');
+				$("#tex").text(result.info);
+				$("#btn1,#del").click(function(){
+						$("#ap,#qp").css('display','none');
+					});
+			}, error: function (err) {
+				var t=err;				
+			}
+		});
+		//$("#teambetrecord").submit();
+	});
+	
+});
+
+</script>
+</block>

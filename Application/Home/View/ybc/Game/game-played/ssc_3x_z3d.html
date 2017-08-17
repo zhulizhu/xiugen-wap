@@ -1,0 +1,12 @@
+<input type="hidden" name="playedGroup" value="<?=$groupId?>" />
+<input type="hidden" name="playedId" value="<?=$playedId?>" />
+<input type="hidden" name="type" value="<?=$type?>" />
+<div class="pp" action="tzSscHhzxInput" played="后" length="3" z3min="<?=$z3Pl['bonusPropBase']?>" z6min="<?=$z6Pl['bonusPropBase']?>" z3max="<?=$z3Pl['bonusProp']?>" z6max="<?=$z6Pl['bonusProp']?>">
+	<textarea id="textarea-code"></textarea>
+</div>
+<?php //$maxPl=$getPl($type, $playedId); ?>
+<script type="text/javascript">
+	$(function(){
+		gameSetPl(<?=json_encode($maxPl)?>);
+		})
+</script>

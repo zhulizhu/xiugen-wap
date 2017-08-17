@@ -1,0 +1,86 @@
+<extend name="Public/base"/>
+
+<block name="body">
+	<!-- 标题栏 -->
+	<div class="main-title">
+		<h2>行为日志</h2>
+	</div>
+
+	<!-- 高级搜索 -->
+	<div class="search-form fr cf">
+		<div class="sleft">
+			<input type="text" name="username" class="search-input" value="<?php if(I('ip')){echo long2ip(I('ip'));}?>" placeholder="请输入ip">&nbsp;&nbsp;&nbsp;
+			<input type="text" name="username" class="search-input" value="{:I('username')}" placeholder="请输入用户名">
+			<input type="text" name="uid" class="search-input" value="{:I('uid')}" placeholder="请输入用户ID">
+			<a class="sch-btn" href="javascript:;" id="search" url="{:U('Action/actionlog')}"><i class="btn-search"></i></a>
+		</div>
+	</div>
+	<!-- 数据列表 -->
+	<div class="data-table">
+	<table class="">
+    <thead>
+        <tr>
+		<th class="">id</th>
+		<th class="">用户名</th>
+		<th class="">IP</th>
+		<th class="">区域</th>
+		<th class="">执行时间</th>
+		<th class="">行为名称</th>
+		</tr>
+    </thead>
+    <tbody>
+		<volist name="_list" id="vo">
+		<tr>
+			<td>{$vo.id} </td>
+			<td><a href="{:U('Action/actionlog?username='.$vo['username'])}" >{$vo.username} </a></td>
+			<td><a href="{:U('Action/actionlog?ip='.$vo['loginIP'])}" >{:long2ip($vo['loginIP'])} </a></td>
+			<?php
+					import('ORG.Net.IpLocation');
+					$ip=new \IpLocation();					
+					$addr = $ip->getlocation($vo['loginIP']);						
+			?>
+			<td>{$addr['country']}</td>
+			<td>{:date('y-m-d H:i:s',$vo['loginTime'])}</td>
+			<td>登录</td>
+		</tr>
+		</volist>
+	</tbody>
+    </table> 
+	</div>
+	<!-- 分页 -->
+	<div class="page">{$_page}</div>
+	<!-- /分页 -->
+
+</block>
+<block name="script">
+<script type="text/javascript">
+$(function(){
+	$("#action_add").click(function(){
+		window.location.href = $(this).attr('url');
+	})
+	
+	//搜索功能
+	$("#search").click(function(){
+		var url = $(this).attr('url');
+        var query  = $('.search-form').find('input').serialize();
+        query = query.replace(/(&|^)(\w*?\d*?\-*?_*?)*?=?((?=&)|(?=$))/g,'');
+        query = query.replace(/^&/g,'');
+        if( url.indexOf('?')>0 ){
+            url += '&' + query;
+        }else{
+            url += '?' + query;
+        }
+		window.location.href = url;
+	});
+	//回车搜索
+	$(".search-input").keyup(function(e){
+		if(e.keyCode === 13){
+			$("#search").click();
+			return false;
+		}
+	});
+    //导航高亮
+    $('.side-sub-menu').find('a[href="{:U('Action/actionlog')}"]').closest('li').addClass('current');
+})
+</script>
+</block>

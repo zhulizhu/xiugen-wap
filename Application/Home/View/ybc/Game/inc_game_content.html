@@ -1,0 +1,409 @@
+
+
+
+
+<div class="clear">
+</div>
+<div class="tbn_top">
+    <h5 id="lt_desc">{$current_played['simpleInfo']}</h5>
+    <span id="lt_example" class="methodexample showexample">范例</span>
+    <span id="lt_help" class="methodhelp showexample">！</span>
+    <div class="clear">
+    </div>
+</div>
+<div class="game_eg hide" id="lt_examples_div">
+    <div class="cont"><?=$current_played["example"]?></div>
+</div>
+<div class="game_eg hide" id="lt_helps_div">
+    <div class="cont"><strong>说明：</strong><br/><?=$current_played["info"]?></div>
+</div>
+<div class="clear">
+</div>
+<div class="tbn_cen">
+    <div class="tbn_c_ft">
+    </div>
+    <div class="tbn_c_s">
+        <div id="lt_selector">
+            <?php
+				require MODULE_PATH.'View/ybc/Game/game-played/'.$tpl.'.html';
+			?>
+            <div class="c">
+            </div>
+        </div>
+        <div id="random_sel_button" class="random_sel_button">
+        </div>
+        <div class="clear">
+        </div>
+
+        <div class="newtab lottery-bet-area">
+            <!--游戏投注开奖结果-->
+            <div class="gm-r-con">
+                <div class="game-record">
+                    <a class="tab-bet-record" onclick="BettingRecord(1)">投注记录</a>
+                    <a class="tab-trace-record" onclick="BettingRecord(2)">追号记录</a>
+                    <!--<a class="tab-lottery-record" onclick="BettingRecord(3)">开奖记录</a>-->
+                </div>
+                <!--开奖历史记录-->
+                <div class="tab-list">
+                    <div class="tab tab-bet" style="display: block">
+                        <div class="record-title">
+                            <span style="width: 18%">彩种</span>
+                            <span style="width: 25%">投注期号</span>
+                            <span style="width: 30%">投注内容</span>
+                            <span style="width: 27%">盈亏</span>
+                        </div>
+                        <ul id="tzjl">
+                            <li>暂无记录</li>
+                        </ul>
+                        <div class="dis-txt-high">
+                            <div class="refresh" onclick="BettingRecord(1)">刷新 <i class="fa fa-refresh"></i></div>
+                            <div class="more record-ctrl" id="record-ctrl">更多...</div>
+                        </div>
+                    </div>
+                    <div class="tab tab-trace" style="display: none">
+                        <div class="record-title">
+                            <span style="width: 18%">彩种</span>
+                            <span style="width: 25%">追号期数</span>
+                            <span style="width: 30%">投注内容</span><!--<span>状态</span>-->
+                            <span style="width: 27%">盈亏</span>
+                        </div>
+                        <ul id="zhjl">
+                            <li>暂无记录</li>
+                        </ul>
+                        <div class="dis-txt-high">
+                            <div class="refresh" onclick="BettingRecord(2)">刷新 <i class="fa fa-refresh"></i></div>
+                            <div class="more record-ctrl"  id="record-ctrl">更多...</div>
+                        </div>
+                    </div>
+                    <div class="tab tab-lottery" id="tab-lottery" style="display: none">
+                        <div class="record-title">
+                            <span class="lot-issue">期号</span>
+                            <span class="lot-num">开奖号码</span>
+                        </div>
+                        <div class="tab-lottery-list">
+                            <ul id="kjjl">
+                                <li>暂无记录</li>
+                            </ul>
+                        </div>
+                        <div class="dis-txt-high">
+                            <div class="refresh" onclick="BettingRecord(3)">刷新 <i class="fa fa-refresh"></i></div>
+                            <div class="more record-ctrl" id="record-ctrl">更多...</div>
+                        </div>
+                    </div>
+                </div>
+                <!--投注按钮区域-->
+                <div class="bet-operate-area">
+                    <div class="shade-div-text">
+
+                        <p>
+                            总注数 <span id="lt_cf_nums">0</span> 注<br>
+                            总金额 <span id="lt_cf_money">0</span> 元
+                        </p>
+                        <div class="shade-div">
+                            <a class="now-bet-div" id="lt_bet_immediate"></a>
+                            <a class="confirm-bet-div" id="lt_buy"></a>
+                        </div>
+                    </div>
+                    <div class="bet-type-list">
+                        <!--<div class="trace" ng-click="chaseNum.chaseNumOpen()" ng-class="{true:'on'}[chaseNum.status]">追号</div>-->
+                        <input id="lt_trace_if" autocomplete="off" name="lt_trace_if" value="yes" type="checkbox" class="trace" style="display: none">
+                        <div class="trace" id="lt_trace_if2">追号</div>
+                        <!--<div class="self-buy" ng-class="{true:'on'}[!chaseNum.status]">自购</div>-->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+            <div class="tzn_body">
+            <div class="tzn_b_n">
+
+                <div class="tbn_b_top">
+                    <div class="tbn_bt_sel">
+                        共
+                        <strong>
+                            <span id="lt_sel_nums" class="n">0</span>
+                        </strong>
+                        注&nbsp;&nbsp;&nbsp;&nbsp;   共
+                        <strong>
+                            <span id="lt_sel_money" class="n">0.000</span>
+                        </strong>
+                        元&nbsp;&nbsp;&nbsp;&nbsp; 
+                        <span id="reducetime" class="changetime" title="减少1倍">
+                                        －
+									</span>
+                        <input id="lt_sel_times" class="bei" name="lt_sel_times" size="4" type="number" value="1"  onkeyup="if(this.value.length==1){this.value=this.value.replace(/[^1-9]/g,'')}else{this.value=this.value.replace(/\D/g,'')}" onafterpaste="if(this.value.length==1){this.value=this.value.replace(/[^1-9]/g,'')}else{this.value=this.value.replace(/\D/g,'')}">
+                        <span id="plustime" class="changetime" title="增加1倍">＋</span>
+                        倍
+                        <select name="lt_sel_modes" id="lt_sel_modes" style="margin:0 15px;">
+                            <?php if($settings['yuan_mode']) echo '<option value="2">2元</option>'; ?>
+                            <?php if($settings['jiao_mode']) echo '<option value="0.2">2角</option>'; ?>
+                            <?php if($settings['fen_mode']) echo '<option value="0.02">2分</option>'; ?>
+                            <?php if($settings['li_mode']) echo '<option value="0.002">2厘</option>'; ?>
+                        </select>
+                        <span id="lt_sel_prize">奖金:
+									<select name="lt_sel_dyprize" id="lt_sel_dyprize" data-bet-count="<?=$settings['betMaxCount']?>" data-bet-zj-amount="<?=$settings['betMaxZjAmount']?>" max="<?=$_SESSION['user']['fanDian']?>" maxfd="<?=$settings['fanDianMax']?>" fan-dian="<?=$user['fanDian']?>" game-fan-dian-bdw="<?=$settings['fanDianBdwMax']?>" fan-dian-bdw="<?=$user['fanDianBdw']?>" min="0">
+										<option selected="selected" value="1950|0">1950</option>
+									</select>
+									</span>
+                    </div>
+                    <div id="lt_cf_clear" class="g_submit waves-effect ">
+                        <span>清空</span>
+                    </div>
+
+                    <div id="lt_sel_insert" class="g_submit waves-effect " onclick="gameActionAddCode(2)">
+                        <span>添加</span>
+                    </div>
+
+                    <!--<div id="lt_bet_immediate" class="g_submit waves-effect " style="margin-left:40px;background-color:#f37032">-->
+                        <!--<span>立即</span>-->
+                    <!--</div>-->
+                </div>
+                <div class="tbn_bot">
+                    <div class="tbn_b_bot">
+                        <div class="tbn_bb_l">
+                            <div class="tbn_bb_ln">
+                                <h4>
+                                    <!--<input id="lt_cf_clear" class="tbn_clear" name="" value="清空全部" type="button">-->
+                                    <span id="lt_cf_help" class="icons_q1">&nbsp;&nbsp;&nbsp;</span>
+                                    投注项:
+                                    <span id="lt_cf_count">0</span>
+                                </h4>
+                                <div class="tz_tab_list_box" style="height: 225px;">
+                                    <table id="lt_cf_content" class="tz_tab_list" border="0" cellpadding="0" cellspacing="0">
+                                        <tbody>
+                                        <tr class="nr">
+                                            <td class="tl_li_l" width="4" >
+                                            </td>
+                                            <td class="noinfo" colspan="6">
+                                                暂无投注项
+                                            </td>
+                                            <td class="tl_li_rn" width="4">
+                                            </td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <!--<div class="tbn_bb_r">-->
+                            <div class="sub_txt" style="display: none">
+                                <p>
+                                    未来期:
+                                    <span id="lt_issues">
+													<select name="lt_issue_start" id="lt_issue_start">
+														<option value="{$actionNo['actionNo']}">{$actionNo['actionNo']}</option>
+													</select>
+													<input name="lt_total_nums" id="lt_total_nums" value="0" type="hidden"><input name="lt_total_money" id="lt_total_money" value="0" type="hidden">
+												</span>
+                                </p>
+                            </div>
+                            <!--<div id="lt_buy" class="g_submit waves-effect ">-->
+                                <!--<span>马上投注</span>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                        <div class="clear">
+                        </div>
+                    </div>
+                </div>
+                <!--<table class="czinfotbl">-->
+                    <!--<tbody>-->
+                    <!--<tr>-->
+                        <!--<td style="width: 300px;">-->
+                            <!--总注数:-->
+                            <!--<span id="lt_cf_nums" class="r">0</span>-->
+                            <!--注-->
+                            <!--总金额:-->
+                            <!--<span id="lt_cf_money" class="r">0</span>-->
+                            <!--元-->
+                        <!--</td>-->
+                        <!--<td style="text-align:right;">-->
+                            <!--<input id="lt_hemai_if" autocomplete="off" name="lt_hemai_if" value="yes" type="checkbox"><span id="lt_hemai_if2">发起合买</span>-->
+                            <!--<input id="lt_trace_if" autocomplete="off" name="lt_trace_if" value="yes" type="checkbox"><span id="lt_trace_if2">我要追号</span>-->
+                        <!--</td>-->
+                    <!--</tr>-->
+                    <!--</tbody>-->
+                <!--</table>-->
+                <div id="upload-file" style="display:none;">
+                    <input name="lottery-file" id="lottery-file" type="file">
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="tbn_c_fb">
+    </div>
+    <div class="tbn_b_bot">
+    </div>
+</div>
+<php>if($type==20){ //pk10</php>
+<!--PK10开奖动画-->
+<style>
+    /*pk10开始*/
+    .flash_title{height:32px;}
+    .road_bg{overflow-x:hidden;background:url('__IMG__/car/road_bg.png') repeat-x;}
+    .road_top{height:109px;width:100%;}
+    .road_ready{height:62px;width:161px;float:right;margin-top:15px;margin-right:15px;}
+    .road_ready_1{background:url("__IMG__/car/ready_1.png") no-repeat;}
+    .road_ready_2{background:url("__IMG__/car/ready_2.png") no-repeat;}
+    .road_ready_3{background:url("__IMG__/car/ready_3.png") no-repeat;}
+    .road{height:390px;width:100%;padding-top:2px;}
+    .road_begin{background:url("__IMG__/car/road_begin.png") no-repeat right top;}
+    .road_end{background:url("__IMG__/car/road_end.png") no-repeat;}
+    .road_row{height:39px;}
+    .cls_car{width:121px;height:35px;cursor:pointer;float:right;}
+    #car_1{background:url("__IMG__/car/car01_0.png") no-repeat;}
+    #car_1.on{background:url("__IMG__/car/car01_1.png") no-repeat;}
+    #car_2{background:url("__IMG__/car/car02_0.png") no-repeat;}
+    #car_2.on{background:url("__IMG__/car/car02_1.png") no-repeat;}
+    #car_3{background:url("__IMG__/car/car03_0.png") no-repeat;}
+    #car_3.on{background:url("__IMG__/car/car03_1.png") no-repeat;}
+    #car_4{background:url("__IMG__/car/car04_0.png") no-repeat;}
+    #car_4.on{background:url("__IMG__/car/car04_1.png") no-repeat;}
+    #car_5{background:url("__IMG__/car/car05_0.png") no-repeat;}
+    #car_5.on{background:url("__IMG__/car/car05_1.png") no-repeat;}
+    #car_6{background:url("__IMG__/car/car06_0.png") no-repeat;}
+    #car_6.on{background:url("__IMG__/car/car06_1.png") no-repeat;}
+    #car_7{background:url("__IMG__/car/car07_0.png") no-repeat;}
+    #car_7.on{background:url("__IMG__/car/car07_1.png") no-repeat;}
+    #car_8{background:url("__IMG__/car/car08_0.png") no-repeat;}
+    #car_8.on{background:url("__IMG__/car/car08_1.png") no-repeat;}
+    #car_9{background:url("__IMG__/car/car09_0.png") no-repeat;}
+    #car_9.on{background:url("__IMG__/car/car09_1.png") no-repeat;}
+    #car_10{background:url("__IMG__/car/car10_0.png") no-repeat;}
+    #car_10.on{background:url("__IMG__/car/car10_1.png") no-repeat;}
+    .gush_fire{height:100%;width:100%;}
+    .show_fire_1{background:url("__IMG__/car/fire_1.png") no-repeat;}
+    .show_fire_2{background:url("__IMG__/car/fire_2.png") no-repeat;}
+    .show_fire_3{background:url("__IMG__/car/fire_3.png") no-repeat;}
+    .rank{width:43px;height:38px;background:url("__IMG__/car/ranking.png") no-repeat;float:right;}
+    .div_top_rank{margin-top:-5px;width:610px;}
+    .top_rank{width:43px;height:38px;background:url("__IMG__/car/ranking.png") no-repeat;float:left;margin-left:16px;}
+    .rank_1{background-position:left top;}
+    .rank_2{background-position:-43px top;}
+    .rank_3{background-position:-86px top;}
+    .rank_4{background-position:-129px top;}
+    .rank_5{background-position:-172px top;}
+    .rank_6{background-position:-215px top;}
+    .rank_7{background-position:-258px top;}
+    .rank_8{background-position:-301px top;}
+    .rank_9{background-position:-344px top;}
+    .rank_10{background-position:-387px top;}
+    .top_num{width:43px;height:61px;background:url("__IMG__/car/nums1.png") no-repeat;float:left;margin:15px 10px 0 26px;}
+    .top_num.top_1{background-position:left -1px;}
+    .top_num.top_2{background-position:-43px -1px;}
+    .top_num.top_3{background-position:-86px -1px;}
+    .top_num.top_4{background-position:-127px -1px;}
+    .top_num.top_5{background-position:-169px -1px;}
+    .top_num.top_6{background-position:-211px -1px;}
+    .top_num.top_7{background-position:-253px -1px;}
+    .top_num.top_8{background-position:-295px -1px;}
+    .top_num.top_9{background-position:-337px -1px;}
+    .top_num.top_10{background-position:-380px -1px;}
+    /*pk10结束*/
+</style>
+<div class="gm_con" id="car_flash_div" style="display: block; min-height: 0;">
+    <div class="gm_con_to">
+        <div class="zh_body">
+            <div class="unit">
+                <div class="unit_title">
+                    <h4><label class="zh_title" id="show_flash">点击显示动画</label></h4>
+                </div>
+                <div id="flash_main" style="display:none">
+                    <div class="road_bg">
+                        <div class="road_top">
+                            <div class="road_ready road_ready_1"></div>
+                        </div>
+                        <div class="road road_begin">
+                            <div class="road_row">
+                                <div class="cls_car" id="car_1">
+                                    <div class="gush_fire"></div>
+                                </div>
+                            </div>
+                            <div class="road_row">
+                                <div class="cls_car" id="car_2">
+                                    <div class="gush_fire"></div>
+                                </div>
+                            </div>
+                            <div class="road_row">
+                                <div class="cls_car" id="car_3">
+                                    <div class="gush_fire"></div>
+                                </div>
+                            </div>
+                            <div class="road_row">
+                                <div class="cls_car" id="car_4">
+                                    <div class="gush_fire"></div>
+                                </div>
+                            </div>
+                            <div class="road_row">
+                                <div class="cls_car" id="car_5">
+                                    <div class="gush_fire"></div>
+                                </div>
+                            </div>
+                            <div class="road_row">
+                                <div class="cls_car" id="car_6">
+                                    <div class="gush_fire"></div>
+                                </div>
+                            </div>
+                            <div class="road_row">
+                                <div class="cls_car" id="car_7">
+                                    <div class="gush_fire"></div>
+                                </div>
+                            </div>
+                            <div class="road_row">
+                                <div class="cls_car" id="car_8">
+                                    <div class="gush_fire"></div>
+                                </div>
+                            </div>
+                            <div class="road_row">
+                                <div class="cls_car" id="car_9">
+                                    <div class="gush_fire"></div>
+                                </div>
+                            </div>
+                            <div class="road_row">
+                                <div class="cls_car" id="car_10">
+                                    <div class="gush_fire"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--PK10开奖动画结束-->
+<php>}</php>
+<script>
+    //更多点击
+    $('.record-ctrl').click(function () {
+        if($("#record").html() == '') {
+            $.ajax({
+                type: "get",
+                url: "/index.php?s=/home/team/record_set2.html",
+                async: false,
+                success: function (data) {
+                    $("#record").html(data);
+                }
+            });
+        }
+        art.dialog({
+            padding: 0,
+            title: '',
+            resize: false,
+            time: false,
+            lock: true,
+            fixed: true,
+            background: '#000',
+            opacity: '0.6',
+            content: document.getElementById("record-set"),
+            width: '1000px',
+            height: 'auto',
+            top:'80%',
+            marginTop:'-300px',
+            close: function () {
+                $(".body").css('overflow', 'visible');
+            }
+        });
+    });
+</script>
+

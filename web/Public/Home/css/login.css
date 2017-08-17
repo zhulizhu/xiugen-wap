@@ -1,0 +1,127 @@
+@charset "utf-8";
+/* CSS Document */
+.main-wrapper,.section{width: 100%; height: auto; }
+/*首页第一屏*/
+.section1{width: 100%; height: 100%;background: url("../images/login/bg1.jpg") no-repeat; background-size: 100% 100%; position: relative;}
+.logo-box{width: 1200px; height:auto;  margin: 0 auto;}
+.logo{width: 162px; height: 104px; background:#535353; margin:0 0 0 24px;}
+.login-page{width: 1100px; height: 400px; position: absolute; top:50%; left: 50%; margin-top: -200px; margin-left: -550px;}
+.login-content{width: 1100px; height: auto;margin: 0 auto;}
+#menu-jump{ width:65px; height: auto;float: left;}
+#menu-jump li{width:52px; height:120px; margin-bottom: 5px; background:#29594a; border-radius: 6px; box-shadow: 2px 2px 5px #34473f; overflow: hidden;}
+#menu-jump li a{display: block;width: 20px; padding:10px 17px 12px 17px; font-size:18px; color: #038e8e; text-align: center; line-height: 24px;}
+#menu-jump li:hover,#menu-jump .chose{background:#17b0b0;}
+#menu-jump li a:hover,#menu-jump .chose a{color:#fff;}
+.login-border{width: 1018px; height: 350px; background:rgba(49,51,53,0.74); float: left; border-radius: 10px; margin-top: 10px; box-shadow: 5px 3px 10px #1d3033; overflow: hidden; position: relative;}
+.login-border .login-left-form{width:310px; height: auto; margin-left:60px; float: left; position: absolute; left: -50%;}
+.login-left-form h3{width: 100%; height:56px; line-height: 56px;  font-size:22px; color:#f1b855; font-weight: normal;}
+.login-left-form form{width: 94%; height: auto; }
+.login-left-form form .border{width: 100%; height: 40px; margin-top:10px; background: #949596; border-radius: 6px; overflow: hidden;}
+.login-left-form form .border input{width: 100%; height: 100%;  line-height: 40px; background: transparent;  border-radius: 8px; padding-left: 10px; font-size: 14px; outline-style: none; color: #fff;}
+#verify_code{width: 210px; height: 40px;}
+.login-left-form form .border .verify-code{ width: 90px; height: 40px; position: relative; top:-42px; right:-200px; background: #e1e1e2;}
+.login-left-form .agree{width: 100%; height: 26px; margin-top:10px;color: #f1b855; text-indent: 20px; vertical-align: middle; }
+.check-box {width: 25px;margin: 12px 10px 0 10px;position: relative;}
+.check-box input{ position:absolute; top:-20px;}
+.check-box label {cursor: pointer;position: absolute;width: 17px;height: 17px;top: 0;left: 0;border:1px solid #f1b855; border-radius: 2px; }
+.check-box label:after {content: ''; position: absolute;width: 17px;height: 17px;top: 4px;left:2px;}
+.check-box input[type=checkbox]:checked + label:after { background:url("../images/login/chose-ture.png") no-repeat;}
+.read-agree{margin-left: 15px; font-size: 15px; line-height: 18px; display: inline-block;text-indent: 0;}
+.read-agree a,.read-agree span{ float:left;font-size: 15px; text-indent: hanging;}
+.read-agree span{ margin-left: 20px;}
+.read-agree a{text-decoration: underline;}
+.login-add{width: 100%; height: 40px; margin-top:10px; display: inline-block;}
+.login-add a,.online-service{width:90px; height: 36px; line-height: 36px; font-size: 15px; text-align: center; border-radius: 6px; color: #fff; background-color: #ef2c51; display: inline-block; margin: 0 1px;}
+.login-add a:hover{ background-color: #e4284c; color: #f1f1f1;}
+.online-service{background-color: #00a0e9; margin-top: 6px;}
+.online-service:hover{background-color: #0694d5;}
+.login-right-form{width:490px; height: auto; float: right; margin-top: 50px; position: absolute; right: -50%;}
+.login-right-form ul,.login-right-form ul li{width: 100%; height: auto;clear: left; float: left;}
+.login-right-form ul li{ background: url("../images/login/round-dot.png") no-repeat 9px 6px;}
+.login-right-form ul li p{margin-left: 30px; line-height: 24px; font-size: 14px; color: #fff;}
+.login-right-form .question{width:auto; height: 30px; margin:10px 0 10px 30px;}
+.login-right-form .question a{ font-size: 12px; color: #fff; float: left; text-align: center;height: 30px; line-height: 30px; border-radius: 4px; margin-right: 10px;}
+.question .thaw{width: 120px; background-color: #ea7808;}
+.question .thaw:hover{background-color: #da7109;}
+.question .forget-word{width: 90px;background-color: #f1b855;}
+.question .forget-word:hover{background-color: #e4ab48;}
+.browser-area{width: auto; margin-left:30px; height:51px;}
+.browser-area .browser-icon{background: url("../images/login/browser-icon.png"); width: 42px;height: 42px;display: inline-block;margin: 16px 10px 0 0;}
+.browser-icon.chrome{ background-position: 0 0;}
+.browser-icon.firefox{ background-position: -64px 0;}
+.browser-icon.safari{ background-position: -126px 0;}
+.browser-icon.ie{ background-position: -187px 0;}
+.browser-icon.chrome:hover{ background-position: 0 -44px;}
+.browser-icon.firefox:hover{ background-position: -64px -44px;}
+.browser-icon.safari:hover{ background-position: -126px -44px;}
+.browser-icon.ie:hover{ background-position: -187px -44px;}
+.msg-show {    background: url(../images/login/footer1.png) no-repeat;
+    background-size: 100% 100%;;width: 100%; height: 140px;position: absolute; bottom: 0;  background-color: #fff;overflow: hidden;}
+.msg-show .wrap{width: 1200px;margin: 6px auto 0 auto;overflow: hidden; color: #7a7a7a;}
+.wrap .about-bh{width: 570px;float: left;margin-left: 90px;}
+.wrap .about-xy {width: 480px;float: right;}
+.wrap .about-bh h3,.wrap .about-xy h3 {font-size: 18px;color: #7a7a7a;}
+.wrap .about-bh p,.wrap .about-xy p{margin-top: 6px;font-size: 16px;color: #7a7a7a;}
+.wrap .about-bh span,.wrap .about-xy span {line-height: 22px;font-size: 14px;}
+.wrap .about-xy h3 i{ font-style: normal;}
+.lin{display: none;background: rgba(49,51,53,1);width: 1100px;height: 400px;margin-left: 400px;padding: 10px 40px;}
+.lin h4{color: #f1b855;font-size: 18px;}
+.lin .del{cursor: pointer;text-align: center;font-size: 28px;position: absolute;right: 10px;top:10px;width: 30px;height: 30px;color:#f1b855;border-radius: 50%;border:1px solid #f1b855; }
+.lin .box{background-color: #fff;border-radius: 10px;padding:20px;}
+.lin .box h5{color: #ea7808;font-size: 16px;}
+/*首页第二屏*/
+.section2{ background: url("../images/login/bg2.jpg") no-repeat; background-size: 100% 100%; position: relative;}
+.section2 .wrap.download{width: 1110px; height: 600px; position: absolute; top: 50%; left:50%; margin-top:-300px; margin-left:-555px; overflow: hidden;}
+.download-left{width:376px; height: auto; float:left; margin-top: -100%;}
+.download-left .title{width: 100%; height:50px; background: url("../images/login/download-pic.png") no-repeat top left; display: block;}
+.download-left h4{ height: 55px; line-height: 55px; font-size: 24px;color: #24b6f8; text-indent: 20px; font-weight: normal;}
+.download-left .download-introduce{width: 338px; height: auto; margin: 0 auto; background: #73b7d0; border-radius: 6px;}
+.download-introduce ul{width: 96%; height: auto; padding-top:24px; margin: 0 auto;overflow:hidden;}
+.download-introduce ul li{width: 100%; height:auto; font-size: 20px;clear: left; float: left; color:#fff;}
+.download-introduce ul li span{width: 20px; height: 20px; line-height: 20px; text-align: center; font-size: 14px; background: #f1b855; border-radius: 50%; display: block;float:left; margin-top: 6px;}
+.download-introduce ul li p{ line-height:32px; float: left; font-size: 20px; margin-left: 4px; color:#fff; }
+.download-left .qr-code{width: 100%; height: auto; margin-top: 10px;overflow:hidden;}
+.download-left .qr-code .qr-code-img{width: 172px; height: 171.5px;border: 3px solid #fff; background: #f1a55a; margin-left: 77px; float: left;}
+.download-left .qr-code .qr-code-img img{width: 166px; height: 166px; display: block; padding: 1px;}
+.download-left .qr-code a{font-size: 24px; color: #fff; width: 45px; float: left; padding: 40px 26px; line-height: 30px;}
+.download-right{width: 650px; height: 600px; float: right; position: relative;}
+.phone-img1{ position: absolute; left: 50%;margin-left: -145px; top:113px;}
+.phone-img2{ position: absolute; right:50%;margin-right: -145px; top:113px;}
+.phone-img3{ position: absolute; left: 50%; margin-left: -145px;top:40px; z-index: 50;}
+.phone-img1.move{left: 0; margin-left: 0;}
+.phone-img2.move{right: 0;margin-right: 0;}
+
+
+/*首页第二屏*/
+.section3{ background: url("../images/login/bg3.jpg") no-repeat; background-size: 100% 100%; position: relative;}
+.section3 .wrap.advantage{width: 1110px; height: 600px; position: absolute; top: 50%; left:50%; margin-top:-300px; margin-left:-555px;}
+.advantage-left{width:367px; height: auto; float:left;}
+.advantage-left .title{width: 100%; height:50px; background: url("../images/login/advantage-pic.png") no-repeat top left; display: block;}
+.advantage-left .advantage-introduce{width: 376px; height: auto; margin: 0 auto;border-radius: 6px;overflow:hidden;}
+.advantage-introduce ul{width: 96%; height: auto; padding-top:40px; margin: 0 auto; float: left;}
+.advantage-introduce ul li{width: 100%; height:auto; font-size: 20px;clear: left; float: left; color:#fff;}
+.advantage-introduce ul li span{width: 24px; height: 24px; line-height: 24px; text-align: center; font-size: 18px; background: #f1b855; border-radius: 50%; display: block;margin:12px 6px;float:left; }
+.advantage-introduce ul li p{width: 320px; line-height:50px; font-size: 24px; margin-left: 4px; color:#4b4b4b; float: left; }
+.download-btn{padding:10px 20px;line-height: 70px; background: #00a0e9; color: #fff; font-size: 32px;  text-align: center; margin-top: 140px; border-radius: 28px; cursor: pointer; display: none;}
+.download-btn:hover{ background: #0994d3;}
+.show-pic{width: 700px; height: auto; position: relative; float:right;}
+.show-pic1{ position: absolute; left: 0; top:0;}
+.show-pic2{ position: absolute; left: 0; top:0;}
+.show-pic3{ position: absolute; left: 0; top:0;}
+/*.show-pic2{ position: absolute; left: 100px; top:100px;}
+.show-pic3{ position: absolute; left: 190px; top:230px;}*/
+
+/*注册页*/
+.pg_box{
+	min-width: 290px;min-height: 100vh;
+    height: auto;background: url(../img/lottery/reg.jpg) no-repeat;background-size: 100%;
+}
+.loginhead{padding: 100px 0 10px;}
+.logo{width:80px;height:80px;border-radius: 50%;display: block;margin:0 auto;border:5px solid #95949b;}
+.loginformboxtitle{text-align: center;color: #fff;letter-spacing: 1px;font-weight: bold;}
+.loginformboxcontent p{text-align: center;}
+.loginformboxcontent p input{text-indent: 1em;color:#fff!important;border:none;border:1px solid #5b5661;border-radius:5px;background-color: rgba(0,0,0,0.3)!important;width: 220px;height: 36px;}
+.regB{background-color: rgba(255,255,255,0.1);width: 300px;height: auto;margin:10px auto;border:1px solid #706b75;border-radius: 5px;}
+.loginformboxcontent p img{top:5px;height: 30px!important; width: 80px!important;position: absolute;display: block;border-radius: 5px;right: 50px;}
+.reg input{font-size:16px;margin:0 auto;display:block;background-color: #2372e7;border:none;border-radius: 5px;color:#fff!important;width: 220px;height: 36px;text-align: center;}
+.gol{color: #fff!important;float: right;display: block;margin:0px 40px 15px;font-size: 12px;}

@@ -1,0 +1,145 @@
+<extend name="Base/common"/>
+
+<block name="title"><title>下级转账－{:S('WEB_NAME')}</title></block>
+<block name="style">
+
+<style>
+
+	.my-select * {
+
+		margin:0; padding:0;
+
+	}
+
+	.my-select input,
+
+	.my-select select {
+
+		font-size:100%;
+
+	}
+
+	
+
+	.my-select {
+
+		position:relative;				
+
+		font-size:14px;
+
+	}
+
+	.my-select-select {
+		position:absolute; left:138px; top:10px; *top:1px;				
+		clip:rect(0 auto auto 128px);
+		width:147px;
+		height:36px;
+	}
+
+	.my-select-text {
+		*height:16px; *line-height:16px;
+		margin-left:125px;
+	}
+	.tixian >div > p {
+		padding: 10px;
+		font-size: 14px;
+		border-bottom-color: rgb(238, 238, 238);
+		border-bottom-width: 1px;
+		border-bottom-style: dashed;
+	}
+	.tixian > div {
+		padding: 0;
+		line-height: 20px;
+		position: relative;
+	}
+</style>
+</block>
+<block name="body">
+<div class="effect mainnav-lg mainnav-fixed navbar-fixed footer-fixed" id="container">
+	<div id="page-content">
+		<div class="panel">
+			<div class="panel-heading">
+				<h3 class="panel-title"><img alt="" src="__IMG__/main/tx.png">下级转账</h3>
+			</div>
+			<form class="panel-body form-horizontal form-padding" id="withdrawform" role="form" action="{:U('team/turnRecharge')}" method="post">
+					<div class="tixian">	
+						<div class="my-select">
+							<p>
+							
+								<label>下级用户</label>
+									<strong>
+										<select class="selectpicker dropdown-toggle selectpicker btn-default my-select-select" id="my-select-select" name="my-select-select" onchange="bb(this.value)">
+											<option value="请选择">请选择</option>
+										<?php
+
+											$where['parents'] = array('like','%,'.$user['uid'].',%');
+
+											$users = M('members')->where($where)->select();
+
+											//dump('22'.M('members')->getLastSql());
+
+											foreach($users as $user){ 
+
+										?>	
+											<option value="<?=$user['username']?>"><?=$user['username']?></option>
+										<php>}</php>
+										</select>
+										<input name="my-select-text" id="my-select-text" type="text" value="请选择" class="my-select-text">
+									</strong>							
+							</p>
+						</div>
+						<p>
+							<label>转账金额</label>
+							<strong><input name="amount" id="amount" type="text" value="100" autocomplete="off"></strong>					
+						</p>
+						<p>
+							<label>出款密码</label><strong><input name="coinpwd" id="coinpwd" type="password" autocomplete="off"></strong>
+						</p>
+												
+						<div style="text-align: center; padding-bottom: 20px;">
+							<button autocomplete="off" class="btn btn-primary" style="width: 100px;" type="button" id="j-query">确定</button>
+						</div>
+					</div>
+					<input name="__RequestVerificationToken" type="hidden" value="CfDJ8Ktgxm2FAlNEsoI7VoMQlWkLkjIptuUZo1Dq51FM7kyVZsOZ31SdozfDgEKe-jmiZmYtH3Bwa56DRqYZd9NnTDVuQjv43713zSTyE7pjt2QhssiXbfc79kCwH2U5Mi1fb_b6Wk8Mv57cz8jC11SD6qIyCOOoC-36j7EnReTvaBKPAVtNHrvp-GGp8BkO0qNhTA">
+				</form>
+			</div>
+			<input id="hdVC" type="hidden" value="71643a98dc3680701ad1ac0c4ff790bb">
+			<input id="hdfee" type="hidden" value="no">
+			<input id="hdfeeratio" type="hidden" value="0.03">
+		</div>
+	</div>
+</block>
+<block name="script">
+<script src="__JS__/dataTables.min.js"></script>
+<script src="__JS__/dataTables.bootstrap.min.js"></script>
+<script src="__JS__/dataTables.responsive.min.js"></script>
+<script src="__JS__/bootbox.min.js"></script>
+<script type="text/javascript">
+
+$(document).ready(function () {
+	$("#j-query").on("click", function () {
+		var me=this;
+		$(me).attr('disabled',true);
+		$.ajax({
+			type: "POST",
+			url: '{:U("team/turnRecharge")}',
+			data: { amount: $('#amount').val(), coinpwd: $('#coinpwd').val(), username: $('#my-select-text').val()},
+			dataType: "json",
+			global: false,
+			success: function (result) {
+				if(result.status==1) me.form.reset();
+				$(me).removeAttr('disabled');
+				bootbox.alert(result.info);
+			}, error: function (err) {
+				var t=err;				
+			}
+		});
+		//$("#teambetrecord").submit();
+	});
+	
+});
+function bb(a){		
+	document.getElementById('my-select-text').value = a;
+}
+</script>
+</block>

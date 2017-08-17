@@ -1,0 +1,67 @@
+<extend name="Public/base"/>
+
+<block name="body">
+    <div class="main-title">
+        <h2>修改</h2>
+    </div>
+    <form class="form-horizontal" name="score_addGoods" action="{:U('Score/updateGoods')}" enctype="multipart/form-data" method="POST">
+        <input type="hidden" name="id" value="<?=$goods['id']?>"/>
+        <div class="form-item">
+            <label class="item-label">商品名称</label>
+            <div class="controls">
+                <input type="text" class="text input-large" name="title" value="<?php if($goods['title']){echo $goods['title'];}else{echo '积分兑换';}?>"/>
+            </div>
+        </div>
+        <div class="form-item">
+            <label class="item-label">简单介绍<span class="check-tips"></span></label>
+            <div class="controls">
+                <textarea rows="3" cols="56" name="content"><?=$goods['content']?></textarea>
+            </div>
+        </div>
+        <div class="form-item">
+            <label class="item-label">积分<span class="check-tips"></span></label>
+            <div class="controls">
+                <input type="text" class="text input-large" name="score"  value="<?=$goods['score']?>"/>
+            </div>
+        </div>
+        <div class="form-item">
+            <label class="item-label">价值（元）<span class="check-tips"></span></label>
+            <div class="controls">
+                <input type="text" class="text input-large" name="price"  value="<?=$goods['price']?>"/>
+            </div>
+        </div>
+        <div class="form-item">
+            <label class="item-label">兑换件数<span class="check-tips"></span></label>
+            <div class="controls">
+                <input type="text" class="text input-large" name="sum"  value="<?=$goods['sum']?>"/>
+            </div>
+        </div>
+        <div class="form-item">
+            <label class="item-label">时间<span class="check-tips"></span></label>
+            <div class="controls">
+                从 <input type="date" class="text input-large" id="first" name="startTime" style="width:140px;" value="<?=date('Y-m-d',$goods['startTime'])?>"/> 到  <input class="text input-large" type="date" id="end" name="stopTime" style="width:140px;" value="<?php if($goods['stopTime']){echo date('Y-m-d',$goods['stopTime']);}else{echo '0';}?>"/>
+            </div>
+        </div>
+        <div class="form-item">
+            <label class="item-label">状态<span class="check-tips"></span></label>
+            <div class="controls">
+                <label><input autocomplete="off" type="radio" value="1" name="enable" <?php if($goods["enable"]==1){?> checked='checked'<?php }?>/>开启</label>
+                <label><input autocomplete="off" type="radio" value="0" name="enable" <?php if($goods["enable"]==0){?> checked='checked'<?php }?>/>关闭</label>
+            </div>
+        </div>
+        <div class="form-item">
+            <button class="btn submit-btn ajax-post" id="submit" type="submit" target-form="form-horizontal">确 定</button>
+            <button class="btn btn-return" onclick="javascript:history.back(-1);return false;">返 回</button>
+        </div>
+    </form>
+</block>
+
+<block name="script">
+    <script type="text/javascript">
+        Think.setValue("pid", {$info.pid|default = 0});
+        Think.setValue("hide", {$info.hide|default = 0});
+        Think.setValue("is_dev", {$info.is_dev|default = 0});
+        //导航高亮
+        $('.side-sub-menu').find('a[href="{:U('score/goodslist')}"]').closest('li').addClass('current');
+    </script>
+</block>

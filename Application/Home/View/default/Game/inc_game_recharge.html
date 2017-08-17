@@ -1,0 +1,28 @@
+<table class="tbl" id="tbproject">
+<tbody>
+<tr>
+	<th>
+		用户名
+	</th>
+	<th>
+		充值金额
+	</th>
+</tr>
+<php>
+$i=0;
+foreach($recharge_tops as $var){
+$var['username'] = substr($var['username'],0, strlen($var['username'])-3).'***';
+$i++;
+</php>
+<tr>
+
+	<td>
+		{$var.username}
+	</td>
+	<td>
+		{:number_format($var['rechargeAmount'],2)}元
+	</td>
+</tr>
+<php>if($i>10) break; }</php>
+</tbody>
+</table>

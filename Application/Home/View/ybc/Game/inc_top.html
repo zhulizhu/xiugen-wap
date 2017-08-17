@@ -1,0 +1,10 @@
+<marquee direction='left' scrollamount="3" loop="infinite" style="background:"#eee;padding-left:20px;" height=20 width=1000>
+	<?php 
+		foreach($tops as $top){
+			if(strlen($top['username'])>3){
+				$top['username'] = substr($top['username'],0, strlen($top['username'])-3).'***';
+			}
+			echo '恭喜【'.$top['username'].'】在'.$types[$top['type']]['title'].'中 中奖【'.$top['bonus'].'元】&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
+		}
+	?>
+</marquee>

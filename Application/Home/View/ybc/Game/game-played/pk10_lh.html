@@ -1,0 +1,41 @@
+<input type="hidden" name="playedGroup" value="<?=$groupId?>" />
+<input type="hidden" name="playedId" value="<?=$playedId?>" />
+<input type="hidden" name="type" value="<?=$type?>" />
+<div class="pp" action="tz5xDwei" length="1" random="sscRandom">
+    <div class="title">一 VS 十</div>
+	<input type="button" value="龙" class="code" />
+	<input type="button" value="虎" class="code" />
+
+</div>
+<div class="pp" action="tz5xDwei" length="1" random="sscRandom">
+	<div class="title">二 VS 九</div>
+	<input type="button" value="龙" class="code" />
+	<input type="button" value="虎" class="code" />
+
+</div>
+<div class="pp" action="tz5xDwei" length="1" random="sscRandom">
+	<div class="title">三 VS 八</div>
+	<input type="button" value="龙" class="code" />
+	<input type="button" value="虎" class="code" />
+
+</div>
+<div class="pp" action="tz5xDwei" length="1" random="sscRandom">
+	<div class="title">四 VS 七</div>
+	<input type="button" value="龙" class="code" />
+	<input type="button" value="虎" class="code" />
+
+</div>
+<div class="pp" action="tz5xDwei" length="1" random="sscRandom">
+	<div class="title">五 VS 六</div>
+	<input type="button" value="龙" class="code" />
+	<input type="button" value="虎" class="code" />
+
+</div>
+<?php
+	//$maxPl=$getPl($type, $playedId);
+?>
+<script type="text/javascript">
+$(function(){
+	gameSetPl(<?=json_encode($maxPl)?>,false,<?=$user['fanDianBdw']?>);
+})
+</script>

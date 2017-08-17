@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>优惠活动</title>
+    <link href="__CSS__/reset.css" rel="stylesheet">
+    <link href="__CSS__/layout.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="__CSS__/carousel.css">
+    <link href="__CSS__/openactivity.css" rel="stylesheet" type="text/css">
+    <script src="__JS__/ionic.bundle.min.js"></script>
+    <script src="__JS__/jquery.min.js"></script>
+    <script src="__JS__/release.js"></script>
+    <style>
+        .odds {
+            text-align: center;
+        }
+        .ts-num.active {
+            background: #0090ff;
+        }
+        .num.active {
+            background-position: -223px -76px !important;
+        }
+        body {
+            background: none;
+        }
+
+        .main.lucky-bg {
+            background: none;
+        }
+        /*登录弹窗*/
+        #ap {
+         position:absolute;
+         z-index:888; left: 50%;
+         margin-left: -170px;
+         top: 140px;
+         display:none;
+     }
+     #qp{
+        position:absolute;
+        z-index:888;
+        width:100%;
+        height:100%;
+        background:rgba(0,0,0,0.6);
+        display:none;
+    }
+    .one{
+        background-color: #fff;width: 256px;height: 150px;border-radius: 15px;
+        overflow:hidden;
+
+    }
+    #btn1{
+        border: none;
+        padding: 8px 30px;
+        color: #fff;
+        background-color: #0099CC;
+        border-radius: 15px;
+        display: block;margin:10px 81px;
+        float: left;
+        cursor: pointer;
+
+
+    }
+    #tex{
+        font-size: 16px;line-height: 30px;text-align: center;
+        margin:10px auto;
+    }
+    .one .top{width: 100%;height: 40px;background-color: #0099CC;border-top-left-radius: 13px; border-top-right-radius: 13px;}
+    .one .top h4{position: relative;color: #fff;font-size: 14px;line-height: 40px;margin:0 auto;text-align: center;}
+    .one .top #del{border-radius: 15px;background-color: #fff;border:3px solid #0099CC;color:#0099CC;width: 25px;height:25px;line-height: 22px;text-align: center;font-size: 25px;position: absolute;top:-6px;right: -12px;font-weight: bolder;cursor: pointer; }
+    .game-main-content{overflow: hidden;}
+    .promo-item {
+        margin: 0 auto 30px auto;
+        width: 812px;
+    }
+    .proImg {
+        float: left;
+        position: relative;
+        cursor: pointer;
+    /*    left: 10px;*/
+    }
+    .promoContent{
+        width: 772px;height: auto;
+        background-color: #1d1c22;
+        padding:20px;
+
+    }
+    .promoContent h1{font-size: 26px;font-weight: bold;color: #fff;text-align: left;}
+    .promoContent p{line-height: 26px;font-size: 14px;color: #000;text-align: left;}
+    .promoContent p.text,.promoContent p.text{color:#98989a;font-size: 12px;}
+    .promoContent h5{font-size: 14px;line-height: 40px;color: #fff;text-align: left;}
+    .promoContent table{width: 100%;}
+    .promoContent table tr{width: 100%;border:1px solid #98989a;text-align: center;}
+    .promoContent table td,.promoContent table th{width: 30%;height: 30px;text-align: center;line-height: 30px;border:1px solid #98989a;color: #fff;}
+    .promoContent table td{color: #f8c909;}
+    .promoContent table td a{color: #fff;}
+        #promo2 .btn{
+            color: #f8c909;
+            background: #000;
+            padding: 5px 5px;
+        }
+</style>
+</head>
+<body ng-app="frame">
+<div id="qp"></div>
+    <div id="ap">
+        <div class="one">
+            <div class="top">
+                <h4>温馨提示</h4>
+                <div id="del">×</div>
+            </div>
+            <p id="tex"></p>
+            <button id="btn1">确定</button>
+        </div>
+        
+    </div>
+    <div class="main lucky-bg" ng-controller="LuckCtrl" style="padding-bottom: 0;position: absolute;top: 0;right: -20px;">
+        <div class="lucky-box">
+                <div class="game-main-content" >
+                   <div class="clearfix">
+                    <section id="chapter">
+                        <div class="promo-item yh_tb" style="display: block;">
+                            <div class="clearfix">
+                                <div class="proImg">
+                                    <div><img src="/Public/Home/images/hd1.png" width="812" height="196"></div>
+                                </div>
+                            </div>
+                            <div class="promoContent hide" style="display: none;" id="promo1">
+                                <!-- <img src="/Public/Home/images/youhui01.png" width="812" height="513"> -->
+                                <!--<h1>充值礼包大放送</h1>-->
+                                <!--<p class="text">活动时间：<span>即日起</span></p>-->
+                                <!--<p class="text">活动对象：<span>新注册用户</span></p>-->
+                                <h5>活动内容：</h5>
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th>价值</th>
+                                            <th>积分</th>
+                                            <th>剩余</th>
+                                            <th></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                    <?php
+                                        if($data) foreach($data as $var){
+                                        $good = M('score_swap')->where(array('goodId'=>$var['id']))->field('count(distinct uid) as count')->find();
+                                            ?>
+                                        <tr>
+                                            <td>￥<?=$var['price']?></td>
+                                            <td><?=$var['score']?></td>
+                                            <td><?=$this->iff($var['sum']=='0', '不限', $var['sum']-$var['surplus'])?></td>
+                                            <td>
+                                                </a>
+                                                <?php
+							                        if($var['stopTime']-time()>0){
+                                                ?>
+                                                <a title="点击参与" href="{:U('activity/swap?id='.$var['id'])}" style="display:block;" class="join">
+                                                参与
+                                                <?php } ?>
+                                                <?php
+							                        if($var['state']){
+								                        $state=array('1'=>'state-wait','2'=>'state-on');
+                                                        ?>
+                                                <a href="/index.php/score/setSwapState/<?=$var['swapId']?>" state="<?=$var['state']?>" target="ajax" onajax="scoreBeforeSetState" call="scoreSetState" class="sp-state <?=$state[$var['state']]?>" style="display:block;"><?=$this->iff($var['state']==1,'等待发货','正在发货')?></a>
+                                                <?php } ?>
+                                            </td>
+                                        </tr>
+                                    <?php } ?>
+                                    </tbody>
+                                </table>
+                                <h5>活动规则：</h5>
+                                <p style="color: #ffffff">{$settings['integralRule']}</p>
+                            </div>
+                            <div class="promoContent" style="display: none;" id="promo2">
+                                <form action="<?=U('activity/swapGood') ?>" method="post" target="ajax" onajax="scoreBeforeSwapGood2" call="scoreSwapGood" id="swapform">
+                                    <input type="hidden" name="goodId" value="" id="goodsId"/>
+
+                                    <table width="100%" border="0" cellspacing="1" cellpadding="4" class='table_b'>
+                                        <tr class='table_b_th'>
+                                            <td align="left" style="font-weight:bold;padding-left:10px;" colspan=2>请确认此次兑换</td>
+                                        </tr>
+                                        <tr height=25 class='table_b_tr_b'>
+                                            <td align="left"  height="40" colspan=2><div class="spn11">此次兑换：<span class="spn16"></span>积分=<span class="spn17"></span>元</div></td>
+                                        </tr>
+                                        <tr height=25 class='table_b_tr_b'>
+                                            <td align="left" height="40"  colspan=2><div class="spn11">此次兑换将扣除您<span class="spn16"></span>积分！</div></td>
+                                        </tr>
+                                        <tr height=25 class='table_b_tr_b'>
+                                            <td align="right" style="font-weight:bold;">兑换数量：</td>
+                                            <td align="left" ><input type="text" name="getcount" value="1" id="getcount"/></td>
+                                        </tr>
+                                        <tr height=25 class='table_b_tr_b'>
+                                            <td align="right" style="font-weight:bold;">出款密码：</td>
+                                            <td align="left" ><input type="password" name="coinpwd" value="" id="coinpwd"/></td>
+                                        </tr>
+                                        <tr height=25 class='table_b_tr_b'>
+                                            <td align="left" colspan=2><input type="submit" id='put_button_pass' class="btn" value="确认兑换" >
+                                                <input type="button" value="等等再说" onClick="back()"  class="btn"/> </td>
+                                        </tr>
+                                    </table>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="promo-item yh_tb" style="display: block;">
+                            <div class="clearfix">
+                                <div class="proImg">
+                                    <div><img src="/Public/Home/images/hd2.png" width="812" height="196"></div>
+                                </div>
+                            </div>
+                            <div class="promoContent hide" style="display: none;">
+                                <div class="hd">
+                                    <div class="tjbox">
+                                        <ul class="hdtj">
+                                            <li>
+                                                <div>
+                                                    <img alt="" src="__IMG__/activity/hd-jf.png">今日消费<strong>{$this->iff($myxf['xiaofei'], $myxf['xiaofei'], '0')}</strong>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div>
+                                                    <img alt="" src="__IMG__/activity/hd-lq.png">                 今日领取
+                                                    <strong>{$this->iff($have,'已经领取','未领取')}</strong>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="hdmain">
+                                        <div class="quan">
+                                            <p>
+                                                领取现金券
+                                            </p>
+                                            <ul class="quanlist">
+                                                <php>
+                                                    foreach($xiaofei as $var) {
+                                                </php>
+                                                <li data-type="{$var.id}">
+                                                    <div>
+                                                        满{$var.all}元领取
+                                                    </div>
+                                                    <strong>￥{$var.amount}</strong><span>点击领取</span></li>
+                                                <php>}</php>
+                                            </ul>
+                                        </div>
+                                        <div class="hdinfo">
+                                            <strong>★活动规则介绍内容★</strong>
+                                            <div>
+                                                <p>
+                                                    活动时间：{$settings['activity_first_time']} 至 {$settings['activity_end_time']}
+                                                </p>
+                                                <p>
+                                                    {$settings['consumptionRule']}
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+    </div>
+</div>
+</body>
+
+<script type="text/javascript">
+$(document).ready(function(){
+    var a=$(".clearfix");
+    a.each(function(){
+        $(this).click(function(){
+            $(this).next().slideToggle("slow");
+        });
+    });
+});
+</script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("body").click(
+                function toggle() {
+                    $("div#demo-set", window.top.document).removeClass("open");
+                    $(".mega-dropdown", window.top.document).removeClass("open");
+                    $(".dropdown", window.top.document).removeClass("open");
+                    $(".lskj").fadeOut(200);
+                }
+        );
+
+        $("li[data-type]").bind("click", function () {
+            var v_t=$(this).attr("data-type");
+            $("#ap,#qp").css('display','block');
+            $("#tex").text('是否确定领取该活动金额？');
+            $("#btn1").bind('click',function(){
+                $("#ap,#qp").css('display','none');
+                $.ajax({
+                    type: "POST",
+                    url: "{:U('activity/onxiaofei')}",
+                    data: { id: v_t },
+                    dataType: "json",
+                    global: false,
+                    success: function (data) {
+                        if (data.status) {
+                            ("#ap,#qp").css('display','block');
+                        $("#tex").text(data.info);
+                        $("#btn1").unbind('click');
+                        $("#btn1,#del").bind('click',function(){
+                            $("#ap,#qp").css('display','none');
+                        });
+                            document.location.reload();
+                        }
+                        else {
+                            $("#ap,#qp").css('display','block');
+                            $("#tex").text(data.info);
+                            $("#btn1").unbind('click');
+                            $("#btn1,#del").bind('click',function(){
+                            $("#ap,#qp").css('display','none');
+                             });
+                            // alert(data.info);
+                        }
+                    },
+                    error: null,
+                    cache: false
+                });  
+            })
+            // if (confirm("是否确定领取该活动金额？"))
+            // {
+            //     $.ajax({
+            //         type: "POST",
+            //         url: "{:U('activity/onxiaofei')}",
+            //         data: { id: v_t },
+            //         dataType: "json",
+            //         global: false,
+            //         success: function (data) {
+            //             if (data.status) {
+            //                 alert(data.info);
+            //                 document.location.reload();
+            //             }
+            //             else {
+            //                 alert(data.info);
+            //             }
+            //         },
+            //         error: null,
+            //         cache: false
+            //     });
+            // }
+        });
+        $('.join').click(function(){
+            $.get($(this).attr('href'), function(data){
+                if(data.status){
+                    var info = data.info;
+                    $('#promo1').css('display','none');
+                    $('#promo2').css('display','block');
+                    $('#goodsId').val(info.id);
+                    $('.spn16').text(info.score);
+                    $('.spn17').text(info.price);
+                }
+            });
+            return false;
+        });
+
+    });
+
+    function back(){
+        $('#promo1').css('display','block');
+        $('#promo2').css('display','none');
+    }
+    $('#put_button_pass').click(function(){
+        $.post($('#swapform').attr('action'),
+                {goodId:$('#goodsId').val(),getcount:$('#getcount').val(),coinpwd:$('#coinpwd').val()},
+                function(data){
+                    if (data.status) {
+                        ("#ap,#qp").css('display','block');
+                        $("#tex").text(data.info);
+                        $("#btn1").unbind('click');
+                        $("#btn1,#del").bind('click',function(){
+                            $("#ap,#qp").css('display','none');
+                        });
+                        document.location.reload();
+                    }
+                    else {
+                        $("#ap,#qp").css('display','block');
+                        $("#tex").text(data.info);
+                        $("#btn1").unbind('click');
+                        $("#btn1,#del").bind('click',function(){
+                            $("#ap,#qp").css('display','none');
+                        });
+                    }
+        },'json'
+        );
+        return false;
+    });
+</script>
+<script type="text/javascript">
+    $(function(){
+        $('.state-on').hover(function(){
+            $(this).removeClass('state-on').addClass('state-complete').text('[确认收货]');
+        },function(){
+            $(this).removeClass('state-complete').addClass('state-on').text('正在发货');
+        });
+        $('.state-wait').hover(function(){
+            $(this).removeClass('state-wait').addClass('state-off').text('[取消兑换]');
+        },function(){
+            $(this).removeClass('state-off').addClass('state-wait').text('等待发货');
+        });
+    });
+
+    function scoreSetState(err, data){
+        if(err){
+            alert(err);
+        }else{
+            location.reload();
+        }
+    }
+
+    function scoreBeforeSetState(){
+        var state=$(this).attr('state');
+        if(state==1){
+            return confirm('取消兑换礼品只能返还<?=$this->payout * 100?>%积分，你确认要取消兑换嘛？');
+        }else if(state==2){
+            return confirm('你要确认收货嘛？');
+        }
+    }
+</script>
+<script type="text/javascript">
+    function scoreBeforeSwapGood(){
+        if(!this.address.value) throw('请填写邮寄地址');
+        if(!this.mobile.value) throw('请填写收件电话');
+        if(!this.coinpwd.value) throw('请填写出款密码');
+    }
+    function scoreBeforeSwapGood2(){
+
+        if(!this.getcount.value) throw('请填写兑换数量');
+        if(isNaN(this.getcount.value)) throw('兑换数量必须为整数');
+        if(!this.coinpwd.value) throw('请填写出款密码');
+    }
+    function scoreSwapGood(err, data){
+        if(err){
+            alert(err);
+        }else{
+            this.reset();
+            alert(data);
+        }
+    }
+</script>
+</html>
